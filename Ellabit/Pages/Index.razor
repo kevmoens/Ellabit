@@ -1,0 +1,61 @@
+﻿@page "/"
+@using DynamicCode
+@using System.Reflection
+<PageTitle>Index</PageTitle>
+
+
+Current temperature is: @temp
+<br/>
+<button @onclick="GetTempurature">Get Temperature</button>
+<br/>
+<button @onclick="Clear">Clear Cache</button>
+@code {
+    int temp;
+    [Inject]
+    public SimpleUnloadable? _unloadable { get; set; }
+    [Inject]
+    public HttpClient? Client { get; set; }
+    public async void GetTempurature()
+    {
+        temp = await GetNextTemp();
+    }
+    private async Task<int> GetNextTemp()
+    {
+        if (_unloadable == null || _unloadable.Context == null)
+        {
+            return -997;
+        }
+        var assembly = await _unloadable.Context.GetAssembly("RoslynCompileSample");
+        Type? twriter = assembly?.GetType("RoslynCompileSample.LocalTemp");
+        MethodInfo? method = twriter?.GetMethod("NextTemp");
+        if (twriter == null)
+        {
+            return -999;
+        }
+        var writer = Activator.CreateInstance(twriter);
+        var output = method?.Invoke(writer, new object[] { });
+        writer = null;
+        if (output == null)
+        {
+            return -998;
+        }
+        return (int)output;
+    }
+    public void Clear()
+    {
+        if (_unloadable == null)
+        {
+            return;
+        }
+        _unloadable.Context.Unload();
+        GC.Collect();
+        GC.WaitForPendingFinalizers();
+        if (Client == null)
+        {
+            return;
+        }
+        _unloadable.Context = new SimpleUnloadableAssemblyLoadContext(Client);
+    }
+}
+
+
