@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="C:\Users\kevmo\.nuget\packages\blazaco\1.2.0\contentFiles\any\netstandard2.0\Editor\MonacoEditor.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.5" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.5" PrivateAssets="all" />
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.2.0" />
@@ -20,8 +24,5 @@
   <ItemGroup>
     <None Remove="DynamicCode\" />
     <None Remove="Microsoft.CodeAnalysis.CSharp" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DynamicCode\" />
   </ItemGroup>
 </Project>

@@ -12,6 +12,7 @@
     <link href="manifest.json" rel="manifest" />
     <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png" />
     <link rel="apple-touch-icon" sizes="192x192" href="icon-192.png" />
+    <link rel="stylesheet" data-name="vs/editor/editor.main" href="monaco-editor/min/vs/editor/editor.main.css">
 </head>
 
 <body>
@@ -24,6 +25,12 @@
     </div>
     <script src="_framework/blazor.webassembly.js"></script>
     <script>navigator.serviceWorker.register('service-worker.js');</script>
+    <script src="monaco-editor/min/vs/loader.js"></script>
+    <script src="monaco-editor/min/vs/editor/editor.main.nls.js"></script>
+    <script src="monaco-editor/min/vs/editor/editor.main.js"></script>
+    <script type="blazor-boot">
+    </script>
+    <script src="scripts/monaco.js"></script>
 </body>
 
 </html>

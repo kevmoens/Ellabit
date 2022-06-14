@@ -1,6 +1,7 @@
 ﻿@page "/"
 @using DynamicCode
 @using System.Reflection
+@inject IJSRuntime JS
 <PageTitle>Index</PageTitle>
 
 
@@ -9,15 +10,30 @@ Current temperature is: @temp
 <button @onclick="GetTempurature">Get Temperature</button>
 <br/>
 <button @onclick="Clear">Clear Cache</button>
+<br/>
+@editorCode
+<br/>
+    <div id="editor" style="width:800px;height:600px;border:1px solid grey"></div>
 @code {
     int temp;
     [Inject]
     public SimpleUnloadable? _unloadable { get; set; }
     [Inject]
     public HttpClient? Client { get; set; }
+    string? editorCode;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await BlazacoJSInterop.InitializeEditor(JS, "editor");
+        //await JS.InvokeVoidAsync("initEditor");
+        await base.OnAfterRenderAsync(firstRender);
+    }
     public async void GetTempurature()
     {
+
+        editorCode = await BlazacoJSInterop.GetValue(JS, "editor");
+
         temp = await GetNextTemp();
+        StateHasChanged();
     }
     private async Task<int> GetNextTemp()
     {
@@ -41,8 +57,10 @@ Current temperature is: @temp
         }
         return (int)output;
     }
-    public void Clear()
+    public async void Clear()
     {
+        await BlazacoJSInterop.SetValue(JS, "editor", "void Main() \n\tConsole.WriteLine(\"Clear\"); \n}");
+
         if (_unloadable == null)
         {
             return;
