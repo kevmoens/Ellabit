@@ -25,7 +25,11 @@ Current temperature is: @temp
     {
         if (firstRender)
         {
-            await BlazacoJSInterop.InitializeEditor(JS, "editor");            
+            await BlazacoJSInterop.InitializeEditor(JS, "editor");
+            if (_unloadable?.Context?.Code != null)
+            {
+                await BlazacoJSInterop.SetValue(JS, "editor", _unloadable.Context.Code);
+            }
         }
 
         await base.OnAfterRenderAsync(firstRender);
@@ -44,9 +48,18 @@ Current temperature is: @temp
         {
             return -997;
         }
+        if (_unloadable.Context.CodeTypeName == null )
+        {
+            return -996;
+        }
+        if (_unloadable.Context.CodeMethod == null )
+        {
+            return -995;
+        }
+        _unloadable.Context.Code = await BlazacoJSInterop.GetValue(JS, "editor");
         var assembly = await _unloadable.Context.GetAssembly("RoslynCompileSample");
-        Type? twriter = assembly?.GetType("RoslynCompileSample.LocalTemp");
-        MethodInfo? method = twriter?.GetMethod("NextTemp");
+        Type? twriter = assembly?.GetType(_unloadable.Context.CodeTypeName);
+        MethodInfo? method = twriter?.GetMethod(_unloadable.Context.CodeMethod);
         if (twriter == null)
         {
             return -999;
@@ -62,7 +75,6 @@ Current temperature is: @temp
     }
     public async void Clear()
     {
-        await BlazacoJSInterop.SetValue(JS, "editor", "void Main() \n\tConsole.WriteLine(\"Clear\"); \n}");
 
         if (_unloadable == null)
         {

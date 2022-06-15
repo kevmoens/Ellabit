@@ -21,7 +21,21 @@ namespace Ellabit.DynamicCode
         {
             client = httpClient;
         }
+        public string? Code { get; set; } = @"
+using System;
 
+namespace RoslynCompileSample
+{
+    public class LocalTemp
+    {
+        public int NextTemp()
+        {
+            return System.Random.Shared.Next(-20, 55);
+        }
+    }
+}";
+        public string? CodeTypeName { get; set; } = "RoslynCompileSample.LocalTemp";
+        public string? CodeMethod { get; set; } = "NextTemp";
         public async Task<Assembly?> GetAssembly(string cacheAssemblyName)
         {
             Assembly? assembly = null;
@@ -36,32 +50,10 @@ namespace Ellabit.DynamicCode
                 return assembly;
             }
 
-            SyntaxTree syntaxTree = CSharpSyntaxTree.ParseText(@"
-                using System;
-
-                namespace RoslynCompileSample
-                {
-                    public class LocalTemp
-                    {
-                        public int NextTemp()
-                        {
-                            return System.Random.Shared.Next(-20, 55);
-                        }
-                    }
-                }");
-
-
-            
+            SyntaxTree syntaxTree = CSharpSyntaxTree.ParseText(Code);
 
             string assemblyName = Path.GetFileName(cacheAssemblyName);
-            Console.WriteLine($"GetAssembly assemblyName: {assemblyName}");
-            Console.WriteLine($"GetAssembly typeof(object).Assembly.Location: {typeof(object).Assembly.Location}");
-            Console.WriteLine($"GetAssembly typeof(Enumerable).Assembly.Location: {typeof(Enumerable).Assembly.Location}");
-            //MetadataReference[] references = new MetadataReference[]
-            //{
-            //    MetadataReference.CreateFromFile(typeof(object).Assembly.Location),
-            //    MetadataReference.CreateFromFile(typeof(Enumerable).Assembly.Location)
-            //};
+
             var referenceAssemblyRoots = new[]
             {
                 typeof(AssemblyTargetedPatchBandAttribute).Assembly, // System.Private.CoreLib
