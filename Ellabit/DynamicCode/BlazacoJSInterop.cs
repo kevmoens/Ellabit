@@ -16,5 +16,7 @@ namespace Ellabit.DynamicCode
 
         public static ValueTask<bool> SetTheme(IJSRuntime runtime, string id, string theme)
             => runtime.InvokeAsync<bool>("Blazaco.Editor.SetTheme", new[] { id, theme });
+        public static ValueTask ClearEditors(IJSRuntime runtime)
+            => runtime.InvokeVoidAsync("ClearEditors");
     }
 }

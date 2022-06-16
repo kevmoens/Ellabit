@@ -50,11 +50,11 @@ namespace RoslynCompileSample
                 return assembly;
             }
 
-            SyntaxTree syntaxTree = CSharpSyntaxTree.ParseText(Code);
+            SyntaxTree syntaxTree = CSharpSyntaxTree.ParseText(Code ?? "");
 
             string assemblyName = Path.GetFileName(cacheAssemblyName);
 
-            var referenceAssemblyRoots = new[]
+            Assembly[] referenceAssemblyRoots = new[]
             {
                 typeof(AssemblyTargetedPatchBandAttribute).Assembly, // System.Private.CoreLib
                 typeof(Uri).Assembly, // System.Private.Uri
@@ -67,11 +67,14 @@ namespace RoslynCompileSample
                 typeof(WebAssemblyHostBuilder).Assembly, // Microsoft.AspNetCore.Components.WebAssembly
             };
 
-            var referenceAssemblyNames = referenceAssemblyRoots
+            List<string> referenceAssemblyNames = referenceAssemblyRoots
                 .SelectMany(a => a.GetReferencedAssemblies().Concat(new[] { a.GetName() }))
-                .Select(an => an.Name)
-                .ToHashSet();
-
+                .Select(an => an.Name ?? "")
+                .ToList();
+            if (referenceAssemblyNames == null)
+            {
+                return null;
+            }
 
             var referenceAssembliesStreams = await this.GetReferenceAssembliesStreamsAsync(referenceAssemblyNames);
 
@@ -129,7 +132,6 @@ namespace RoslynCompileSample
 
             return streams;
         }
-
     }
 
 }

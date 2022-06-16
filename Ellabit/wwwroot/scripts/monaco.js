@@ -3,17 +3,20 @@ window.Blazaco.Editors = [];
 
 window.Blazaco.Editor = {
     InitializeEditor: function (editorId) {
-        let thisEditor = monaco.editor.create(document.getElementById(editorId), {
-            value: ['void Main() {', '\tConsole.WriteLine("Hello world!");', '}'].join('\n'),
-            language: 'csharp'
-        });
-        if (window.Blazaco.Editors.find(e => e.id === editorId)) {
-            return false;
-        }
-        else {
+        var el = document.getElementById(editorId);
+        if (el) {
+
+            let thisEditor = monaco.editor.create(el, {
+                value: ['void Main() {', '\tConsole.WriteLine("Hello world!");', '}'].join('\n'),
+                language: 'csharp'
+            });
+            if (window.Blazaco.Editors.find(e => e.id === editorId)) {
+                return false;
+            }
             window.Blazaco.Editors.push({ id: editorId, editor: thisEditor });
+            return true;
         }
-        return true;
+        return false;
     },
     GetValue: function (id) {
         let myEditor = window.Blazaco.Editors.find(e => e.id === id);

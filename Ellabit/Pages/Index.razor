@@ -4,46 +4,93 @@
 @inject IJSRuntime JS
 <PageTitle>Index</PageTitle>
 
+<MudTabs 
+    Elevation="4" 
+    Rounded="true" 
+    Centered="true" 
+    Color="@Color.Primary"     
+    ActivePanelIndexChanged="OnTabChanged"
+    >
+    <MudTabPanel Text="Instructions">
+        <h3>Return the Sum of Two Numbers</h3>
+        Create a function that takes two numbers as arguments and returns their sum.
 
-Current temperature is: @temp
-<br/>
-<button @onclick="GetTempurature">Get Temperature</button>
-<br/>
-<button @onclick="Clear">Clear Cache</button>
-<br/>
-@editorCode
-<br/>
-    <div id="editor" style="width:800px;height:600px;border:1px solid grey"></div>
+        <h5>Examples</h5>
+        <code>
+            <p style="border:1px solid grey; padding: 10px;">
+                Sum(3, 2) ➞ 5
+                <br />
+                Sum(-3, -6) ➞ -9
+                <br />
+                Sum(7, 3) ➞ 10
+            </p>
+        </code>
+        <h5>Notes</h5>
+        <ul>
+            <li>Don't forget to <strong>return</strong> the result.</li>
+        </ul>
+    </MudTabPanel>
+    <MudTabPanel Text="Code">
+        <div id="editor" style="width:800px;height:600px;border:1px solid grey"></div>
+    </MudTabPanel>
+    <MudTabPanel Text="Tests">
+        Current temperature is: @temp
+        <br/>
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="GetTempurature">Get Temperature</MudButton>
+    </MudTabPanel>
+</MudTabs>
+
 @code {
     int temp;
+    bool loaded = false;
+    int prevTabIndex = -1;
+    string? code;
     [Inject]
     public SimpleUnloadable? _unloadable { get; set; }
     [Inject]
-    public HttpClient? Client { get; set; }
-    string? editorCode;
-    protected override async Task OnAfterRenderAsync(bool firstRender)
+    public HttpClient? Client { get; set; }    
+    [Inject] 
+    private IDialogService? DialogService { get; set; }
+    /// <summary>
+    /// Since the state of the editor is lost every time we switch tabs we have to 
+    /// - Iniialize editory every time we go into the code tab
+    /// - When leaving code tab save text in editor
+    /// </summary>
+    /// <param name="tabIndex"></param>
+    public async void OnTabChanged(int tabIndex)
     {
-        if (firstRender)
+        if (tabIndex != 1)
         {
+
+            if (loaded && _unloadable != null && prevTabIndex == 1) 
+            {
+                code = await BlazacoJSInterop.GetValue(JS, "editor");
+                _unloadable.Context.Code = code;
+            }
+            await BlazacoJSInterop.ClearEditors(JS);
+        }
+        if (tabIndex == 1)
+        {
+            StateHasChanged();
+            await Task.Delay(1);
             await BlazacoJSInterop.InitializeEditor(JS, "editor");
             if (_unloadable?.Context?.Code != null)
             {
                 await BlazacoJSInterop.SetValue(JS, "editor", _unloadable.Context.Code);
             }
+            loaded = true;
         }
-
-        await base.OnAfterRenderAsync(firstRender);
+        prevTabIndex = tabIndex;
     }
     public async void GetTempurature()
     {
-
-        editorCode = await BlazacoJSInterop.GetValue(JS, "editor");
 
         temp = await GetNextTemp();
         StateHasChanged();
     }
     private async Task<int> GetNextTemp()
     {
+        Clear();
         if (_unloadable == null || _unloadable.Context == null)
         {
             return -997;
@@ -56,24 +103,39 @@ Current temperature is: @temp
         {
             return -995;
         }
-        _unloadable.Context.Code = await BlazacoJSInterop.GetValue(JS, "editor");
-        var assembly = await _unloadable.Context.GetAssembly("RoslynCompileSample");
-        Type? twriter = assembly?.GetType(_unloadable.Context.CodeTypeName);
-        MethodInfo? method = twriter?.GetMethod(_unloadable.Context.CodeMethod);
-        if (twriter == null)
+        try
         {
-            return -999;
-        }
-        var writer = Activator.CreateInstance(twriter);
-        var output = method?.Invoke(writer, new object[] { });
-        writer = null;
-        if (output == null)
+
+            var assembly = await _unloadable.Context.GetAssembly("RoslynCompileSample");
+            Type? twriter = assembly?.GetType(_unloadable.Context.CodeTypeName);
+            MethodInfo? method = twriter?.GetMethod(_unloadable.Context.CodeMethod);
+            if (twriter == null)
+            {
+                return -999;
+            }
+            var writer = Activator.CreateInstance(twriter);
+            var output = method?.Invoke(writer, new object[] { });
+            writer = null;
+            if (output == null)
+            {
+                return -998;
+            }
+            return (int)output;
+        } catch (Exception ex)
         {
-            return -998;
+            if (DialogService != null)
+            {
+                
+                await DialogService.ShowMessageBox(
+                    "Error", 
+                    ex.Message, 
+                    yesText:"OK");
+                StateHasChanged();
+            }
+            return -994;
         }
-        return (int)output;
     }
-    public async void Clear()
+    public void Clear()
     {
 
         if (_unloadable == null)
@@ -88,6 +150,10 @@ Current temperature is: @temp
             return;
         }
         _unloadable.Context = new SimpleUnloadableAssemblyLoadContext(Client);
+        if (loaded)
+        {    
+           _unloadable.Context.Code = code;
+        }
     }
 }
 
