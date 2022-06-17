@@ -6,6 +6,7 @@
         {
             var challenges = new Challenges();
             challenges.Add(1, new Challenge001SumTwoNumbers());
+            challenges.Add(2, new Challenge002ConvertMinutesToSeconds());
             return challenges;
         }
     }

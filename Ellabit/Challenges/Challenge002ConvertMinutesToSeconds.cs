@@ -1,6 +1,6 @@
 ﻿namespace Ellabit.Challenges
 {
-    public class Challenge001SumTwoNumbers : IChallenge
+    public class Challenge002ConvertMinutesToSeconds : IChallenge
     {
 
         public string? Code { get; set; } = @"
@@ -10,7 +10,7 @@ namespace Ellabit;
 
 public class Challenge
 {
-    public int Sum(int a, int b)
+    public int convert(int minute)
     {
         return 0;
     }
@@ -29,12 +29,12 @@ public class TestChallenge
         int sumResult = 0;
         try 
         {
-            sumResult = tmp.Sum(3,2);
+            sumResult = tmp.convert(5);
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult == 5, sumResult.ToString());
+        return (sumResult == 300, sumResult.ToString());
     }
     public (bool pass, string message) Test2()
     {
@@ -42,12 +42,12 @@ public class TestChallenge
         int sumResult = 0;
         try 
         {
-            sumResult = tmp.Sum(-3,-6);
+            sumResult = tmp.convert(3);
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult == -9,  sumResult.ToString());
+        return (sumResult == 180,  sumResult.ToString());
     }
     public (bool pass, string message) Test3()
     {
@@ -55,45 +55,45 @@ public class TestChallenge
         int sumResult = 0;
         try 
         {
-            sumResult = tmp.Sum(7,3);
+            sumResult = tmp.convert(2);
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + ""\n"" + ex.Message);
         }
-        return (sumResult == 10,  sumResult.ToString());
+        return (sumResult == 120,  sumResult.ToString());
     }
 }
 ";
-        public string? Description { get; set; } = @"<h3>Return the Sum of Two Numbers</h3>
-            Create a function that takes two numbers as arguments and returns their sum.
+        public string? Description { get; set; } = @"<h3>Convert Minutes into Seconds</h3>
+            Write a function that takes an integer minutes and converts it to seconds.
 
         <h5>Examples</h5>
         <code>
             <p style = ""border:1px solid grey; padding: 10px;"" >
-                Sum(3, 2) ➞ 5
+                convert(5) ➞ 300
                 <br />
-                Sum(-3, -6) ➞ -9
+                convert(3) ➞ 180
                 <br />
-                Sum(7, 3) ➞ 10
+                convert(2) ➞ 120
             </p>
         </code>
         <h5>Notes</h5>
         <ul>
             <li>Don't forget to <strong>return</strong> the result.</li>
         </ul>";
-        public List<ITest> Tests { get; set; } = new ITest[] {new Challenge001Test1(), new Challenge001Test2(), new Challenge001Test3() }.ToList();
+        public List<ITest> Tests { get; set; } = new ITest[] { new Challenge002Test1(), new Challenge002Test2(), new Challenge002Test3() }.ToList();
     }
-    public class Challenge001Test1 : ITest
+    public class Challenge002Test1 : ITest
     {
         public string CodeTypeName { get; set; } = "Ellabit.TestChallenge";
         public string CodeMethod { get; set; } = "Test1";
     }
-    public class Challenge001Test2 : ITest
+    public class Challenge002Test2 : ITest
     {
         public string CodeTypeName { get; set; } = "Ellabit.TestChallenge";
         public string CodeMethod { get; set; } = "Test2";
     }
-    public class Challenge001Test3 : ITest
+    public class Challenge002Test3 : ITest
     {
         public string CodeTypeName { get; set; } = "Ellabit.TestChallenge";
         public string CodeMethod { get; set; } = "Test3";
