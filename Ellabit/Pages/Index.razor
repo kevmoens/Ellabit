@@ -1,18 +1,27 @@
 ﻿@page "/"
-<PageTitle>Home</PageTitle>
+@inject NavigationManager NavMan
+@using Ellabit.Challenges
+<PageTitle>Ellabit</PageTitle>
 
-<h1>Counter</h1>
-
-<p role="status">Current count: @currentCount</p>
-
-<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+@if (Challenges != null)
+{
+    <table>
+        @foreach (int k in Challenges.Keys)
+        {
+            <tr>
+                <td style="width:24px;">@k</td>
+                <td @onclick="()=>OnChallange(k)">@Challenges[k].Header</td>
+            </tr>
+        }    
+    </table>
+}
 
 @code {
-    private int currentCount = 0;
-
-    private void IncrementCount()
+    [Inject]
+    private Challenges? Challenges { get; set; }
+    public void OnChallange(int idx)
     {
-        currentCount++;
+        NavMan.NavigateTo($"challenge/{idx}");
     }
 }
 

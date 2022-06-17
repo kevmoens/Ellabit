@@ -17,6 +17,7 @@ namespace Ellabit.DynamicCode
         {
             if (Context.Assemblies.Any())
             {
+                Context.Dispose();
                 Context.Unload();
             }
             GC.Collect();

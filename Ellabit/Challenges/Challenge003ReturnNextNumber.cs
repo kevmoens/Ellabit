@@ -1,8 +1,9 @@
 ﻿namespace Ellabit.Challenges
 {
-    public class Challenge001SumTwoNumbers : IChallenge
+    public class Challenge003ReturnNextNumber : IChallenge
     {
-        public string? Header { get; set; } = "Sum two numbers";
+
+        public string? Header { get; set; } = "Return the Next Number from the Integer Passed";
         public string? Code { get; set; } = @"
 using System;
 
@@ -10,7 +11,7 @@ namespace Ellabit;
 
 public class Challenge
 {
-    public int Sum(int a, int b)
+    public int Addition(int num)
     {
         return 0;
     }
@@ -29,12 +30,12 @@ public class TestChallenge
         int sumResult = 0;
         try 
         {
-            sumResult = tmp.Sum(3,2);
+            sumResult = tmp.Addition(0);
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult == 5, sumResult.ToString());
+        return (sumResult == 1,  $""FAILED returned: {sumResult}  expected: 1"");
     }
     public (bool pass, string message) Test2()
     {
@@ -42,12 +43,12 @@ public class TestChallenge
         int sumResult = 0;
         try 
         {
-            sumResult = tmp.Sum(-3,-6);
+            sumResult = tmp.Addition(9);
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult == -9,  sumResult.ToString());
+        return (sumResult == 10,  $""FAILED returned: {sumResult}  expected: 10"");
     }
     public (bool pass, string message) Test3()
     {
@@ -55,47 +56,32 @@ public class TestChallenge
         int sumResult = 0;
         try 
         {
-            sumResult = tmp.Sum(7,3);
+            sumResult = tmp.Addition(-3);
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + ""\n"" + ex.Message);
         }
-        return (sumResult == 10,  sumResult.ToString());
+        return (sumResult == -2,  $""FAILED returned: {sumResult}  expected: -2"");
     }
 }
 ";
-        public string? Description { get; set; } = @"<h3>Return the Sum of Two Numbers</h3>
-            Create a function that takes two numbers as arguments and returns their sum.
+        public string? Description { get; set; } = @"<h3>Return the Next Number from the Integer Passed</h3>
+            Create a function that takes a number as an argument, increments the number by +1 and returns the result.
 
         <h5>Examples</h5>
         <code>
             <p style = ""border:1px solid grey; padding: 10px;"" >
-                Sum(3, 2) ➞ 5
+                Addition(0) ➞ 1
                 <br />
-                Sum(-3, -6) ➞ -9
+                Addition(9) ➞ 10
                 <br />
-                Sum(7, 3) ➞ 10
+                Addition(-3) ➞ -2
             </p>
         </code>
         <h5>Notes</h5>
         <ul>
             <li>Don't forget to <strong>return</strong> the result.</li>
         </ul>";
-        public List<string> Tests { get; set; } = new string[] {"Test1","Test2","Test3" }.ToList();
-    }
-    public class Challenge001Test1 : ITest
-    {
-        public string CodeTypeName { get; set; } = "Ellabit.TestChallenge";
-        public string CodeMethod { get; set; } = "Test1";
-    }
-    public class Challenge001Test2 : ITest
-    {
-        public string CodeTypeName { get; set; } = "Ellabit.TestChallenge";
-        public string CodeMethod { get; set; } = "Test2";
-    }
-    public class Challenge001Test3 : ITest
-    {
-        public string CodeTypeName { get; set; } = "Ellabit.TestChallenge";
-        public string CodeMethod { get; set; } = "Test3";
+        public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
     }
 }

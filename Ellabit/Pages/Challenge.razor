@@ -19,8 +19,16 @@
         <div id="editor" style="width:fit-content(800px);height:600px;border:1px solid grey"></div>
     </MudTabPanel>
     <MudTabPanel Text="Tests">
-        <MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="OnExecuteTests">Execute Tests</MudButton>
-        <p>@testResults</p>
+        @if (string.IsNullOrEmpty(testResults))
+        {            
+            <MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="OnExecuteTests">Execute Tests</MudButton>
+        } else 
+        {
+            <MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="OnReset">Reset</MudButton>
+            <p>
+            @((MarkupString)(testResults ?? ""))
+            </p>
+        }
     </MudTabPanel>
 </MudTabs>
 
@@ -102,8 +110,6 @@
     private async Task ExecuteTests()
     {
         testResults = "";
-        ClearChallengeCache();
-        await Task.Delay(1);
 
         if (_unloadable?.Context?.Challenge?.Tests == null)
         {
@@ -113,16 +119,18 @@
 
         try
         {
+            int testNum = 1;
             foreach (var test in _unloadable.Context.Challenge.Tests)
             {
                 try
                 {                    
                     var testResult = await _unloadable.Context.RunTest(test);
-                    testResults += "\n\n" + (testResult.pass ? "Pass" : testResult.message);
+                    testResults += $"<br/>Test {testNum} " + (testResult.pass ? "Pass" : testResult.message);
                 } catch (Exception ex)
                 {
-                    testResults += "\n\n" + ex.ToString() + "\n" + ex.Message;
+                    testResults += $"<br/>Test {testNum} " + ex.ToString() + "\n" + ex.Message;
                 }
+                testNum++;
             }
 
         } catch (Exception ex)
@@ -136,13 +144,20 @@
                 StateHasChanged();
             }
 
-            testResults += "\nUnexpected Error";
+            testResults += "\nUnexpected Error " + ex.Message;
             return;
         }
         finally
         {
             StateHasChanged();
         }
+    }
+    public void OnReset()
+    {
+            ClearChallengeCache();
+            testResults = "";
+            StateHasChanged();
+        
     }
     public void ClearChallengeCache()
     {

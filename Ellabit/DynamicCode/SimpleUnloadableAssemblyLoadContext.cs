@@ -14,7 +14,7 @@ using Microsoft.CodeAnalysis.Emit;
 
 namespace Ellabit.DynamicCode
 {
-    public class SimpleUnloadableAssemblyLoadContext : AssemblyLoadContext
+    public class SimpleUnloadableAssemblyLoadContext : AssemblyLoadContext, IDisposable
     {
         HttpClient client;
         public SimpleUnloadableAssemblyLoadContext(HttpClient httpClient)
@@ -24,20 +24,26 @@ namespace Ellabit.DynamicCode
         }
         public IChallenge? Challenge { get; set; }
 
-        public async Task<(bool pass, string message)> RunTest(ITest test)
+        public void Dispose()
+        {
+            client = null;
+            Challenge = null;
+        }
+
+        public async Task<(bool pass, string message)> RunTest(string test)
         {
 
             var assembly = await GetAssembly();
 
-            Type? twriter = assembly?.GetType(test.CodeTypeName ?? "");
+            Type? twriter = assembly?.GetType("Ellabit.TestChallenge");
             if (twriter == null)
             {
-                throw new InvalidCastException(test.CodeTypeName ?? "Empty Type");
+                throw new InvalidCastException("Ellabit.TestChallenge");
             }
-            MethodInfo? method = twriter.GetMethod(test.CodeMethod ?? "");
+            MethodInfo? method = twriter.GetMethod(test);
             if (method == null)
             {
-                throw new InvalidCastException(test.CodeTypeName ?? "Empty Method");
+                throw new InvalidCastException(test ?? "Empty Method");
             }
             var writer = Activator.CreateInstance(twriter);
 

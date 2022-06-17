@@ -3,6 +3,7 @@
     public class Challenge002ConvertMinutesToSeconds : IChallenge
     {
 
+        public string? Header { get; set; } = "Convert minutes to seconds";
         public string? Code { get; set; } = @"
 using System;
 
@@ -81,21 +82,6 @@ public class TestChallenge
         <ul>
             <li>Don't forget to <strong>return</strong> the result.</li>
         </ul>";
-        public List<ITest> Tests { get; set; } = new ITest[] { new Challenge002Test1(), new Challenge002Test2(), new Challenge002Test3() }.ToList();
-    }
-    public class Challenge002Test1 : ITest
-    {
-        public string CodeTypeName { get; set; } = "Ellabit.TestChallenge";
-        public string CodeMethod { get; set; } = "Test1";
-    }
-    public class Challenge002Test2 : ITest
-    {
-        public string CodeTypeName { get; set; } = "Ellabit.TestChallenge";
-        public string CodeMethod { get; set; } = "Test2";
-    }
-    public class Challenge002Test3 : ITest
-    {
-        public string CodeTypeName { get; set; } = "Ellabit.TestChallenge";
-        public string CodeMethod { get; set; } = "Test3";
+        public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
     }
 }
