@@ -1,160 +1,18 @@
 ﻿@page "/"
-@using DynamicCode
-@using System.Reflection
-@inject IJSRuntime JS
-<PageTitle>Ellabit - Return the Sum of Two Numbers</PageTitle>
+<PageTitle>Home</PageTitle>
 
-<MudTabs 
-    Elevation="4" 
-    Rounded="true" 
-    Centered="true" 
-    Color="@Color.Primary"     
-    ActivePanelIndexChanged="OnTabChanged"
-    >
-    <MudTabPanel Text="Instructions">
-        <h3>Return the Sum of Two Numbers</h3>
-        Create a function that takes two numbers as arguments and returns their sum.
+<h1>Counter</h1>
 
-        <h5>Examples</h5>
-        <code>
-            <p style="border:1px solid grey; padding: 10px;">
-                Sum(3, 2) ➞ 5
-                <br />
-                Sum(-3, -6) ➞ -9
-                <br />
-                Sum(7, 3) ➞ 10
-            </p>
-        </code>
-        <h5>Notes</h5>
-        <ul>
-            <li>Don't forget to <strong>return</strong> the result.</li>
-        </ul>
-    </MudTabPanel>
-    <MudTabPanel Text="Code">
-        <div id="editor" style="width:800px;height:600px;border:1px solid grey"></div>
-    </MudTabPanel>
-    <MudTabPanel Text="Tests">
-        Current temperature is: @temp
-        <br/>
-        <MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="GetTempurature">Get Temperature</MudButton>
-    </MudTabPanel>
-</MudTabs>
+<p role="status">Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
 @code {
-    int temp;
-    bool loaded = false;
-    int prevTabIndex = -1;
-    string? code;
-    [Inject]
-    public SimpleUnloadable? _unloadable { get; set; }
-    [Inject]
-    public HttpClient? Client { get; set; }    
-    [Inject] 
-    private IDialogService? DialogService { get; set; }
-    /// <summary>
-    /// Since the state of the editor is lost every time we switch tabs we have to 
-    /// - Iniialize editory every time we go into the code tab
-    /// - When leaving code tab save text in editor
-    /// </summary>
-    /// <param name="tabIndex"></param>
-    public async void OnTabChanged(int tabIndex)
-    {
-        if (tabIndex != 1)
-        {
+    private int currentCount = 0;
 
-            if (loaded && _unloadable != null && prevTabIndex == 1) 
-            {
-                code = await BlazacoJSInterop.GetValue(JS, "editor");
-                _unloadable.Context.Code = code;
-            }
-            await BlazacoJSInterop.ClearEditors(JS);
-        }
-        if (tabIndex == 1)
-        {
-            StateHasChanged();
-            await Task.Delay(1);
-            await BlazacoJSInterop.InitializeEditor(JS, "editor");
-            if (_unloadable?.Context?.Code != null)
-            {
-                await BlazacoJSInterop.SetValue(JS, "editor", _unloadable.Context.Code);
-            }
-            loaded = true;
-        }
-        prevTabIndex = tabIndex;
-    }
-    public async void GetTempurature()
+    private void IncrementCount()
     {
-
-        temp = await GetNextTemp();
-        StateHasChanged();
-    }
-    private async Task<int> GetNextTemp()
-    {
-        Clear();
-        if (_unloadable == null || _unloadable.Context == null)
-        {
-            return -997;
-        }
-        if (_unloadable.Context.CodeTypeName == null )
-        {
-            return -996;
-        }
-        if (_unloadable.Context.CodeMethod == null )
-        {
-            return -995;
-        }
-        try
-        {
-
-            var assembly = await _unloadable.Context.GetAssembly("RoslynCompileSample");
-            Type? twriter = assembly?.GetType(_unloadable.Context.CodeTypeName);
-            MethodInfo? method = twriter?.GetMethod(_unloadable.Context.CodeMethod);
-            if (twriter == null)
-            {
-                return -999;
-            }
-            var writer = Activator.CreateInstance(twriter);
-            var output = method?.Invoke(writer, new object[] { });
-            writer = null;
-            if (output == null)
-            {
-                return -998;
-            }
-            return (int)output;
-        } catch (Exception ex)
-        {
-            if (DialogService != null)
-            {
-                
-                await DialogService.ShowMessageBox(
-                    "Error", 
-                    ex.Message, 
-                    yesText:"OK");
-                StateHasChanged();
-            }
-            return -994;
-        }
-    }
-    public void Clear()
-    {
-
-        if (_unloadable == null)
-        {
-            return;
-        }
-        _unloadable.Context.Unload();
-        GC.Collect();
-        GC.WaitForPendingFinalizers();
-        if (Client == null)
-        {
-            return;
-        }
-        _unloadable.Context = new SimpleUnloadableAssemblyLoadContext(Client);
-        if (loaded)
-        {    
-           _unloadable.Context.Code = code;
-        }
+        currentCount++;
     }
 }
-
 

@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Runtime;
 using System.Runtime.Loader;
 using System.Text.RegularExpressions;
+using Ellabit.Challenges;
 using Microsoft.AspNetCore.Components.Routing;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.CodeAnalysis;
@@ -21,27 +22,43 @@ namespace Ellabit.DynamicCode
         {
             client = httpClient;
         }
-        public string? Code { get; set; } = @"
-using System;
+        public IChallenge? Challenge { get; set; }
 
-namespace RoslynCompileSample
-{
-    public class LocalTemp
-    {
-        public int NextTemp()
+        public async Task<(bool pass, string message)> RunTest(ITest test)
         {
-            return System.Random.Shared.Next(-20, 55);
+
+            var assembly = await GetAssembly();
+
+            Type? twriter = assembly?.GetType(test.CodeTypeName ?? "");
+            if (twriter == null)
+            {
+                throw new InvalidCastException(test.CodeTypeName ?? "Empty Type");
+            }
+            MethodInfo? method = twriter.GetMethod(test.CodeMethod ?? "");
+            if (method == null)
+            {
+                throw new InvalidCastException(test.CodeTypeName ?? "Empty Method");
+            }
+            var writer = Activator.CreateInstance(twriter);
+
+            var output = method?.Invoke(writer, new object[] { });
+            writer = null;
+            if (output == null)
+            {
+                throw new InvalidDataException("Output is null");
+            }
+            if (!(output is (bool pass, string message)))
+            {
+                throw new InvalidDataException("Output is not the correct type");
+            }
+            return ((bool pass, string message))output;
         }
-    }
-}";
-        public string? CodeTypeName { get; set; } = "RoslynCompileSample.LocalTemp";
-        public string? CodeMethod { get; set; } = "NextTemp";
-        public async Task<Assembly?> GetAssembly(string cacheAssemblyName)
+        private async Task<Assembly?> GetAssembly()
         {
             Assembly? assembly = null;
             try
             {
-                assembly = this.Assemblies.FirstOrDefault(asm => asm.FullName == cacheAssemblyName + ", Version=0.0.0.0, Culture=neutral, PublicKeyToken=null");
+                assembly = this.Assemblies.FirstOrDefault(asm => asm.FullName ==  "EllabitChallenge, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null");
 
             }
             catch { }
@@ -49,10 +66,14 @@ namespace RoslynCompileSample
             {
                 return assembly;
             }
+            if (Challenge == null)
+            {
+                return null;
+            }
+            SyntaxTree codeChallengeTree = CSharpSyntaxTree.ParseText(Challenge.Code ?? "");
+            SyntaxTree codeTestTree = CSharpSyntaxTree.ParseText(Challenge.TestCode ?? "");
 
-            SyntaxTree syntaxTree = CSharpSyntaxTree.ParseText(Code ?? "");
-
-            string assemblyName = Path.GetFileName(cacheAssemblyName);
+            string assemblyName = Path.GetFileName("EllabitChallenge");
 
             Assembly[] referenceAssemblyRoots = new[]
             {
@@ -85,7 +106,7 @@ namespace RoslynCompileSample
 
             CSharpCompilation compilation = CSharpCompilation.Create(
                 assemblyName,
-                syntaxTrees: new[] { syntaxTree },
+                syntaxTrees: new[] { codeChallengeTree, codeTestTree },
                 references: references,
                 options: new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary)
                 );
@@ -102,7 +123,7 @@ namespace RoslynCompileSample
                     string error = string.Empty;
                     foreach (Diagnostic diagnostic in failures)
                     {
-                        error += $"{diagnostic.Id} {diagnostic.GetMessage()}" + System.Environment.NewLine;
+                        error += $"{diagnostic.Id} {diagnostic.GetMessage()}\n";
                     }
                     throw new Exception(error);
                 }
