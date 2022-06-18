@@ -32,32 +32,45 @@ namespace Ellabit.DynamicCode
 
         public async Task<(bool pass, string message)> RunTest(string test)
         {
+            try
+            {
 
-            var assembly = await GetAssembly();
+                var assembly = await GetAssembly();
 
-            Type? twriter = assembly?.GetType("Ellabit.TestChallenge");
-            if (twriter == null)
-            {
-                throw new InvalidCastException("Ellabit.TestChallenge");
-            }
-            MethodInfo? method = twriter.GetMethod(test);
-            if (method == null)
-            {
-                throw new InvalidCastException(test ?? "Empty Method");
-            }
-            var writer = Activator.CreateInstance(twriter);
+                Type? twriter = assembly?.GetType("Ellabit.TestChallenge");
+                if (twriter == null)
+                {
+                    throw new InvalidCastException("Ellabit.TestChallenge");
+                }
+                MethodInfo? method = twriter.GetMethod(test);
+                if (method == null)
+                {
+                    throw new InvalidCastException(test ?? "Empty Method");
+                }
+                var writer = Activator.CreateInstance(twriter);
 
-            var output = method?.Invoke(writer, new object[] { });
-            writer = null;
-            if (output == null)
-            {
-                throw new InvalidDataException("Output is null");
+                var output = method?.Invoke(writer, new object[] { });
+                writer = null;
+                if (output == null)
+                {
+                    throw new InvalidDataException("Output is null");
+                }
+                if (!(output is (bool pass, string message)))
+                {
+                    throw new InvalidDataException("Output is not the correct type");
+                }
+                return ((bool pass, string message))output;
             }
-            if (!(output is (bool pass, string message)))
+            catch (Exception ex)
             {
-                throw new InvalidDataException("Output is not the correct type");
+                if (ex is IOException)
+                {
+                    throw new IOException(ex.Message);
+                } else
+                {
+                    throw new Exception(ex.Message);
+                }
             }
-            return ((bool pass, string message))output;
         }
         private async Task<Assembly?> GetAssembly()
         {
@@ -129,9 +142,15 @@ namespace Ellabit.DynamicCode
                     string error = string.Empty;
                     foreach (Diagnostic diagnostic in failures)
                     {
-                        error += $"{diagnostic.Id} {diagnostic.GetMessage()}\n";
+                        int? line = null;
+                        if (diagnostic?.Location?.GetLineSpan() != null)
+                        {
+                            line = diagnostic.Location.GetLineSpan().StartLinePosition.Line;
+                        }
+                        error += $"{diagnostic.Id} {diagnostic.GetMessage()}\n line: {line}";
+                        
                     }
-                    throw new Exception(error);
+                    throw new IOException(error);
                 }
                 else
                 {

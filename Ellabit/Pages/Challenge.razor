@@ -125,10 +125,14 @@
                 try
                 {                    
                     var testResult = await _unloadable.Context.RunTest(test);
-                    testResults += $"<br/>Test {testNum} " + (testResult.pass ? "Pass" : testResult.message);
+                    testResults += $"<br/>Test {testNum} " + (testResult.pass ? "Pass" : ("FAILED " + testResult.message));
                 } catch (Exception ex)
                 {
-                    testResults += $"<br/>Test {testNum} " + ex.ToString() + "\n" + ex.Message;
+                    if (ex is IOException) {
+                        testResults += $"<br/>FAILED " + ex.Message;
+                        return;
+                    } 
+                    testResults += $"<br/>Test {testNum} " + "\n FAILED " + ex.Message;
                 }
                 testNum++;
             }

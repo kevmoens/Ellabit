@@ -35,7 +35,7 @@ public class TestChallenge
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult == 1,  $""FAILED returned: {sumResult}  expected: 1"");
+        return (sumResult == 1,  $""returned: {sumResult}  expected: 1"");
     }
     public (bool pass, string message) Test2()
     {
@@ -48,7 +48,7 @@ public class TestChallenge
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult == 10,  $""FAILED returned: {sumResult}  expected: 10"");
+        return (sumResult == 10,  $""returned: {sumResult}  expected: 10"");
     }
     public (bool pass, string message) Test3()
     {
@@ -61,7 +61,7 @@ public class TestChallenge
         {
             return (false, ex.ToString() + ""\n"" + ex.Message);
         }
-        return (sumResult == -2,  $""FAILED returned: {sumResult}  expected: -2"");
+        return (sumResult == -2,  $""returned: {sumResult}  expected: -2"");
     }
 }
 ";
