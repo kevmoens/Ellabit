@@ -16,7 +16,7 @@ namespace Ellabit.DynamicCode
 {
     public class SimpleUnloadableAssemblyLoadContext : AssemblyLoadContext, IDisposable
     {
-        HttpClient client;
+        HttpClient? client;
         public SimpleUnloadableAssemblyLoadContext(HttpClient httpClient)
            : base(isCollectible: true)
         {
@@ -147,7 +147,7 @@ namespace Ellabit.DynamicCode
                         {
                             line = diagnostic.Location.GetLineSpan().StartLinePosition.Line;
                         }
-                        error += $"{diagnostic.Id} {diagnostic.GetMessage()}\n line: {line}";
+                        error += $"{diagnostic?.Id} {diagnostic?.GetMessage()}\n line: {line}";
                         
                     }
                     throw new IOException(error);
@@ -164,6 +164,10 @@ namespace Ellabit.DynamicCode
 
         private async Task<IEnumerable<Stream>> GetReferenceAssembliesStreamsAsync(IEnumerable<string> referenceAssemblyNames)
         {
+            if(client == null)
+            {
+                return new Stream[] { };
+            }
             var streams = new ConcurrentBag<Stream>();
 
             await Task.WhenAll(
