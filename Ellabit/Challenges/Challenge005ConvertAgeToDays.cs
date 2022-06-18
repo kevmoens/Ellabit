@@ -1,8 +1,8 @@
 ﻿namespace Ellabit.Challenges
 {
-    public class Challenge001SumTwoNumbers : IChallenge
+    public class Challenge005ConvertAgeToDays : IChallenge
     {
-        public string? Header { get; set; } = "Sum two numbers";
+        public string? Header { get; set; } = "Convert Age to Days";
         public string? Code { get; set; } = @"
 using System;
 
@@ -10,9 +10,9 @@ namespace Ellabit;
 
 public class Challenge
 {
-    public int Sum(int a, int b)
+    public int CalcAge(int age)
     {
-        return 0;
+			
     }
 }
 ";
@@ -29,12 +29,12 @@ public class TestChallenge
         int sumResult = 0;
         try 
         {
-            sumResult = tmp.Sum(3,2);
+            sumResult = tmp.CalcAge(65);
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult == 5,  $""returned: {sumResult}  expected: 5"");
+        return (sumResult == 23725,  $""returned: {sumResult}  expected: 23725"");
     }
     public (bool pass, string message) Test2()
     {
@@ -42,12 +42,12 @@ public class TestChallenge
         int sumResult = 0;
         try 
         {
-            sumResult = tmp.Sum(-3,-6);
+            sumResult = tmp.CalcAge(0);
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult == -9,   $""returned: {sumResult}  expected: -9"");
+        return (sumResult == 0,   $""returned: {sumResult}  expected: 0"");
     }
     public (bool pass, string message) Test3()
     {
@@ -55,32 +55,35 @@ public class TestChallenge
         int sumResult = 0;
         try 
         {
-            sumResult = tmp.Sum(7,3);
+            sumResult = tmp.CalcAge(20);
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + ""\n"" + ex.Message);
         }
-        return (sumResult == 10,   $""returned: {sumResult}  expected: 10"");
+        return (sumResult == 7300,   $""returned: {sumResult}  expected: 7300"");
     }
 }
 ";
-        public string? Description { get; set; } = @"<h3>Return the Sum of Two Numbers</h3>
-            Create a function that takes two numbers as arguments and returns their sum.
+        public string? Description { get; set; } = @"<h3>Convert Age to Days</h3>
+            Create a function that takes the age in years and returns the age in days.
 
         <h5>Examples</h5>
         <code>
             <p style = ""border:1px solid grey; padding: 10px;"" >
-                Sum(3, 2) ➞ 5
+                CalcAge(65) ➞ 23725
                 <br />
-                Sum(-3, -6) ➞ -9
+                CalcAge(0) ➞ 0
                 <br />
-                Sum(7, 3) ➞ 10
+                CalcAge(20) ➞ 7300
             </p>
         </code>
         <h5>Notes</h5>
         <ul>
+            <li>Use 365 days as the length of a year for this challenge.</li>
+            <li>Ignore leap years and days between last birthday and now.</li>
+            <li>Expect only positive integer inputs.</li>
             <li>Don't forget to <strong>return</strong> the result.</li>
         </ul>";
-        public List<string> Tests { get; set; } = new string[] {"Test1","Test2","Test3" }.ToList();
+        public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
     }
 }

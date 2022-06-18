@@ -1,8 +1,8 @@
 ﻿namespace Ellabit.Challenges
 {
-    public class Challenge001SumTwoNumbers : IChallenge
+    public class Challenge004PowerCalculator : IChallenge
     {
-        public string? Header { get; set; } = "Sum two numbers";
+        public string? Header { get; set; } = "Power Calculator";
         public string? Code { get; set; } = @"
 using System;
 
@@ -10,9 +10,9 @@ namespace Ellabit;
 
 public class Challenge
 {
-    public int Sum(int a, int b)
+    public int CircuitPower(int voltage, int current) 
     {
-        return 0;
+			
     }
 }
 ";
@@ -29,12 +29,12 @@ public class TestChallenge
         int sumResult = 0;
         try 
         {
-            sumResult = tmp.Sum(3,2);
+            sumResult = tmp.CircuitPower(230,10);
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult == 5,  $""returned: {sumResult}  expected: 5"");
+        return (sumResult == 2300,  $""returned: {sumResult}  expected: 2300"");
     }
     public (bool pass, string message) Test2()
     {
@@ -42,12 +42,12 @@ public class TestChallenge
         int sumResult = 0;
         try 
         {
-            sumResult = tmp.Sum(-3,-6);
+            sumResult = tmp.CircuitPower(110,3);
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult == -9,   $""returned: {sumResult}  expected: -9"");
+        return (sumResult == 330,   $""returned: {sumResult}  expected: 330"");
     }
     public (bool pass, string message) Test3()
     {
@@ -55,32 +55,32 @@ public class TestChallenge
         int sumResult = 0;
         try 
         {
-            sumResult = tmp.Sum(7,3);
+            sumResult = tmp.CircuitPower(480,20);
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + ""\n"" + ex.Message);
         }
-        return (sumResult == 10,   $""returned: {sumResult}  expected: 10"");
+        return (sumResult == 9600,   $""returned: {sumResult}  expected: 9600"");
     }
 }
 ";
-        public string? Description { get; set; } = @"<h3>Return the Sum of Two Numbers</h3>
-            Create a function that takes two numbers as arguments and returns their sum.
+        public string? Description { get; set; } = @"<h3>Power Calculator</h3>
+            Create a function that takes voltage and current and returns the calculated power.
 
         <h5>Examples</h5>
         <code>
             <p style = ""border:1px solid grey; padding: 10px;"" >
-                Sum(3, 2) ➞ 5
+                CircuitPower(230, 10) ➞ 2300
                 <br />
-                Sum(-3, -6) ➞ -9
+                CircuitPower(110, 3) ➞ 330
                 <br />
-                Sum(7, 3) ➞ 10
+                CircuitPower(480, 20) ➞ 9600
             </p>
         </code>
         <h5>Notes</h5>
         <ul>
             <li>Don't forget to <strong>return</strong> the result.</li>
         </ul>";
-        public List<string> Tests { get; set; } = new string[] {"Test1","Test2","Test3" }.ToList();
+        public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
     }
 }
