@@ -4,11 +4,11 @@ namespace Ellabit.DynamicCode
     public class SimpleUnloadable
     {
         
-        IServiceProvider serviceProvider;
-        public SimpleUnloadable(IServiceProvider serviceProvider, SimpleUnloadableAssemblyLoadContext context)
+        HttpClient client;
+        public SimpleUnloadable(HttpClient client)
         {
-            this.serviceProvider = serviceProvider;
-            Context = context;
+            this.client = client;
+            Context = new SimpleUnloadableAssemblyLoadContext(client);
         }
         public SimpleUnloadableAssemblyLoadContext Context { get; set; }
 
@@ -23,7 +23,7 @@ namespace Ellabit.DynamicCode
             GC.Collect();
             GC.WaitForPendingFinalizers();
                         
-            Context = serviceProvider.GetRequiredService<SimpleUnloadableAssemblyLoadContext>();
+            Context = new SimpleUnloadableAssemblyLoadContext(client);
         }
     }
 }
