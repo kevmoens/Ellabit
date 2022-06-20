@@ -25,14 +25,24 @@ jobs:
       run: dotnet test --no-build --verbosity normal
     - name: Publish
       run: dotnet publish -c Release -o release --nologo
-    - name: Commit wwwroot to GitHub Pages
-      uses: JamesIves/github-pages-deploy-action@v4.3.3
+      
+    # base href url value should be changed so that resources like CSS and scripts can load properly. 
+    - name: Rewrite base href
+      if: success()
+      uses: SteveSandersonMS/ghaction-rewrite-base-href@v1
       with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BRANCH: gh-pages
-        FOLDER: release/wwwroot
-    - name: Change base-tag in index.html from / to Ellabit
-      run: sed -i 's/<base href="\/" \/>/<base href="\/Ellabit\/" \/>/g' release/wwwroot/index.html
+        html_path: ${{ env.PUBLISH_DIR }}/index.html
+        base_href: BASE_URL or REPOSITORY_NAME
+        
     # add .nojekyll file to tell GitHub pages to not treat this as a Jekyll project. (Allow files and folders starting with an underscore)
     - name: Add .nojekyll file
-      run: touch release/wwwroot/.nojekyll
+      run: touch ${{ env.PUBLISH_DIR }}/.nojekyll
+
+    - name: Commit to GitHub pages Repo
+      if: success()
+      uses: crazy-max/ghaction-github-pages@v1.5.1
+      with:
+        target_branch: gh-pages
+        build_dir: ${{ env.PUBLISH_DIR }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
