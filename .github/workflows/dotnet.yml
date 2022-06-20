@@ -30,3 +30,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: public/wwwroot
           force_orphan: true
+          
+      - name: Change base-tag in index.html from / to Ellabit
+        run: sed -i 's/<base href="\/" \/>/<base href="\/Ellabit\/" \/>/g' release/wwwroot/index.html
