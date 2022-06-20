@@ -32,4 +32,4 @@ jobs:
           force_orphan: true
           
       - name: Change base-tag in index.html from / to Ellabit
-        run: sed -i 's/<base href="\/" \/>/<base href="\/Ellabit\/" \/>/g' Ellabit/bin/Release/net6.0/wwwroot/index.html
+        run: sed -i 's/<base href="\/" \/>/<base href="\/Ellabit\/" \/>/g' bin/Release/net6.0/wwwroot/index.html
