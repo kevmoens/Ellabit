@@ -33,6 +33,6 @@ jobs:
           
       - name: Change base-tag in index.html from / to Ellabit
         run:  |
-          find . -name "*.html" | while read htmlFile; do
+          find . -name "index.html" | while read htmlFile; do
               sed -i 's/<base href="\/"/<base href="\/Ellabit\/"/g' $htmlFile
           done
