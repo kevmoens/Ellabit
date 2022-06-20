@@ -60,9 +60,7 @@ reverse(true) ➞ false
 reverse(false) ➞ true
 
 notes
-don't forget to return the result.
-if you get stuck on a challenge, find help in the resources tab.
-if you're really stuck, unlock solutions in the solutions tab.";
+don't forget to return the result.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2" }.ToList();
     }
 }

@@ -75,9 +75,7 @@ lessthanorequaltozero(0) ➞ true
 lessthanorequaltozero(-2) ➞ true
 
 notes
-don't forget to return the result.
-if you get stuck on a challenge, find help in the resources tab.
-if you're";
+don't forget to return the result.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
     }
 }

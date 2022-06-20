@@ -75,10 +75,8 @@ triarea(7, 4) ➞ 14
 triarea(10, 10) ➞ 50
 
 notes
-the area of a triangle is: (base * height) 2
-don't forget to return the result.
-if you get stuck on a challenge, find help in the resources tab.
-if you're really stuck, unlock solutions in the solution";
+the area of a triangle is: (base * height) / 2
+don't forget to return the result.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
     }
 }

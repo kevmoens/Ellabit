@@ -16,9 +16,12 @@
     </table>
 }
 
+@HttpClient?.BaseAddress?.Host : @HttpClient?.BaseAddress?.Port  @HttpClient?.BaseAddress?.AbsolutePath
 @code {
     [Inject]
     private Challenges? Challenges { get; set; }
+    [Inject]
+    public HttpClient? HttpClient { get; set; }
     public void OnChallange(int idx)
     {
         NavMan.NavigateTo($"challenge/{idx}");
