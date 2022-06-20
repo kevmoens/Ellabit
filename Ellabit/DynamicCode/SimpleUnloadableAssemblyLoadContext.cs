@@ -179,9 +179,18 @@ namespace Ellabit.DynamicCode
                         result = await client.GetAsync($"/_framework/{assemblyName}.dll");
 
                         result.EnsureSuccessStatusCode();
-                    } catch (Exception ex)
+                    } catch 
                     {
-                        throw new Exception($"GetReferenceAssembliesStreamsAsync: { result?.RequestMessage?.RequestUri?.Host}:{ result?.RequestMessage?.RequestUri?.Port}{ result?.RequestMessage?.RequestUri?.AbsolutePath} =" + ex.Message);
+                        try
+                        {
+                            result = await client.GetAsync($"/Ellabit/_framework/{assemblyName}.dll");
+
+                            result.EnsureSuccessStatusCode();
+                        }
+                        catch (Exception ex)
+                        {
+                            throw new Exception($"GetReferenceAssembliesStreamsAsync: { result?.RequestMessage?.RequestUri?.Host}:{ result?.RequestMessage?.RequestUri?.Port}{ result?.RequestMessage?.RequestUri?.AbsolutePath} =" + ex.Message);
+                        }
                     }
 
                     streams.Add(await result.Content.ReadAsStreamAsync());
