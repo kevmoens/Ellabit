@@ -1,4 +1,7 @@
 name: .NET
+env:
+  PUBLISH_DIR: .
+  
 on:
   push:
     branches: [ "master" ]
