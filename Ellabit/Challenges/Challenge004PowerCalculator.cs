@@ -64,7 +64,7 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"<h3>Power Calculator</h3>
+        public string? Description { get; set; } = @"
             Create a function that takes voltage and current and returns the calculated power.
 
         <h5>Examples</h5>

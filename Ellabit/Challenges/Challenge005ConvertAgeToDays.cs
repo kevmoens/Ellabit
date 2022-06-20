@@ -64,7 +64,7 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"<h3>Convert Age to Days</h3>
+        public string? Description { get; set; } = @"
             Create a function that takes the age in years and returns the age in days.
 
         <h5>Examples</h5>

@@ -12,7 +12,9 @@
     ActivePanelIndexChanged="OnTabChanged"
     >
     <MudTabPanel Text="Instructions">
-        @((MarkupString)(_unloadable?.Context?.Challenge?.Description ?? ""))
+        <h3>@_unloadable?.Context?.Challenge?.Header</h3>
+        <br/>
+        @((MarkupString)(_unloadable?.Context?.Challenge?.Description.ReplaceLineEndings("<br/>") ?? ""))
     </MudTabPanel>
     <MudTabPanel Text="Code">
         <div id="editor" style="width:fit-content(800px);height:600px;border:1px solid grey"></div>

@@ -65,8 +65,8 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"<h3>Convert Minutes into Seconds</h3>
-            Write a function that takes an integer minutes and converts it to seconds.
+        public string? Description { get; set; } = @"
+Write a function that takes an integer minutes and converts it to seconds.
 
         <h5>Examples</h5>
         <code>

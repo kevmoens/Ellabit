@@ -65,7 +65,7 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"<h3>Return the Next Number from the Integer Passed</h3>
+        public string? Description { get; set; } = @"
             Create a function that takes a number as an argument, increments the number by +1 and returns the result.
 
         <h5>Examples</h5>

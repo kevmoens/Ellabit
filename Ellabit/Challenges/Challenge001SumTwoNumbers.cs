@@ -64,7 +64,7 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"<h3>Return the Sum of Two Numbers</h3>
+        public string? Description { get; set; } = @"
             Create a function that takes two numbers as arguments and returns their sum.
 
         <h5>Examples</h5>
