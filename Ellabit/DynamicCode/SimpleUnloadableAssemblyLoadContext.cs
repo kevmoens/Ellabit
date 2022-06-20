@@ -173,9 +173,23 @@ namespace Ellabit.DynamicCode
             await Task.WhenAll(
                 referenceAssemblyNames.Select(async assemblyName =>
                 {
-                    var result = await client.GetAsync($"/_framework/{assemblyName}.dll");
+                    HttpResponseMessage? result;
+                    try
+                    {
+                        result = await client.GetAsync($"/_framework/{assemblyName}.dll");
 
-                    result.EnsureSuccessStatusCode();
+                        result.EnsureSuccessStatusCode();
+                    } catch 
+                    {
+                        result = await client.GetAsync($"/_bin/{assemblyName}.dll");
+                        try
+                        {
+                            result.EnsureSuccessStatusCode();
+                        } catch (Exception ex)
+                        {
+                            throw new Exception("GetReferenceAssembliesStreamsAsync: " + ex.Message);
+                        }
+                    }
 
                     streams.Add(await result.Content.ReadAsStreamAsync());
                 }));
