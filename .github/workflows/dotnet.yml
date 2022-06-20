@@ -1,7 +1,4 @@
 name: .NET
-env:
-  PUBLISH_DIR: bin/Release/net6.0/wwwroot
-
 on:
   push:
     branches: [ "master" ]
