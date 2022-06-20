@@ -1,4 +1,4 @@
-﻿@page "/"
+﻿@page "/{ChallengeId:int?}"
 @inject NavigationManager NavMan
 @using Ellabit.Challenges
 <PageTitle>Ellabit</PageTitle>
@@ -17,11 +17,21 @@
 }
 
 @code {
+    [Parameter]
+    public int? ChallengeId { get; set; }
     [Inject]
     private Challenges? Challenges { get; set; }
     public void OnChallange(int idx)
     {
         NavMan.NavigateTo($"challenge/{idx}");
+    }
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        if (ChallengeId != null)
+        {
+            NavMan.NavigateTo($"challenge/{ChallengeId}");
+        }
     }
 }
 

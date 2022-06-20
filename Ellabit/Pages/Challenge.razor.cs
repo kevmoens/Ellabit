@@ -188,7 +188,7 @@ namespace Ellabit.Pages
                 ChallengeId = 1;
             }
             ChallengeId++;
-            NavMan.NavigateTo($"challenge/{ChallengeId}", true);
+            NavMan.NavigateTo($"/{ChallengeId}");
         }
         public void ClearChallengeCache()
         {
