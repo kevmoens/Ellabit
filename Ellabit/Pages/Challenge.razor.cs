@@ -11,7 +11,8 @@ namespace Ellabit.Pages
 
         [Parameter]
         public int? ChallengeId { get; set; }
-
+        [Inject]
+        public HttpClient? HttpClient { get; set; }
         [Inject]
         public IJSRuntime? JS { get; set; }
         [Inject]
@@ -188,7 +189,13 @@ namespace Ellabit.Pages
                 ChallengeId = 1;
             }
             ChallengeId++;
-            NavMan.NavigateTo($"/{ChallengeId}");
+            if (HttpClient?.BaseAddress?.Host != "localhost")
+            {
+                NavMan.NavigateTo($"/Ellabit/{ChallengeId}");
+            } else
+            { 
+                NavMan.NavigateTo($"/{ChallengeId}");
+            }
         }
         public void ClearChallengeCache()
         {
