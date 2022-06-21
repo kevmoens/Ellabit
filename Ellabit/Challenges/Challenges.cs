@@ -20,6 +20,8 @@
             challenges.Add(13, new Challenge013Converthoursintoseconds());
             challenges.Add(14, new Challenge014Sumofpolygonangles());
             challenges.Add(15, new Challenge015Arethenumbersequal());
+            challenges.Add(16, new Challenge016Basicvariableassignment());
+            challenges.Add(17, new Challenge017Usingthe());
             return challenges;
         }
     }
