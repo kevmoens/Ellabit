@@ -102,6 +102,11 @@ namespace Ellabit.Pages
             {
                 await BlazacoJSInterop.SetValue(JS, "editor", code ?? "");
             }
+            IJSObjectReference? module = await JS.InvokeAsync<IJSObjectReference>("import", "./scripts/theme.js");
+            if (await module.InvokeAsync<bool>("isDarkTheme", new object[] { }))
+            {
+                await BlazacoJSInterop.SetTheme(JS, "editor", "vs-dark");
+            }
             loaded = true;
             await Task.Delay(1);
         }

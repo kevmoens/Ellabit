@@ -1,5 +1,7 @@
-﻿@inherits LayoutComponentBase
-
+﻿@using Ellabit.Theme
+@inherits LayoutComponentBase
+@inject IJSRuntime runtime
+@inject MudTheme _theme
 <div class="page">
     <div class="sidebar">
         <NavMenu />
@@ -7,8 +9,10 @@
 
     <main>
         <div class="top-row px-4">         
-            <div class="top-row-center"><h3>Learn C#</h3></div>
-            <div><a href="https://github.com/kevmoens/Ellabit" target="_blank">About</a></div>
+            <div class="top-row-center">
+                <MudText Typo="Typo.h3" Color="Color.Primary">Learn C#</MudText>
+            </div>
+            <div><a href="https://github.com/kevmoens/Ellabit" target="_blank"><MudText Color="Color.Primary">About</MudText></a></div>
         </div>
 
         <article class="content px-4">
@@ -17,6 +21,19 @@
     </main>
 </div>
 
-<MudThemeProvider/>
+<MudThemeProvider @bind-IsDarkMode="@_isDarkMode" Theme="_theme"/>
 <MudDialogProvider/>
 <MudSnackbarProvider/>
+
+@code{
+    private bool _isDarkMode;
+    protected override async void OnInitialized()
+    {
+        IJSObjectReference? module = await runtime.InvokeAsync<IJSObjectReference>("import", "./scripts/theme.js");
+        var isDarkMode = await module.InvokeAsync<bool>("isDarkTheme", new object[] { });
+        _isDarkMode = isDarkMode;
+        StateHasChanged();
+        base.OnInitialized();
+    }
+    
+}

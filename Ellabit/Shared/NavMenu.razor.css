@@ -32,7 +32,7 @@
     }
 
     .nav-item ::deep a {
-        color: #d7d7d7;
+        color: #b7b7b7;
         border-radius: 4px;
         height: 3rem;
         display: flex;
