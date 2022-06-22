@@ -67,6 +67,21 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"
         Add two colors to make a different color.
+        
+        <p>Colors have a (R)ed, (G)reen and (B)lue value also known as R G B.
+        
+        Adding both Red, both Green and both Blues together to make a new color.  
+        
+        To get a color variable in code run System.Drawing.Color.FromArgb(255, 196, 128, 64)
+        </p>
+        Where the: 
+- 255 is the Alpha
+- 196 is the Red
+- 128 is the Green
+- 64 is the Blue
+
+
+
 
         <h5>Examples</h5>
         <code>
