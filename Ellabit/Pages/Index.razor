@@ -25,11 +25,11 @@
 {
     <MudPaper Width="100%" Style="padding: 5px; margin: 5px;">
     <table>
-        @foreach (int k in Challenges.Keys)
+        @foreach (var challenge in Challenges)
         {
             <tr>
-                <td style="width:24px;">@k</td>
-                <td @onclick="()=>OnChallange(k)"><a href="javascript: void(0)">@Challenges[k].Header</a></td>
+                <td style="width:24px;">@(Challenges.IndexOf(challenge) + 1)</td>
+                <td @onclick="()=>OnChallange(Challenges.IndexOf(challenge))"><a href="javascript: void(0)">@challenge.Header</a></td>
             </tr>
         }    
     </table>

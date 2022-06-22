@@ -42,9 +42,9 @@ namespace Ellabit.Pages
             {
                 if (ChallengeId == null)
                 {
-                    ChallengeId = 1;
+                    ChallengeId = 0;
                 }
-                if (!Challenges.ContainsKey(ChallengeId ?? 1))
+                if (Challenges.Count < (ChallengeId ?? 0) )
                 {
                     if (NavMan == null)
                     {
@@ -53,7 +53,7 @@ namespace Ellabit.Pages
                     NavMan.NavigateTo("");
                     return;
                 }
-                _unloadable.Context.Challenge = Challenges[ChallengeId ?? 1];
+                _unloadable.Context.Challenge = Challenges[ChallengeId ?? 0];
                 code = _unloadable.Context.Challenge.Code;
                 StateHasChanged();
             }

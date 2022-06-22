@@ -105,6 +105,7 @@ namespace Ellabit.DynamicCode
                 typeof(Regex).Assembly, // System.Text.RegularExpressions
                 typeof(NavLink).Assembly, // Microsoft.AspNetCore.Components.Web
                 typeof(WebAssemblyHostBuilder).Assembly, // Microsoft.AspNetCore.Components.WebAssembly
+                typeof(System.Drawing.Color).Assembly,
             };
 
             List<string> referenceAssemblyNames = referenceAssemblyRoots
