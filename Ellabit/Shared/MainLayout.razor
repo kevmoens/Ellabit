@@ -1,6 +1,5 @@
 ﻿@inherits LayoutComponentBase
 @inject IJSRuntime runtime
-@inject MudTheme _theme
 <div class="page">
     <div class="sidebar">
         <NavMenu />
@@ -26,6 +25,7 @@
 
 @code{
     private bool _isDarkMode;
+    private MudTheme _theme = new();
     protected override async void OnInitialized()
     {
         IJSObjectReference? module = await runtime.InvokeAsync<IJSObjectReference>("import", "./scripts/theme.js");
