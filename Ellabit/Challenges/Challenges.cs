@@ -72,6 +72,25 @@
             challenges.Add(new Challenge067Concatenatingfirstandlastcharacterofastring());
             challenges.Add(new Challenge068FindtheindexPart1());
             challenges.Add(new Challenge069Findthesmallestnumberinanarray());
+            challenges.Add(new Challenge070Findthelargestnumberinanarray());
+            challenges.Add(new Challenge071Sumofresistanceinseriescircuits());
+            challenges.Add(new Challenge072Amazingedabit());
+            challenges.Add(new Challenge073Caseinsensitivecomparison());
+            challenges.Add(new Challenge074Differenceofmaxandminnumbersinarray());
+            challenges.Add(new Challenge075Checkifstringendingmatchessecondstring());
+            challenges.Add(new Challenge077Checkifanarraycontainsagivennumber());
+            challenges.Add(new Challenge079Wordendings());
+            challenges.Add(new Challenge080Returnthefirstandlastelementsinanarray());
+            challenges.Add(new Challenge081Findthetotalnumberofdigitsthegivennumberhas());
+            challenges.Add(new Challenge082Missingthirdangle());
+            challenges.Add(new Challenge083Edaaaaabit());
+            challenges.Add(new Challenge084Sumofcubes());
+            challenges.Add(new Challenge085Addupthenumbersfromasinglenumber());
+            challenges.Add(new Challenge086Noconditionals());
+            challenges.Add(new Challenge087Smashfactor());
+            challenges.Add(new Challenge088Concatenatingtwointegerarrays());
+            challenges.Add(new Challenge089Howmuchistrue());
+            challenges.Add(new Challenge090Countthearguments());
             challenges.Add(new ChallengeColor001());
             return challenges;
         }

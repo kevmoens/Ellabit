@@ -46,7 +46,7 @@ public class TestChallenge
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult.SequenceEqual(new int[] {1}.ToList()),   $""returned: {sumResult}  expected: 1"");
+        return (sumResult.SequenceEqual(new int[] {1}.ToList()),   $""returned: [{string.Join("", "", sumResult)}]  expected: 1"");
     }
     public (bool pass, string message) Test2()
     {
@@ -59,7 +59,7 @@ public class TestChallenge
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult.SequenceEqual(new int[] {1,2,3}.ToList()),   $""returned: {sumResult}  expected: 1,2,3"");
+        return (sumResult.SequenceEqual(new int[] {1,2,3}.ToList()),   $""returned: [{string.Join("", "", sumResult)}]  expected: 1,2,3"");
     }
     public (bool pass, string message) Test3()
     {
@@ -72,7 +72,7 @@ public class TestChallenge
         {
             return (false, ex.ToString() + ""\n"" + ex.Message);
         }
-        return (sumResult.SequenceEqual(new int[] {1,2,3,4,5,6}.ToList()),   $""returned: {sumResult}  expected: 1,2,3,4,5,6"");
+        return (sumResult.SequenceEqual(new int[] {1,2,3,4,5,6}.ToList()),   $""returned: [{string.Join("", "", sumResult)}]  expected: 1,2,3,4,5,6"");
     }
 }
 ";
