@@ -62,6 +62,16 @@
             challenges.Add(new Challenge057Checkstringforspaces());
             challenges.Add(new Challenge058Lengthofnumber());
             challenges.Add(new Challenge059Sliceofpie());
+            challenges.Add(new Challenge060ChartoASCII());
+            challenges.Add(new Challenge061Returnthelastelementinanarray());
+            challenges.Add(new Challenge062Themodulusoperatorfunction());
+            challenges.Add(new Challenge063Isthewordsingularorplural());
+            challenges.Add(new Challenge064Calculateusingstringoperation());
+            challenges.Add(new Challenge065AddSubtractMultiplyorDivide());
+            challenges.Add(new Challenge066Stringtointegerandviceversa());
+            challenges.Add(new Challenge067Concatenatingfirstandlastcharacterofastring());
+            challenges.Add(new Challenge068FindtheindexPart1());
+            challenges.Add(new Challenge069Findthesmallestnumberinanarray());
             challenges.Add(new ChallengeColor001());
             return challenges;
         }
