@@ -91,6 +91,19 @@
             challenges.Add(new Challenge088Concatenatingtwointegerarrays());
             challenges.Add(new Challenge089Howmuchistrue());
             challenges.Add(new Challenge090Countthearguments());
+            challenges.Add(new Challenge091Thestudyofwumbology());
+            challenges.Add(new Challenge092Convertyentousd());
+            challenges.Add(new Challenge093Backtohome());
+            challenges.Add(new Challenge094Lowercaseuppercaseormixed());
+            challenges.Add(new Challenge095Sumofresistanceinparallelcircuits());
+            challenges.Add(new Challenge096Convertnumbertostringofdashes());
+            challenges.Add(new Challenge097Findtheindex());
+            challenges.Add(new Challenge098Getwordcount());
+            challenges.Add(new Challenge099Daysinamonth());
+            challenges.Add(new Challenge100Countsyllables());
+            challenges.Add(new Challenge101Hurdlejump());
+            challenges.Add(new Challenge102Countinstancesofacharacterinastring());
+            challenges.Add(new Challenge103Convertnumbertocorrespondingmonthname());
             challenges.Add(new ChallengeColor001());
             return challenges;
         }
