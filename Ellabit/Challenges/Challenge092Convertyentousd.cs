@@ -31,7 +31,7 @@ public class TestChallenge
         double sumResult = 0;
         try 
         {
-            sumResult = tmp.yentousd(1) ;
+            sumResult = tmp.YenToUsd(1) ;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
@@ -44,7 +44,7 @@ public class TestChallenge
         double sumResult = 0;
         try 
         {
-            sumResult = tmp.yentousd(500) ;
+            sumResult = tmp.YenToUsd(500) ;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
@@ -57,7 +57,7 @@ public class TestChallenge
         double sumResult = 0;
         try 
         {
-            sumResult = tmp.yentousd(649) ;
+            sumResult = tmp.YenToUsd(649) ;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + ""\n"" + ex.Message);

@@ -40,14 +40,14 @@ public class TestChallenge
     public (bool pass, string message) Test2()
     {
         var tmp = new Challenge();
-        string sumResult;
+        string sumResult = """";
         try 
         {
             sumResult = tmp.GetCase(""SHOUT!"");
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
-        }
+        };
         return (sumResult == ""upper"",   $""returned: {sumResult}  expected: upper"");
     }
     public (bool pass, string message) Test3()

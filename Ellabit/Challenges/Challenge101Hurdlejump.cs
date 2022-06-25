@@ -29,7 +29,7 @@ public class TestChallenge
         bool sumResult;
         try 
         {
-            sumResult = tmp.hurdlejump(new int[] {1, 2, 3, 4, 5}, 5) ;
+            sumResult = tmp.hurdleJump(new int[] {1, 2, 3, 4, 5}, 5) ;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
@@ -42,7 +42,7 @@ public class TestChallenge
         bool sumResult;
         try 
         {
-            sumResult = tmp.hurdlejump(new int[] {5, 5, 3, 4, 5}, 3) ;
+            sumResult = tmp.hurdleJump(new int[] {5, 5, 3, 4, 5}, 3) ;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
@@ -55,7 +55,7 @@ public class TestChallenge
         bool sumResult;
         try 
         {
-            sumResult = tmp.hurdlejump(new int[] {5, 4, 5, 6}, 10) ;
+            sumResult = tmp.hurdleJump(new int[] {5, 4, 5, 6}, 10) ;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + ""\n"" + ex.Message);
@@ -68,7 +68,7 @@ public class TestChallenge
         bool sumResult;
         try 
         {
-            sumResult = tmp.hurdlejump(new int[] {1, 2, 1}, 1) ;
+            sumResult = tmp.hurdleJump(new int[] {1, 2, 1}, 1) ;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + ""\n"" + ex.Message);

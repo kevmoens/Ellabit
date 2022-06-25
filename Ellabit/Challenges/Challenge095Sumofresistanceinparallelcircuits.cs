@@ -28,41 +28,41 @@ public class TestChallenge
     public (bool pass, string message) Test1()
     {
         var tmp = new Challenge();
-        double sumResult = 0;
+        double sumResult = 0d;
         try 
         {
-            sumResult = tmp.ParallelResistance(new double[] {6, 3});
+            sumResult = tmp.ParallelResistance(new double[] {6d, 3d});
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult == 2,  $""returned: {sumResult}  expected: 2"");
+        return (sumResult == 2d,  $""returned: {sumResult}  expected: 2"");
     }
     public (bool pass, string message) Test2()
     {
         var tmp = new Challenge();
-        double sumResult = 0;
+        double sumResult = 0d;
         try 
         {
-            sumResult = tmp.ParallelResistance(new double[] {10, 20, 10});
+            sumResult = tmp.ParallelResistance(new double[] {10d, 20d, 10d});
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult == 4,   $""returned: {sumResult}  expected: 4"");
+        return (sumResult == 4d,   $""returned: {sumResult}  expected: 4"");
     }
     public (bool pass, string message) Test3()
     {
         var tmp = new Challenge();
-        double sumResult = 0;
+        double sumResult = 0d;
         try 
         {
-            sumResult = tmp.ParallelResistance(new double[] {500, 500, 500});
+            sumResult = tmp.ParallelResistance(new double[] {500d, 500d, 500d});
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + ""\n"" + ex.Message);
         }
-        return (sumResult == 166.6,   $""returned: {sumResult}  expected: 166.6"");
+        return (sumResult == 166.6d,   $""returned: {sumResult}  expected: 166.6"");
     }
 }
 ";
