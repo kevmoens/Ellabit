@@ -67,12 +67,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Fix the code in the code tab to pass this challenge (only syntax errors). look at the examples below to get an idea of what the function should do.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 squared(5) ➞ 25
 
 squared(9) ➞ 81
 
 squared(100) ➞ 10000
+            </p>
+        </code>
 
 notes
 read every word carefully, character by character!

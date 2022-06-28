@@ -67,12 +67,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that takes an array containing only numbers and return the first element.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 getfirstvalue([5, 6, 7]) ➞ 5
 
 GetFirstValue([""Semiramis"", ""Gaia"", ""Hypatia""]) ➞ ""Semiramis""
 
 GetFirstValue([true, false, true]) ➞ true
+            </p>
+        </code>
 Notes
 The first element in an array always has an index of 0.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();

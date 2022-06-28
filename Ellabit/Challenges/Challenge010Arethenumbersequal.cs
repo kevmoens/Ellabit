@@ -67,12 +67,18 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that takes two integers and checks if they are equal.
 
-examples
+
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
+
 isequal(5, 6) ➞ false
 
 isequal(1, 1) ➞ true
 
 isequal(36, 35) ➞ false
+            </p>
+        </code>
 ";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
     }

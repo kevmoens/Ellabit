@@ -66,12 +66,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that takes a base number and an exponent number and returns the calculation.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 сalculateexponent(5, 5) ➞ 3125
 
 сalculateexponent(10, 10) ➞ 10000000000
 
 сalculateexponent(3, 3) ➞ 27
+            </p>
+        </code>
 
 notes
 all test inputs will be positive integers.

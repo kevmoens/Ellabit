@@ -70,12 +70,16 @@ public class TestChallenge
 
 Create a function that takes ball speed a and club speed b as arguments and returns the smash factor to the nearest hundredth.
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 SmashFactor(139.4, 93.8) ➞ 1.49
 
 SmashFactor(181.2, 124.5) ➞ 1.46
 
 SmashFactor(154.7, 104.3) ➞ 1.48
+            </p>
+        </code>
 
 Notes
 Remember to round to the nearest hundredth.

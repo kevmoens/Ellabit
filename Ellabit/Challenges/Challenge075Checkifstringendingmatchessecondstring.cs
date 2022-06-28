@@ -93,7 +93,9 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that takes two strings and returns true if the first string ends with the second string; otherwise return false.
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 CheckEnding(""abc"", ""bc"") ➞ true
 
 CheckEnding(""abc"", ""d"") ➞ false
@@ -103,6 +105,8 @@ CheckEnding(""samurai"", ""zi"") ➞ false
 CheckEnding(""feminine"", ""nine"") ➞ true
 
 CheckEnding(""convention"", ""tio"") ➞ false
+            </p>
+        </code>
 Notes
 All test cases are valid one word strings.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3", "Test4", "Test5" }.ToList();

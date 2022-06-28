@@ -55,10 +55,14 @@ public class TestChallenge
         public string? Description { get; set; } = @"An int boolean is the same as a normal boolean, just true and false.
 Make a function that returns an int boolean opposite of an int boolean given (flip the int boolean).
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 flipintbool(1) ➞ 0
 
 flipintbool(0) ➞ 1
+            </p>
+        </code>
 ";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2" }.ToList();
     }

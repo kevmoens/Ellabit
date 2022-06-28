@@ -68,7 +68,9 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function which returns the number of true values there are in an array.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 counttrue([true, false, false, true, false]) ➞ 2
 
 counttrue([false, false, false, false]) ➞ 0
@@ -77,7 +79,9 @@ counttrue([]) ➞ 0
 
 notes
 return 0 if given an empty array.
-all array items are of the type bool (true or false).";
+all array items are of the type bool (true or false).
+            </p>
+        </code>";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
     }
 }

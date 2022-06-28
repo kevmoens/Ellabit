@@ -67,12 +67,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that takes a string and returns the number (count) of vowels contained within it.
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 CountVowels(""Celebration"") ➞ 5
 
 CountVowels(""Palm"") ➞ 1
 
 CountVowels(""Prediction"") ➞ 4
+            </p>
+        </code>
 Notes
 a, e, i, o, u are considered vowels(not y).
 All test cases are one word and only contain letters.";

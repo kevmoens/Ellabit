@@ -67,12 +67,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Given two strings, firstName and lastName, return a single string in the format ""last, first"".
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 ConcatName(""First"", ""Last"") ➞ ""Last, First""
 
 ConcatName(""John"", ""Doe"") ➞ ""Doe, John""
 
 ConcatName(""Mary"", ""Jane"") ➞ ""Jane, Mary""
+            </p>
+        </code>
 
 Notes
 Don't forget to return the result.";

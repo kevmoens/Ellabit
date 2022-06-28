@@ -80,7 +80,9 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Write a function that takes an integer and returns a string with the given number of 'a's in Ellabit.
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 Ellaabit(5) ➞ ""Ellaaaaabit""
 
 Ellaabit(0) ➞ ""Ellbit""
@@ -88,6 +90,8 @@ Ellaabit(0) ➞ ""Ellbit""
 Ellaabit(-3) ➞ """"
 
 Ellaabit(12) ➞ ""Ellaaaaaaaaaaaabit""
+            </p>
+        </code>
 
 Notes
 You'll only be given integers as test input.

@@ -80,7 +80,9 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that returns the ascii value of the passed in character.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 chartoascii('S') ➞ 83
 
 chartoascii('m') ➞ 109
@@ -88,6 +90,8 @@ chartoascii('m') ➞ 109
 chartoascii('1') ➞ 49
 
 chartoascii('a') ➞ 97
+            </p>
+        </code>
 
 notes
 don't forget to return the result.";

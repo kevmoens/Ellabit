@@ -80,7 +80,9 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Take an array of integers (positive or negative or both) and return the sum of the absolute value of each element.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 getabssum([2, -1, 4, 8, 10]) ➞ 25
 
 getabssum([-3, -4, -10, -2, -3]) ➞ 22
@@ -88,6 +90,8 @@ getabssum([-3, -4, -10, -2, -3]) ➞ 22
 getabssum([2, 4, 6, 8, 10]) ➞ 30
 
 getabssum([-1]) ➞ 1
+            </p>
+        </code>
 
 notes
 the term ""absolute value"" means to remove any negative sign in front of a number, and to think of all numbers as positive (or zero).

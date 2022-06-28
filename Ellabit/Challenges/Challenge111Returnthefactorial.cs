@@ -67,12 +67,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that takes an integer and returns the factorial of that integer. that is, the integer multiplied by all positive lower integers.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 factorial(3) ➞ 6
 
 factorial(5) ➞ 120
 
 factorial(13) ➞ 6227020800
+            </p>
+        </code>
 
 notes
 assume all inputs are greater than or equal to 0.";

@@ -93,7 +93,9 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that takes a number as an argument and returns the amount of digits it has.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 finddigitamount(123) ➞ 3
 
 finddigitamount(56) ➞ 2
@@ -103,6 +105,8 @@ finddigitamount(7154) ➞ 4
 finddigitamount(61217311514) ➞ 11
 
 finddigitamount(0) ➞ 1
+            </p>
+        </code>
 
 ";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3", "Test4", "Test5" }.ToList();

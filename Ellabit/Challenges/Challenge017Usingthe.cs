@@ -91,7 +91,9 @@ rembember that the default value for bool is false.
 
 The && operator will only return true for true && true.
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 And(true, false) ➞ false
 
 And(true, true) ➞ true
@@ -99,6 +101,8 @@ And(true, true) ➞ true
 And(false, true) ➞ false
 
 And(false, false) ➞ false
+            </p>
+        </code>
 ";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3", "Test4" }.ToList();
     }

@@ -67,12 +67,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that takes two strings as arguments and return either true or false depending on whether the total number of characters in the first string is equal to the total number of characters in the second string.
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 Comp(""AB"", ""CD"") ➞ true
 
 Comp(""ABC"", ""DE"") ➞ false
 
 Comp(""hello"", ""ellabit"") ➞ false
+            </p>
+        </code>
 Notes
 Don't forget to return the result.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();

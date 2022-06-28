@@ -66,12 +66,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that takes length and width and finds the perimeter of a rectangle.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 findperimeter(6, 7) ➞ 26
 
 findperimeter(20, 10) ➞ 60
 
 findperimeter(2, 9) ➞ 22
+            </p>
+        </code>
 
 notes
 don't forget to return the result.";

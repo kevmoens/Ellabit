@@ -67,12 +67,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"For each of the 6 coffee cups i buy, i get a 7th cup free. in total, i get 7 cups. create a function that takes n cups bought and return the total number of cups i would get.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 totalcups(6) ➞ 7
 
 totalcups(12) ➞ 14
 
 totalcups(213) ➞ 248
+            </p>
+        </code>
 
 notes
 number of cups i bought + number of cups i got for free.

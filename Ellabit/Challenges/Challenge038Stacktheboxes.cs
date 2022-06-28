@@ -72,12 +72,16 @@ stack the boxes
 
 write a function that takes a number n and returns the number of stacked boxes in a model n levels high, visible and invisible.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 stackboxes(1) ➞ 1
 
 stackboxes(2) ➞ 4
 
 stackboxes(0) ➞ 0
+            </p>
+        </code>
 
 Notes
 Step n is a positive integer.

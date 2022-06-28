@@ -81,7 +81,9 @@ public class TestChallenge
 
 a hurdler can clear a hurdle if their jump height is greater than or equal to the hurdle height.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 hurdleJump([1, 2, 3, 4, 5], 5) ➞ true
 
 hurdleJump([5, 5, 3, 4, 5], 3) ➞ false
@@ -89,6 +91,8 @@ hurdleJump([5, 5, 3, 4, 5], 3) ➞ false
 hurdleJump([5, 4, 5, 6], 10) ➞ true
 
 hurdleJump([1, 2, 1], 1) ➞ false
+            </p>
+        </code>
 
 Notes
 Return true for the edge case of an empty array of hurdles. (Zero hurdles means that any jump height can clear them).";

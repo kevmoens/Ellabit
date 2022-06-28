@@ -80,7 +80,9 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that takes an array and a string as arguments and returns the index of the string.
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 FindIndex(new string[] {""hi"", ""ellabit"", ""fgh"", ""abc""}, ""fgh"") ➞ 2
 
 FindIndex(new string[] {""Red"", ""blue"", ""Blue"", ""Green""}, ""blue"") ➞ 1
@@ -88,6 +90,8 @@ FindIndex(new string[] {""Red"", ""blue"", ""Blue"", ""Green""}, ""blue"") ➞ 1
 FindIndex(new string[] {""a"", ""g"", ""y"", ""d""}, ""d"") ➞ 3
 
 FindIndex(new string[] { ""Pineapple"", ""Orange"", ""Grape"", ""Apple"" }, ""Pineapple"") ➞ 0
+            </p>
+        </code>
 Notes
 Don't forget to return the result.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3", "Test4" }.ToList();

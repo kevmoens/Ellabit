@@ -80,7 +80,9 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that takes a number as an argument and returns negative of that number. return negative numbers without any change.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 returnnegative(4) ➞ -4
 
 returnnegative(15) ➞ -15
@@ -88,6 +90,8 @@ returnnegative(15) ➞ -15
 returnnegative(-4) ➞ -4
 
 returnnegative(0) ➞ 0
+            </p>
+        </code>
 ";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3", "Test4" }.ToList();
     }

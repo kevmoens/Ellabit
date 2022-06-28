@@ -69,12 +69,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that takes a number (from 1 - 60) and returns a corresponding string of hyphens.
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 Go(1) ➞ ""-""
 
 Go(5) ➞ ""-----""
 
 Go(3) ➞ ""---""
+            </p>
+        </code>
 Notes
 You will be provided integers ranging from 1 to 60.
 Don't forget to return your result as a string.";

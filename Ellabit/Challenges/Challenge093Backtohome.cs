@@ -67,12 +67,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Mubashir has started his journey from home. given a string of directions North, West, South, East), he will walk for one minute in each direction. determine whether a set of directions will lead him back to the starting position or not.
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 BackToHome(""NEWE"") ➞ false
 
 BackToHome(""NENESSWW"") ➞ true
 
-BackToHome(""NEESSW"") ➞ false";
+BackToHome(""NEESSW"") ➞ false
+            </p>
+        </code>";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
     }
 }

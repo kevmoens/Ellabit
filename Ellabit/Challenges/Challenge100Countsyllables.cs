@@ -80,7 +80,9 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that counts the number of syllables a word has. Each syllable is separated with a dash -.
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 NumberSyllables(""buf-fet"") ➞ 2
 
 NumberSyllables(""beau-ti-ful"") ➞ 3
@@ -88,6 +90,8 @@ NumberSyllables(""beau-ti-ful"") ➞ 3
 NumberSyllables(""mon-u-men-tal"") ➞ 4
 
 NumberSyllables(""on-o-mat-o-poe-ia"") ➞ 6
+            </p>
+        </code>
 Notes
 Don't forget to return the result.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3", "Test4" }.ToList();

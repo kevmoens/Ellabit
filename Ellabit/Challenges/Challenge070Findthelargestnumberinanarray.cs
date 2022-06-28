@@ -67,12 +67,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that takes an array of numbers. return the largest number in the array.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 findlargestnum([4, 5, 1, 3]) ➞ 5
 
 findlargestnum([300, 200, 600, 150]) ➞ 600
 
 findlargestnum([1000, 1001, 857, 1]) ➞ 1001
+            </p>
+        </code>
 
 notes
 expect either a positive number or zero (there are no negative numbers).

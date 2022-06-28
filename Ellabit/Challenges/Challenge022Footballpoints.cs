@@ -71,12 +71,16 @@ wins get 3 points
 draws get 1 point
 losses get 0 points
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 footballpoints(3, 4, 2) ➞ 13
 
 footballpoints(5, 0, 2) ➞ 15
 
 footballpoints(0, 0, 1) ➞ 0
+            </p>
+        </code>
 
 notes
 inputs will be numbers greater than or equal to 0.";

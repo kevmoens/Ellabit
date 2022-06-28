@@ -68,7 +68,9 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that takes a character and a string as arguments and returns the number of times the character is found in the string.
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 CharCount('a', ""ellabit"") ➞ 1
 
 CharCount('c', ""Chamber of secrets"") ➞ 1

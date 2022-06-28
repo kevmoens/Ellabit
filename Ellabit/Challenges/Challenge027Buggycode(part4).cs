@@ -70,12 +70,16 @@ public class TestChallenge
 
 can you help her?
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 greeting(""Matt"") ➞ ""Hello, Matt!""
 
 greeting(""Helen"") ➞ ""Hello, Helen!""
 
 greeting(""Mubashir"") ➞ ""Hello, my Love!""
+            </p>
+        </code>
 
 Notes
 READ EVERY WORD CAREFULLY, CHARACTER BY CHARACTER!

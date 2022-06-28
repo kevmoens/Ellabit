@@ -69,12 +69,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that takes an array of numbers and return both the minimum and maximum numbers, in that order.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 findminmax([1, 2, 3, 4, 5]) ➞ [1, 5]
 
 findminmax([2334454, 5]) ➞ [5, 2334454]
 
 findminmax([1]) ➞ [1, 1]
+            </p>
+        </code>
 
 notes
 all test arrays will have at least one element and are valid.";

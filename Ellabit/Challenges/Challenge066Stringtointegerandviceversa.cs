@@ -78,7 +78,10 @@ public class TestChallenge
 
 toInt() : A function to convert a string to an integer.
 toStr() : A function to convert an integer to a string.
-Examples
+
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 toInt(""77"") ➞ 77
 
 toInt(""532"") ➞ 532
@@ -86,6 +89,8 @@ toInt(""532"") ➞ 532
 toStr(77) ➞ ""77""
 
 toStr(532) ➞ ""532""
+            </p>
+        </code>
 
 Notes
 Don't forget to return the result.";

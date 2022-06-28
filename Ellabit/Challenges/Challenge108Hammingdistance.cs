@@ -74,12 +74,16 @@ String2: ""abcbda""
 Hamming Distance: 1 - ""b"" vs. ""d"" is the only difference.
 Create a function that computes the hamming distance between two strings.
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 HammingDistance(""abcde"", ""bcdef"") ➞ 5
 
 HammingDistance(""abcde"", ""abcde"") ➞ 0
 
 HammingDistance(""strong"", ""strung"") ➞ 1
+            </p>
+        </code>
 
 Notes
 Both strings will have the same length.";

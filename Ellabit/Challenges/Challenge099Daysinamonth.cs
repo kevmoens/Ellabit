@@ -80,7 +80,9 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that takes the month and year (as integers) and returns the number of days in that month.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 days(2, 2018) ➞ 28
 
 days(4, 654) ➞ 30
@@ -88,6 +90,8 @@ days(4, 654) ➞ 30
 days(2, 200) ➞ 29
 
 days(2, 1000) ➞ 29
+            </p>
+        </code>
 
 notes
 don't forget about leap years!
