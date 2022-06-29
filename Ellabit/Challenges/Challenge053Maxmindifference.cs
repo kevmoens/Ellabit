@@ -68,14 +68,18 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Given an array of integers, return the difference between the largest and smallest integers on the array .
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 diff([10, 15, 20, 2, 10, 6]) ➞ 18
 // 20 - 18
 
 Diff([-3, 4, -9, -1, -2, 15]) ➞ 24
 // 15 - 24
 
-Diff([4, 17, 12, 2, 10, 2]) ➞ 15";
+Diff([4, 17, 12, 2, 10, 2]) ➞ 15
+            </p>
+        </code>";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
     }
 }

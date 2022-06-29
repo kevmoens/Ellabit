@@ -84,7 +84,10 @@ public class TestChallenge
 Sort the numbers array in ascending order.
 If the function's argument is null, an empty array, or undefined; return an empty array.
 Return a new array of sorted numbers.
-Examples
+
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 SortNumsAscending([1, 2, 10, 50, 5]) ➞ [1, 2, 5, 10, 50]
 
 SortNumsAscending([80, 29, 4, -95, -24, 85]) ➞ [-95, -24, 4, 29, 80, 85]
@@ -92,6 +95,8 @@ SortNumsAscending([80, 29, 4, -95, -24, 85]) ➞ [-95, -24, 4, 29, 80, 85]
 SortNumsAscending(null) ➞ []
 
 SortNumsAscending([]) ➞ []
+            </p>
+        </code>
 Notes
 Test input can be positive or negative.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3", "Test4" }.ToList();

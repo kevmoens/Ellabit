@@ -67,12 +67,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that takes a number as an argument and returns ""even"" for even numbers and ""odd"" for odd numbers.
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 isEvenOrOdd(3) ➞ ""odd""
 
 isEvenOrOdd(146) ➞ ""even""
 
 isEvenOrOdd(19) ➞ ""odd""
+            </p>
+        </code>
 Notes
 Dont forget to return the result.
 Input will always be a valid integer.

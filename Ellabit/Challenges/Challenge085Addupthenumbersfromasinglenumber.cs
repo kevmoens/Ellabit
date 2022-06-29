@@ -67,12 +67,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that takes a number as an argument. add up all the numbers from 1 to the number you passed to the function. for example, if the input is 4 then your function should return 10 because 1 + 2 + 3 + 10.
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 AddUp(4) ➞ 10
 
 addup(13) ➞ 91
 
 addup(600) ➞ 180300
+            </p>
+        </code>
 
 notes
 expect any positive number between 1 and 1000.";

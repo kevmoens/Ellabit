@@ -67,12 +67,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that takes a name and returns a greeting in the form of a string.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 HelloName(""Gerald"") ➞ ""Hello Gerald!""
 
 HelloName(""Tiffany"") ➞ ""Hello Tiffany!""
 
 HelloName(""Ed"") ➞ ""Hello Ed!""
+            </p>
+        </code>
 Notes
 The input is always a name(as string).
 Don't forget the exclamation mark!";

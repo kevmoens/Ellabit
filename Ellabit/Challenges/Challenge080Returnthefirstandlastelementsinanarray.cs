@@ -67,12 +67,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that takes an array of values and returns the first and last values in a new array.
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 FirstLast([5, 10, 15, 20, 25]) ➞ [5, 25]
 
 FirstLast(['ellabit', 13, null, false, true]) ➞ ['ellabit', true]
 
 FirstLast([null, 4, '6', 'hello', null]) ➞ [null, null]
+            </p>
+        </code>
         Notes
 Test input will always contain a minimum of two elements within the array.
 Don't forget to return the result.";

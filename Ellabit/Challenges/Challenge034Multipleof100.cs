@@ -67,13 +67,17 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that takes an integer and returns true if it's divisible by 100, otherwise return false.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 
 divisible(1) ➞ false
 
 divisible(1000) ➞ true
 
 divisible(100) ➞ true
+            </p>
+        </code>
 
 notes
 don't forget to return the result.";

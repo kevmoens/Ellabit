@@ -68,12 +68,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that can turn jpy (japanese yen) to usd (american dollar).
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 yentousd(1) ➞ 0.01
 
 yentousd(500) ➞ 4.65
 
 yentousd(649) ➞ 6.04
+            </p>
+        </code>
 
 notes
 each jpy to usd conversion is jpy 107.5

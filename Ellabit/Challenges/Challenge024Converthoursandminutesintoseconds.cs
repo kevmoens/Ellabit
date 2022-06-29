@@ -66,12 +66,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Write a function that takes two integers (hours, minutes), converts them to seconds, and adds them.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 convert(1, 3) ➞ 3780
 
 convert(2, 0) ➞ 7200
 
 convert(0, 0) ➞ 0
+            </p>
+        </code>
 
 notes
 don't forget to return the result.";

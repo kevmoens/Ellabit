@@ -67,13 +67,17 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that takes a number as its only argument and returns true if it's less than or equal to zero, otherwise return false.
 
-examples
+
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 lessthanorequaltozero(5) ➞ false
 
 lessthanorequaltozero(0) ➞ true
 
 lessthanorequaltozero(-2) ➞ true
-
+            </p>
+        </code>
 notes
 don't forget to return the result.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();

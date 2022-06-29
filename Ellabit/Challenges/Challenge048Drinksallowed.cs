@@ -69,13 +69,17 @@ public class TestChallenge
 
 given the person's age, and whether break time is in session, create a function which returns whether he should serve drinks.
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 
 ShouldServeDrinks(17, true) ➞ false
 
 ShouldServeDrinks(19, false) ➞ true
 
 ShouldServeDrinks(30, true) ➞ false
+            </p>
+        </code>
 
 Notes
 Return true or false.

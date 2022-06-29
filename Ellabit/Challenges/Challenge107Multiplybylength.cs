@@ -79,7 +79,9 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function to multiply all of the values in an array by the amount of values in the given array.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 multiplybylength([2, 3, 1, 0]) ➞ [8, 12, 4, 0]
 
 multiplybylength([4, 1, 1]) ➞ ([12, 3, 3])
@@ -87,6 +89,8 @@ multiplybylength([4, 1, 1]) ➞ ([12, 3, 3])
 multiplybylength([1, 0, 3, 3, 7, 2, 1]) ➞ [7, 0, 21, 21, 49, 14, 7]
 
 multiplybylength([0]) ➞ ([0])
+            </p>
+        </code>
 
 notes
 All of the values given are numbers.

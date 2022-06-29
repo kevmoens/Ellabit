@@ -67,13 +67,17 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that takes a string and returns it as an integer.
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 StringInt(""6"") ➞ 6
 
 StringInt(""1000"") ➞ 1000
 
 
 StringInt(""12"") ➞ 12
+            </p>
+        </code>
 
 Notes
 All numbers will be whole.

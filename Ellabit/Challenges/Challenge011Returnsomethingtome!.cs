@@ -65,12 +65,17 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Write a function that returns the string ""something"" joined with a space "" "" and the given argument a.
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
+
 GiveMeSomething(""is better than nothing"") ➞ ""something is better than nothing""
 
 GiveMeSomething(""Bob Jane"") ➞ ""something Bob Jane""
 
 GiveMeSomething(""something"") ➞ ""something something""
+            </p>
+        </code>
 Notes
 Assume an input is given.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();

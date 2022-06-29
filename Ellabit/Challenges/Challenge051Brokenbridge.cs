@@ -67,12 +67,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function which validates whether a bridge is safe to walk on (i.e. has no gaps in it to fall through).
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 IsSafeBridge(""####"") ➞ true
 
 IsSafeBridge(""## ####"") ➞ false
 
 IsSafeBridge(""#"") ➞ true
+            </p>
+        </code>
 
 Notes
 You can expect the bridge's ends connecting it to its surrounding.";

@@ -75,12 +75,16 @@ A right angle is exactly 90 degrees.
 An obtuse angle is greater than 90 degrees(but less than 180 degrees).
 For example: MissingAngle(11, 20) should return ""obtuse"", since the missing angle would be 149 degrees, which makes it obtuse.
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 MissingAngle(27, 59) ➞ ""obtuse""
 
 MissingAngle(135, 11) ➞ ""acute""
 
 MissingAngle(45, 45) ➞ ""right""
+            </p>
+        </code>
 
 Notes
 The sum of angles of any triangle is always 180 degrees.";

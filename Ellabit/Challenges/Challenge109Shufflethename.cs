@@ -67,12 +67,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that accepts a string (of a person's first and last name) and returns a string with the first and last name swapped.
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 NameShuffle(""Donald Trump"") ➞ ""Trump Donald""
 
 NameShuffle(""Rosie O'Donnell"") ➞ ""O'Donnell Rosie""
 
 NameShuffle(""Seymour Butts"") ➞ ""Butts Seymour""
+            </p>
+        </code>
 Notes
 There will be exactly one space between the first and last name.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();

@@ -80,14 +80,18 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a method that returns the number of arguments it was called with.
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 NumArgs() ➞ 0
 
 NumArgs(""foo"") ➞ 1
 
 NumArgs(""foo"", ""bar"") ➞ 2
 
-NumArgs(true, false) ➞ 2";
+NumArgs(true, false) ➞ 2
+            </p>
+        </code>";
 
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3", "Test4" }.ToList();
     }

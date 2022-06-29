@@ -93,7 +93,9 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that returns true if a string contains any spaces.
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 HasSpaces(""hello"") ➞ false
 
 HasSpaces(""hello, world"") ➞ true
@@ -103,6 +105,8 @@ HasSpaces("" "") ➞ true
 HasSpaces("""") ➞ false
 
 HasSpaces("",./!@#"") ➞ false
+            </p>
+        </code>
 Notes
 An empty string does not contain any spaces.
 Try doing this without RegEx.";

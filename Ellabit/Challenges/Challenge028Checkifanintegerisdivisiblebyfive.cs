@@ -67,12 +67,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that returns true if an integer is evenly divisible by 5, and false otherwise.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 divisiblebyfive(5) ➞ true
 
 divisiblebyfive(-55) ➞ true
 
 divisiblebyfive(37) ➞ false
+            </p>
+        </code>
 
 notes
 don't forget to return the result.";

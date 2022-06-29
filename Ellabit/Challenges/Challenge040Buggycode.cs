@@ -78,12 +78,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Mubashir created an infinite loop! help him by fixing the code in the code tab to pass this challenge. look at the examples below to get an idea of what the function should do.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 printarray(1) ➞ [1]
 
 printarray(3) ➞ [1, 2, 3]
 
 printarray(6) ➞ [1, 2, 3, 4, 5, 6]
+            </p>
+        </code>
 
 notes
 read every word carefully, character by character!

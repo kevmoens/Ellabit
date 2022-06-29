@@ -78,7 +78,10 @@ ParallelResistance({6, 3, 6}) ➞ 1.5
 // 1/RTotal = 1/6 + 1/3 + 1/6
 // 1/RTotal = 2/3
 // RTotal = 3/2 = 1.5
-Examples
+
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 ParallelResistance([6, 3]) ➞ 2
 
 ParallelResistance([10, 20, 10]) ➞ 4
@@ -87,6 +90,8 @@ ParallelResistance([500, 500, 500]) ➞ 166.6
 
 // Round to the nearest decimal place
 
+            </p>
+        </code>
 Notes
 Note that you should rearrange to return the Resistance Total, not 1 / Resistance Total.
 Round to the nearest decimal place.

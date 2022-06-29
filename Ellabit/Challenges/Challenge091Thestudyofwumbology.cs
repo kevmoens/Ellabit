@@ -67,12 +67,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that flips M's to W's (all uppercase).
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 Wumbo(""I LOVE MAKING CHALLENGES"") ➞ ""I LOVE WAKING CHALLENGES""
 
 Wumbo(""MEET ME IN WARSAW"") ➞ ""WEET WE IN WARSAW""
 
-Wumbo(""WUMBOLOGY"") ➞ ""WUWBOLOGY""";
+Wumbo(""WUMBOLOGY"") ➞ ""WUWBOLOGY""
+            </p>
+        </code>";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
     }
 }

@@ -86,7 +86,9 @@ exactly 0
 
 otherwise, return false.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 both(6, 2) ➞ true
 
 both(0, 0) ➞ true
@@ -94,6 +96,8 @@ both(0, 0) ➞ true
 both(-1, 2) ➞ false
 
 both(0, 2) ➞ false
+            </p>
+        </code>
 
 notes
 inputs will always be two numbers.";

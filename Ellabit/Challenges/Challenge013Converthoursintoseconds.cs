@@ -67,12 +67,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Write a function that converts hours into seconds.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 howmanyseconds(2) ➞ 7200
 
 howmanyseconds(10) ➞ 36000
 
 howmanyseconds(24) ➞ 86400
+            </p>
+        </code>
 
 notes
 60 seconds in a minute, 60 minutes in an hour.

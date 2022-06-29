@@ -67,12 +67,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that returns true if a string is empty and false otherwise.
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 isEmpty("""") ➞ true
 
 isEmpty("" "") ➞ false
 
 isEmpty(""a"") ➞ false
+            </p>
+        </code>
 Notes
 A string containing only whitespaces "" "" does not count as empty.
 Don't forget to return the result.";

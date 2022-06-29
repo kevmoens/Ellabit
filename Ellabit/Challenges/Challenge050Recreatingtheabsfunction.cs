@@ -55,10 +55,14 @@ public class TestChallenge
 
 create a function that recreates this functionality.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 absolute(-3) ➞ 3
 
 absolute(250) ➞ 250
+            </p>
+        </code>
 
 notes
 tests will only include valid numbers.

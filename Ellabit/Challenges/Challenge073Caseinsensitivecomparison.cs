@@ -80,14 +80,18 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Write a function that validates whether two strings are identical. Make it case insensitive.
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 match(""hello"", ""hELLo"") ➞ true
 
 match(""motive"", ""emotive"") ➞ false
 
 match(""venom"", ""VENOM"") ➞ true
 
-match(""mask"", ""mAskinG"") ➞ false";
+match(""mask"", ""mAskinG"") ➞ false
+            </p>
+        </code>";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3", "Test4" }.ToList();
     }
 }

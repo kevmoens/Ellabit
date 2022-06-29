@@ -67,12 +67,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that adds a string ending to each member in an array.
 
-    Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
         AddEnding(new string[] {""clever"", ""meek"", ""hurried"", ""nice""}, ""ly""}) ➞ new string[] {""cleverly"", ""meekly"", ""hurriedly"", ""nicely""}
 
         AddEnding(new string[] {""new"", ""pander"", ""scoop""}, ""er""}) ➞ new string[] {""newer"", ""panderer"", ""scooper""}
 
         AddEnding(new string[] {""bend"", ""sharpen"", ""mean""}, ""ing""}) ➞ new string[] {""bending"", ""sharpening"", ""meaning""}
+            </p>
+        </code>
 
         Notes
 Don't forget to return the result.";

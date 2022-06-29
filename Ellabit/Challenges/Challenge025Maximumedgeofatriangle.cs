@@ -66,12 +66,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that finds the maximum range of a triangle's third edge, where the side lengths are all integers.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 nextedge(8, 10) ➞ 17
 
 nextedge(5, 7) ➞ 11
 
 nextedge(9, 2) ➞ 10
+            </p>
+        </code>
 
 notes
 (side1 + side2) - maximum range of third edge.

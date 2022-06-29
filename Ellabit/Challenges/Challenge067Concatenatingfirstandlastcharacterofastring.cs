@@ -93,7 +93,9 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that takes a string and returns the concatenated first and last character.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 FirstLast(""forza"") ➞ ""fa""
 
 FirstLast(""kali"") ➞ ""ki""
@@ -103,6 +105,8 @@ FirstLast(""always"") ➞ ""as""
 FirstLast(""love"") ➞ ""le""
 
 FirstLast(""ellabit"") ➞ ""et""
+            </p>
+        </code>
 
 Notes
 There is no empty string.";

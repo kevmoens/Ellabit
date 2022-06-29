@@ -67,12 +67,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Write a function to reverse an array.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 reverse(new int[] {1, 2, 3, 4}) ➞ {4, 3, 2, 1}
 
 reverse(new int[] {9, 9, 2, 3, 4}) ➞ {4, 3, 2, 9, 9}
 
 reverse(new int[] {}) ➞ {}
+            </p>
+        </code>
 
 notes
 don't forget to return the result.";

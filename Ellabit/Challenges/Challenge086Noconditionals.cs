@@ -54,10 +54,14 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Write a function that returns 0 if the input is 1, and returns 1 if the input is 0.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 flip(1) ➞ 0
 
 flip(0) ➞ 1
+            </p>
+        </code>
 
 notes
 try completing this challenge without using any:

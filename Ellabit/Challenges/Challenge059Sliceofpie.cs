@@ -100,7 +100,9 @@ The function will be in this form:
 
 EqualSlices(total slices, no. recipients, slices each)
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 EqualSlices(11, 5, 2) ➞ true
 // 5 people x 2 slices each = 10 slices < 11 slices 
 
@@ -112,6 +114,8 @@ EqualSlices(8, 3, 2) ➞ true
 EqualSlices(8, 3, 3) ➞ false
 
 EqualSlices(24, 12, 2) ➞ true
+            </p>
+        </code>
 
 Notes
 Return (trivially) true if there are zero people.

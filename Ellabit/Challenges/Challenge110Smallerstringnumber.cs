@@ -67,12 +67,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that returns the smaller number.
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 smallerNum(""21"", ""44"") ➞ ""21""
 
 smallerNum(""1500"", ""1"") ➞ ""1""
 
 smallerNum(""5"", ""5"") ➞ ""5""
+            </p>
+        </code>
 Notes
 Numbers will be represented as strings, and your output should also be a string.
 If both numbers tie, return either number.

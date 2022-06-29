@@ -67,12 +67,17 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function which returns ""upper"" if all the letters in a word are uppercase, ""lower"" if lowercase and ""mixed"" for any mix of the two.
 
-Examples
+
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 GetCase(""whisper..."") ➞ ""lower""
 
 GetCase(""SHOUT!"") ➞ ""upper""
 
 GetCase(""Indoor Voice"") ➞ ""mixed""
+            </p>
+        </code>
 
 Notes
 Ignore punctuation, spaces and numbers.";

@@ -66,12 +66,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that accepts a measurement value in inches and returns the equivalent of the measurement value in feet.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 inchestofeet(324) ➞ 27
 
 inchestofeet(12) ➞ 1
 
 inchestofeet(36) ➞ 3
+            </p>
+        </code>
 
 notes
 if inches are under 12, return 0.";

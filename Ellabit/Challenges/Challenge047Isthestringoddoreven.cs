@@ -67,7 +67,9 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Given a string, return true if its length is even or false if the length is odd.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 oddOrEven(""apples"") ➞ true
 // The word ""apples"" has 6 characters.
 // 6 is an even number, so the program outputs true.
@@ -76,7 +78,9 @@ oddOrEven(""pears"") ➞ false
 // ""pears"" has 5 letters, and 5 is odd.
 // Therefore the program outputs false.
 
-oddOrEven(""cherry"") ➞ true";
+oddOrEven(""cherry"") ➞ true
+            </p>
+        </code>";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
     }
 }
