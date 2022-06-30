@@ -71,12 +71,16 @@ An overlapped clap is a clap which starts but doesn't finish, as in ""ClaClap"" 
 
 Given a string of what the overlapping claps sounded like, return how many claps were made in total.
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 CountClaps(""ClaClaClaClap!"") ➞ 4
 
 CountClaps(""ClClClaClaClaClap!"") ➞ 6
 
 CountClaps(""CCClaClClap!Clap!ClClClap!"") ➞ 9
+            </p>
+        </code>
 Notes
 Each clap starts with a capital ""C"".";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();

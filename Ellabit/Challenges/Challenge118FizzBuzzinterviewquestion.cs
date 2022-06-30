@@ -85,7 +85,10 @@ If the number given is a multiple of 5, the output should be ""Buzz"".
 If the number given is a multiple of both 3 and 5, the output should be ""FizzBuzz"".
 If the number is not a multiple of either 3 or 5, the number should be output on its own as shown in the examples below.
 The output should always be a string even if it is not a multiple of 3 or 5.
-Examples
+
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 FizzBuzz(3) ➞ ""Fizz""
 
 FizzBuzz(5) ➞ ""Buzz""
@@ -93,6 +96,8 @@ FizzBuzz(5) ➞ ""Buzz""
 FizzBuzz(15) ➞ ""FizzBuzz""
 
 FizzBuzz(4) ➞ ""4""
+            </p>
+        </code>
 Notes
 Try to be precise with how you spell things and where you put the capital letters.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3", "Test4" }.ToList();

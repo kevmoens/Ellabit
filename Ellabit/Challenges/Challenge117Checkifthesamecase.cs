@@ -80,7 +80,9 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that returns true if an input string contains only uppercase or only lowercase letters.
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 SameCase(""hello"") ➞ true
 
 SameCase(""HELLO"") ➞ true
@@ -88,6 +90,8 @@ SameCase(""HELLO"") ➞ true
 SameCase(""Hello"") ➞ false
 
 SameCase(""ketcHUp"") ➞ false
+            </p>
+        </code>
 Notes
 N/A";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3", "Test4" }.ToList();

@@ -66,12 +66,17 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that counts how many D's are in a sentence.
 
-Examples
+
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 CountDs(""My friend Dylan got distracted in school."") ➞ 4
 
 CountDs(""Debris was scattered all over the yard."") ➞ 3
 
 CountDs(""The rodents hibernated in their den."") ➞ 3
+            </p>
+        </code>
 Notes
 Your function must be case-insensitive.
 Remember to return the result.";

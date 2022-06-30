@@ -78,12 +78,17 @@ Inputs	Outputs
 8	""octagon""
 9	""nonagon""
 10	""decagon""
-Examples
+
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 NSidedShape(3) ➞ ""triangle""
 
 NSidedShape(1) ➞ ""circle""
 
 NSidedShape(9) ➞ ""nonagon""
+            </p>
+        </code>
 Notes
 There won't be any tests with a number below 1 or greater than 10.
 Return the output in lowercase.
