@@ -1,0 +1,16 @@
+﻿.explain {
+    flex: 50%;
+    display: flex;
+}
+
+.explainList {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+@media (max-width: 640.98px) {
+    .explain {
+        flex: 100%;
+    }
+}

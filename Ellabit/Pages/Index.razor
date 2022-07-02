@@ -7,12 +7,25 @@
 <MudCard Style="padding: 5px; margin: 5px;">
     <MudCardContent>
         <MudPaper Width="100%">
-            <MudList Clickable="false" Dense="true" DisableGutters="true">
-                <MudListItem Text="Don't feel overwhelmed because there is too much to learn." Icon="@Icons.Filled.Bookmark" IconColor="Color.Primary" />
-                <MudListItem Text="Do a little at a time." Icon="@Icons.Filled.Bookmark" IconColor="Color.Primary" />
-                <MudListItem Text="You will be given small concepts to learn and demonstrate." Icon="@Icons.Filled.Bookmark" IconColor="Color.Primary" />
-                <MudListItem Text="Feel accomplished by doing many challenges." Icon="@Icons.Filled.Bookmark" IconColor="Color.Primary" />
-            </MudList>
+
+            <div class="explainList">
+                <div class="explain">
+                    <MudIcon Icon="@Icons.Material.Filled.Bookmark" Color="Color.Secondary" />
+                    <MudText Color="Color.Primary">Don't feel overwhelmed because there is too much to learn.</MudText>
+                </div>
+                <div class="explain">
+                    <MudIcon Icon="@Icons.Material.Filled.Bookmark" Color="Color.Secondary" />
+                    <MudText Color="Color.Primary">Do a little at a time.</MudText>
+                </div>
+                <div class="explain">
+                    <MudIcon Icon="@Icons.Material.Filled.Bookmark" Color="Color.Secondary" />
+                    <MudText Color="Color.Primary">You will be given small concepts to learn and demonstrate.</MudText>
+                </div>
+                <div class="explain">
+                    <MudIcon Icon="@Icons.Material.Filled.Bookmark" Color="Color.Secondary" />
+                    <MudText Color="Color.Primary">Feel accomplished by doing many challenges.</MudText>
+                </div>
+            </div>
         </MudPaper>
 
     </MudCardContent>
@@ -24,15 +37,15 @@
 @if (Challenges != null)
 {
     <MudPaper Width="100%" Style="padding: 5px; margin: 5px;">
-    <table>
-        @foreach (var challenge in Challenges)
-        {
-            <tr>
-                <td style="width:24px;">@(Challenges.IndexOf(challenge) + 1)</td>
-                <td @onclick="()=>OnChallange(Challenges.IndexOf(challenge))"><a href="javascript: void(0)">@challenge.Header</a></td>
-            </tr>
-        }    
-    </table>
+        <table>
+            @foreach (var challenge in Challenges)
+            {
+                <tr>
+                    <td style="width:24px;">@(Challenges.IndexOf(challenge) + 1)</td>
+                    <td @onclick="()=>OnChallange(Challenges.IndexOf(challenge))"><a href="javascript: void(0)">@challenge.Header</a></td>
+                </tr>
+            }
+        </table>
     </MudPaper>
 }
 
