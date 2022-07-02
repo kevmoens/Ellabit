@@ -54,11 +54,14 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that reverses a boolean value.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 reverse(true) ➞ false
 
 reverse(false) ➞ true
-
+            </p>
+        </code>
 notes
 don't forget to return the result.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2" }.ToList();

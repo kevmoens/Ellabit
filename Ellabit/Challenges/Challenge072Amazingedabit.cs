@@ -65,12 +65,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that takes a string and changes the word amazing to not amazing. Return the string without any change if the word edabit is part of the string.
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 AmazingEdabit(""ellabit is amazing."") ➞ ""ellabit is amazing.""
 
 AmazingEdabit(""Mubashir is amazing."") ➞ ""Mubashir is not amazing.""
 
 AmazingEdabit(""Infinity is amazing."") ➞ ""Infinity is not amazing.""
+            </p>
+        </code>
 Notes
 Ellabit is amazing :)";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();

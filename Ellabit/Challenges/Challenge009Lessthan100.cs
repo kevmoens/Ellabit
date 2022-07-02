@@ -67,14 +67,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Given two numbers, return true if the sum of both numbers is less than 100. otherwise return false.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 lessthan100(22, 15) ➞ true
-// 22 + 37
 
 lessThan100(83, 34) ➞ false
-// 83 + 117
 
 lessThan100(3, 77) ➞ true
+            </p>
+        </code>
 ";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
     }

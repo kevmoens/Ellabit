@@ -54,12 +54,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Given two integers, a and b, return true if a can be divided evenly by b. return false otherwise.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 dividesevenly(98, 7) ➞ true
 // 14
 
 dividesEvenly(85, 4) ➞ false
 // 21.25
+            </p>
+        </code>
 
 Notes
 a will always be greater than or equal to b.";

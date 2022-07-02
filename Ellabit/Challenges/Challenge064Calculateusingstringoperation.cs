@@ -93,7 +93,9 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that takes two numbers and a mathematical operator and returns the result.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 Calculate(4, 9, ""+"") ➞ 13
 
 Calculate(12, 5, ""-"") ➞ 7
@@ -103,6 +105,8 @@ Calculate(6, 3, ""*"") ➞ 18
 Calculate(14, 3, ""%"") ➞ 2
 
 Calculate(6, 3, ""/"") ➞ 2
+            </p>
+        </code>
 
 Notes
 Numbers can be negative.

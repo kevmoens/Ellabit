@@ -55,12 +55,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that takes an array and returns the difference between the biggest and smallest numbers.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 differencemaxmin([10, 4, 1, 4, -10, -50, 32, 21]) ➞ 82
 // smallest number is -50, biggest is 32.
 
 differencemaxmin([44, 32, 86, 19]) ➞ 67
 // smallest number is 19, biggest is 86.
+            </p>
+        </code>
 
 ";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2" }.ToList();

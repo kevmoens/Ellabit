@@ -80,7 +80,9 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that takes a string (a random name). If the last character of the name is an ""n"", return true, otherwise return false.
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 isLastCharacterN(""Aiden"") ➞ true
 
 isLastCharacterN(""Piet"") ➞ false
@@ -88,6 +90,8 @@ isLastCharacterN(""Piet"") ➞ false
 isLastCharacterN(""Bert"") ➞ false
 
 isLastCharacterN(""Dean"") ➞ true
+            </p>
+        </code>
 
 Notes
 The function must return a boolean value(i.e. true or false).";

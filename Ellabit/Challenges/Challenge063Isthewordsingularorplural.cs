@@ -80,7 +80,9 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that takes in a word and determines whether or not it is plural. a plural word is one that ends in ""s"".
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 IsPlural(""changes"") ➞ true
 
 IsPlural(""change"") ➞ false
@@ -88,6 +90,8 @@ IsPlural(""change"") ➞ false
 IsPlural(""dudes"") ➞ true
 
 IsPlural(""magic"") ➞ false
+            </p>
+        </code>
 
 Notes
 Don't forget to return the result.

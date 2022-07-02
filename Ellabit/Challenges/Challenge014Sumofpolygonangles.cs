@@ -65,12 +65,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Given an n-sided regular polygon n, return the total sum of internal angles (in degrees).
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 sumpolygon(3) ➞ 180
 
 sumpolygon(4) ➞ 360
 
 sumpolygon(6) ➞ 720
+            </p>
+        </code>
 
 notes
 n will always be greater than 2.

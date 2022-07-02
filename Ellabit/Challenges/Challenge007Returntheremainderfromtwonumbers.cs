@@ -67,7 +67,10 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"There is a single operator in c#, capable of providing the remainder of a division operation. two numbers are passed as parameters. the first parameter divided by the second parameter will have a remainder, possibly zero. return that value.
 
-examples
+
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 remainder(1, 3) ➞ 1
 
 remainder(3, 4) ➞ 3
@@ -75,6 +78,8 @@ remainder(3, 4) ➞ 3
 remainder(-9, 45) ➞ -9
 
 remainder(5, 5) ➞ 0
+            </p>
+        </code>
 ";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
     }

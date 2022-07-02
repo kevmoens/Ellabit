@@ -67,12 +67,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that accepts an array and returns the last item in the array. the array can contain any of javascript's five primitive data types.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 GetLastItem([1, 2, 3]) ➞ 3
 
 GetLastItem([""cat"", ""dog"", ""duck""]) ➞ ""duck""
 
 GetLastItem([true, false, true]) ➞ true
+            </p>
+        </code>
 
 Notes
 Don't forget to return the result.";

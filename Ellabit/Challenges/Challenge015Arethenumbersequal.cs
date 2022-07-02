@@ -69,12 +69,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that returns true when num1 is equal to num2; otherwise return false.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 issamenum(4, 8) ➞ false
 
 issamenum(2, 2) ➞ true
 
 issamenum(0, 6) ➞ false
+            </p>
+        </code>
 
 notes
 don't forget to return the result.";

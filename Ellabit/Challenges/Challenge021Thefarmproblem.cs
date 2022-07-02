@@ -69,12 +69,16 @@ public class TestChallenge
 
 the farmer has counted his animals and he gives you a subtotal for each species. you have to implement a function that returns the total number of legs of all the animals.
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 animals(2, 3, 5) ➞ 36
 
 animals(1, 2, 3) ➞ 22
 
 animals(5, 2, 8) ➞ 50
+            </p>
+        </code>
 
 Notes
 Don't forget to return the result.

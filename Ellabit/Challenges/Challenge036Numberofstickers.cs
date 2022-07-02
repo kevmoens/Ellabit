@@ -74,13 +74,17 @@ The Rubik's cube of side length 1 has 6 stickers.
 The Rubik's cube of side length 2 has 24 stickers.
 The Rubik's cube of side length 3 has 54 stickers.
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 
 HowManyStickers(1) ➞ 6
 
 HowManyStickers(2) ➞ 24
 
 HowManyStickers(3) ➞ 54
+            </p>
+        </code>
 
 Notes
 

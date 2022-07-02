@@ -67,13 +67,17 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Write a function that takes the base and height of a triangle and return its area.
 
-examples
+
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 triarea(3, 2) ➞ 3
 
 triarea(7, 4) ➞ 14
 
 triarea(10, 10) ➞ 50
-
+            </p>
+        </code>
 notes
 the area of a triangle is: (base * height) / 2
 don't forget to return the result.";

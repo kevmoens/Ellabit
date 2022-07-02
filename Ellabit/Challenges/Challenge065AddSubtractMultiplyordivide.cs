@@ -67,12 +67,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Write a function that takes two numbers and returns if they should be added, subtracted, multiplied or divided to get 24. If none of the operations can give 24, return ""none"".
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 Operation(15, 9) ➞ ""added""
 
 Operation(26, 2) ➞ ""subtracted""
 
 Operation(11, 11) ➞ ""none""
+            </p>
+        </code>
 
 Notes
 Only integers are used as test input.

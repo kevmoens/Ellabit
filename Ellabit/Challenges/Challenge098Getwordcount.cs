@@ -67,12 +67,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that takes a string and returns the word count. The string will be a sentence.
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 countWords(""Just an example here move along"") ➞ 6
 
 countWords(""This is a test"") ➞ 4
 
-countWords(""What an easy task, right"") ➞ 5";
+countWords(""What an easy task, right"") ➞ 5
+            </p>
+        </code>";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
     }
 }

@@ -66,12 +66,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Christmas eve is almost upon us, so naturally we need to prepare some milk and cookies for santa! create a function that accepts a date object and returns true if it's christmas eve (december 24th) and false otherwise.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 TimeForMilkAndCookies( 2013, 12, 24 ) ➞ true
 
 TimeForMilkAndCookies( 2013, 0, 23 ) ➞ false
 
 TimeForMilkAndCookies( 3000, 12, 24 ) ➞ true
+            </p>
+        </code>
 
 notes
 all test cases contain valid dates.";

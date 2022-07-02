@@ -67,12 +67,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that will work as the modulus operator % without using the modulus operator. the modulus operator is a way to determine the remainder of a division operation. instead of returning the result of the division, the modulo operation returns the whole number remainder.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 mod(5, 2) ➞ 1
 
 mod(218, 5) ➞ 3
 
 mod(6, 3) ➞ 0
+            </p>
+        </code>
 
 notes
 don't use the % operator to return the results";

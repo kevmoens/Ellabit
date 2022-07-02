@@ -80,7 +80,9 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Write a method to check if an array contains a particular number.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 check([1, 2, 3, 4, 5], 3) ➞ true
 
 check([1, 1, 2, 1, 1], 3) ➞ false
@@ -88,6 +90,8 @@ check([1, 1, 2, 1, 1], 3) ➞ false
 check([5, 5, 5, 6], 5) ➞ true
 
 check([], 5) ➞ false
+            </p>
+        </code>
 
 notes
 don't forget to return the result.";

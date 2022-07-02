@@ -67,12 +67,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"A student learning c# was trying to make a function. his code should concatenate a passed string name with string name with string ""Ellabit"" and store it in a variable called result. He needs your help to fix this code.
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 nameString(""Mubashir"") ➞ ""MubashirEllabit""
 
 nameString(""Matt"") ➞ ""MattEllabit""
 
 nameString(""C#"") ➞ ""C#Ellabit""
+            </p>
+        </code>
 Notes
 Don't forget to return the result.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();

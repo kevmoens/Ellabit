@@ -104,6 +104,22 @@
             challenges.Add(new Challenge101Hurdlejump());
             challenges.Add(new Challenge102Countinstancesofacharacterinastring());
             challenges.Add(new Challenge103Convertnumbertocorrespondingmonthname());
+            challenges.Add(new Challenge104Findthesmallestandbiggestnumbers());
+            challenges.Add(new Challenge105Absolutesum());
+            challenges.Add(new Challenge106Tothepowerof());
+            challenges.Add(new Challenge107Multiplybylength());
+            challenges.Add(new Challenge108Hammingdistance());
+            challenges.Add(new Challenge109Shufflethename());
+            challenges.Add(new Challenge110Smallerstringnumber());
+            challenges.Add(new Challenge111Returnthefactorial());
+            challenges.Add(new Challenge112Howmanyvowels());
+            challenges.Add(new Challenge113Sortnumbersinascendingorder());
+            challenges.Add(new Challenge115H4ck3rsp34k());
+            challenges.Add(new Challenge116Shapeswithnsides());
+            challenges.Add(new Challenge117Checkifthesamecase());
+            challenges.Add(new Challenge118FizzBuzzinterviewquestion());
+            challenges.Add(new Challenge119Raucousapplause());
+            challenges.Add(new Challenge120Howmanydsarethere());
             challenges.Add(new ChallengeColor001());
             return challenges;
         }

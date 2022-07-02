@@ -68,13 +68,17 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that takes in an array of numbers and returns the sum of its cubes.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 cubessum([1, 5, 9]) ➞ 855
 // since 1^3 + 5^3 + 1 + 125 + 855
 
 CubesSum([3, 4, 5]) ➞ 216
 
 cubessum([2]) ➞ 8
+            </p>
+        </code>
 ";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
     }

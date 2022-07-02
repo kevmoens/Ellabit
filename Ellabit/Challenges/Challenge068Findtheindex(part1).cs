@@ -67,12 +67,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that finds the index of a given item.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 search([1, 5, 3], 5) ➞ 1
 
 search([9, 8, 3], 3) ➞ 2
 
 search([1, 2, 3], 4) ➞ -1
+            </p>
+        </code>
 
 notes
 if the item is not present, return -1.";

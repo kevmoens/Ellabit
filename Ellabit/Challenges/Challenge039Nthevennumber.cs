@@ -67,7 +67,9 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that takes a number n and returns the nth even number.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 NthEven(1) ➞ 0
 0 is first even number
 
@@ -75,6 +77,8 @@ NthEven(2) ➞ 2
 2 is second even number
 
 NthEven(100) ➞ 198
+            </p>
+        </code>
 ";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
     }
