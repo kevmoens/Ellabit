@@ -28,11 +28,13 @@
     private MudTheme _theme = new();
     protected override async void OnInitialized()
     {
+        _theme.Palette.Secondary = new MudBlazor.Utilities.MudColor(238, 1, 33, 255);
+        _theme.PaletteDark.Secondary = new MudBlazor.Utilities.MudColor(238, 1, 33, 255);
         IJSObjectReference? module = await runtime.InvokeAsync<IJSObjectReference>("import", "./scripts/theme.js");
         var isDarkMode = await module.InvokeAsync<bool>("isDarkTheme", new object[] { });
         _isDarkMode = isDarkMode;
         StateHasChanged();
         base.OnInitialized();
     }
-    
+
 }
