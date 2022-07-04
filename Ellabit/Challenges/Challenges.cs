@@ -120,6 +120,17 @@
             challenges.Add(new Challenge118FizzBuzzinterviewquestion());
             challenges.Add(new Challenge119Raucousapplause());
             challenges.Add(new Challenge120Howmanydsarethere());
+            challenges.Add(new Challenge121Burrrrrrrp());
+            challenges.Add(new Challenge122Stutteringfunction());
+            challenges.Add(new Challenge123Removethefirstandlastcharacters());
+            challenges.Add(new Challenge124Dateformat());
+            challenges.Add(new Challenge125Nextnumbergreaterthanaandbanddivisiblebyb());
+            challenges.Add(new Challenge126Getthefilename());
+            challenges.Add(new Challenge127ReFormtheword());
+            challenges.Add(new Challenge128Recursiontorepeatastringnnumberoftimes());
+            challenges.Add(new Challenge129Repeatingletters());
+            challenges.Add(new Challenge130Doubleletters());
+            challenges.Add(new Challenge131Recursion());
             challenges.Add(new ChallengeColor001());
             return challenges;
         }
