@@ -67,12 +67,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Write a function that stutters a word as if someone is struggling to read it. The first two letters are repeated twice with an ellipsis ... and space after each, and then the word is pronounced with a question mark ?.
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 Stutter(""incredible"") ➞ ""in... in... incredible?""
 
 Stutter(""enthusiastic"") ➞ ""en... en... enthusiastic?""
 
 Stutter(""outstanding"") ➞ ""ou... ou... outstanding?""
+            </p>
+        </code>
 Notes
 Assume all input is in lower case and at least two characters long.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();

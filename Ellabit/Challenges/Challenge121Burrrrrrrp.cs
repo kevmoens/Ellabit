@@ -67,12 +67,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that returns the string ""Burp"" with the amount of ""r's"" determined by the input parameters of the function.
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 LongBurp(3) ➞ ""Burrrp""
 
 LongBurp(5) ➞ ""Burrrrrp""
 
 LongBurp(9) ➞ ""Burrrrrrrrrp""
+            </p>
+        </code>
 Notes
 Expect num to always be >= 1.
 Remember to use a capital ""B"".

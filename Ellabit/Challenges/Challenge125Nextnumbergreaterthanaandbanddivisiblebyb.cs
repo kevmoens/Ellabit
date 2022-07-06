@@ -67,12 +67,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"You are given two numbers a and b. create a function that returns the next number greater than a and b and divisible by b.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 divisiblebyb(17, 8) ➞ 24
 
 divisiblebyb(98, 3) ➞ 99
 
 divisiblebyb(14, 11) ➞ 22
+            </p>
+        </code>
 
 notes
 a will always be greater than b.";

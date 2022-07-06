@@ -67,12 +67,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that returns the selected filename from a path. Include the extension in your answer.
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 GetFilename(""C:/Projects/pil_tests/ascii/ellabit.txt"") ➞ ""ellabit.txt""
 
 GetFilename(""C:/Users/johnsmith/Music/Beethoven_5.mp3"") ➞ ""Beethoven_5.mp3""
 
 GetFilename(""ffprobe.exe"") ➞ ""ffprobe.exe""
+            </p>
+        </code>
 Notes
 Tests will include both absolute and relative paths.
 For simplicity, all paths will include forward slashes.";

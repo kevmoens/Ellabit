@@ -79,7 +79,9 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that removes the first and last characters from a string.
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 RemoveFirstLast(""hello"") ➞ ""ell""
 
 RemoveFirstLast(""maybe"") ➞ ""ayb""
@@ -87,6 +89,8 @@ RemoveFirstLast(""maybe"") ➞ ""ayb""
 RemoveFirstLast(""benefit"") ➞ ""enefi""
 
 RemoveFirstLast(""a"") ➞ ""a""
+            </p>
+        </code>
 Notes
 If the string is 2 or fewer characters long, return the string itself(See example #4).";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3", "Test4" }.ToList();

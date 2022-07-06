@@ -67,12 +67,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"A word has been split into a left part and a right part. Re-form the word by adding both halves together, changing the first character to an uppercase letter.
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 GetWord(""seas"", ""onal"") ➞ ""Seasonal""
 
 GetWord(""comp"", ""lete"") ➞ ""Complete""
 
-GetWord(""lang"", ""uage"") ➞ ""Language""";
+GetWord(""lang"", ""uage"") ➞ ""Language""
+            </p>
+        </code>";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
     }
 }

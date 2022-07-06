@@ -68,12 +68,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that takes a string and returns a string in which each character is repeated once.
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 DoubleChar(""String"") ➞ ""SSttrriinngg""
 
 DoubleChar(""Hello World!"") ➞ ""HHeelllloo  WWoorrlldd!!""
 
 DoubleChar(""1234!_ "") ➞ ""11223344!!__  ""
+            </p>
+        </code>
 Notes
 All test cases contain valid strings.Don't worry about spaces, special characters or numbers. They're all considered valid characters.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();

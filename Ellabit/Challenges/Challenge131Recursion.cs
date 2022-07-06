@@ -67,13 +67,18 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Write a function that recursively finds the sum of the first n natural numbers.
 
-Examples
+
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 Sum(5) ➞ 15
 // 1 + 2 + 3 + 4 + 5 = 15
 
 Sum(1) ➞ 1
 
 Sum(12) ➞ 78
+            </p>
+        </code>
 Notes
 Assume the input number is always positive.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();

@@ -67,12 +67,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that converts a date formatted as MM/DD/YYYY to YYYYDDMM.
 
-Examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 FormatDate(""11/12/2019"") ➞ ""20191211""
 
 FormatDate(""12/31/2019"") ➞ ""20193112""
 
 FormatDate(""01/15/2019"") ➞ ""20191501""
+            </p>
+        </code>
 Notes
 Return value should be a string.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();

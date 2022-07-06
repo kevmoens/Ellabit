@@ -80,14 +80,19 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create a function that takes a word and returns true if the word has two consecutive identical letters.
 
-Examples
+
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 DoubleLetters(""loop"") ➞ true
 
 DoubleLetters(""yummy"") ➞ true
 
 DoubleLetters(""orange"") ➞ false
 
-DoubleLetters(""munchkin"") ➞ false";
+DoubleLetters(""munchkin"") ➞ false
+            </p>
+        </code>";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3", "Test4" }.ToList();
     }
 }
