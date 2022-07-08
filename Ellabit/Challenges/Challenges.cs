@@ -131,6 +131,7 @@
             challenges.Add(new Challenge129Repeatingletters());
             challenges.Add(new Challenge130Doubleletters());
             challenges.Add(new Challenge131Recursion());
+            challenges.Add(new Challenge132Reverseandcapitalize());
             challenges.Add(new ChallengeColor001());
             return challenges;
         }
