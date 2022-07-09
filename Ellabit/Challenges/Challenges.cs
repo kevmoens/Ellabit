@@ -137,6 +137,16 @@
             challenges.Add(new Challenge135Eliminateoddnumberswithinanarray());
             challenges.Add(new Challenge136Istheaverageofallelementsawholenumber());
             challenges.Add(new Challenge138Spacesbetweeneachcharacter());
+            challenges.Add(new Challenge139Amongusimposterformula());
+            challenges.Add(new Challenge140Hashesandpluses());
+            challenges.Add(new Challenge142Calculatethemean());
+            challenges.Add(new Challenge143Returnthefourletterstrings());
+            challenges.Add(new Challenge145Xsandosnobodyknows());
+            challenges.Add(new Challenge146Alphabetsoup());
+            challenges.Add(new Challenge147Makeacirclewithoop());
+            challenges.Add(new Challenge148Isthestringapalindrome());
+            challenges.Add(new Challenge149Retrievethesubreddit());
+            challenges.Add(new Challenge150Vowelreplacer());
             challenges.Add(new ChallengeColor001());
             return challenges;
         }
