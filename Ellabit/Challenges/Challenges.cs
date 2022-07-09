@@ -132,6 +132,11 @@
             challenges.Add(new Challenge130Doubleletters());
             challenges.Add(new Challenge131Recursion());
             challenges.Add(new Challenge132Reverseandcapitalize());
+            challenges.Add(new Challenge133Reversetheorderofastring());
+            challenges.Add(new Challenge134Modifyingthelastcharacter());
+            challenges.Add(new Challenge135Eliminateoddnumberswithinanarray());
+            challenges.Add(new Challenge136Istheaverageofallelementsawholenumber());
+            challenges.Add(new Challenge138Spacesbetweeneachcharacter());
             challenges.Add(new ChallengeColor001());
             return challenges;
         }
