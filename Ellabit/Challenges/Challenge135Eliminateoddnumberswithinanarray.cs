@@ -70,12 +70,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create content  a  function  that  takes  an  array  of  numbers  and  returns  only  the  even  values.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 noodds([1,  2,  3,  4,  5,  6,  7,  8])  ➞  [2,  4,  6,  8]
 
 noodds([43,  65,  23,  89,  53,  9,  6])  ➞  [6]
 
 noodds([718,  991,  449,  644,  380,  440])  ➞  [718,  644,  380,  440]
+            </p>
+        </code>
 
 notes
 return  all  even  numbers  in  the  order  they  were  given.

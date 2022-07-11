@@ -92,12 +92,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create content  a  function  that  takes  a  string  and  returns  a  string  with  its  letters  in  alphabetical  order.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 alphabetsoup("" hello"") ➞ ""ehllo"" 
 alphabetsoup(""ellabit"") ➞ ""adeillt"" 
 alphabetsoup(""hacker"") ➞ ""acehkr"" 
 alphabetsoup(""geek"") ➞ ""eegk"" 
 alphabetsoup(""javascript"") ➞ ""aacijprstv"" 
+            </p>
+        </code>
 
 notes you can assume numbers and punctuation symbols won't be included in the string""";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3", "Test4", "Test5" }.ToList();

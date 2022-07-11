@@ -67,10 +67,14 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create content  a  function  that  calculates  the  chance  of  being  an  imposter.  the  formula  for  the  chances  of  being  an  imposter  is  100  ×  (i  p)  where  i  is  the  imposter  count  and  p  is  the  player  count.  make  sure  to  round  the  value  to  the  nearest  integer  and  return  the  value  as  a  percentage.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 imposterformula(1,  10)  ➞ ""10%"" 
 imposterformula(2, 5) ➞ ""40%"" 
-imposterformula(3, 4) ➞ ""75%""";
+imposterformula(3, 4) ➞ ""75%""
+            </p>
+        </code>";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
     }
 }

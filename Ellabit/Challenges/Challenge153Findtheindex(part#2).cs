@@ -1,8 +1,8 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge134Modifyingthelastcharacter : IChallenge
+    public class Challenge153Findtheindexpart2 : IChallenge
     {
-        public string? Header { get; set; } = "Modifying the last character";
+        public string? Header { get; set; } = "Find the index (part #2)";
         public string? Code { get; set; } = @"
 using System;
 
@@ -10,7 +10,7 @@ namespace Ellabit;
 
 public class Challenge
 {
-	public  string ModifyLast(string str, int n)
+	public  int Search(int[] arr, int item)
 	{
 		
 	}
@@ -27,56 +27,62 @@ public class TestChallenge
     public (bool pass, string message) Test1()
     {
         var tmp = new Challenge();
-        string sumResult;
+        int sumResult;
         try 
         {
-            sumResult = tmp.ModifyLast(""hello"", 3) ;
+            sumResult = tmp.Search(new int[] {1,  2,  3,  4},  3)  ;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult ==  ""hellooo"" ,  $""returned: {sumResult}  expected: hellooo"");
+        return (sumResult ==   2,  $""returned: {sumResult}  expected: 2"");
     }
     public (bool pass, string message) Test2()
     {
         var tmp = new Challenge();
-        string sumResult;
+        int sumResult;
         try 
         {
-            sumResult = tmp.ModifyLast(""hey"", 6);
+            sumResult = tmp.Search(new int[] {2,  4,  6,  8,  10},  8)  ;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult ==  ""heyyyyyy"" ,   $""returned: {sumResult}  expected: heyyyyyy"");
+        return (sumResult ==   3,   $""returned: {sumResult}  expected: 3"");
     }
     public (bool pass, string message) Test3()
     {
         var tmp = new Challenge();
-        string sumResult;
+        int sumResult;
         try 
         {
-            sumResult = tmp.ModifyLast(""excuse me what?"", 5);
+            sumResult = tmp.Search(new int[]{1,  3,  5,  7,  9},  11)  ;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + ""\n"" + ex.Message);
         }
-        return (sumResult ==  ""excuse me what?????"" ,   $""returned: {sumResult}  expected: excuse me what?????"");
+        return (sumResult ==   -1,   $""returned: {sumResult}  expected: -1"");
     }
 }
 ";
-        public string? Description { get; set; } = @"Create content  a  function  which  makes  the  last  character  of  a  string  repeat  n  number  of  times.
+        public string? Description { get; set; } = @"Create content  a  function  that  searches  for  the  index  of  a  given  item  in  an  array  using  recursion.  if  the  item  is  present,  it  should  return  the  index,  otherwise,  it  should  return  -1.
 
         <h5>Examples</h5>
         <code>
             <p style = ""border:1px solid grey; padding: 10px;"" >
-modifylast("" hello"", 3) ➞ ""hellooo""
-modifylast(""hey"", 6) ""heyyyyyy"" 
-modifylast(""excuse me what?"", 5) ""excuse what?????"" 
+search({1,  2,  3,  4},  3)  ➞  2
+
+search({2,  4,  6,  8,  10},  8)  ➞  3
+
+search({1,  3,  5,  7,  9},  11)  ➞  -1
             </p>
         </code>
 
-notes test will include numbers and punctuation. make sure the code is not case sensitive.";
+notes
+use  recursion.
+avoid  using  linq.
+if  the  item  is  not  present,  return  -1.
+the""";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
     }
 }

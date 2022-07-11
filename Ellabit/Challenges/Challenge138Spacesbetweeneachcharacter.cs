@@ -67,10 +67,15 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create content  a  function  that  takes  a  string  and  returns  a  string  with  spaces  in  between  all  of  the  characters.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 spacemeout(""space"") ➞ ""s p a c e"" 
 spacemeout(""far out"") ➞ ""f a r o u t"" 
 spacemeout(""elongated musk"") ➞ ""e l o n g a t e d m u s k""
+            </p>
+        </code>
+
 notes treat space as its own character (i.e. leave three spaces between words).""";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
     }

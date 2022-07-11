@@ -95,7 +95,9 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create content  a  function  that  takes  an  array  as  an  argument  and  returns  true  or  false  depending  on  whether  the  average  of  all  elements  in  the  array  is  a  whole  number  or  not.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 isavgwhole([1,  3])  ➞  true
 
 isavgwhole([1,  2,  3,  4])  ➞  false
@@ -105,6 +107,8 @@ isavgwhole([1,  5,  6])  ➞  true
 isavgwhole([1,  1,  1])  ➞  true
 
 isavgwhole([9,  2,  2,  5])  ➞  false
+            </p>
+        </code>
 
 notes
 n/a""";

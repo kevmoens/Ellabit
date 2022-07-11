@@ -12,7 +12,7 @@ public class Challenge
 {
     public  double Mean(int[] arr) 
     {
-      
+        
     }
 }
 
@@ -36,9 +36,7 @@ public class TestChallenge
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult ==   2.55
-
-,  $""returned: {sumResult}  expected: 2.55"");
+        return (sumResult ==   2.55,  $""returned: {sumResult}  expected: 2.55"");
     }
     public (bool pass, string message) Test2()
     {
@@ -51,9 +49,7 @@ public class TestChallenge
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult ==   2.50
-
-,   $""returned: {sumResult}  expected: 2.50"");
+        return (sumResult ==   2.50,   $""returned: {sumResult}  expected: 2.50"");
     }
     public (bool pass, string message) Test3()
     {
@@ -66,20 +62,22 @@ public class TestChallenge
         {
             return (false, ex.ToString() + ""\n"" + ex.Message);
         }
-        return (sumResult ==   3.00
-
-,   $""returned: {sumResult}  expected: 3.00"");
+        return (sumResult ==   3.00,   $""returned: {sumResult}  expected: 3.00"");
     }
 }
 ";
         public string? Description { get; set; } = @"Create content  a  function  that  takes  an  array  of  numbers  and  returns  the  mean  (average)  of  all  those  numbers.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 mean([1,  0,  4,  5,  2,  4,  1,  2,  3,  3,  3])  ➞  2.55
 
 mean([2,  3,  2,  3])  ➞  2.50
 
 mean([3,  3,  3,  3,  3])  ➞  3.00
+            </p>
+        </code>
 
 notes
 round  to  two  decimal  places.

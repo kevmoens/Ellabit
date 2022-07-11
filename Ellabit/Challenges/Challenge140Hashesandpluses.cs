@@ -82,11 +82,15 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create content  a  function  that  returns  the  number  of  hashes  and  pluses  in  a  string.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 hashpluscount(""###+"") ➞ [3, 1] 
 hashpluscount(""##+++#"") ➞ [3, 3]
 hashpluscount(""#+++#+#++#"") ➞ [4, 6] 
 hashpluscount("""") ➞ [0, 0] 
+            </p>
+        </code>
 notes return for an empty string. in the order of [hashes, pluses].""";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3", "Test4" }.ToList();
     }

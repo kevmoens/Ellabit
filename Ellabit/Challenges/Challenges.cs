@@ -147,6 +147,16 @@
             challenges.Add(new Challenge148Isthestringapalindrome());
             challenges.Add(new Challenge149Retrievethesubreddit());
             challenges.Add(new Challenge150Vowelreplacer());
+            challenges.Add(new Challenge151Removeduplicatesfromanarray());
+            challenges.Add(new Challenge152Betweenwords());
+            challenges.Add(new Challenge153Findtheindexpart2());
+            challenges.Add(new Challenge154Howmanysolutionsdoesthisquadratichave());
+            challenges.Add(new Challenge155Equalityof3values());
+            challenges.Add(new Challenge156Lastdigitultimate());
+            challenges.Add(new Challenge157Findthemissingnumber());
+            challenges.Add(new Challenge158Largestswap());
+            challenges.Add(new Challenge159Countthelettersanddigits());
+            challenges.Add(new Challenge160Validzipcode());
             challenges.Add(new ChallengeColor001());
             return challenges;
         }

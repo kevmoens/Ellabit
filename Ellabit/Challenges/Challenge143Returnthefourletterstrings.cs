@@ -73,10 +73,14 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create content  a  function  that  takes  an  array  of  strings  and  returns  the  words  that  are  exactly  four  letters.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 isfourletters([""tomato"", ""potato"", ""pair""]) ➞ [""pair""] 
 isfourletters([""kangaroo"", ""bear"", ""fox""]) ➞ [""bear""] 
 isfourletters([""ryan"", ""kieran"", ""jason"", ""matt""]) ➞ [""ryan"", ""matt""] 
+            </p>
+        </code>
 
 notes you can expect valid strings for all test cases.""";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();

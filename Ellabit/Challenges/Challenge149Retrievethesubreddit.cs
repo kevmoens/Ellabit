@@ -66,12 +66,16 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create content  a  function  to  extract  the  name  of  the  subreddit  from  its  url.
 
-examples
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 SubReddit(""https://www.reddit.com/r/funny/"") ➞ ""funny""
 
 SubReddit(""https://www.reddit.com/r/relationships/"") ➞ ""relationships""
 
-SubReddit(""https://www.reddit.com/r/mildlyinteresting/"") ➞ ""mildlyinteresting""";
+SubReddit(""https://www.reddit.com/r/mildlyinteresting/"") ➞ ""mildlyinteresting""
+            </p>
+        </code>";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
     }
 }

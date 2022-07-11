@@ -68,8 +68,18 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create content  a  function  that  takes  a  string  as  its  argument  and  returns  the  string  in  reversed  order.
 
-examples
-reverse("" hello world"") ➞ ""dlrow olleh"" reverse(""the quick brown fox."") "".xof nworb kciuq eht"" reverse(""edabit is really helpful!"") ""!lufpleh yllaer si tibade"" notes you can expect a valid string for all test cases.""";
+
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
+reverse("" hello world"") ➞ ""dlrow olleh"" 
+reverse(""the quick brown fox."") "".xof nworb kciuq eht"" 
+reverse(""edabit is really helpful!"") ""!lufpleh yllaer si tibade"" 
+            </p>
+        </code>
+
+notes 
+you can expect a valid string for all test cases.""";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
     }
 }

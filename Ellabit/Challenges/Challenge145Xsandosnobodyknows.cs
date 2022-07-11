@@ -99,7 +99,10 @@ return  true  if  the  amount  of  x's  and  o's  are  the  same.
 return  false  if  they  aren't  the  same  amount.
 the  string  can  contain  any  character.
 when  "" x"" and ""o"" are not in the string, return true. 
-examples
+
+        <h5>Examples</h5>
+        <code>
+            <p style = ""border:1px solid grey; padding: 10px;"" >
 XO(""ooxx"") ➞ true
 
 XO(""xooxx"") ➞ false
@@ -111,6 +114,8 @@ XO(""zpzpzpp"") ➞ true
 // Returns true if no x and o.
 
 XO(""zzoo"") ➞ false
+            </p>
+        </code>
 Notes
 Remember to return true if there aren't any x's or o's.
 Must be case insensitive.
