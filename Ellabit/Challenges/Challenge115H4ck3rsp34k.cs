@@ -81,5 +81,7 @@ HackerSpeak(""become a coder"") ➞ ""b3c0m3 4 c0d3r""
 Notes
 In order to work properly, the function should replace all ""a""s with 4, ""e""s with 3, ""i""s with 1, ""o""s with 0, and ""s""s with 5.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
+        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+        public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
     }
 }

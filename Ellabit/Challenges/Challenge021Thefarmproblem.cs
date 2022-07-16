@@ -85,5 +85,7 @@ Don't forget to return the result.
 The order of animals passed is animals(chickens, cows, pigs).
 Remember that the farmer wants to know the total number of legs and not the total number of animals.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
+        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+        public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
     }
 }

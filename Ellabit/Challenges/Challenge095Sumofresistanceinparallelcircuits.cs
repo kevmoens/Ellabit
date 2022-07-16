@@ -97,5 +97,7 @@ Note that you should rearrange to return the Resistance Total, not 1 / Resistanc
 Round to the nearest decimal place.
 All inputs will be valid.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
+        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+        public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
     }
 }

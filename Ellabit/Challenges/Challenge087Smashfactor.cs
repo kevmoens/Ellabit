@@ -85,5 +85,7 @@ Notes
 Remember to round to the nearest hundredth.
 All values will be valid (so no dividing by zero).";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
+        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+        public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
     }
 }

@@ -79,5 +79,7 @@ GiveMeSomething(""something"") ➞ ""something something""
 Notes
 Assume an input is given.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
+        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+        public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
     }
 }

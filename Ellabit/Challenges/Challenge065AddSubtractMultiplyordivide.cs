@@ -83,5 +83,7 @@ Only integers are used as test input.
 Numbers should be added, subtracted, divided or multiplied in the order they appear in the parameters.
 The function should return either ""added"", ""subtracted"", ""divided"", ""multiplied"" or ""none"".";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
+        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+        public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
     }
 }

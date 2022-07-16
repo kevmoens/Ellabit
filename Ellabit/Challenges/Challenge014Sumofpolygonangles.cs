@@ -80,5 +80,7 @@ notes
 n will always be greater than 2.
 the formula (n - 2) x 180 gives the sum of all the measures of the angles of an n-sided polygon.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
+        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+        public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
     }
 }

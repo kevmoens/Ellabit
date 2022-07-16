@@ -7,5 +7,6 @@
         string? Code { get; set; } 
         string? TestCode { get; set; } 
         List<string> Tests { get; set; }
+        Dictionary<string, string> Tags { get; set; }
     }
 }

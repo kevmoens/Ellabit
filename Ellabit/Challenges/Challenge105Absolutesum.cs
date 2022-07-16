@@ -97,5 +97,7 @@ notes
 the term ""absolute value"" means to remove any negative sign in front of a number, and to think of all numbers as positive (or zero).
 All the elements in the given array are integers.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3", "Test4" }.ToList();
+        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+        public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
     }
 }

@@ -78,5 +78,7 @@ spacemeout(""elongated musk"") ➞ ""e l o n g a t e d m u s k""
 
 notes treat space as its own character (i.e. leave three spaces between words).""";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
+        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+        public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
     }
 }

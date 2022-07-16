@@ -94,5 +94,7 @@ There won't be any tests with a number below 1 or greater than 10.
 Return the output in lowercase.
 The challenge is intended to be completed without conditionals(it would take too long)!";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
+        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+        public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
     }
 }

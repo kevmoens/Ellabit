@@ -101,5 +101,7 @@ FizzBuzz(4) ➞ ""4""
 Notes
 Try to be precise with how you spell things and where you put the capital letters.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3", "Test4" }.ToList();
+        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+        public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
     }
 }

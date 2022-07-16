@@ -82,5 +82,7 @@ notes
 expect either a positive number or zero (there are no negative numbers).
 if you get stuck on a challenge, find help in the resources ";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
+        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+        public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
     }
 }
