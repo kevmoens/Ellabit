@@ -157,6 +157,7 @@
             challenges.Add(new Challenge158Largestswap());
             challenges.Add(new Challenge159Countthelettersanddigits());
             challenges.Add(new Challenge160Validzipcode());
+            challenges.Add(new Challenge161Purgeandorganize());
             challenges.Add(new ChallengeColor001());
             return challenges;
         }
