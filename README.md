@@ -7,7 +7,7 @@ Try this
 
 # Roadmap for 1.0
 <ul>
-<li>Blazor Wasm stripped to two paes (Home and Challenge)</li>
+<li>Blazor Wasm stripped to two pages (Home and Challenge)</li>
 <li>Compile Code in Browser</li>
 <li>Run compiled code</li>
 <li>Compile more than once</li>
@@ -16,8 +16,8 @@ Try this
 <li>Load Code into editor</li>
 <li>Get Code from Editor</li>
 <li>Theme editor based on light or dark mode</li>
-<li>Create Challenges</li>
 <li>Create class per challenge layout</li>
+<li>Create Multiple Challenges</li>
 <li>List challenges</li>
 <li>Navigate from Home to Challenge screen</li>
 <li>On success of challenge allow navigation to next challenge</li>
