@@ -158,6 +158,9 @@
             challenges.Add(new Challenge159Countthelettersanddigits());
             challenges.Add(new Challenge160Validzipcode());
             challenges.Add(new Challenge161Purgeandorganize());
+            challenges.Add(new Challenge162Removeeveryvowelfromastring());
+            challenges.Add(new Challenge163Anintroductiontothemapreducepattern());
+            challenges.Add(new Challenge164Cumulativearraysum());
             challenges.Add(new ChallengeColor001());
             return challenges;
         }
