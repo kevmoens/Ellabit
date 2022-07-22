@@ -161,6 +161,12 @@
             challenges.Add(new Challenge162Removeeveryvowelfromastring());
             challenges.Add(new Challenge163Anintroductiontothemapreducepattern());
             challenges.Add(new Challenge164Cumulativearraysum());
+            challenges.Add(new Challenge165Lettersonly());
+            challenges.Add(new Challenge166Arrayofmultiples());
+            challenges.Add(new Challenge167Reversethecase());
+            challenges.Add(new Challenge168Equalitycheck());
+            challenges.Add(new Challenge169Returntheindexofallcapitalletters());
+            challenges.Add(new Challenge170Findthebomb());
             challenges.Add(new ChallengeColor001());
             return challenges;
         }
