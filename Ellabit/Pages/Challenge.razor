@@ -15,6 +15,23 @@
         <h3>@_unloadable?.Context?.Challenge?.Header</h3>
         <br/>
         @((MarkupString)(_unloadable?.Context?.Challenge?.Description.DescriptionCleanup() ?? ""))
+        <br/>
+        @if (_unloadable?.Context?.Challenge?.Tags != null)
+        {
+            <table>
+            @foreach (var item in _unloadable.Context.Challenge.Tags.Keys)
+            {
+                <tr>
+                    <td>
+                        @item 
+                    </td>
+                    <td>
+                        @_unloadable.Context.Challenge.Tags[item]
+                    </td>
+                </tr>
+            }
+            </table>
+        }
     </MudTabPanel>
     <MudTabPanel Text="Code">
         <div id="editor" style="width:fit-content(800px);height:600px;border:1px solid grey"></div>

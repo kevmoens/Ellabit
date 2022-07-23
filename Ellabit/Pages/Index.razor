@@ -34,11 +34,35 @@
     </MudCardActions>
 </MudCard>
 
+<div class="d-flex flex-grow-1 gap-4">
+    <MudPaper Class="flex-initial d-flex" Width="50%" Elevation="0" >
+
+        <MudSelect Dense="true" T="string" Label="Tag" Variant="Variant.Outlined" @bind-Value="@SelectedTagHeader" SelectedValuesChanged="@OnSelectedTagHeaderValueChanged" Clearable="true">
+            @foreach (var tag in Tags.Keys.OrderBy(t => t))
+            {        
+                <MudSelectItem Value="@tag" />
+            }
+        </MudSelect>
+    </MudPaper>
+
+    <MudPaper Class="flex-initial d-flex" Width="50%" Elevation="0" >
+        <MudSelect Dense="true" T="string" Label="Tag" Variant="Variant.Outlined" @bind-Value="@SelectedTagDetail" SelectedValueChanged="@OnSelectedTagDetailValueChanged" Clearable="true">
+            @if (!string.IsNullOrEmpty(SelectedTagHeader))
+            {
+                @foreach (var tag in Tags[SelectedTagHeader].OrderBy(v => v))
+                {
+                    <MudSelectItem Value="@tag" />
+                }
+            }
+        </MudSelect>
+    </MudPaper>
+</div>
+
 @if (Challenges != null)
 {
     <MudPaper Width="100%" Style="padding: 5px; margin: 5px;">
         <table>
-            @foreach (var challenge in Challenges)
+            @foreach (var challenge in FilterChallenges(Challenges))
             {
                 <tr>
                     <td style="width:24px;">@(Challenges.IndexOf(challenge) + 1)</td>
@@ -54,6 +78,11 @@
     public int? ChallengeId { get; set; }
     [Inject]
     private Challenges? Challenges { get; set; }
+
+    private string SelectedTagHeader = string.Empty;
+    private string SelectedTagDetail = string.Empty;
+    private Dictionary<string, List<string>> Tags { get; set; } = new Dictionary<string, List<string>>();
+
     public void OnChallange(int idx)
     {
         NavMan.NavigateTo($"challenge/{idx}");
@@ -64,7 +93,73 @@
         if (ChallengeId != null)
         {
             NavMan.NavigateTo($"challenge/{ChallengeId}");
+            return;
         }
+        if (Tags.Count == 0)
+        {
+            var tags = Challenges
+                ?.SelectMany((c) => c.Tags)
+                ?.GroupBy(o => CleanTagHeader(o.Key))
+                ?.ToDictionary(
+                    g => CleanTagHeader(g.Key)
+                    , g => g
+                        .Select(r => r.Value)
+                        .Distinct()
+                        .OrderBy(d => d)
+                        .ToList()
+                );
+
+            if (tags != null)
+            {
+                Tags = tags;
+                StateHasChanged();
+            }
+        }
+    }
+    private void OnSelectedTagHeaderValueChanged() 
+    {
+        SelectedTagDetail = string.Empty;
+        StateHasChanged();
+    }
+    private void OnSelectedTagDetailValueChanged()
+    {
+        StateHasChanged();
+    }
+    private List<IChallenge> FilterChallenges(Challenges challenges)
+    {
+        var result = new List<IChallenge>();
+        if (!string.IsNullOrEmpty(SelectedTagHeader))
+        {
+            if (!string.IsNullOrEmpty(SelectedTagDetail))
+            {
+                result = challenges
+                    .Where(c => 
+                        { 
+                            return c.Tags.Any(ct => ct.Key == CleanTagHeader(SelectedTagHeader) && ct.Value == SelectedTagDetail);
+                        })
+                     .ToList();
+                return result;
+            }
+
+            result = challenges
+                .Where(c =>
+                    {
+                        return c.Tags.Any(ct => ct.Key == CleanTagHeader(SelectedTagHeader));
+                    })
+                 .ToList();
+            return result;
+
+        }
+        return challenges;
+    }
+    private string CleanTagHeader(string tagHeader)
+    {
+        int pos = tagHeader.IndexOf(":");
+        if (pos >= 0)
+        {
+           return tagHeader.Substring(0, pos);
+        }
+        return tagHeader;
     }
 }
 

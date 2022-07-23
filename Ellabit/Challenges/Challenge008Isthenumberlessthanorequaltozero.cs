@@ -71,17 +71,17 @@ public class TestChallenge
         <h5>Examples</h5>
         <code>
             <p style = ""border:1px solid grey; padding: 10px;"" >
-lessthanorequaltozero(5) ➞ false
+LessThanOrEqualToZero(5) ➞ false
 
-lessthanorequaltozero(0) ➞ true
+LessThanOrEqualToZero(0) ➞ true
 
-lessthanorequaltozero(-2) ➞ true
+LessThanOrEqualToZero(-2) ➞ true
             </p>
         </code>
 notes
 don't forget to return the result.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
-        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "Expression", "<=" }, { "Level", "1" } };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
     }
 }

@@ -82,7 +82,7 @@ public class TestChallenge
             <li>Don't forget to <strong>return</strong> the result.</li>
         </ul>";
         public List<string> Tests { get; set; } = new string[] {"Test1","Test2","Test3" }.ToList();
-        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { {"Math","Add"}, { "Level", "1" } };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
     }
 }

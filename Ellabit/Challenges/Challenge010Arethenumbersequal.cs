@@ -72,16 +72,16 @@ public class TestChallenge
         <code>
             <p style = ""border:1px solid grey; padding: 10px;"" >
 
-isequal(5, 6) ➞ false
+IsEqual(5, 6) ➞ false
 
-isequal(1, 1) ➞ true
+IsEqual(1, 1) ➞ true
 
-isequal(36, 35) ➞ false
+IsEqual(36, 35) ➞ false
             </p>
         </code>
 ";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
-        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "Expression", "==" }, { "Level", "1" } };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
     }
 }
