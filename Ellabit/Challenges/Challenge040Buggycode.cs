@@ -93,7 +93,7 @@ notes
 read every word carefully, character by character!
 don't overthink this challenge; it's not supposed to be hard.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
-        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "Array", "Index" },{"Loop", "For" }, { "Bug", "Syntax" }, { "Level", "2" } };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
     }
 }
