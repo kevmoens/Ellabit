@@ -62,7 +62,7 @@
 
 @if (Challenges != null)
 {
-    <MudPaper Width="100%" Style="padding: 5px; margin: 5px;">
+    @*<MudPaper Width="100%" Style="padding: 5px; margin: 5px;">
         <table>
             @foreach (var challenge in FilterChallenges(Challenges))
             {
@@ -72,7 +72,18 @@
                 </tr>
             }
         </table>
-    </MudPaper>
+    </MudPaper>*@
+
+    <MudTable Items="@FilterChallenges(Challenges)" Hover="true" Breakpoint="Breakpoint.Sm">
+        <HeaderContent>
+            <MudTh>Nr</MudTh>
+            <MudTh>Description</MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd DataLabel="#">@(Challenges.IndexOf(context) + 1)</MudTd>
+            <MudTd DataLabel="Sign">@context.Header</MudTd>
+        </RowTemplate>
+    </MudTable>
 }
 
 @code {
