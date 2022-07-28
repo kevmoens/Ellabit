@@ -34,29 +34,31 @@
     </MudCardActions>
 </MudCard>
 
-<div class="d-flex flex-grow-1 gap-4">
-    <MudPaper Class="flex-initial d-flex" Width="50%" Elevation="0" >
+<MudField Label="Filter" Variant="Variant.Outlined" InnerPadding="false">
+    <div class="d-flex flex-grow-1 gap-4 mb-2">
+        <MudPaper Class="flex-initial d-flex" Width="50%" Elevation="0" >
 
-        <MudSelect Dense="true" T="string" Label="Tag" Variant="Variant.Outlined" @bind-Value="@SelectedTagHeader" SelectedValuesChanged="@OnSelectedTagHeaderValueChanged" Clearable="true">
-            @foreach (var tag in Tags.Keys.OrderBy(t => t))
-            {        
-                <MudSelectItem Value="@tag" />
-            }
-        </MudSelect>
-    </MudPaper>
-
-    <MudPaper Class="flex-initial d-flex" Width="50%" Elevation="0" >
-        <MudSelect Dense="true" T="string" Label="Tag" Variant="Variant.Outlined" @bind-Value="@SelectedTagDetail" SelectedValueChanged="@OnSelectedTagDetailValueChanged" Clearable="true">
-            @if (!string.IsNullOrEmpty(SelectedTagHeader))
-            {
-                @foreach (var tag in Tags[SelectedTagHeader].OrderBy(v => v))
-                {
+            <MudSelect Dense="true" T="string" Label="Tag Header" Variant="Variant.Outlined" @bind-Value="@SelectedTagHeader" SelectedValuesChanged="@OnSelectedTagHeaderValueChanged" Clearable="true">
+                @foreach (var tag in Tags.Keys.OrderBy(t => t))
+                {        
                     <MudSelectItem Value="@tag" />
                 }
-            }
-        </MudSelect>
-    </MudPaper>
-</div>
+            </MudSelect>
+        </MudPaper>
+
+        <MudPaper Class="flex-initial d-flex" Width="50%" Elevation="0" >
+            <MudSelect Dense="true" T="string" Label="Tag Detail" ReadOnly="@(string.IsNullOrEmpty(SelectedTagHeader))" Variant="Variant.Outlined" @bind-Value="@SelectedTagDetail" SelectedValueChanged="@OnSelectedTagDetailValueChanged" Clearable="true">
+                @if (!string.IsNullOrEmpty(SelectedTagHeader))
+                {
+                    @foreach (var tag in Tags[SelectedTagHeader].OrderBy(v => v))
+                    {
+                        <MudSelectItem Value="@tag" />
+                    }
+                }
+            </MudSelect>
+        </MudPaper>
+    </div>
+</MudField>
 
 @if (Challenges != null)
 {
@@ -65,7 +67,7 @@
             @foreach (var challenge in FilterChallenges(Challenges))
             {
                 <tr>
-                    <td style="width:24px;">@(Challenges.IndexOf(challenge) + 1)</td>
+                    <td style="text-align: right; padding-right: 10px;">@(Challenges.IndexOf(challenge) + 1)</td>
                     <td @onclick="()=>OnChallange(Challenges.IndexOf(challenge))"><a href="javascript: void(0)">@challenge.Header</a></td>
                 </tr>
             }
