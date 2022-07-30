@@ -1,14 +1,35 @@
 ﻿@page "/"
-@using DynamicCode
-@using System.Reflection
+@implements IDisposable
+@inject IJSRuntime JS;
+@inject MonacoService monacoService;
+@using DynamicCode;
+@using System.Reflection;
+
 <PageTitle>Index</PageTitle>
 
+<style>
+
+    .monaco-editor-container {
+        height: 400px;
+        width: 800px;
+        border: 1px solid gray;
+    }
+
+</style>
 
 Current temperature is: @temp
 <br/>
 <button @onclick="GetTempurature">Get Temperature</button>
 <br/>
 <button @onclick="Clear">Clear Cache</button>
+
+@editorContent
+@*<MonacoEditor @ref="_editor" />*@
+<MonacoEditor @ref="_editor" ConstructionOptions="EditorConstructionOptions" />
+@_code
+<button @onclick="OnGetCode">Get Code</button>
+<button @onclick="OnSetCode">Set Code</button>
+
 @code {
     int temp;
     [Inject]
@@ -55,6 +76,79 @@ Current temperature is: @temp
             return;
         }
         _unloadable.Context = new SimpleUnloadableAssemblyLoadContext(Client);
+    }
+
+    private RenderFragment<MonacoEditor>? editorContent { get; set; }
+    private string? _code;
+    public string _testCode { get; set; } = @"
+using System;
+
+namespace Ellabit;
+
+public class Challenge
+{
+    public int Sum(int a, int b)
+    {
+        return 0;
+    }
+}
+";
+    async void OnGetCode()
+    {
+        if (_editor == null)
+        {
+            return;
+        }
+        _code = await _editor.GetValue();
+        StateHasChanged();
+    }
+    async void OnSetCode()
+    {
+        if (_editor == null)
+        {
+            return;
+        }
+        await _editor.SetValue(_testCode);
+        StateHasChanged();
+    }
+
+    private bool _hasRegistered = false;
+    private MonacoEditor? _editor;
+    private DotNetObjectReference<MonacoService>? _objRef;
+    private List<MonacoService.Diagnostic>? Diagnostics { get; set; }
+
+    private StandaloneEditorConstructionOptions EditorConstructionOptions(MonacoEditor editor)
+    {
+        return new StandaloneEditorConstructionOptions
+            {
+                AutomaticLayout = true,
+                Language = "csharp",
+                Value = this.monacoService.DefaultCode,
+                Theme = "vs-dark"  //Or 'vs' for light mode
+            };
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!_hasRegistered)
+        {
+            await monacoService.Initialize();
+            //editorContent = AddEditorContent();
+            _objRef = DotNetObjectReference.Create(this.monacoService);
+            await JS.InvokeAsync<string>("registerProviders", _objRef);
+            _hasRegistered = true;
+        }
+    }
+
+    private RenderFragment<MonacoEditor> AddEditorContent() => (MonacoEditor editor) =>
+    {
+        return @<MonacoEditor @ref="@_editor" ConstructionOptions="@EditorConstructionOptions" />;
+    };
+
+
+    public void Dispose()
+    {
+        //_objRef?.Dispose();
     }
 }
 

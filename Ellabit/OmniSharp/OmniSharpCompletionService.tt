@@ -1,0 +1,45 @@
+<#@ template language="C#" #>
+<#@ output extension=".cs" #>
+<#@ import namespace="System.Net" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+<# 
+	using var webClient = new WebClient();
+
+    var url1 = "https://raw.githubusercontent.com/OmniSharp/omnisharp-roslyn/master/src/OmniSharp.Roslyn.CSharp/Services/Completion/CompletionService.cs";
+    var csstring = webClient.DownloadString(url1); 
+    
+    var url2 = "https://raw.githubusercontent.com/OmniSharp/omnisharp-roslyn/master/license.md";
+    var license = webClient.DownloadString(url2);
+
+    // workspace type
+    csstring = Regex.Replace(csstring, @"OmniSharpWorkspace", "AdhocWorkspace");
+    csstring = Regex.Replace(csstring, @"Handle\(CompletionRequest request\)", "Handle(CompletionRequest request, Document document)");
+    csstring = Regex.Replace(csstring, @"Handle\(CompletionResolveRequest request\)", "Handle(CompletionResolveRequest request, Document document)");
+    csstring = Regex.Replace(csstring, @"var document = _workspace.GetDocument\(fileName\);", "");
+    csstring = Regex.Replace(csstring, @"var document = _workspace.GetDocument\(request.FileName\);", "");
+
+    // class name
+    csstring = Regex.Replace(csstring, @"OmniSharp\.Roslyn\.CSharp\.Services\.Completion", "Ellabit.Omnisharp");
+    csstring = Regex.Replace(csstring, @"public class CompletionService", "public class OmniSharpCompletionService");
+    csstring = Regex.Replace(csstring, @"public CompletionService", "public OmniSharpCompletionService");
+    csstring = Regex.Replace(csstring, @"<CompletionService>", "<OmniSharpCompletionService>");
+
+    // Attributes
+    csstring = Regex.Replace(csstring, @"\[.*\(.*\).*]", "");
+    csstring = Regex.Replace(csstring, @"\[Shared]", "");
+    csstring = Regex.Replace(csstring, @"\[ImportingConstructor]", "");
+
+    // others
+    csstring = Regex.Replace(csstring, @"CompletionService :", "CompletionService");
+    csstring = Regex.Replace(csstring, @"IRequestHandler<CompletionRequest, CompletionResponse>,", "");
+    csstring = Regex.Replace(csstring, @"IRequestHandler<CompletionResolveRequest, CompletionResolveResponse>", "");
+    csstring = Regex.Replace(csstring, @"Configuration.OmniSharpMiscProjectName", "\"OmniSharpMiscellaneousFiles\"");
+
+#>
+/* 
+This code is adapted from https://github.com/OmniSharp/omnisharp-vscode
+
+<# Write(license); #> 
+*/
+
+<# Write(csstring); #>
