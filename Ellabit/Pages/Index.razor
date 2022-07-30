@@ -26,9 +26,10 @@ Current temperature is: @temp
 @editorContent
 @*<MonacoEditor @ref="_editor" />*@
 <MonacoEditor @ref="_editor" ConstructionOptions="EditorConstructionOptions" />
-@_code
 <button @onclick="OnGetCode">Get Code</button>
 <button @onclick="OnSetCode">Set Code</button>
+<br/>
+@_code
 
 @code {
     int temp;
