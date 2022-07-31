@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge 
 {
@@ -16,11 +16,11 @@ public class Challenge
 }
 
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -64,7 +64,7 @@ public class TestChallenge
         return (sumResult ==  ""SpOnTaNeOuS"" ,   $""returned: {sumResult}  expected: SpOnTaNeOuS"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Given content  a  string,  create  a  function  to  reverse  the  case.  all  lower-cased  letters  should  be  upper-cased,  and  vice  versa.
 
 

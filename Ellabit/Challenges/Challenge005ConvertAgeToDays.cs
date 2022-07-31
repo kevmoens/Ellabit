@@ -6,20 +6,24 @@
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
 
-public class Challenge
+namespace Ellabit
 {
-    public int CalcAge(int age)
+
+    public class Challenge
     {
+        public int CalcAge(int age)
+        {
 			
+        }
     }
-}
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+
+namespace Ellabit
+{
 
 public class TestChallenge
 {
@@ -63,7 +67,7 @@ public class TestChallenge
         return (sumResult == 7300,   $""returned: {sumResult}  expected: 7300"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"
             Create a function that takes the age in years and returns the age in days.
 

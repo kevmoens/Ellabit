@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge
 {
@@ -16,11 +16,11 @@ public class Challenge
 	}
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -51,7 +51,7 @@ public class TestChallenge
         return (sumResult ==  1,   $""returned: {sumResult}  expected:  1"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"An int boolean is the same as a normal boolean, just true and false.
 Make a function that returns an int boolean opposite of an int boolean given (flip the int boolean).
 

@@ -7,7 +7,7 @@ namespace Ellabit.Challenges
 using System;
 using System.Linq;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge 
 {
@@ -17,11 +17,11 @@ public class Challenge
 	}
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -52,7 +52,7 @@ public class TestChallenge
         return (sumResult == 67,   $""returned: {sumResult}  expected: 67"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create a function that takes an array and returns the difference between the biggest and smallest numbers.
 
         <h5>Examples</h5>

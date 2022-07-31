@@ -6,7 +6,7 @@
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge
 {
@@ -16,11 +16,11 @@ public class Challenge
 	}
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -64,7 +64,7 @@ public class TestChallenge
         return (sumResult == 9,   $""returned: {sumResult}  expected: 9"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"After an amazing performance, the crowd goes wild! People clap enthusiastically and most claps overlap with each other to create one homogeneous sound.
 
 An overlapped clap is a clap which starts but doesn't finish, as in ""ClaClap"" (the first clap is cut short and there are overall 2 claps).

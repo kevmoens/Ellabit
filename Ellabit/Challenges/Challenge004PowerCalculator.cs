@@ -6,20 +6,24 @@
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
 
-public class Challenge
+namespace Ellabit
 {
-    public int CircuitPower(int voltage, int current) 
+
+    public class Challenge
     {
+        public int CircuitPower(int voltage, int current) 
+        {
 			
+        }
     }
-}
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+
+namespace Ellabit
+{
 
 public class TestChallenge
 {
@@ -63,7 +67,7 @@ public class TestChallenge
         return (sumResult == 9600,   $""returned: {sumResult}  expected: 9600"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"
             Create a function that takes voltage and current and returns the calculated power.
 

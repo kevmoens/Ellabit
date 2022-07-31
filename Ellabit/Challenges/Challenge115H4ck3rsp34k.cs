@@ -6,7 +6,7 @@
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge
 {
@@ -16,11 +16,11 @@ public class Challenge
     }
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -64,7 +64,7 @@ public class TestChallenge
         return (sumResult == ""b3c0m3 4 c0d3r"",   $""returned: {sumResult}  expected: b3c0m3 4 c0d3r"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create a function that takes a string as an argument and returns a coded (h4ck3r 5p34k) version of the string.
 
 

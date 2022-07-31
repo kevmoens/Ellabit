@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge {
     public  int FindPerimeter(int length, int width) 
@@ -15,11 +15,11 @@ public class Challenge {
 	}
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -63,7 +63,7 @@ public class TestChallenge
         return (sumResult ==  22,   $""returned: {sumResult}  expected:  22"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create a function that takes length and width and finds the perimeter of a rectangle.
 
         <h5>Examples</h5>

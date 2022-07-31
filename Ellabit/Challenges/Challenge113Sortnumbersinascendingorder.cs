@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 using System.Linq;
 public class Challenge
@@ -17,11 +17,11 @@ public class Challenge
     }
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 using System.Linq;
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -78,7 +78,7 @@ public class TestChallenge
         return (sumResult.SequenceEqual(new int[] {}),   $""returned: {sumResult}  expected: []"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create a function that takes an array of numbers and returns a new array, sorted in ascending order (smallest to biggest).
 
 Sort the numbers array in ascending order.

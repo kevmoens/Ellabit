@@ -6,7 +6,7 @@
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge
 {
@@ -16,11 +16,11 @@ public class Challenge
     }
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -77,7 +77,7 @@ public class TestChallenge
         return (sumResult == false,   $""returned: {sumResult}  expected: false"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Zip codes consist of 5 consecutive digits. given a string, write a function to determine whether the input is a valid zip code. a valid zip code is as follows:
 
 must only contain numbers (no non-digits allowed).

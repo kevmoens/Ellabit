@@ -6,7 +6,7 @@
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge 
 {
@@ -17,11 +17,11 @@ public class Challenge
 }
 
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -65,7 +65,7 @@ public class TestChallenge
         return (sumResult == ""right"",   $""returned: {sumResult}  expected: right"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"You are given 2 out of 3 angles in a triangle, in degrees.
 
 write a function that classifies the missing angle as either  ""acute"", ""right"", or ""obtuse"" based on its degrees.

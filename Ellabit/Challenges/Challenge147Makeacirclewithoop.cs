@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 using System;
 class Rectangle
@@ -31,11 +31,11 @@ public class Circle {
 	//put code here
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -66,7 +66,7 @@ public class TestChallenge
         return (sumResult == 27.897342763877365,   $""returned: {sumResult}  expected: 27.897342763877365"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Your content  task  is  to  create  a  circle  constructor  that  creates  a  circle  with  a  radius  provided  by  an  argument.  the  circles  constructed  must  have  two  getters  getarea()  (pi\r^2)  and  getperimeter()  (2\pi\*r)  which  give  both  respective  areas  and  perimeter  (circumference).
 
 for  help  with  this  class,  i  have  provided  you  with  a  rectangle  constructor  which  you  can  use  as  a base example.

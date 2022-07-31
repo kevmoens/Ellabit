@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 using System;
 public class Challenge
@@ -17,11 +17,11 @@ public class Challenge
 	}
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -65,7 +65,7 @@ public class TestChallenge
         return (sumResult == 1.48,   $""returned: {sumResult}  expected: 1.48"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Smash factor is a term in golf that relates to the amount of energy transferred from the club head to the golf ball. The formula for calculating smash factor is ball speed divided by club speed.
 
 Create a function that takes ball speed a and club speed b as arguments and returns the smash factor to the nearest hundredth.

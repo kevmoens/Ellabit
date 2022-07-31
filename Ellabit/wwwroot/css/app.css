@@ -63,3 +63,9 @@ a, .btn-link {
         content: "An error has occurred."
     }
 
+
+.monaco-editor-container {
+    height: 400px;
+    width: 800px;
+    border: 1px solid gray;
+}

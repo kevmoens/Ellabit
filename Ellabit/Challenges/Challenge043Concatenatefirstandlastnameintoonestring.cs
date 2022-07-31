@@ -6,7 +6,7 @@
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge
 {
@@ -16,11 +16,11 @@ public class Challenge
 	}
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -64,7 +64,7 @@ public class TestChallenge
         return (sumResult == ""Jane, Mary"",   $""returned: {sumResult}  expected: Jane, Mary"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Given two strings, firstName and lastName, return a single string in the format ""last, first"".
 
         <h5>Examples</h5>

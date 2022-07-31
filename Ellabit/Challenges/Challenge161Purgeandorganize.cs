@@ -7,7 +7,7 @@ namespace Ellabit.Challenges
 using System;
 using System.Linq;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge
 {
@@ -17,11 +17,11 @@ public class Challenge
     }
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 using System.Linq;
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -65,7 +65,7 @@ public class TestChallenge
         return (sumResult.SequenceEqual(new double[] {1.0d, 2.0d, 3.0d, 6.0d, 7.0d}.ToList()),   $""returned: [{string.Join("", "", sumResult)}]  expected:  [1, 2, 3, 6, 7]"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Given an array of numbers, write a function that returns an array that...
 
 has all duplicate elements removed.

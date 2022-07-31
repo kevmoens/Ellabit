@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge
 {
@@ -16,11 +16,11 @@ public class Challenge
     }
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -64,7 +64,7 @@ public class TestChallenge
         return (sumResult == true,   $""returned: {sumResult}  expected: true"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create content  a  function  that  takes  a  two-digit  number  and  determines  if  it's  the  largest  of  two  possible  digit  swaps.
 
 To illustrate:

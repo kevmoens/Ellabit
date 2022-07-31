@@ -6,20 +6,23 @@
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
-
-public class Challenge
+namespace Ellabit
 {
-    public int Sum(int a, int b)
+
+    public class Challenge
     {
-        return 0;
+        public int Sum(int a, int b)
+        {
+            return 0;
+        }
     }
 }
 ";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit
+{
 
 public class TestChallenge
 {
@@ -62,6 +65,7 @@ public class TestChallenge
         }
         return (sumResult == 10,   $""returned: {sumResult}  expected: 10"");
     }
+}
 }
 ";
         public string? Description { get; set; } = @"

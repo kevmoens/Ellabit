@@ -6,7 +6,7 @@
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge 
 {
@@ -17,11 +17,11 @@ public class Challenge
 }
 
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -65,7 +65,7 @@ public class TestChallenge
         return (sumResult == 4,  $""returned: {sumResult}  expected: 4"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create a function that takes a character and a string as arguments and returns the number of times the character is found in the string.
 
         <h5>Examples</h5>

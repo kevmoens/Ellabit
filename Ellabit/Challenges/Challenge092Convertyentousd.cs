@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 using System;
 public class Challenge
@@ -17,11 +17,11 @@ public class Challenge
 	}
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -65,7 +65,7 @@ public class TestChallenge
         return (sumResult ==  6.04,   $""returned: {sumResult}  expected:  6.04"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create a function that can turn jpy (japanese yen) to usd (american dollar).
 
         <h5>Examples</h5>

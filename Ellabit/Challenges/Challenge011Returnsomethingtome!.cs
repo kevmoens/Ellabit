@@ -6,7 +6,7 @@
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge {
 	public  string GiveMeSomething(string a) {
@@ -14,11 +14,11 @@ public class Challenge {
 	}
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -62,7 +62,7 @@ public class TestChallenge
         return (sumResult == ""something something"",   $""returned: {sumResult}  expected: \""something something\"""");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Write a function that returns the string ""something"" joined with a space "" "" and the given argument a.
 
         <h5>Examples</h5>

@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 using System;
 
@@ -17,11 +17,11 @@ public class Challenge {
 	}
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -65,7 +65,7 @@ public class TestChallenge
         return (sumResult ==  0,   $""returned: {sumResult}  expected:  0"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create a function which returns the number of true values there are in an array.
 
         <h5>Examples</h5>

@@ -6,7 +6,7 @@
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge 
 {
@@ -16,11 +16,11 @@ public class Challenge
     }
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -64,7 +64,7 @@ public class TestChallenge
         return (sumResult == false,  $""returned: {sumResult}  expected: false"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Mubashir has started his journey from home. given a string of directions North, West, South, East), he will walk for one minute in each direction. determine whether a set of directions will lead him back to the starting position or not.
 
         <h5>Examples</h5>

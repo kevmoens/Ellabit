@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge
 {
@@ -16,12 +16,11 @@ public class Challenge
     }
 }
 
-";
-        public string? TestCode { get; set; } = @"
+}";        public string? TestCode { get; set; } = @"
 using System;
 
 using System.Linq;
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -65,8 +64,7 @@ public class TestChallenge
         return (sumResult == ""Up"",   $""returned: {sumResult}  expected: Up"");
     }
 }
-";
-        public string? Description { get; set; } = @"Write content  a  function  that  removes  any  non-letters  from  a  string,  returning  a  well-known  film  title.
+}";        public string? Description { get; set; } = @"Write content  a  function  that  removes  any  non-letters  from  a  string,  returning  a  well-known  film  title.
 
 
         <h5>Examples</h5>

@@ -1,12 +1,15 @@
-﻿using Ellabit.Challenges;
+﻿using BlazorMonaco;
+using Ellabit.Challenges;
 using Ellabit.DynamicCode;
+using Ellabit.Monaco;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 using MudBlazor;
+using System;
 
 namespace Ellabit.Pages
 {
-    public partial class Challenge : ComponentBase
+    public partial class Challenge : ComponentBase, IDisposable
     {
 
         [Parameter]
@@ -25,6 +28,9 @@ namespace Ellabit.Pages
         private IDialogService? DialogService { get; set; }
         [Inject]
         private Ellabit.Challenges.Challenges? Challenges { get; set; }
+        [Inject]
+        private MonacoService? monacoService { get; set; }
+
         bool loaded = false;
         int prevTabIndex = -1;
         string? code;
@@ -36,6 +42,18 @@ namespace Ellabit.Pages
             base.OnInitialized();
             SetChallenge();
         }
+
+        protected override async Task OnAfterRenderAsync(bool firstRender)
+        {
+            if (!_hasRegistered && JS != null && monacoService != null)
+            {
+                await monacoService.Initialize();
+                _objRef = DotNetObjectReference.Create(this.monacoService);
+                await JS.InvokeAsync<string>("registerProviders", _objRef);
+                _hasRegistered = true;
+            }
+        }
+
         public void SetChallenge()
         {
             if (_unloadable?.Context != null && Challenges != null)
@@ -70,10 +88,10 @@ namespace Ellabit.Pages
             {
                 await TabChanged_ClearEditor();
             }
-            if (tabIndex == 1)
-            {
-                await TabChanged_LoadEditor();
-            }
+            //if (tabIndex == 1)
+            //{
+            //    await TabChanged_LoadEditor();
+            //}
             prevTabIndex = tabIndex;
         }
         public async Task TabChanged_ClearEditor()
@@ -82,12 +100,11 @@ namespace Ellabit.Pages
             {
                 return;
             }
-            if (loaded && _unloadable?.Context?.Challenge != null && prevTabIndex == 1)
+            if (_editor != null && _unloadable?.Context?.Challenge != null && prevTabIndex == 1)
             {
-                code = await BlazacoJSInterop.GetValue(JS, "editor");
+                code = await _editor.GetValue();                
                 _unloadable.Context.Challenge.Code = code;
             }
-            await BlazacoJSInterop.ClearEditors(JS);
         }
         public async Task TabChanged_LoadEditor()
         {
@@ -97,19 +114,54 @@ namespace Ellabit.Pages
             }
             StateHasChanged();
             await Task.Delay(1);
-            await BlazacoJSInterop.InitializeEditor(JS, "editor");
-            if (_unloadable?.Context?.Challenge?.Code != null)
-            {
-                await BlazacoJSInterop.SetValue(JS, "editor", code ?? "");
-            }
-            IJSObjectReference? module = await JS.InvokeAsync<IJSObjectReference>("import", "./scripts/theme.js");
-            if (await module.InvokeAsync<bool>("isDarkTheme", new object[] { }))
-            {
-                await BlazacoJSInterop.SetTheme(JS, "editor", "vs-dark");
-            }
+            //await BlazacoJSInterop.InitializeEditor(JS, "editor");
+            //if (_unloadable?.Context?.Challenge?.Code != null)
+            //{
+            //    await BlazacoJSInterop.SetValue(JS, "editor", code ?? "");
+            //}
+            //IJSObjectReference? module = await JS.InvokeAsync<IJSObjectReference>("import", "./scripts/theme.js");
+            //if (await module.InvokeAsync<bool>("isDarkTheme", new object[] { }))
+            //{
+            //    await BlazacoJSInterop.SetTheme(JS, "editor", "vs-dark");
+            //}
             loaded = true;
             await Task.Delay(1);
         }
+
+        //public async Task TabChanged_ClearEditor()
+        //{
+        //    if (JS == null)
+        //    {
+        //        return;
+        //    }
+        //    if (loaded && _unloadable?.Context?.Challenge != null && prevTabIndex == 1)
+        //    {
+        //        code = await BlazacoJSInterop.GetValue(JS, "editor");
+        //        _unloadable.Context.Challenge.Code = code;
+        //    }
+        //    await BlazacoJSInterop.ClearEditors(JS);
+        //}
+        //public async Task TabChanged_LoadEditor()
+        //{
+        //    if (JS == null)
+        //    {
+        //        return;
+        //    }
+        //    StateHasChanged();
+        //    await Task.Delay(1);
+        //    await BlazacoJSInterop.InitializeEditor(JS, "editor");
+        //    if (_unloadable?.Context?.Challenge?.Code != null)
+        //    {
+        //        await BlazacoJSInterop.SetValue(JS, "editor", code ?? "");
+        //    }
+        //    IJSObjectReference? module = await JS.InvokeAsync<IJSObjectReference>("import", "./scripts/theme.js");
+        //    if (await module.InvokeAsync<bool>("isDarkTheme", new object[] { }))
+        //    {
+        //        await BlazacoJSInterop.SetTheme(JS, "editor", "vs-dark");
+        //    }
+        //    loaded = true;
+        //    await Task.Delay(1);
+        //}
 
 
         public async void OnExecuteTests()
@@ -212,6 +264,27 @@ namespace Ellabit.Pages
             _unloadable.ClearCache();
             SetChallenge();
             _unloadable.Context.Challenge.Code = code;
+        }
+
+        private bool _hasRegistered = false;
+        private MonacoEditor? _editor;
+        private DotNetObjectReference<MonacoService>? _objRef;
+        private List<MonacoService.Diagnostic>? Diagnostics { get; set; }
+
+        private StandaloneEditorConstructionOptions EditorConstructionOptions(MonacoEditor editor)
+        {
+            return new StandaloneEditorConstructionOptions
+            {
+                AutomaticLayout = true,
+                Language = "csharp",
+                Value = _unloadable?.Context?.Challenge?.Code ?? "",
+                Theme = "vs-dark"  //Or 'vs' for light mode
+            };
+        }
+
+        public void Dispose()
+        {
+            _objRef?.Dispose();
         }
     }
 }

@@ -6,7 +6,7 @@
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge {
 	public  string greeting(string name) {
@@ -17,11 +17,11 @@ public class Challenge {
 	}
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -65,7 +65,7 @@ public class TestChallenge
         return (sumResult == ""Hello, my Love!"",  $""returned: {sumResult}  expected: Hello, my Love!"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Emmy has written a function that returns a greeting to users. however, she's in love with mubashir, and would like to greet him slightly differently. she added a special case in her function, but she made a mistake.
 
 can you help her?

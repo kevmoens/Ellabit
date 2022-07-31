@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge
     {
@@ -17,13 +17,13 @@ public class Challenge
     }
 
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -67,7 +67,7 @@ public class TestChallenge
         return (sumResult.SequenceEqual(new int[] {718,  644,  380,  440}.ToList()),   $""returned: [{string.Join("", "", sumResult)}]  expected: [718,  644,  380,  440]"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create content  a  function  that  takes  an  array  of  numbers  and  returns  only  the  even  values.
 
         <h5>Examples</h5>

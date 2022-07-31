@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge
 {
@@ -16,11 +16,11 @@ public class Challenge
     }
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -64,7 +64,7 @@ public class TestChallenge
         return (sumResult ==  22,   $""returned: {sumResult}  expected:  22"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"You are given two numbers a and b. create a function that returns the next number greater than a and b and divisible by b.
 
         <h5>Examples</h5>

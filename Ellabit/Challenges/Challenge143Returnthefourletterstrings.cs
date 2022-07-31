@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Ellabit;
+namespace Ellabit {
 
 using System.Collections.Generic;
 public class Challenge 
@@ -20,13 +20,13 @@ public class Challenge
 }
 
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -70,7 +70,7 @@ public class TestChallenge
         return (sumResult.SequenceEqual( new string[] {""ryan"", ""matt""}.ToList()),  $""returned: {sumResult}  expected: [ryan, matt]"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create content  a  function  that  takes  an  array  of  strings  and  returns  the  words  that  are  exactly  four  letters.
 
         <h5>Examples</h5>

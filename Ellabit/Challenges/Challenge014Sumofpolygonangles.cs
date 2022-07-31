@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge {
 	public  int SumPolygon(int num) {
@@ -14,11 +14,11 @@ public class Challenge {
 	}
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -62,7 +62,7 @@ public class TestChallenge
         return (sumResult ==  720,   $""returned: {sumResult}  expected:  720"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Given an n-sided regular polygon n, return the total sum of internal angles (in degrees).
 
         <h5>Examples</h5>

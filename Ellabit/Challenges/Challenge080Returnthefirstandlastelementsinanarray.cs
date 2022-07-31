@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge
 {
@@ -16,11 +16,11 @@ public class Challenge
 	}
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 using System.Linq;
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -64,7 +64,7 @@ public class TestChallenge
         return (sumResult.SequenceEqual(new object[] {null, null}),  $""returned: [{string.Join("", "", sumResult)}]  expected:  [undefined, null]"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create a function that takes an array of values and returns the first and last values in a new array.
 
         <h5>Examples</h5>

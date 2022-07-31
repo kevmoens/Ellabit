@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge 
 {
@@ -17,11 +17,11 @@ public class Challenge
 }
 
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -65,7 +65,7 @@ public class TestChallenge
         return (sumResult ==  ""!lufpleh yllaer si tibade"" ,   $""returned: {sumResult}  expected: !lufpleh yllaer si tibade"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create content  a  function  that  takes  a  string  as  its  argument  and  returns  the  string  in  reversed  order.
 
 

@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge
 {
@@ -16,11 +16,11 @@ public class Challenge
     }
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -64,7 +64,7 @@ public class TestChallenge
         return (sumResult == ""75%"",   $""returned: {sumResult}  expected: 75%"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create content  a  function  that  calculates  the  chance  of  being  an  imposter.  the  formula  for  the  chances  of  being  an  imposter  is  100  ×  (i  p)  where  i  is  the  imposter  count  and  p  is  the  player  count.  make  sure  to  round  the  value  to  the  nearest  integer  and  return  the  value  as  a  percentage.
 
         <h5>Examples</h5>

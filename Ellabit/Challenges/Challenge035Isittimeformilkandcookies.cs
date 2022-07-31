@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge
 {
@@ -15,11 +15,11 @@ public class Challenge
     }
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -63,7 +63,7 @@ public class TestChallenge
         return (sumResult ==  true,   $""returned: {sumResult}  expected:  true"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Christmas eve is almost upon us, so naturally we need to prepare some milk and cookies for santa! create a function that accepts a date object and returns true if it's christmas eve (december 24th) and false otherwise.
 
         <h5>Examples</h5>

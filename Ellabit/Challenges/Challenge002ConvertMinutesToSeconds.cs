@@ -7,20 +7,24 @@
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
 
-public class Challenge
+namespace Ellabit
 {
-    public int convert(int minute)
+
+    public class Challenge
     {
-        return 0;
+        public int convert(int minute)
+        {
+            return 0;
+        }
     }
-}
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+
+namespace Ellabit
+{
 
 public class TestChallenge
 {
@@ -64,7 +68,7 @@ public class TestChallenge
         return (sumResult == 120,   $""returned: {sumResult}  expected: 120"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"
 Write a function that takes an integer minutes and converts it to seconds.
 

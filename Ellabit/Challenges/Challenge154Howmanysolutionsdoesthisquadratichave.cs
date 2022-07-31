@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge {
 	public  int solutions(int a, int b, int c) {
@@ -14,11 +14,11 @@ public class Challenge {
 	}
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -62,7 +62,7 @@ public class TestChallenge
         return (sumResult ==  0,  $""returned: {sumResult}  expected:  0"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"A quadratic equation a x² + b x + c = 0 has either 0, 1, or 2 distinct solutions for real values of x. given a, b and c, you should return the number of solutions to the equation.
 
         <h5>Examples</h5>

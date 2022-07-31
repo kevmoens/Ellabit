@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge
 {
@@ -15,11 +15,11 @@ public class Challenge
     }
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -63,7 +63,7 @@ public class TestChallenge
         return (sumResult == ""mildlyinteresting"",   $""returned: {sumResult}  expected: mildlyinteresting"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create content  a  function  to  extract  the  name  of  the  subreddit  from  its  url.
 
         <h5>Examples</h5>

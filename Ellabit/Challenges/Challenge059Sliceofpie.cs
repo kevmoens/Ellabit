@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge 
 {
@@ -16,11 +16,11 @@ public class Challenge
 	}
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -90,7 +90,7 @@ public class TestChallenge
         return (sumResult ==  true,  $""returned: {sumResult}  expected:  true"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create a function that determines whether or not it's possible to split a pie fairly given these three parameters:
 
 Total number of slices.

@@ -6,7 +6,7 @@
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge
 {
@@ -16,11 +16,11 @@ public class Challenge
 	}
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -64,7 +64,7 @@ public class TestChallenge
         return (sumResult == ""Language"",   $""returned: {sumResult}  expected: Language"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"A word has been split into a left part and a right part. Re-form the word by adding both halves together, changing the first character to an uppercase letter.
 
         <h5>Examples</h5>

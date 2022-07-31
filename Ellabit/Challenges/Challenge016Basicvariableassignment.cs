@@ -6,7 +6,7 @@
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge {
 	public  string nameString(string name) {
@@ -16,11 +16,11 @@ public class Challenge {
 	}
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -64,7 +64,7 @@ public class TestChallenge
         return (sumResult == ""C#Ellabit"",   $""returned: {sumResult}  expected: C#Ellabit"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"A student learning c# was trying to make a function. his code should concatenate a passed string name with string name with string ""Ellabit"" and store it in a variable called result. He needs your help to fix this code.
 
         <h5>Examples</h5>

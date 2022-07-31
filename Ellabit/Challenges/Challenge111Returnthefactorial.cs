@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge
 {
@@ -16,11 +16,11 @@ public class Challenge
     }
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -64,7 +64,7 @@ public class TestChallenge
         return (sumResult ==  6227020800,   $""returned: {sumResult}  expected:  6227020800"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create a function that takes an integer and returns the factorial of that integer. that is, the integer multiplied by all positive lower integers.
 
         <h5>Examples</h5>

@@ -6,7 +6,7 @@
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge 
 {
@@ -16,11 +16,11 @@ public class Challenge
     }
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -90,7 +90,7 @@ public class TestChallenge
         return (sumResult == 2,   $""returned: {sumResult}  expected: 2"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create a function that takes two numbers and a mathematical operator and returns the result.
 
         <h5>Examples</h5>

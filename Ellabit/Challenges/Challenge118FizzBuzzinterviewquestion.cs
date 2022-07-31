@@ -6,7 +6,7 @@
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge
 {
@@ -16,11 +16,11 @@ public class Challenge
 	}
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -77,7 +77,7 @@ public class TestChallenge
         return (sumResult == ""4"",   $""returned: {sumResult}  expected: 4"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create a function that takes a number as an argument and returns ""Fizz"", ""Buzz"" or ""FizzBuzz"".
 
 If the number is a multiple of 3 the output should be ""Fizz"".

@@ -7,20 +7,24 @@
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
 
-public class Challenge
+namespace Ellabit
 {
-    public int Addition(int num)
+
+    public class Challenge
     {
-        return 0;
+        public int Addition(int num)
+        {
+            return 0;
+        }
     }
-}
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+
+namespace Ellabit
+{
 
 public class TestChallenge
 {
@@ -64,7 +68,7 @@ public class TestChallenge
         return (sumResult == -2,  $""returned: {sumResult}  expected: -2"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"
             Create a function that takes a number as an argument, increments the number by +1 and returns the result.
 

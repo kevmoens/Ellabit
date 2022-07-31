@@ -6,7 +6,7 @@
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge {
 	public  string AmazingEllabit(string str) {
@@ -14,11 +14,11 @@ public class Challenge {
 	}
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -62,7 +62,7 @@ public class TestChallenge
         return (sumResult == ""Infinity is not amazing."",   $""returned: {sumResult}  expected: Infinity is not amazing."");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create a function that takes a string and changes the word amazing to not amazing. Return the string without any change if the word edabit is part of the string.
 
         <h5>Examples</h5>

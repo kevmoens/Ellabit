@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge 
 {
@@ -16,11 +16,11 @@ public class Challenge
 	}
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -64,7 +64,7 @@ public class TestChallenge
         return (sumResult == 10000,   $""returned: {sumResult}  expected: 10000"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Fix the code in the code tab to pass this challenge (only syntax errors). look at the examples below to get an idea of what the function should do.
 
         <h5>Examples</h5>

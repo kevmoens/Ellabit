@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge
 {
@@ -15,11 +15,11 @@ public class Challenge
     }
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -63,7 +63,7 @@ public class TestChallenge
         return (sumResult ==   7,   $""returned: {sumResult}  expected: 7"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create content  a  function  that  takes  an  array  of  numbers  between  1  and  10  (excluding  one  number)  and  returns  the  missing  number.
 
         <h5>Examples</h5>

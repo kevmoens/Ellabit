@@ -6,17 +6,17 @@
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge
 {
 
 }
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -73,7 +73,7 @@ public class TestChallenge
         return (sumResult == ""532"",   $""returned: {sumResult}  expected: 532"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Write two functions:
 
 toInt() : A function to convert a string to an integer.

@@ -6,7 +6,7 @@
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge
 {
@@ -16,11 +16,11 @@ public class Challenge
 	}
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -64,7 +64,7 @@ public class TestChallenge
         return (sumResult == true,   $""returned: {sumResult}  expected: true"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create a function which validates whether a bridge is safe to walk on (i.e. has no gaps in it to fall through).
 
         <h5>Examples</h5>

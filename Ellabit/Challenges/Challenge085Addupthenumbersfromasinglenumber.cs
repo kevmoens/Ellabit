@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge 
 {
@@ -16,11 +16,11 @@ public class Challenge
     }
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -64,7 +64,7 @@ public class TestChallenge
         return (sumResult == 180300,   $""returned: {sumResult}  expected: 180300"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create a function that takes a number as an argument. add up all the numbers from 1 to the number you passed to the function. for example, if the input is 4 then your function should return 10 because 1 + 2 + 3 + 10.
 
         <h5>Examples</h5>

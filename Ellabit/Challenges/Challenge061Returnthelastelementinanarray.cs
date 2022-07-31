@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge 
 {
@@ -16,11 +16,11 @@ public class Challenge
 	}
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -64,7 +64,7 @@ public class TestChallenge
         return ((bool)sumResult == true,   $""returned: {sumResult}  expected: true"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create a function that accepts an array and returns the last item in the array. the array can contain any of javascript's five primitive data types.
 
         <h5>Examples</h5>

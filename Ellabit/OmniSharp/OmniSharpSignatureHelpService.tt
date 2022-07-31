@@ -1,0 +1,38 @@
+<#@ template language="C#" #>
+<#@ output extension=".cs" #>
+<#@ import namespace="System.Net" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+<# 
+	using var webClient = new WebClient();
+
+    var url1 = "https://raw.githubusercontent.com/OmniSharp/omnisharp-roslyn/master/src/OmniSharp.Roslyn.CSharp/Services/Signatures/SignatureHelpService.cs";
+    var csstring = webClient.DownloadString(url1); 
+    
+    var url2 = "https://raw.githubusercontent.com/OmniSharp/omnisharp-roslyn/master/license.md";
+    var license = webClient.DownloadString(url2);
+
+    // workspace type
+    csstring = Regex.Replace(csstring, @"OmniSharpWorkspace", "AdhocWorkspace");
+    csstring = Regex.Replace(csstring, @"Handle\(SignatureHelpRequest request\)", "Handle(SignatureHelpRequest request, Document document2)");
+    csstring = Regex.Replace(csstring, @"_workspace.GetDocuments\(request.FileName\)", "new [] { document2 }");
+
+    // class name
+    csstring = Regex.Replace(csstring, @"OmniSharp\.Roslyn\.CSharp\.Services\.Signatures", "Ellabit.Omnisharp");
+    csstring = Regex.Replace(csstring, @"public class SignatureHelpService", "public class OmniSharpSignatureHelpService");
+    csstring = Regex.Replace(csstring, @"public SignatureHelpService", "public OmniSharpSignatureHelpService");
+
+    // Attributes
+    csstring = Regex.Replace(csstring, @"\[.*\(.*\).*]", "");
+    csstring = Regex.Replace(csstring, @"\[ImportingConstructor]", "");
+
+    // others
+    csstring = Regex.Replace(csstring, @": IRequestHandler<SignatureHelpRequest, SignatureHelpResponse>", "");
+
+#>
+/* 
+This code is adapted from https://github.com/OmniSharp/omnisharp-vscode
+
+<# Write(license); #> 
+*/
+
+<# Write(csstring); #>

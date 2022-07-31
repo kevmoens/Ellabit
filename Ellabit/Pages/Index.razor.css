@@ -14,3 +14,11 @@
         flex: 100%;
     }
 }
+
+
+
+.monaco-editor-container {
+    height: 400px;
+    width: 800px;
+    border: 1px solid gray;
+}

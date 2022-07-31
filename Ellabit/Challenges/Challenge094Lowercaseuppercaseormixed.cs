@@ -6,7 +6,7 @@
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge
 {
@@ -16,11 +16,11 @@ public class Challenge
 	}
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -64,7 +64,7 @@ public class TestChallenge
         return (sumResult == ""mixed"",   $""returned: {sumResult}  expected: mixed"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create a function which returns ""upper"" if all the letters in a word are uppercase, ""lower"" if lowercase and ""mixed"" for any mix of the two.
 
 

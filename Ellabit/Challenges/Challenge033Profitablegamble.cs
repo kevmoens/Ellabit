@@ -6,7 +6,7 @@
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge 
 {
@@ -16,11 +16,11 @@ public class Challenge
 	}
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -64,7 +64,7 @@ public class TestChallenge
         return (sumResult == true,   $""returned: {sumResult}  expected: true"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create a function that takes three arguments prob, prize, pay and returns true if prob * prize > pay; otherwise return false.
 
 To illustrate:

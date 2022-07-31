@@ -36,18 +36,18 @@
 
 <MudField Label="Filter" Variant="Variant.Outlined" InnerPadding="false">
     <div class="d-flex flex-grow-1 gap-4 mb-2">
-        <MudPaper Class="flex-initial d-flex" Width="50%" Elevation="0" >
+        <MudPaper Class="flex-initial d-flex" Width="50%" Elevation="0">
 
             <MudSelect Dense="true" T="string" Label="Tag Header" Variant="Variant.Outlined" @bind-Value="@SelectedTagHeader" SelectedValuesChanged="@OnSelectedTagHeaderValueChanged" Clearable="true">
                 @foreach (var tag in Tags.Keys.OrderBy(t => t))
-                {        
+                {
                     <MudSelectItem Value="@tag" />
                 }
             </MudSelect>
         </MudPaper>
 
-        <MudPaper Class="flex-initial d-flex" Width="50%" Elevation="0" >
-            <MudSelect Dense="true" T="string" Label="Tag Detail" ReadOnly="@(string.IsNullOrEmpty(SelectedTagHeader))" Variant="Variant.Outlined" @bind-Value="@SelectedTagDetail" SelectedValueChanged="@OnSelectedTagDetailValueChanged" Clearable="true">
+        <MudPaper Class="flex-initial d-flex" Width="50%" Elevation="0">
+            <MudSelect Dense="true" T="string" Label="Tag Detail" ReadOnly="@(string.IsNullOrEmpty(SelectedTagHeader))" Variant="Variant.Outlined" @bind-Value="@SelectedTagDetail" SelectedValuesChanged="@OnSelectedTagDetailValueChanged" Clearable="true">
                 @if (!string.IsNullOrEmpty(SelectedTagHeader))
                 {
                     @foreach (var tag in Tags[SelectedTagHeader].OrderBy(v => v))
@@ -69,9 +69,9 @@
         </HeaderContent>
         <RowTemplate>
             <MudTd DataLabel="#">@(Challenges.IndexOf(context) + 1)</MudTd>
-            <MudTd DataLabel="Sign">@context.Header</MudTd>
-        </RowTemplate>
-    </MudTable>
+                <MudTd DataLabel="Sign">@context.Header</MudTd>
+            </RowTemplate>
+        </MudTable>
 }
 
 @code {
@@ -85,7 +85,7 @@
     private Dictionary<string, List<string>> Tags { get; set; } = new Dictionary<string, List<string>>();
 
     private void RowClickEvent(TableRowClickEventArgs<IChallenge> tableRowClickEventArgs)
-    {        
+    {
         if (Challenges == null)
         {
             return;
@@ -123,7 +123,7 @@
             }
         }
     }
-    private void OnSelectedTagHeaderValueChanged() 
+    private void OnSelectedTagHeaderValueChanged()
     {
         SelectedTagDetail = string.Empty;
         StateHasChanged();
@@ -140,8 +140,8 @@
             if (!string.IsNullOrEmpty(SelectedTagDetail))
             {
                 result = challenges
-                    .Where(c => 
-                        { 
+                    .Where(c =>
+                        {
                             return c.Tags.Any(ct => ct.Key == CleanTagHeader(SelectedTagHeader) && ct.Value == SelectedTagDetail);
                         })
                      .ToList();
@@ -164,7 +164,7 @@
         int pos = tagHeader.IndexOf(":");
         if (pos >= 0)
         {
-           return tagHeader.Substring(0, pos);
+            return tagHeader.Substring(0, pos);
         }
         return tagHeader;
     }

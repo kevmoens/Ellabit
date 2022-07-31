@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge 
 {
@@ -17,11 +17,11 @@ public class Challenge
 }
 
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -65,7 +65,7 @@ public class TestChallenge
         return (sumResult ==   3.00,   $""returned: {sumResult}  expected: 3.00"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create content  a  function  that  takes  an  array  of  numbers  and  returns  the  mean  (average)  of  all  those  numbers.
 
         <h5>Examples</h5>

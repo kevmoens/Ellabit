@@ -4,6 +4,16 @@
 @using Ellabit.Challenges
 <PageTitle>Ellabit - Return the Sum of Two Numbers</PageTitle>
 
+<style>
+
+    .monaco-editor-container {
+        height: 400px;
+        width: 800px;
+        border: 1px solid gray;
+    }
+
+</style>
+
 <MudTabs 
     Elevation="4" 
     Rounded="true" 
@@ -14,7 +24,7 @@
     <MudTabPanel Text="Instructions">
         <h3>@_unloadable?.Context?.Challenge?.Header</h3>
         <br/>
-        @((MarkupString)(_unloadable?.Context?.Challenge?.Description.DescriptionCleanup() ?? ""))
+        @((MarkupString)(_unloadable?.Context?.Challenge?.Description?.DescriptionCleanup() ?? ""))
         <br/>
         @if (_unloadable?.Context?.Challenge?.Tags != null)
         {
@@ -34,7 +44,8 @@
         }
     </MudTabPanel>
     <MudTabPanel Text="Code">
-        <div id="editor" style="width:fit-content(800px);height:600px;border:1px solid grey"></div>
+        @*<div id="editor" style="width:fit-content(800px);height:600px;border:1px solid grey"></div>*@
+        <MonacoEditor @ref="_editor" ConstructionOptions="EditorConstructionOptions" />
     </MudTabPanel>
     <MudTabPanel Text="Tests">
          

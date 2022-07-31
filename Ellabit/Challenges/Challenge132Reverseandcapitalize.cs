@@ -6,7 +6,7 @@
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge {
 	public  string ReverseCapitalize(string str) 
@@ -15,11 +15,11 @@ public class Challenge {
 	}
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -63,7 +63,7 @@ public class TestChallenge
         return (sumResult == ""TUPNI"",   $""returned: {sumResult}  expected: TUPNI"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create a function that takes a string of lowercase characters and returns that string reversed and in upper case.
 
         <h5>Examples</h5>

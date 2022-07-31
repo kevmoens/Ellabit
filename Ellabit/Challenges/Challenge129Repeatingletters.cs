@@ -6,7 +6,7 @@
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge 
 {
@@ -17,11 +17,11 @@ public class Challenge
 }
 
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -65,7 +65,7 @@ public class TestChallenge
         return (sumResult == ""11223344!!__  "",   $""returned: {sumResult}  expected: '11223344!!__  '"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create a function that takes a string and returns a string in which each character is repeated once.
 
         <h5>Examples</h5>

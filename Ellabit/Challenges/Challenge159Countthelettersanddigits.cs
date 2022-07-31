@@ -5,7 +5,7 @@ namespace Ellabit.Challenges
         public string? Header { get; set; } = "Count the letters and digits";
         public string? Code { get; set; } = @"
 using System;
-namespace Ellabit;
+namespace Ellabit {
 
 using System.Linq;
 using System;
@@ -16,11 +16,11 @@ public class Challenge
     {	 	
 		
     }
-}";
+}}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -64,7 +64,7 @@ public class TestChallenge
         return (sumResult == ""LETTERS = 0, DIGITS = 5"",   $""returned: {sumResult}  expected: LETTERS = 0, DIGITS = 5"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Write content  a  function  that  takes  a  string  and  calculates  the  number  of  letters  and  digits  within  it.  return  the  result  as  anonymous  type  in  string  format.
 
         <h5>Examples</h5>

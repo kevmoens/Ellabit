@@ -6,7 +6,7 @@
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 using System.Reflection;
 
@@ -18,11 +18,11 @@ public class Challenge
 	}
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -66,7 +66,7 @@ public class TestChallenge
         return (sumResult == true,   $""returned: {sumResult}  expected: true"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"In this challenge, you must verify the equality of two different values given the parameters a and b.
 
 Both the value and type of the parameters need to be equal. The possible types of the given parameters are:

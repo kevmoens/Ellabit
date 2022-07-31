@@ -6,7 +6,7 @@
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 using System;
 using System.Linq;
@@ -17,11 +17,11 @@ public class Challenge {
 	}
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -65,7 +65,7 @@ public class TestChallenge
         return (sumResult == 166.6d,   $""returned: {sumResult}  expected: 166.6"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"If two or more resistors are connected in parallel, the overall resistance of the circuit reduces. it is possible to calculate the total resistance of a parallel circuit by using this formula:
 
 1/r total = 1/r1 + 1/r2 + 1/r3 + ... + 1/rn. ..

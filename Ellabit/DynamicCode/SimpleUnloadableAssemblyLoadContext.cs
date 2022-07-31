@@ -41,12 +41,12 @@ namespace Ellabit.DynamicCode
                 if (twriter == null)
                 {
                     throw new InvalidCastException("Ellabit.TestChallenge");
-                }
+            }
                 MethodInfo? method = twriter.GetMethod(test);
                 if (method == null)
-                {
+            {
                     throw new InvalidCastException(test ?? "Empty Method");
-                }
+            }
                 var writer = Activator.CreateInstance(twriter);
 
                 var output = method?.Invoke(writer, new object[] { });
@@ -62,17 +62,17 @@ namespace Ellabit.DynamicCode
                 return ((bool pass, string message))output;
             }
             catch (Exception ex)
-            {
-                if (ex is IOException)
                 {
+                if (ex is IOException)
+                    {
                     throw new IOException(ex.Message);
                 } else
-                {
+                        {
                     throw new Exception(ex.Message);
-                }
-            }
+                        }
+                    }
         }
-        private async Task<Assembly?> GetAssembly()
+        internal async Task<Assembly?> GetAssembly()
         {
             Assembly? assembly = null;
             try
@@ -93,7 +93,7 @@ namespace Ellabit.DynamicCode
             SyntaxTree codeTestTree = CSharpSyntaxTree.ParseText(Challenge.TestCode ?? "");
 
             string assemblyName = Path.GetFileName("EllabitChallenge");
-
+            
             Assembly[] referenceAssemblyRoots = new[]
             {
                 typeof(AssemblyTargetedPatchBandAttribute).Assembly, // System.Private.CoreLib
@@ -107,7 +107,7 @@ namespace Ellabit.DynamicCode
                 typeof(WebAssemblyHostBuilder).Assembly, // Microsoft.AspNetCore.Components.WebAssembly
                 typeof(System.Drawing.Color).Assembly,
             };
-
+           
             List<string> referenceAssemblyNames = referenceAssemblyRoots
                 .SelectMany(a => a.GetReferencedAssemblies().Concat(new[] { a.GetName() }))
                 .Select(an => an.Name ?? "")
@@ -116,7 +116,6 @@ namespace Ellabit.DynamicCode
             {
                 return null;
             }
-
             var referenceAssembliesStreams = await this.GetReferenceAssembliesStreamsAsync(referenceAssemblyNames);
 
             var references = referenceAssembliesStreams
@@ -186,7 +185,7 @@ namespace Ellabit.DynamicCode
                         {
                             result = await client.GetAsync($"/Ellabit/_framework/{assemblyName}.dll");
 
-                            result.EnsureSuccessStatusCode();
+                    result.EnsureSuccessStatusCode();
                         }
                         catch (Exception ex)
                         {
@@ -199,6 +198,7 @@ namespace Ellabit.DynamicCode
 
             return streams;
         }
+
     }
 
 }

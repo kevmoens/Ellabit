@@ -6,7 +6,7 @@
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge 
 {
@@ -16,11 +16,11 @@ public class Challenge
     }
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -64,7 +64,7 @@ public class TestChallenge
         return (sumResult == ""20191501"",   $""returned: {sumResult}  expected: 20191501"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create a function that converts a date formatted as MM/DD/YYYY to YYYYDDMM.
 
         <h5>Examples</h5>

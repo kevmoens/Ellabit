@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge
 {
@@ -15,11 +15,11 @@ public class Challenge
 	}
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -76,7 +76,7 @@ public class TestChallenge
         return (sumResult ==  false,   $""returned: {sumResult}  expected:  false"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create a function that takes an array of hurdle heights and a jumper's jump height, and determine whether or not the hurdler can clear all the hurdles.
 
 a hurdler can clear a hurdle if their jump height is greater than or equal to the hurdle height.

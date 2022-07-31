@@ -6,7 +6,7 @@
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge {
 	public  int CountDs(string str)
@@ -15,11 +15,11 @@ public class Challenge {
 	}
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -63,7 +63,7 @@ public class TestChallenge
         return (sumResult == 3,   $""returned: {sumResult}  expected: 3"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create a function that counts how many D's are in a sentence.
 
 

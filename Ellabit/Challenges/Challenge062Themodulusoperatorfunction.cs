@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge 
 {
@@ -16,11 +16,11 @@ public class Challenge
     }
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -64,7 +64,7 @@ public class TestChallenge
         return (sumResult ==  0,   $""returned: {sumResult}  expected:  0"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create a function that will work as the modulus operator % without using the modulus operator. the modulus operator is a way to determine the remainder of a division operation. instead of returning the result of the division, the modulo operation returns the whole number remainder.
 
         <h5>Examples</h5>

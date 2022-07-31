@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge
 {
@@ -16,11 +16,11 @@ public class Challenge
 	}
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -64,7 +64,7 @@ public class TestChallenge
         return (sumResult ==  ""e l o n g a t e d   m u s k"" ,   $""returned: {sumResult}  expected: e l o n g a t e d   m u s k"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create content  a  function  that  takes  a  string  and  returns  a  string  with  spaces  in  between  all  of  the  characters.
 
         <h5>Examples</h5>

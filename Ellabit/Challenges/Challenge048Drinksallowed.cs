@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge
 {
@@ -16,11 +16,11 @@ public class Challenge
 	}
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -64,7 +64,7 @@ public class TestChallenge
         return (sumResult == false,   $""returned: {sumResult}  expected: false"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"A bartender is writing a simple program to determine whether he should serve drinks to someone. he only serves drinks to people 18 and older and when he's not on break.
 
 given the person's age, and whether break time is in session, create a function which returns whether he should serve drinks.

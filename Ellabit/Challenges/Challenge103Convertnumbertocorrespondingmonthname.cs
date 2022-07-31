@@ -6,7 +6,7 @@
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge 
 {
@@ -16,11 +16,11 @@ public class Challenge
     }
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -64,7 +64,7 @@ public class TestChallenge
         return (sumResult == ""June"",   $""returned: {sumResult}  expected: June"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"<p>Create a function that takes a number (from 1 to 12) and returns its corresponding month name as a string. For example, if you're given 3 as input, your function should return ""March"", because March is the 3rd month.
 <table><tr><th>Number  </th> <th>Month Name</th></tr><tr><td>1</td><td>January</td></tr><tr><td>2</td><td>February</td></tr><tr><td>3</td><td>March</td></tr><tr><td>4</td><td>April</td></tr><tr><td>5</td><td>May</td></tr><tr><td>6</td><td>June</td></tr><tr><td>7</td><td>July</td></tr><tr><td>8</td><td>August</td></tr><tr><td>9</td><td>September</td></tr><tr><td>10</td><td>October</td></tr><tr><td>11</td><td>November</td></tr><tr><td>12</td><td>December</td></tr></table>
 </p>

@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge {
 	public  bool LastDig(int a, int b, int c) {
@@ -14,11 +14,11 @@ public class Challenge {
 	}
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -62,7 +62,7 @@ public class TestChallenge
         return (sumResult == false,   $""returned: {sumResult}  expected: false"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Your content  job  is  to  create  a  function  that  takes  3  numbers:  a,  b,  c  and  returns  true  if  the  last  digit  of  a  * the b  last  digit  of  c.  check  the  examples  below  for  an  explanation.
 
         <h5>Examples</h5>

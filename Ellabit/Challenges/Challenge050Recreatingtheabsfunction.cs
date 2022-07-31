@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge {
 	public  int absolute(int num) 
@@ -15,11 +15,11 @@ public class Challenge {
 	}
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -50,7 +50,7 @@ public class TestChallenge
         return (sumResult ==  250,   $""returned: {sumResult}  expected:  250"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"The math.abs() function returns the absolute value of a number. this means that it returns a number's positive value. you can think of it as the distance away from zero.
 
 create a function that recreates this functionality.

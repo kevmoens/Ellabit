@@ -8,7 +8,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge 
 {
@@ -19,11 +19,11 @@ public class Challenge
 }
 
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -80,7 +80,7 @@ public class TestChallenge
         return (sumResult ==  10.6770782520313,   $""returned: {sumResult}  expected: 0"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"You content  will  be  implementing  a  basic  case  of  the  map-reduce  pattern  in  programming.  given  a  vector  stored  as  an  array  of  numbers,  find  the  magnitude  of  the  vector.  use  the  standard  distance  formula  for  n-dimensional  cartesian  coordinates.
 
 

@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge 
 {
@@ -17,11 +17,11 @@ public class Challenge
 }
 
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 using System.Linq;
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -65,7 +65,7 @@ public class TestChallenge
         return (sumResult.SequenceEqual(new double [] {3,  6,  4,  412,  415,  418}),   $""returned: [{string.Join("", "", sumResult)}]  expected: [3,  6,  4,  412,  415,  418]"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create content  a  function  that  takes  an  array  of  numbers  and  returns  an  array  where  each  number  is  the  sum  of  itself  +  all  previous  numbers  in  the  array.
 
 

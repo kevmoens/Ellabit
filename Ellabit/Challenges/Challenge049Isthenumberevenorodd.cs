@@ -6,7 +6,7 @@
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge
 {
@@ -16,11 +16,11 @@ public class Challenge
 	}
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -64,7 +64,7 @@ public class TestChallenge
         return (sumResult == ""odd"",   $""returned: {sumResult}  expected: odd"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create a function that takes a number as an argument and returns ""even"" for even numbers and ""odd"" for odd numbers.
 
         <h5>Examples</h5>

@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge
 {
@@ -16,11 +16,11 @@ public class Challenge
 	}
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -64,7 +64,7 @@ public class TestChallenge
         return (sumResult ==  0,   $""returned: {sumResult}  expected:  0"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create a function that takes the number of wins, draws and losses and calculates the number of points a football team has obtained so far.
 
 wins get 3 points

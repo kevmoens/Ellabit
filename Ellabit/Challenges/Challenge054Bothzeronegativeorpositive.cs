@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge
 {
@@ -16,11 +16,11 @@ public class Challenge
 	}
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -77,7 +77,7 @@ public class TestChallenge
         return (sumResult ==  false,   $""returned: {sumResult}  expected:  false"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Write a function that returns true if both numbers are:
 
 smaller than 0, or ...

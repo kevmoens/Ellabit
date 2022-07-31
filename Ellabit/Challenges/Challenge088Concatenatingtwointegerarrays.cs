@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge 
 {
@@ -16,11 +16,11 @@ public class Challenge
 	}
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 using System.Linq;
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -64,7 +64,7 @@ public class TestChallenge
         return (sumResult.SequenceEqual(new int[] {4, 5, 1, 3, 3, 3, 3, 3}),   $""returned: {sumResult}  expected:  [4, 5, 1, 3, 3, 3, 3, 3]"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create a function to concatenate two integer arrays.
 
         <h5>Examples</h5>

@@ -6,7 +6,7 @@
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge
     {
@@ -16,11 +16,11 @@ public class Challenge
         }
     }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -64,7 +64,7 @@ public class TestChallenge
         return (sumResult == ""Butts Seymour"",   $""returned: {sumResult}  expected: Butts Seymour"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create a function that accepts a string (of a person's first and last name) and returns a string with the first and last name swapped.
 
         <h5>Examples</h5>

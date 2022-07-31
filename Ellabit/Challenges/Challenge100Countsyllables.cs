@@ -6,7 +6,7 @@
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge
 {
@@ -16,11 +16,11 @@ public class Challenge
     }
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -77,7 +77,7 @@ public class TestChallenge
         return (sumResult == 6,   $""returned: {sumResult}  expected: 6"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create a function that counts the number of syllables a word has. Each syllable is separated with a dash -.
 
         <h5>Examples</h5>

@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge 
 {
@@ -16,11 +16,11 @@ public class Challenge
     }
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -77,7 +77,7 @@ public class TestChallenge
         return (sumResult ==  1,   $""returned: {sumResult}  expected:  1"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Take an array of integers (positive or negative or both) and return the sum of the absolute value of each element.
 
         <h5>Examples</h5>

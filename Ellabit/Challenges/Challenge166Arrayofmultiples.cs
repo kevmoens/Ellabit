@@ -6,21 +6,21 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 
-public class Challenge {
-	public  int[] ArrayOfMultiples(int num, int length) {
-		
+	public class Challenge {
+		public  int[] ArrayOfMultiples(int num, int length) {
+			
+		}
 	}
-}
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 using System.Linq;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -64,7 +64,7 @@ public class TestChallenge
         return (sumResult.SequenceEqual(new int[] {17,34,51,68,85,102}),   $""returned: [{string.Join("", "", sumResult)}]  expected: <rep.test.result3Val>"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create content  a  function  that  takes  two  numbers  as  arguments  (num,  length)  and  returns  an  array  of  multiples  of  num  until  the  array  length  reaches  length.
 
 

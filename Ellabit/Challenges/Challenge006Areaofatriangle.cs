@@ -6,22 +6,25 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
 
-public class Challenge
+namespace Ellabit
 {
-	public  int triArea(int b, int h)
-	{
-		
-	}
-}
 
+    public class Challenge
+    {
+	    public  int triArea(int b, int h)
+	    {
+		
+	    }
+    }
+}
 ";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
 
+namespace Ellabit
+{
 public class TestChallenge
 {
     public (bool pass, string message) Test1()
@@ -63,6 +66,7 @@ public class TestChallenge
         }
         return (sumResult ==  50,   $""returned: {sumResult}  expected:  50"");
     }
+}
 }
 ";
         public string? Description { get; set; } = @"Write a function that takes the base and height of a triangle and return its area.

@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 using System;
 using System.Linq;
@@ -18,12 +18,12 @@ public class Challenge
     }
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 using System.Linq;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -93,7 +93,7 @@ public class TestChallenge
         return (sumResult.SequenceEqual(new int[] {1}),   $""returned: [{string.Join("", "", sumResult)}]  expected: [1]"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create content  a  function  that  takes  a  single  string  as  argument  and  returns  an  ordered  array  containing  the  indices  of  all  capital  letters  in  the  string.
 
 

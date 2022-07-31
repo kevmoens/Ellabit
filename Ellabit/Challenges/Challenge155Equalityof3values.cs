@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge
 {
@@ -16,11 +16,11 @@ public class Challenge
     }
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -64,7 +64,7 @@ public class TestChallenge
         return (sumResult ==   0,   $""returned: {sumResult}  expected: 0"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create content  a  function  that  takes  three  integer  arguments  (a,  b,  c)  and  returns  the  amount  of  integers  which  are  of  equal  value.
 
         <h5>Examples</h5>

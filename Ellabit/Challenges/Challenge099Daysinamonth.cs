@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge
 {
@@ -16,11 +16,11 @@ public class Challenge
     }
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -77,7 +77,7 @@ public class TestChallenge
         return (sumResult ==  29 || sumResult == 28,   $""returned: {sumResult}  expected:  29"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create a function that takes the month and year (as integers) and returns the number of days in that month.
 
         <h5>Examples</h5>

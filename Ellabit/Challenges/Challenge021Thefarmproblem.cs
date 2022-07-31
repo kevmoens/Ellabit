@@ -6,7 +6,7 @@
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge
 {
@@ -16,11 +16,11 @@ public class Challenge
 	}
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -64,7 +64,7 @@ public class TestChallenge
         return (sumResult == 50,   $""returned: {sumResult}  expected: 50"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"In this challenge, a farmer is asking you to tell him how many legs can be counted among all his animals. the farmer breeds three 2 4 4 legs
 
 the farmer has counted his animals and he gives you a subtotal for each species. you have to implement a function that returns the total number of legs of all the animals.

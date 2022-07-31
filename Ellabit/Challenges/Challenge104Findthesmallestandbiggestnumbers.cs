@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 using System;
 using System.Linq;
@@ -18,11 +18,11 @@ public class Challenge
     }
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -66,7 +66,7 @@ public class TestChallenge
         return (sumResult.SequenceEqual(new double[] {1, 1}),   $""returned: {sumResult}  expected:  [1, 1]"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create a function that takes an array of numbers and return both the minimum and maximum numbers, in that order.
 
         <h5>Examples</h5>

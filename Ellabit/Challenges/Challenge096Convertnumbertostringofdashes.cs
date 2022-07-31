@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 using System;
 
@@ -18,11 +18,11 @@ public class Challenge
     }
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -66,7 +66,7 @@ public class TestChallenge
         return (sumResult == ""---"",   $""returned: {sumResult}  expected: ---"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create a function that takes a number (from 1 - 60) and returns a corresponding string of hyphens.
 
         <h5>Examples</h5>

@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge
 {
@@ -16,11 +16,11 @@ public class Challenge
 	}
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -77,7 +77,7 @@ public class TestChallenge
         return (sumResult == ""Ellaaaaaaaaaaaabit"",   $""returned: {sumResult}  expected: Ellaaaaaaaaaaaabit"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Write a function that takes an integer and returns a string with the given number of 'a's in Ellabit.
 
         <h5>Examples</h5>

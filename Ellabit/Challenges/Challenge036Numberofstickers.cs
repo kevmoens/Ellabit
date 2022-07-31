@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 using System;
 public class Challenge
@@ -17,11 +17,11 @@ public class Challenge
 	}
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -65,7 +65,7 @@ public class TestChallenge
         return (sumResult == 54,   $""returned: {sumResult}  expected: 54"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Given a Rubik's Cube with a side length of n, return the number of individual stickers that are needed to cover the whole cube.
 
 Pictures of Rubik's Cubes

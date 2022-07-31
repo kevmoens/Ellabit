@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge {
   public  int NextEdge(int side1, int side2) 
@@ -15,11 +15,11 @@ public class Challenge {
   }
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -63,7 +63,7 @@ public class TestChallenge
         return (sumResult ==  10,   $""returned: {sumResult}  expected:  10"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create a function that finds the maximum range of a triangle's third edge, where the side lengths are all integers.
 
         <h5>Examples</h5>

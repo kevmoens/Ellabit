@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge 
 {
@@ -16,11 +16,11 @@ public class Challenge
     }
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -64,7 +64,7 @@ public class TestChallenge
         return (sumResult ==  -9,   $""returned: {sumResult}  expected:  -9"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"There is a single operator in c#, capable of providing the remainder of a division operation. two numbers are passed as parameters. the first parameter divided by the second parameter will have a remainder, possibly zero. return that value.
 
 

@@ -6,7 +6,7 @@
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge 
 {
@@ -16,11 +16,11 @@ public class Challenge
 	}
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -64,7 +64,7 @@ public class TestChallenge
         return (sumResult == ""Burrrrrrrrrp"",   $""returned: {sumResult}  expected: Burrrrrrrrrp"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create a function that returns the string ""Burp"" with the amount of ""r's"" determined by the input parameters of the function.
 
         <h5>Examples</h5>

@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge
 {
@@ -16,13 +16,13 @@ public class Challenge
 	}
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -92,7 +92,7 @@ public class TestChallenge
         return (sumResult ==   false,   $""returned: {sumResult}  expected: false"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create content  a  function  that  takes  an  array  as  an  argument  and  returns  true  or  false  depending  on  whether  the  average  of  all  elements  in  the  array  is  a  whole  number  or  not.
 
         <h5>Examples</h5>

@@ -7,7 +7,7 @@
 using System;
 using System.Linq;
 
-namespace Ellabit;
+namespace Ellabit {
 
 using System.Linq;
 public class Challenge {
@@ -16,11 +16,11 @@ public class Challenge {
 	}
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -64,7 +64,7 @@ public class TestChallenge
         return (sumResult == ""1.0 ohms"",   $""returned: {sumResult}  expected: 1.0 ohms"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"When resistors are connected together in series, the same current passes through each resistor in the chain and the total resistance, rt, of the circuit must be equal to the sum of all the individual resistors added together. that R1 + r2 + r3 ...
 
 Create a function that takes an array of values resistance that are connected in series, and calculates the total resistance of the circuit in ohms. The ohm is the standard unit of electrical resistance in the International System of Units ( SI ).

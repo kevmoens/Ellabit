@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge
 {
@@ -18,11 +18,11 @@ public class Challenge
 
 	
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -66,7 +66,7 @@ public class TestChallenge
         return (sumResult ==  false,   $""returned: {sumResult}  expected:  false"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create a function that returns true when num1 is equal to num2; otherwise return false.
 
         <h5>Examples</h5>

@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge {
     public  int Convert(int hours, int minutes) 
@@ -15,11 +15,11 @@ public class Challenge {
 	}
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -63,7 +63,7 @@ public class TestChallenge
         return (sumResult ==  0,   $""returned: {sumResult}  expected:  0"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Write a function that takes two integers (hours, minutes), converts them to seconds, and adds them.
 
         <h5>Examples</h5>

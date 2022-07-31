@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge
 {
@@ -16,11 +16,11 @@ public class Challenge
 	}
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -64,7 +64,7 @@ public class TestChallenge
         return (sumResult ==  248,   $""returned: {sumResult}  expected:  248"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"For each of the 6 coffee cups i buy, i get a 7th cup free. in total, i get 7 cups. create a function that takes n cups bought and return the total number of cups i would get.
 
         <h5>Examples</h5>

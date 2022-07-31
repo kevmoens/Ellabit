@@ -8,7 +8,7 @@ namespace Ellabit.Challenges
 using System;
 using System.Collections.Generic;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge
 {
@@ -25,13 +25,13 @@ public class Challenge
   }
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -75,7 +75,7 @@ public class TestChallenge
         return (sumResult.SequenceEqual(new int[] {1,2,3,4,5,6}.ToList()),   $""returned: [{string.Join("", "", sumResult)}]  expected: 1,2,3,4,5,6"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Mubashir created an infinite loop! help him by fixing the code in the code tab to pass this challenge. look at the examples below to get an idea of what the function should do.
 
         <h5>Examples</h5>

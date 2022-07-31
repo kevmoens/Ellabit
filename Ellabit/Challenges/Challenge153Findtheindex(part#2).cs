@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class Challenge
 {
@@ -16,11 +16,11 @@ public class Challenge
 	}
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -64,7 +64,7 @@ public class TestChallenge
         return (sumResult ==   -1,   $""returned: {sumResult}  expected: -1"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Create content  a  function  that  searches  for  the  index  of  a  given  item  in  an  array  using  recursion.  if  the  item  is  present,  it  should  return  the  index,  otherwise,  it  should  return  -1.
 
         <h5>Examples</h5>

@@ -6,7 +6,7 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 using System;
 public class Challenge
@@ -17,11 +17,11 @@ public class Challenge
 	}
 }
 
-";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit {
 
 public class TestChallenge
 {
@@ -65,7 +65,7 @@ public class TestChallenge
         return (sumResult == 0,   $""returned: {sumResult}  expected: 0"");
     }
 }
-";
+}";
         public string? Description { get; set; } = @"Here's an image of four models. some of the cubes are hidden behind other cubes. model one consists of one cube. model two consists of four cubes, and so on...
 
 stack the boxes
