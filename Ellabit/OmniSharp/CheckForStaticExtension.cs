@@ -36,7 +36,15 @@ namespace Ellabit.Omnisharp
 
                 case SyntaxKind.PropertyDeclaration:
                     return GetModifiers(memberDeclaration).Any(SyntaxKind.StaticKeyword) ||
-                        node.IsFoundUnder((PropertyDeclarationSyntax p) => p.Initializer);
+                        node.IsFoundUnder((PropertyDeclarationSyntax p) => 
+                        { 
+                            if (p.Initializer == null)
+                            {
+                                throw new ArgumentNullException("Initializer");
+                            }
+                            return p.Initializer; 
+                        }
+                    );
 
                 case SyntaxKind.FieldDeclaration:
                 case SyntaxKind.EventFieldDeclaration:
@@ -117,7 +125,7 @@ namespace Ellabit.Omnisharp
             return node.GetAncestorsOrThis<SyntaxNode>().Contains(child);
         }
 
-        public static TNode GetAncestor<TNode>(this SyntaxNode node)
+        public static TNode? GetAncestor<TNode>(this SyntaxNode node)
            where TNode : SyntaxNode
         {
             var current = node.Parent;
@@ -134,12 +142,12 @@ namespace Ellabit.Omnisharp
             return null;
         }
 
-        private static SyntaxNode GetParent(this SyntaxNode node)
+        private static SyntaxNode? GetParent(this SyntaxNode node)
         {
             return node is IStructuredTriviaSyntax trivia ? trivia.ParentTrivia.Token.Parent : node.Parent;
         }
 
-        public static TNode FirstAncestorOrSelfUntil<TNode>(this SyntaxNode node, Func<SyntaxNode, bool> predicate)
+        public static TNode? FirstAncestorOrSelfUntil<TNode>(this SyntaxNode node, Func<SyntaxNode, bool> predicate)
             where TNode : SyntaxNode
         {
             for (var current = node; current != null; current = current.GetParent())
@@ -158,7 +166,7 @@ namespace Ellabit.Omnisharp
             return default;
         }
 
-        public static TNode GetAncestorOrThis<TNode>(this SyntaxNode node)
+        public static TNode? GetAncestorOrThis<TNode>(this SyntaxNode node)
                 where TNode : SyntaxNode
         {
             return node?.GetAncestorsOrThis<TNode>().FirstOrDefault();

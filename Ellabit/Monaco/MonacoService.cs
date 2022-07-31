@@ -150,7 +150,7 @@ namespace {nameof(Ellabit)}.{nameof(Monaco)}
         }
 
         [JSInvokable]
-        public async Task<SignatureHelpResponse> GetSignatureHelpAsync(string code, SignatureHelpRequest signatureHelpRequest)
+        public async Task<SignatureHelpResponse?> GetSignatureHelpAsync(string code, SignatureHelpRequest signatureHelpRequest)
         {
             Solution updatedSolution;
 

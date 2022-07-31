@@ -52,7 +52,7 @@ namespace Ellabit.Omnisharp
             _workspace = workspace;
         }
 
-        public async Task<SignatureHelpResponse> Handle(SignatureHelpRequest request, Document document2)
+        public async Task<SignatureHelpResponse?> Handle(SignatureHelpRequest request, Document document2)
         {
             var invocations = new List<InvocationContext>();
             foreach (var document in new [] { document2 })
@@ -84,13 +84,13 @@ namespace Ellabit.Omnisharp
             // process all signatures, define active signature by types
             var signaturesSet = new HashSet<SignatureHelpItem>();
             var bestScore = int.MinValue;
-            SignatureHelpItem bestScoredItem = null;
+            SignatureHelpItem? bestScoredItem = null;
 
             foreach (var invocation in invocations)
             {
                 var types = invocation.ArgumentTypes;
-                ISymbol throughSymbol = null;
-                ISymbol throughType = null;
+                ISymbol? throughSymbol = null;
+                ISymbol? throughType = null;
                 var methodGroup = invocation.SemanticModel.GetMemberGroup(invocation.Receiver).OfType<IMethodSymbol>();
                 if (invocation.Receiver is MemberAccessExpressionSyntax)
                 {
@@ -124,16 +124,22 @@ namespace Ellabit.Omnisharp
 
             var signaturesList = signaturesSet.ToList();
             response.Signatures = signaturesList;
-            response.ActiveSignature = signaturesList.IndexOf(bestScoredItem);
-
+            if (bestScoredItem != null)
+            {
+                response.ActiveSignature = signaturesList.IndexOf(bestScoredItem);
+            }
             return response;
         }
 
-        private async Task<InvocationContext> GetInvocation(Document document, Request request)
+        private async Task<InvocationContext?> GetInvocation(Document document, Request request)
         {
             var sourceText = await document.GetTextAsync();
             var position = sourceText.GetTextPosition(request);
             var tree = await document.GetSyntaxTreeAsync();
+            if (tree == null)
+            {
+                return null;
+            }
             var root = await tree.GetRootAsync();
             var node = root.FindToken(position).Parent;
 
@@ -143,18 +149,30 @@ namespace Ellabit.Omnisharp
                 if (node is InvocationExpressionSyntax invocation && invocation.ArgumentList.Span.Contains(position))
                 {
                     var semanticModel = await document.GetSemanticModelAsync();
+                    if (semanticModel == null)
+                    {
+                        throw new ArgumentNullException("semanticModel 1");
+                    }
                     return new InvocationContext(semanticModel, position, invocation.Expression, invocation.ArgumentList, invocation.IsInStaticContext());
                 }
 
                 if (node is BaseObjectCreationExpressionSyntax objectCreation && (objectCreation.ArgumentList?.Span.Contains(position) ?? false))
                 {
                     var semanticModel = await document.GetSemanticModelAsync();
+                    if (semanticModel == null)
+                    {
+                        throw new ArgumentNullException("semanticModel 2");
+                    }
                     return new InvocationContext(semanticModel, position, objectCreation, objectCreation.ArgumentList, objectCreation.IsInStaticContext());
                 }
 
                 if (node is AttributeSyntax attributeSyntax && (attributeSyntax.ArgumentList?.Span.Contains(position) ?? false))
                 {
                     var semanticModel = await document.GetSemanticModelAsync();
+                    if (semanticModel == null)
+                    {
+                        throw new ArgumentNullException("semanticModel 3");
+                    }
                     return new InvocationContext(semanticModel, position, attributeSyntax, attributeSyntax.ArgumentList, attributeSyntax.IsInStaticContext());
                 }
 

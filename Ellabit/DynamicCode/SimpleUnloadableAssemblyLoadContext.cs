@@ -62,7 +62,7 @@ namespace Ellabit.DynamicCode
             //    MetadataReference.CreateFromFile(typeof(object).Assembly.Location),
             //    MetadataReference.CreateFromFile(typeof(Enumerable).Assembly.Location)
             //};
-            var referenceAssemblyRoots = new[]
+            Assembly[] referenceAssemblyRoots = new[]
             {
                 typeof(AssemblyTargetedPatchBandAttribute).Assembly, // System.Private.CoreLib
                 typeof(Uri).Assembly, // System.Private.Uri
@@ -74,13 +74,16 @@ namespace Ellabit.DynamicCode
                 typeof(NavLink).Assembly, // Microsoft.AspNetCore.Components.Web
                 typeof(WebAssemblyHostBuilder).Assembly, // Microsoft.AspNetCore.Components.WebAssembly
             };
-
-            var referenceAssemblyNames = referenceAssemblyRoots
+           
+            HashSet<string?> referenceAssemblyNames = referenceAssemblyRoots
                 .SelectMany(a => a.GetReferencedAssemblies().Concat(new[] { a.GetName() }))
                 .Select(an => an.Name)
                 .ToHashSet();
 
-
+            if (referenceAssemblyNames == null)
+            {
+                return null;
+            }
             var referenceAssembliesStreams = await this.GetReferenceAssembliesStreamsAsync(referenceAssemblyNames);
 
             var references = referenceAssembliesStreams
@@ -121,9 +124,13 @@ namespace Ellabit.DynamicCode
         }
 
 
-        private async Task<IEnumerable<Stream>> GetReferenceAssembliesStreamsAsync(IEnumerable<string> referenceAssemblyNames)
+        private async Task<IEnumerable<Stream>> GetReferenceAssembliesStreamsAsync(IEnumerable<string?> referenceAssemblyNames)
         {
             var streams = new ConcurrentBag<Stream>();
+            if (referenceAssemblyNames == null)
+            {
+                return streams;
+            }
 
             await Task.WhenAll(
                 referenceAssemblyNames.Select(async assemblyName =>
