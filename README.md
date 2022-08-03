@@ -24,6 +24,15 @@ Try this
 </ul>
 <br/>
 
+
+# Roadmap for 2.0
+<ul>
+  <li>Syntax Coloring</li>
+  <li>Better Intellisense</li>
+  <li>Add Tags to challenges</li>
+  <li>More challenges</li>
+</ul>
+
 # Contribute
 ## How to contribute
 
