@@ -8,13 +8,13 @@ using System;
 
 namespace Ellabit {
 
-public class Challenge 
-{
-    public  int Points(int twoPointers, int threePointers) 
+    public class Challenge 
     {
+        public  int Points(int twoPointers, int threePointers) 
+        {
 			
+        }
     }
-}
 
 }";
         public string? TestCode { get; set; } = @"
@@ -30,7 +30,7 @@ public class TestChallenge
         int sumResult = 0;
         try 
         {
-            sumResult = tmp.points(1, 1) ;
+            sumResult = tmp.Points(1, 1) ;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
@@ -43,7 +43,7 @@ public class TestChallenge
         int sumResult = 0;
         try 
         {
-            sumResult = tmp.points(7, 5) ;
+            sumResult = tmp.Points(7, 5) ;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
@@ -56,7 +56,7 @@ public class TestChallenge
         int sumResult = 0;
         try 
         {
-            sumResult = tmp.points(38, 8) ;
+            sumResult = tmp.Points(38, 8) ;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + ""\n"" + ex.Message);
@@ -71,11 +71,11 @@ public class TestChallenge
         <h5>Examples</h5>
         <code>
             <p style = ""border:1px solid grey; padding: 10px;"" >
-points(1, 1) ➞ 5
+Points(1, 1) ➞ 5
 
-points(7, 5) ➞ 29
+Points(7, 5) ➞ 29
 
-points(38, 8) ➞ 100
+Points(38, 8) ➞ 100
             </p>
         </code>
 ";

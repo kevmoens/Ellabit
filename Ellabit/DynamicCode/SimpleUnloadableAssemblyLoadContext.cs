@@ -49,7 +49,16 @@ namespace Ellabit.DynamicCode
             }
                 var writer = Activator.CreateInstance(twriter);
 
-                var output = method?.Invoke(writer, new object[] { });
+                var result = ExecuteWithTimeLimit(
+                    new TimeSpan(0,0,15)
+                    , new Func<object?>(() => method?.Invoke(writer, new object[] { }) )
+                );
+                if (!result.IsCompleted)
+                {
+                    throw new StackOverflowException();
+                }
+                var output = result.Output;
+                //var output = method?.Invoke(writer, new object[] { });
                 writer = null;
                 if (output == null)
                 {
@@ -71,6 +80,26 @@ namespace Ellabit.DynamicCode
                     throw new Exception(ex.Message);
                         }
                     }
+        }
+        public static (bool IsCompleted, object? Output) ExecuteWithTimeLimit(TimeSpan timeSpan, Func<object?> codeBlock)
+        {
+            var tokenSource2 = new CancellationTokenSource();
+            CancellationToken ct = tokenSource2.Token;
+            try
+            {
+                object? output = null;
+                Task task = Task.Factory.StartNew(() => output = codeBlock(), tokenSource2.Token);
+                task.Wait(timeSpan);
+                if (!task.IsCompleted)
+                {
+                    tokenSource2.Cancel();
+                }
+                return (task.IsCompleted, output);
+            }
+            catch (AggregateException ae)
+            {
+                throw ae.InnerExceptions[0];
+            }
         }
         internal async Task<Assembly?> GetAssembly()
         {
