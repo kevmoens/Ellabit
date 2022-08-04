@@ -32,6 +32,7 @@ namespace Ellabit.Pages
         private MonacoService? monacoService { get; set; }
 
         bool loaded = false;
+        bool _isDarkMode = false;
         int prevTabIndex = -1;
         string? code;
         string testResults = "";
@@ -51,6 +52,11 @@ namespace Ellabit.Pages
                 _objRef = DotNetObjectReference.Create(this.monacoService);
                 await JS.InvokeAsync<string>("registerProviders", _objRef);
                 _hasRegistered = true;
+
+
+                IJSObjectReference? module = await JS.InvokeAsync<IJSObjectReference>("import", "./scripts/theme.js");
+                var isDarkMode = await module.InvokeAsync<bool>("isDarkTheme", new object[] { });
+                _isDarkMode = isDarkMode;
             }
         }
 
@@ -114,55 +120,11 @@ namespace Ellabit.Pages
             }
             StateHasChanged();
             await Task.Delay(1);
-            //await BlazacoJSInterop.InitializeEditor(JS, "editor");
-            //if (_unloadable?.Context?.Challenge?.Code != null)
-            //{
-            //    await BlazacoJSInterop.SetValue(JS, "editor", code ?? "");
-            //}
-            //IJSObjectReference? module = await JS.InvokeAsync<IJSObjectReference>("import", "./scripts/theme.js");
-            //if (await module.InvokeAsync<bool>("isDarkTheme", new object[] { }))
-            //{
-            //    await BlazacoJSInterop.SetTheme(JS, "editor", "vs-dark");
-            //}
+
+
             loaded = true;
             await Task.Delay(1);
         }
-
-        //public async Task TabChanged_ClearEditor()
-        //{
-        //    if (JS == null)
-        //    {
-        //        return;
-        //    }
-        //    if (loaded && _unloadable?.Context?.Challenge != null && prevTabIndex == 1)
-        //    {
-        //        code = await BlazacoJSInterop.GetValue(JS, "editor");
-        //        _unloadable.Context.Challenge.Code = code;
-        //    }
-        //    await BlazacoJSInterop.ClearEditors(JS);
-        //}
-        //public async Task TabChanged_LoadEditor()
-        //{
-        //    if (JS == null)
-        //    {
-        //        return;
-        //    }
-        //    StateHasChanged();
-        //    await Task.Delay(1);
-        //    await BlazacoJSInterop.InitializeEditor(JS, "editor");
-        //    if (_unloadable?.Context?.Challenge?.Code != null)
-        //    {
-        //        await BlazacoJSInterop.SetValue(JS, "editor", code ?? "");
-        //    }
-        //    IJSObjectReference? module = await JS.InvokeAsync<IJSObjectReference>("import", "./scripts/theme.js");
-        //    if (await module.InvokeAsync<bool>("isDarkTheme", new object[] { }))
-        //    {
-        //        await BlazacoJSInterop.SetTheme(JS, "editor", "vs-dark");
-        //    }
-        //    loaded = true;
-        //    await Task.Delay(1);
-        //}
-
 
         public async void OnExecuteTests()
         {
@@ -273,12 +235,13 @@ namespace Ellabit.Pages
 
         private StandaloneEditorConstructionOptions EditorConstructionOptions(MonacoEditor editor)
         {
+            string themeName = _isDarkMode ? "vs-dark" : "vs";
             return new StandaloneEditorConstructionOptions
             {
                 AutomaticLayout = true,
                 Language = "csharp",
                 Value = _unloadable?.Context?.Challenge?.Code ?? "",
-                Theme = "vs-dark"  //Or 'vs' for light mode
+                Theme = themeName
             };
         }
 
