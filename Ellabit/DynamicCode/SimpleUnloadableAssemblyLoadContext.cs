@@ -88,12 +88,14 @@ namespace Ellabit.DynamicCode
             try
             {
                 object? output = null;
-                Task task = Task.Factory.StartNew(() => output = codeBlock(), tokenSource2.Token);
-                task.Wait(timeSpan);
-                if (!task.IsCompleted)
-                {
-                    tokenSource2.Cancel();
-                }
+                Task task = Task.Factory.StartNew(() => output = codeBlock());
+                task.Wait();
+                //task.Wait(timeSpan);
+                //task.Wait((int)timeSpan.TotalMilliseconds);
+                //if (!task.IsCompleted)
+                //{
+                //    tokenSource2.Cancel();
+                //}
                 return (task.IsCompleted, output);
             }
             catch (AggregateException ae)
