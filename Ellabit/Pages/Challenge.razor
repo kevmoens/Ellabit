@@ -7,8 +7,8 @@
 <style>
 
     .monaco-editor-container {
-        height: 400px;
-        width: 800px;
+        height: calc(100vh - 135px);
+        width: 100%;
         border: 1px solid gray;
     }
 
@@ -43,8 +43,7 @@
             </table>
         }
     </MudTabPanel>
-    <MudTabPanel Text="Code">
-        @*<div id="editor" style="width:fit-content(800px);height:600px;border:1px solid grey"></div>*@
+    <MudTabPanel Text="Code" >
         <MonacoEditor @ref="_editor" ConstructionOptions="EditorConstructionOptions" />
     </MudTabPanel>
     <MudTabPanel Text="Tests">
