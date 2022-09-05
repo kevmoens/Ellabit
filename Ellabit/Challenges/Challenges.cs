@@ -167,6 +167,7 @@
             challenges.Add(new Challenge168Equalitycheck());
             challenges.Add(new Challenge169Returntheindexofallcapitalletters());
             challenges.Add(new Challenge170Findthebomb());
+            challenges.Add(new Challenge171Convertallarrayitemstostring());
             challenges.Add(new ChallengeColor001());
             return challenges;
         }
