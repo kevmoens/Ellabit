@@ -169,6 +169,7 @@
             challenges.Add(new Challenge170Findthebomb());
             challenges.Add(new Challenge171Convertallarrayitemstostring());
             challenges.Add(new Challenge172Findthelargestnumbersinagroupofarrays());
+            challenges.Add(new Challenge173Thecollatzconjecture());
             challenges.Add(new ChallengeColor001());
             return challenges;
         }
