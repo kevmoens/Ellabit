@@ -172,6 +172,7 @@
             challenges.Add(new Challenge173Thecollatzconjecture());
             challenges.Add(new Challenge174Findthecharacterscounterpartcharcode());
             challenges.Add(new Challenge175Countonesinbinaryrepresentationofinteger());
+            challenges.Add(new Challenge176Fractiongreaterthanone());
             challenges.Add(new ChallengeColor001());
             return challenges;
         }
