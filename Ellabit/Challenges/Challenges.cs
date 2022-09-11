@@ -173,6 +173,7 @@
             challenges.Add(new Challenge174Findthecharacterscounterpartcharcode());
             challenges.Add(new Challenge175Countonesinbinaryrepresentationofinteger());
             challenges.Add(new Challenge176Fractiongreaterthanone());
+            challenges.Add(new Challenge177Positivecountnegativesum());
             challenges.Add(new ChallengeColor001());
             return challenges;
         }
