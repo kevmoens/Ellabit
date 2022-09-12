@@ -175,6 +175,7 @@
             challenges.Add(new Challenge176Fractiongreaterthanone());
             challenges.Add(new Challenge177Positivecountnegativesum());
             challenges.Add(new Challenge178Returnthesumofthetwosmallestnumbers());
+            challenges.Add(new Challenge179ATMpincodevalidation());
             challenges.Add(new ChallengeColor001());
             return challenges;
         }
