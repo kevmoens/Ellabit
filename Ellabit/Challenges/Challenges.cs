@@ -167,6 +167,16 @@
             challenges.Add(new Challenge168Equalitycheck());
             challenges.Add(new Challenge169Returntheindexofallcapitalletters());
             challenges.Add(new Challenge170Findthebomb());
+            challenges.Add(new Challenge171Convertallarrayitemstostring());
+            challenges.Add(new Challenge172Findthelargestnumbersinagroupofarrays());
+            challenges.Add(new Challenge173Thecollatzconjecture());
+            challenges.Add(new Challenge174Findthecharacterscounterpartcharcode());
+            challenges.Add(new Challenge175Countonesinbinaryrepresentationofinteger());
+            challenges.Add(new Challenge176Fractiongreaterthanone());
+            challenges.Add(new Challenge177Positivecountnegativesum());
+            challenges.Add(new Challenge178Returnthesumofthetwosmallestnumbers());
+            challenges.Add(new Challenge179ATMpincodevalidation());
+            challenges.Add(new Challenge180Filteroutstringsfromanarray());
             challenges.Add(new ChallengeColor001());
             return challenges;
         }
