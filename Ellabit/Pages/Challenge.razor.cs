@@ -2,7 +2,10 @@
 using Ellabit.Challenges;
 using Ellabit.DynamicCode;
 using Ellabit.Monaco;
+using IronBlock.Blocks;
 using Microsoft.AspNetCore.Components;
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.JSInterop;
 using MudBlazor;
 using System;
@@ -23,14 +26,16 @@ namespace Ellabit.Pages
         [Inject]
         public SimpleUnloadable? _unloadable { get; set; }
         [Inject]
-        public IServiceProvider? ServiceProvider { get; set; }
-        [Inject]
         private IDialogService? DialogService { get; set; }
         [Inject]
         private Ellabit.Challenges.Challenges? Challenges { get; set; }
         [Inject]
         private MonacoService? monacoService { get; set; }
 
+        bool hasRegisteredBlockly = false;
+        ElementReference blocklyReference;
+        string blockXml = string.Empty;
+        private IJSObjectReference? module;
         bool loaded = false;
         bool _isDarkMode = false;
         int prevTabIndex = -1;
@@ -46,20 +51,63 @@ namespace Ellabit.Pages
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
-            if (!_hasRegistered && JS != null && monacoService != null)
+            //Monaco Editor
+            if (!_hasRegisteredMonaco && JS != null && monacoService != null)
             {
                 await monacoService.Initialize();
                 _objRef = DotNetObjectReference.Create(this.monacoService);
                 await JS.InvokeAsync<string>("registerProviders", _objRef);
-                _hasRegistered = true;
+                _hasRegisteredMonaco = true;
 
 
                 IJSObjectReference? module = await JS.InvokeAsync<IJSObjectReference>("import", "./scripts/theme.js");
                 var isDarkMode = await module.InvokeAsync<bool>("isDarkTheme", new object[] { });
                 _isDarkMode = isDarkMode;
             }
+
+            //Blockly
+            if (hasRegisteredBlockly == false
+                && JS != null
+                && EqualityComparer<ElementReference>.Default.Equals(blocklyReference, default(ElementReference)) == false)
+            {
+                module = await JS.InvokeAsync<IJSObjectReference>("import",
+                    "./javascript/blockly_ui_interop.js");
+                await module.InvokeVoidAsync("initialize", new object?[] { });
+                hasRegisteredBlockly = true;
+                if (blockXml != string.Empty)
+                {
+                    await module.InvokeVoidAsync("setBlocks", new object?[] { blockXml });
+                    StateHasChanged();
+                }
+            }
+            await base.OnAfterRenderAsync(firstRender);
         }
 
+        public async void OnBlocklyToCSharp()
+        {
+            if (module == null)
+            {
+                return;
+            }
+            if (_unloadable?.Context?.Challenge == null)
+            {
+                return;
+            }
+            _unloadable.Context.Challenge.Code += await module.InvokeAsync<string>("getBlockXml");
+        }
+
+        [JSInvokable]
+        public static string Evaluate(string xml)
+        {
+            var parser =
+            new IronBlock.Parser()
+              .AddStandardBlocks()
+              .Parse(xml);
+            var syntax = parser.Generate();
+            var tree = syntax.NormalizeWhitespace(elasticTrivia: false);
+            return syntax.ToFullString();
+
+        }
         public void SetChallenge()
         {
             if (_unloadable?.Context != null && Challenges != null)
@@ -90,14 +138,15 @@ namespace Ellabit.Pages
         /// <param name="tabIndex"></param>
         public async void OnTabChanged(int tabIndex)
         {
-            if (tabIndex != 1)
+            if (prevTabIndex == 1 && module != null)
+            {
+                blockXml = await module.InvokeAsync<string>("getBlockXml", new object[] { });
+            }
+            if (tabIndex != 2)
             {
                 await TabChanged_ClearEditor();
             }
-            //if (tabIndex == 1)
-            //{
-            //    await TabChanged_LoadEditor();
-            //}
+            hasRegisteredBlockly = false;
             prevTabIndex = tabIndex;
         }
         public async Task TabChanged_ClearEditor()
@@ -106,7 +155,7 @@ namespace Ellabit.Pages
             {
                 return;
             }
-            if (_editor != null && _unloadable?.Context?.Challenge != null && prevTabIndex == 1)
+            if (_editor != null && _unloadable?.Context?.Challenge != null && prevTabIndex == 2)
             {
                 code = await _editor.GetValue();                
                 _unloadable.Context.Challenge.Code = code;
@@ -228,7 +277,7 @@ namespace Ellabit.Pages
             _unloadable.Context.Challenge.Code = code;
         }
 
-        private bool _hasRegistered = false;
+        private bool _hasRegisteredMonaco = false;
         private MonacoEditor? _editor;
         private DotNetObjectReference<MonacoService>? _objRef;
         private List<MonacoService.Diagnostic>? Diagnostics { get; set; }
