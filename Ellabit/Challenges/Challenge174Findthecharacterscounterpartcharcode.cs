@@ -73,5 +73,6 @@ Not all inputs will have a counterpart(e.g.numbers), in which case return the in
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
+        public bool ShowBlockly { get => false; }
     }
 }

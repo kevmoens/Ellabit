@@ -6,6 +6,7 @@ using IronBlock.Blocks;
 using Microsoft.AspNetCore.Components;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.JSInterop;
 using MudBlazor;
 using System;
@@ -68,7 +69,7 @@ namespace Ellabit.Pages
             //Blockly
             if (hasRegisteredBlockly == false
                 && JS != null
-                && EqualityComparer<ElementReference>.Default.Equals(blocklyReference, default(ElementReference)) == false)
+                && EqualityComparer<ElementReference>.Default.Equals(blocklyReference, default(ElementReference)) == false) //html tag exists
             {
                 module = await JS.InvokeAsync<IJSObjectReference>("import",
                     "./javascript/blockly_ui_interop.js");
@@ -85,15 +86,30 @@ namespace Ellabit.Pages
 
         public async void OnBlocklyToCSharp()
         {
-            if (module == null)
-            {
-                return;
-            }
             if (_unloadable?.Context?.Challenge == null)
             {
                 return;
             }
-            _unloadable.Context.Challenge.Code += await module.InvokeAsync<string>("getBlockXml");
+            SyntaxNode syntax = await GetBlocklyMethod();
+
+            _unloadable.Context.Challenge.Code += syntax.ToFullString();
+        }
+
+        private async Task<MethodDeclarationSyntax> GetBlocklyMethod()
+        {
+            if (module == null)
+            {
+                throw new ArgumentNullException("module");
+            }
+            var xml = await module.InvokeAsync<string>("getBlockXml");
+            var parser =
+            new IronBlock.Parser()
+              .AddStandardBlocks()
+              .Parse(xml);
+            var syntax = parser.Generate();
+            var tree = syntax.NormalizeWhitespace(elasticTrivia: false);
+            var method = syntax.AncestorsAndSelf().OfType<MethodDeclarationSyntax>().First();
+            return method;
         }
 
         [JSInvokable]
@@ -138,14 +154,15 @@ namespace Ellabit.Pages
         /// <param name="tabIndex"></param>
         public async void OnTabChanged(int tabIndex)
         {
-            if (prevTabIndex == 1 && module != null)
+            if (prevTabIndex == TabIDBlockly() && module != null)
             {
                 blockXml = await module.InvokeAsync<string>("getBlockXml", new object[] { });
             }
-            if (tabIndex != 2)
+            if (tabIndex != TabIDCode())
             {
                 await TabChanged_ClearEditor();
             }
+            blocklyReference = default(ElementReference);
             hasRegisteredBlockly = false;
             prevTabIndex = tabIndex;
         }
@@ -155,11 +172,27 @@ namespace Ellabit.Pages
             {
                 return;
             }
-            if (_editor != null && _unloadable?.Context?.Challenge != null && prevTabIndex == 2)
+            if (_editor != null && _unloadable?.Context?.Challenge != null && prevTabIndex == TabIDCode())
             {
                 code = await _editor.GetValue();                
                 _unloadable.Context.Challenge.Code = code;
             }
+        }
+        public int TabIDBlockly()
+        {
+            if (_unloadable?.Context?.Challenge?.ShowBlockly ?? false == true)
+            {
+                return 1;
+            }
+            return -999;
+        }
+        public int TabIDCode()
+        {
+            if (_unloadable?.Context?.Challenge?.ShowBlockly ?? false == true)
+            {
+                return 2;
+            }
+            return 1;
         }
         public async Task TabChanged_LoadEditor()
         {
