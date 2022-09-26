@@ -5,12 +5,13 @@ using Ellabit.DynamicCode;
 using Ellabit.Monaco;
 using MudBlazor.Services;
 using Ellabit.Challenges;
+using CSharpToBlockly.Services;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
-
+builder.Services.AddSharpToBlockly();
 builder.Services.AddScoped<MonacoService>();
 builder.Services.AddScoped<SimpleUnloadable>();
 builder.Services.AddScoped<SimpleUnloadableAssemblyLoadContext>();

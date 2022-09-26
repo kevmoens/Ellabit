@@ -1,4 +1,5 @@
 ﻿using BlazorMonaco;
+using CSharpToBlockly;
 using Ellabit.Challenges;
 using Ellabit.DynamicCode;
 using Ellabit.Monaco;
@@ -31,6 +32,8 @@ namespace Ellabit.Pages
         private Ellabit.Challenges.Challenges? Challenges { get; set; }
         [Inject]
         private MonacoService? monacoService { get; set; }
+        [Inject]
+        private SharpParse ParseCodeToBlock { get; set; }
 
         bool hasRegisteredBlockly = false;
         ElementReference blocklyReference;
@@ -74,6 +77,11 @@ namespace Ellabit.Pages
                     "./javascript/blockly_ui_interop.js");
                 await module.InvokeVoidAsync("initialize", new object?[] { });
                 hasRegisteredBlockly = true;
+                var code = _unloadable?.Context?.Challenge?.Code;
+                if (code != null)
+                { 
+                    blockXml = ParseCodeToBlock.Parse(code).ToString();
+                }
                 if (blockXml != string.Empty)
                 {
                     await module.InvokeVoidAsync("setBlocks", new object?[] { blockXml });
@@ -93,7 +101,7 @@ namespace Ellabit.Pages
             {
                 return;
             }
-            _unloadable.Context.Challenge.Code += await module.InvokeAsync<string>("getBlockXml");
+            _unloadable.Context.Challenge.Code += await module.InvokeAsync<string>("evalProgram");
         }
 
         [JSInvokable]
