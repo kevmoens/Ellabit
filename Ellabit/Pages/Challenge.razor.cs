@@ -7,6 +7,7 @@ using IronBlock.Blocks;
 using Microsoft.AspNetCore.Components;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.JSInterop;
 using MudBlazor;
 using System;
@@ -101,7 +102,23 @@ namespace Ellabit.Pages
             {
                 return;
             }
-            _unloadable.Context.Challenge.Code += await module.InvokeAsync<string>("evalProgram");
+            //Get Blockly code to C#
+            var blockMethodCode = await module.InvokeAsync<string>("evalProgram");
+            SyntaxNode blockMethod = CSharpSyntaxTree.ParseText(blockMethodCode).GetRoot();
+            BlockSyntax blockMethodBlock = (from node in blockMethod.DescendantNodes()
+                                                .OfType<BlockSyntax>()
+                                            select node).First();
+
+            //Get current C# source 
+            SyntaxNode syntax = CSharpSyntaxTree.ParseText(_unloadable.Context.Challenge.Code ?? "").GetRoot();
+            MethodDeclarationSyntax method = (from node in syntax.DescendantNodes()
+                .OfType<MethodDeclarationSyntax>()
+                          select node).First();
+            var methodBody = (SyntaxNode)method.Body;
+            //Replace
+            var output = syntax.ReplaceNode(methodBody, blockMethodBlock);
+            
+            _unloadable.Context.Challenge.Code = output.ToFullString();
         }
 
         [JSInvokable]
@@ -111,9 +128,14 @@ namespace Ellabit.Pages
             new IronBlock.Parser()
               .AddStandardBlocks()
               .Parse(xml);
-            var syntax = parser.Generate();
-            var tree = syntax.NormalizeWhitespace(elasticTrivia: false);
-            return syntax.ToFullString();
+            var blockSyntax = parser.Generate();
+            blockSyntax = blockSyntax.NormalizeWhitespace();
+
+            var blockMethodBody = (from method in blockSyntax.DescendantNodes()
+                    .OfType<LocalFunctionStatementSyntax>()
+                 select method.Body).FirstOrDefault();
+
+            return blockMethodBody?.ToFullString() ?? "";
 
         }
         public void SetChallenge()
