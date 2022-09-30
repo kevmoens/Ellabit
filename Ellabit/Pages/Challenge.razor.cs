@@ -1,4 +1,5 @@
 ﻿using BlazorMonaco;
+using CSharpToBlockly;
 using Ellabit.Challenges;
 using Ellabit.DynamicCode;
 using Ellabit.Monaco;
@@ -32,6 +33,8 @@ namespace Ellabit.Pages
         private Ellabit.Challenges.Challenges? Challenges { get; set; }
         [Inject]
         private MonacoService? monacoService { get; set; }
+        [Inject]
+        private SharpParse ParseCodeToBlock { get; set; }
 
         bool hasRegisteredBlockly = false;
         ElementReference blocklyReference;
@@ -75,6 +78,11 @@ namespace Ellabit.Pages
                     "./javascript/blockly_ui_interop.js");
                 await module.InvokeVoidAsync("initialize", new object?[] { });
                 hasRegisteredBlockly = true;
+                var code = _unloadable?.Context?.Challenge?.Code;
+                if (code != null)
+                { 
+                    blockXml = ParseCodeToBlock.Parse(code).ToString();
+                }
                 if (blockXml != string.Empty)
                 {
                     await module.InvokeVoidAsync("setBlocks", new object?[] { blockXml });
@@ -90,26 +98,23 @@ namespace Ellabit.Pages
             {
                 return;
             }
-            SyntaxNode syntax = await GetBlocklyMethod();
+            //Get Blockly code to C#
+            var blockMethodCode = await module.InvokeAsync<string>("evalProgram");
+            SyntaxNode blockMethod = CSharpSyntaxTree.ParseText(blockMethodCode).GetRoot();
+            BlockSyntax blockMethodBlock = (from node in blockMethod.DescendantNodes()
+                                                .OfType<BlockSyntax>()
+                                            select node).First();
 
-            _unloadable.Context.Challenge.Code += syntax.ToFullString();
-        }
-
-        private async Task<MethodDeclarationSyntax> GetBlocklyMethod()
-        {
-            if (module == null)
-            {
-                throw new ArgumentNullException("module");
-            }
-            var xml = await module.InvokeAsync<string>("getBlockXml");
-            var parser =
-            new IronBlock.Parser()
-              .AddStandardBlocks()
-              .Parse(xml);
-            var syntax = parser.Generate();
-            var tree = syntax.NormalizeWhitespace(elasticTrivia: false);
-            var method = syntax.AncestorsAndSelf().OfType<MethodDeclarationSyntax>().First();
-            return method;
+            //Get current C# source 
+            SyntaxNode syntax = CSharpSyntaxTree.ParseText(_unloadable.Context.Challenge.Code ?? "").GetRoot();
+            MethodDeclarationSyntax method = (from node in syntax.DescendantNodes()
+                .OfType<MethodDeclarationSyntax>()
+                          select node).First();
+            var methodBody = (SyntaxNode)method.Body;
+            //Replace
+            var output = syntax.ReplaceNode(methodBody, blockMethodBlock);
+            
+            _unloadable.Context.Challenge.Code = output.ToFullString();
         }
 
         [JSInvokable]
@@ -119,9 +124,14 @@ namespace Ellabit.Pages
             new IronBlock.Parser()
               .AddStandardBlocks()
               .Parse(xml);
-            var syntax = parser.Generate();
-            var tree = syntax.NormalizeWhitespace(elasticTrivia: false);
-            return syntax.ToFullString();
+            var blockSyntax = parser.Generate();
+            blockSyntax = blockSyntax.NormalizeWhitespace();
+
+            var blockMethodBody = (from method in blockSyntax.DescendantNodes()
+                    .OfType<LocalFunctionStatementSyntax>()
+                 select method.Body).FirstOrDefault();
+
+            return blockMethodBody?.ToFullString() ?? "";
 
         }
         public void SetChallenge()
