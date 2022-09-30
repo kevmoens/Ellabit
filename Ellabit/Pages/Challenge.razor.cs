@@ -113,7 +113,7 @@ namespace Ellabit.Pages
             var methodBody = (SyntaxNode)method.Body;
             //Replace
             var output = syntax.ReplaceNode(methodBody, blockMethodBlock);
-            
+            output = output.SyntaxTree.GetRoot().NormalizeWhitespace();
             _unloadable.Context.Challenge.Code = output.ToFullString();
         }
 

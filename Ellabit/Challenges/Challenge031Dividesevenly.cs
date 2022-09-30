@@ -70,6 +70,6 @@ a will always be greater than or equal to b.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "Math", "Modulo" }, { "Level", "2" } };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
-        public bool ShowBlockly { get => false; }
+        public bool ShowBlockly { get => true; }
     }
 }

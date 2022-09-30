@@ -27,7 +27,7 @@ public class TestChallenge
     public (bool pass, string message) Test1()
     {
         var tmp = new Challenge();
-        int sumResult = 0;
+        bool sumResult = false;
         try 
         {
             sumResult = tmp.LessThanOrEqualToZero(5) ;
@@ -40,7 +40,7 @@ public class TestChallenge
     public (bool pass, string message) Test2()
     {
         var tmp = new Challenge();
-        int sumResult = 0;
+        bool sumResult = false;
         try 
         {
             sumResult = tmp.LessThanOrEqualToZero(0) ;
@@ -53,7 +53,7 @@ public class TestChallenge
     public (bool pass, string message) Test3()
     {
         var tmp = new Challenge();
-        int sumResult = 0;
+        bool sumResult = false;
         try 
         {
             sumResult = tmp.LessThanOrEqualToZero(-2) ;
@@ -83,6 +83,6 @@ don't forget to return the result.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "Expression", "<=" }, { "Level", "1" } };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
-        public bool ShowBlockly { get => false; }
+        public bool ShowBlockly { get => true; }
     }
 }
