@@ -87,5 +87,6 @@ Use only positive integer parameters.
 """;
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         public Dictionary<string, string> Tags { get; set; } = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase);
+        public bool ShowBlockly { get => false; }
     }
 }

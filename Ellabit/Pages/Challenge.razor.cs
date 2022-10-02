@@ -42,13 +42,14 @@ namespace Ellabit.Pages
         private IJSObjectReference? module;
         bool _isDarkMode = false;
         int prevTabIndex = -1;
-        string? code;
+        string? code = string.Empty;
         string testResults = "";
         bool fail = true;
         bool runningTests = false;
         protected override void OnInitialized()
         {
             base.OnInitialized();
+            blockXml = string.Empty;
             SetChallenge();
         }
 
@@ -72,14 +73,14 @@ namespace Ellabit.Pages
             if (hasRegisteredBlockly == false
                 && ParseCodeToBlock != null
                 && JS != null
-                && EqualityComparer<ElementReference>.Default.Equals(blocklyReference, default(ElementReference)) == false)
+                && EqualityComparer<ElementReference>.Default.Equals(blocklyReference, default(ElementReference)) == false) //html tag exists
             {
                 module = await JS.InvokeAsync<IJSObjectReference>("import",
                     "./javascript/blockly_ui_interop.js");
                 await module.InvokeVoidAsync("initialize", new object?[] { });
                 hasRegisteredBlockly = true;
                 var code = _unloadable?.Context?.Challenge?.Code;
-                if (code != null)
+                if (code != null && blockXml == string.Empty)
                 { 
                     blockXml = ParseCodeToBlock.Parse(code).ToString();
                 }
@@ -94,10 +95,6 @@ namespace Ellabit.Pages
 
         public async void OnBlocklyToCSharp()
         {
-            if (module == null)
-            {
-                return;
-            }
             if (_unloadable?.Context?.Challenge == null)
             {
                 return;
@@ -119,6 +116,8 @@ namespace Ellabit.Pages
                 var methodBody = (SyntaxNode)method.Body;
                 //Replace
                 var output = syntax.ReplaceNode(methodBody, blockMethodBlock);
+            
+                output = output.SyntaxTree.GetRoot().NormalizeWhitespace();
                 _unloadable.Context.Challenge.Code = output.ToFullString();
             }
         }
@@ -158,7 +157,13 @@ namespace Ellabit.Pages
                     return;
                 }
                 _unloadable.Context.Challenge = Challenges[ChallengeId ?? 0];
-                code = _unloadable.Context.Challenge.Code;
+                if (code == String.Empty)
+                {
+                    code = _unloadable.Context.Challenge.Code;
+                    SyntaxNode syntax = CSharpSyntaxTree.ParseText(code ?? "").GetRoot();
+                    syntax = syntax.SyntaxTree.GetRoot().NormalizeWhitespace();
+                    code = syntax.ToFullString();
+                }
                 StateHasChanged();
             }
         }
@@ -170,14 +175,15 @@ namespace Ellabit.Pages
         /// <param name="tabIndex"></param>
         public async void OnTabChanged(int tabIndex)
         {
-            if (prevTabIndex == 1 && module != null)
+            if (prevTabIndex == TabIDBlockly() && module != null)
             {
                 blockXml = await module.InvokeAsync<string>("getBlockXml", new object[] { });
             }
-            if (tabIndex != 2)
+            if (tabIndex != TabIDCode())
             {
                 await TabChanged_ClearEditor();
             }
+            blocklyReference = default(ElementReference);
             hasRegisteredBlockly = false;
             prevTabIndex = tabIndex;
         }
@@ -187,11 +193,26 @@ namespace Ellabit.Pages
             {
                 return;
             }
-            if (_editor != null && _unloadable?.Context?.Challenge != null && prevTabIndex == 2)
+            if (_editor != null && _unloadable?.Context?.Challenge != null && prevTabIndex == TabIDCode())
             {
-                code = await _editor.GetValue();                
-                _unloadable.Context.Challenge.Code = code;
+                code = await _editor.GetValue();            
             }
+        }
+        public int TabIDBlockly()
+        {
+            if (_unloadable?.Context?.Challenge?.ShowBlockly ?? false == true)
+            {
+                return 1;
+            }
+            return -999;
+        }
+        public int TabIDCode()
+        {
+            if (_unloadable?.Context?.Challenge?.ShowBlockly ?? false == true)
+            {
+                return 2;
+            }
+            return 1;
         }
         public async Task TabChanged_LoadEditor()
         {
@@ -216,13 +237,13 @@ namespace Ellabit.Pages
         private async Task ExecuteTests()
         {
             testResults = "";
-
             if (_unloadable?.Context?.Challenge?.Tests == null)
             {
                 testResults += "\nCode didn't compile";
                 return;
             }
-
+            var origCode = _unloadable.Context.Challenge.Code;
+            _unloadable.Context.Challenge.Code = code;
             try
             {
                 int testNum = 1;
@@ -273,6 +294,7 @@ namespace Ellabit.Pages
             }
             finally
             {
+                _unloadable.Context.Challenge.Code = origCode;
                 runningTests = false;
                 StateHasChanged();
             }
@@ -305,7 +327,6 @@ namespace Ellabit.Pages
             }
             _unloadable.ClearCache();
             SetChallenge();
-            _unloadable.Context.Challenge.Code = code;
         }
 
         private bool _hasRegisteredMonaco = false;
@@ -320,7 +341,7 @@ namespace Ellabit.Pages
             {
                 AutomaticLayout = true,
                 Language = "csharp",
-                Value = _unloadable?.Context?.Challenge?.Code ?? "",
+                Value = code ?? "",
                 Theme = themeName
             };
         }

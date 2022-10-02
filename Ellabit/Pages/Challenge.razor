@@ -38,8 +38,9 @@
             </table>
         }
     </MudTabPanel>
+    @if (_unloadable?.Context?.Challenge?.ShowBlockly ?? false)
+        {
     <MudTabPanel Text="Block">
-        @*if (_unloadable?.Context?.Challenge?.ShowBlockly){*@
 
         <div>
             <div>
@@ -55,7 +56,7 @@
             </div>
         </div>
     </MudTabPanel>
-
+        }
     <MudTabPanel Text="Code">
         <MonacoEditor @ref="_editor" ConstructionOptions="EditorConstructionOptions" />
     </MudTabPanel>

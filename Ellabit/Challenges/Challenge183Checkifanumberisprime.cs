@@ -86,5 +86,6 @@ If a number is odd it is not divisible by an even number.
 1 is not considered a prime number.""";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         public Dictionary<string, string> Tags { get; set; } = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase);
+        public bool ShowBlockly { get => false; }
     }
 }

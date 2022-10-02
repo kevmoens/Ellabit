@@ -94,5 +94,6 @@ there will always be at least one number in the input string
 Output string must be two numbers separated by a single space, and highest number is first.""";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         public Dictionary<string, string> Tags { get; set; } = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase);
+        public bool ShowBlockly { get => false; }
     }
 }

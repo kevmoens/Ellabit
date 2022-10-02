@@ -8,5 +8,6 @@
         string? TestCode { get; set; } 
         List<string> Tests { get; set; }
         Dictionary<string, string> Tags { get; set; }
+        bool ShowBlockly { get; }
     }
 }
