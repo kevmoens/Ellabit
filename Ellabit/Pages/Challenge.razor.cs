@@ -34,13 +34,12 @@ namespace Ellabit.Pages
         [Inject]
         private MonacoService? monacoService { get; set; }
         [Inject]
-        private SharpParse ParseCodeToBlock { get; set; }
+        private SharpParse? ParseCodeToBlock { get; set; }
 
         bool hasRegisteredBlockly = false;
         ElementReference blocklyReference;
         string blockXml = string.Empty;
         private IJSObjectReference? module;
-        bool loaded = false;
         bool _isDarkMode = false;
         int prevTabIndex = -1;
         string? code;
@@ -71,6 +70,7 @@ namespace Ellabit.Pages
 
             //Blockly
             if (hasRegisteredBlockly == false
+                && ParseCodeToBlock != null
                 && JS != null
                 && EqualityComparer<ElementReference>.Default.Equals(blocklyReference, default(ElementReference)) == false)
             {
@@ -114,11 +114,13 @@ namespace Ellabit.Pages
             MethodDeclarationSyntax method = (from node in syntax.DescendantNodes()
                 .OfType<MethodDeclarationSyntax>()
                           select node).First();
-            var methodBody = (SyntaxNode)method.Body;
-            //Replace
-            var output = syntax.ReplaceNode(methodBody, blockMethodBlock);
-            
-            _unloadable.Context.Challenge.Code = output.ToFullString();
+            if (method.Body != null)
+            {
+                var methodBody = (SyntaxNode)method.Body;
+                //Replace
+                var output = syntax.ReplaceNode(methodBody, blockMethodBlock);
+                _unloadable.Context.Challenge.Code = output.ToFullString();
+            }
         }
 
         [JSInvokable]
@@ -201,7 +203,6 @@ namespace Ellabit.Pages
             await Task.Delay(1);
 
 
-            loaded = true;
             await Task.Delay(1);
         }
 
