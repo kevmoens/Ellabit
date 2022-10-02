@@ -177,6 +177,16 @@
             challenges.Add(new Challenge178Returnthesumofthetwosmallestnumbers());
             challenges.Add(new Challenge179ATMpincodevalidation());
             challenges.Add(new Challenge180Filteroutstringsfromanarray());
+            challenges.Add(new Challenge181Returnthemiddlecharactersofastring());
+            challenges.Add(new Challenge182Returnthehighestandlowestnumbers());
+            challenges.Add(new Challenge183Checkifanumberisprime());
+            challenges.Add(new Challenge184Acircleandtwosquares());
+            challenges.Add(new Challenge185GCDoftwonumbers());
+            challenges.Add(new Challenge186Strangepair());
+            challenges.Add(new Challenge187Isthewordanisogram());
+            challenges.Add(new Challenge188UTF8bomtextencoding());
+            challenges.Add(new Challenge189Isthenumbersymmetrical());
+            challenges.Add(new Challenge190Maskifythestring());
             challenges.Add(new ChallengeColor001());
             return challenges;
         }
