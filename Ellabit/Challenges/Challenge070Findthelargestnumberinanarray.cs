@@ -85,5 +85,6 @@ if you get stuck on a challenge, find help in the resources ";
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public bool ShowBlockly { get => false; }
+        public string BlocklyXML { get => string.Empty; }
     }
 }

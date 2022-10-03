@@ -87,6 +87,80 @@ Don't overthink this challenge; it's not supposed to be hard.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "Bug", "Logic" }, { "Level", "2" } };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
-        public bool ShowBlockly { get => false; }
+        public bool ShowBlockly { get => true; }
+        public string BlocklyXML { get => @"<xml>
+              <block type=""procedures_defreturn"">
+                <mutation>
+                  <arg name=""name""/>
+                </mutation>
+                <field name=""NAME"">greeting</field>
+                <statement name=""STACK"">
+                  <block type=""procedures_ifreturn"">
+                    <mutation value=""1""></mutation>
+                    <value name=""CONDITION"">
+                      <block type=""logic_boolean"">
+                        <field name=""BOOL"">TRUE</field>
+                      </block>
+                    </value>
+                    <value name=""VALUE"">
+                      <block type=""text_join"">
+                        <mutation items=""2""></mutation>
+                        <value name=""ADD0"">
+                          <block type=""text"">
+                            <field name=""TEXT"">Hello, </field>
+                          </block>
+                        </value>
+                        <value name=""ADD1"">
+                          <block type=""text_join"">
+                            <mutation items=""2""></mutation>
+                            <value name=""ADD0"">
+                              <block type=""variables_get"">
+                                <field name=""VAR"">name</field>
+                              </block>
+                            </value>
+                            <value name=""ADD1"">
+                              <block type=""text"">
+                                <field name=""TEXT"">!</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type=""procedures_ifreturn"">
+                        <mutation value=""1""></mutation>
+                        <value name=""CONDITION"">
+                          <block type=""logic_compare"">
+                            <field name=""OP"">EQ</field>
+                            <value name=""A"">
+                              <block type=""variables_get"">
+                                <field name=""VAR"" id=""v-Hc|C(l[Nn2$a%C+5-9"">name</field>
+                              </block>
+                            </value>
+                            <value name=""B"">
+                              <block type=""text"">
+                                <field name=""TEXT"">Mubashir</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name=""VALUE"">
+                          <block type=""text"">
+                            <field name=""TEXT"">Hello, my Love!</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <value name=""RETURN"">
+                  <block type=""variables_get"">
+                    <field name=""VAR"">name</field>
+                  </block>
+                </value>
+              </block>
+            </xml>"; 
+        }
     }
 }

@@ -83,5 +83,6 @@ Return value should be a string.";
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public bool ShowBlockly { get => false; }
+        public string BlocklyXML { get => string.Empty; }
     }
 }

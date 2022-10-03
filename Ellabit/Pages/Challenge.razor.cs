@@ -82,7 +82,9 @@ namespace Ellabit.Pages
                 var code = _unloadable?.Context?.Challenge?.Code;
                 if (code != null && blockXml == string.Empty)
                 { 
-                    blockXml = ParseCodeToBlock.Parse(code).ToString();
+                    blockXml = _unloadable?.Context?.Challenge?.BlocklyXML != string.Empty ?
+                            _unloadable?.Context?.Challenge?.BlocklyXML ?? string.Empty
+                            : ParseCodeToBlock.Parse(code).ToString();
                 }
                 if (blockXml != string.Empty)
                 {

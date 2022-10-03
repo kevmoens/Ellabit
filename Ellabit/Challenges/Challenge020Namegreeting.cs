@@ -84,5 +84,6 @@ Don't forget the exclamation mark!";
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "String", "Concatenation" }, { "Expression", "==" }, { "Level", "1" } };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public bool ShowBlockly { get => true; }
+        public string BlocklyXML { get => string.Empty; }
     }
 }

@@ -104,5 +104,6 @@ Try to be precise with how you spell things and where you put the capital letter
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public bool ShowBlockly { get => false; }
+        public string BlocklyXML { get => string.Empty; }
     }
 }

@@ -91,5 +91,6 @@ A profitable gamble is a game that yields a positive net profit, where net profi
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "Math", "Equation" }, { "Level", "2" } };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public bool ShowBlockly { get => true; }
+        public string BlocklyXML { get => string.Empty; }
     }
 }

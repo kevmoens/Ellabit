@@ -81,5 +81,6 @@ notes treat space as its own character (i.e. leave three spaces between words)."
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public bool ShowBlockly { get => false; }
+        public string BlocklyXML { get => string.Empty; }
     }
 }

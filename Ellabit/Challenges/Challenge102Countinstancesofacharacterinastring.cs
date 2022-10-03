@@ -82,5 +82,6 @@ Your output must be case-sensitive(see second example).";
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public bool ShowBlockly { get => false; }
+        public string BlocklyXML { get => string.Empty; }
     }
 }

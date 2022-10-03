@@ -82,5 +82,6 @@ lessThan100(3, 77) ➞ true
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "Math", "Add" }, { "Expression", "<=" }, { "Level", "1" } };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public bool ShowBlockly { get => true; }
+        public string BlocklyXML { get => string.Empty; }
     }
 }

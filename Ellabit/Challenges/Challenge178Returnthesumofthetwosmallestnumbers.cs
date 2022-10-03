@@ -97,5 +97,6 @@ SumSmallest([879,  953,  694,  -847,  342,  221,  -91,  -723,  791,  -587])  ➞
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public bool ShowBlockly { get => false; }
+        public string BlocklyXML { get => string.Empty; }
     }
 }
