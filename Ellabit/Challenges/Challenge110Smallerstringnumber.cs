@@ -87,5 +87,6 @@ Bonus: See if you can do this without converting to integers.";
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public bool ShowBlockly { get => false; }
         public string BlocklyXML { get => string.Empty; }
+        public string BlocklyToolboxXML { get => string.Empty; }
     }
 }

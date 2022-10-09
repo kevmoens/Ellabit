@@ -101,5 +101,6 @@ magnitude([2,  3,  6,  1,  8]  )  ➞  10.6770782520313""
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public bool ShowBlockly { get => false; }
         public string BlocklyXML { get => string.Empty; }
+        public string BlocklyToolboxXML { get => string.Empty; }
     }
 }

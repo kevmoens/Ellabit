@@ -85,5 +85,6 @@ Diff([4, 17, 12, 2, 10, 2]) ➞ 15
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public bool ShowBlockly { get => false; }
         public string BlocklyXML { get => string.Empty; }
+        public string BlocklyToolboxXML { get => string.Empty; }
     }
 }

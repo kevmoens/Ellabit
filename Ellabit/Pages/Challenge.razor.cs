@@ -77,7 +77,7 @@ namespace Ellabit.Pages
             {
                 module = await JS.InvokeAsync<IJSObjectReference>("import",
                     "./javascript/blockly_ui_interop.js");
-                await module.InvokeVoidAsync("initialize", new object?[] { });
+                await module.InvokeVoidAsync("initialize", new object?[] { _unloadable?.Context?.Challenge?.BlocklyToolboxXML });
                 hasRegisteredBlockly = true;
                 var code = _unloadable?.Context?.Challenge?.Code;
                 if (code != null && blockXml == string.Empty)

@@ -91,5 +91,22 @@ public class TestChallenge
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public bool ShowBlockly { get => true; }
         public string BlocklyXML { get => string.Empty; }
+        public string BlocklyToolboxXML { get => @"<xml id=""toolbox"" style=""display: none"">
+    <block type=""math_arithmetic"">
+        <value name=""A"">
+            <shadow type=""math_number"">
+                <field name=""NUM"">1</field>
+            </shadow>
+        </value>
+        <value name=""B"">
+            <shadow type=""math_number"">
+                <field name=""NUM"">1</field>
+            </shadow>
+        </value>
+    </block>
+    <block type=""variables_get"">
+        <field name=""VAR"">num</field>
+    </block>
+</xml>"; }
     }
 }

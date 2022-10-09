@@ -84,5 +84,6 @@ the formula (n - 2) x 180 gives the sum of all the measures of the angles of an 
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public bool ShowBlockly { get => true; }
         public string BlocklyXML { get => string.Empty; }
+        public string BlocklyToolboxXML { get => string.Empty; }
     }
 }

@@ -115,5 +115,6 @@ There is no empty string.";
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public bool ShowBlockly { get => false; }
         public string BlocklyXML { get => string.Empty; }
+        public string BlocklyToolboxXML { get => string.Empty; }
     }
 }

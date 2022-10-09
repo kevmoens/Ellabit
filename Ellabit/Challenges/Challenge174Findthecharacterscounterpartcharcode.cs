@@ -75,5 +75,6 @@ Not all inputs will have a counterpart(e.g.numbers), in which case return the in
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public bool ShowBlockly { get => false; }
         public string BlocklyXML { get => string.Empty; }
+        public string BlocklyToolboxXML { get => string.Empty; }
     }
 }

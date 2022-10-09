@@ -39,24 +39,24 @@
         }
     </MudTabPanel>
     @if (_unloadable?.Context?.Challenge?.ShowBlockly ?? false)
-        {
-    <MudTabPanel Text="Block">
+    {
+        <MudTabPanel Text="Block">
 
-        <div>
             <div>
-                <h2>Experimental</h2>
-            </div>
-            <div style="height:65vh;padding-left:0">
-                <div @ref=blocklyReference id="blocklyDiv" style="height:100%;width:100%"></div>
-            </div>
-            <div>
-                <div style="padding:8px;">
-                    <a class="btn btn-primary" href="javascript:void(0);" @onclick="OnBlocklyToCSharp">Convert Blocks To C#</a>
+                <div>
+                    <h2>Experimental</h2>
+                </div>
+                <div style="height:65vh;padding-left:0">
+                    <div @ref=blocklyReference id="blocklyDiv" style="height:100%;width:100%"></div>
+                </div>
+                <div>
+                    <div style="padding:8px;">
+                        <a class="btn btn-primary" href="javascript:void(0);" @onclick="OnBlocklyToCSharp">Convert Blocks To C#</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </MudTabPanel>
-        }
+        </MudTabPanel>
+    }
     <MudTabPanel Text="Code">
         <MonacoEditor @ref="_editor" ConstructionOptions="EditorConstructionOptions" />
     </MudTabPanel>
@@ -346,3 +346,4 @@
     <category name="Variables" colour="330" custom="VARIABLE"></category>
     <category name="Functions" colour="290" custom="PROCEDURE"></category>
 </xml>
+

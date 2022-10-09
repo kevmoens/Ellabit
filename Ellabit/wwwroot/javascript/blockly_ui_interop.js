@@ -1,9 +1,16 @@
 ﻿var workspace;
-export function initialize() {
-    workspace = Blockly.inject('blocklyDiv', {
-        media: 'media/',
-        toolbox: document.getElementById('toolbox')
-    });
+export function initialize(toolbox) {
+    if (toolbox) {
+        workspace = Blockly.inject('blocklyDiv', {
+            media: 'media/',
+            toolbox: toolbox
+        });
+    } else {
+        workspace = Blockly.inject('blocklyDiv', {
+            media: 'media/',
+            toolbox: document.getElementById('toolbox')
+        });
+    }
 
     Blockly.Xml.domToWorkspace(document.getElementById('defaultProgram'), workspace);
 }

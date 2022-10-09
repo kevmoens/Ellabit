@@ -10,5 +10,6 @@
         Dictionary<string, string> Tags { get; set; }
         bool ShowBlockly { get; }
         string BlocklyXML { get; }
+        string BlocklyToolboxXML { get; }
     }
 }

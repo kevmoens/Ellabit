@@ -84,6 +84,7 @@ don't forget to return the result.";
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public bool ShowBlockly { get => false; }
+        public string BlocklyToolboxXML { get => string.Empty; }
         public string BlocklyXML { get => string.Empty; }
     }
 }
