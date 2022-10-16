@@ -1,4 +1,4 @@
-﻿namespace Ellabit.Challenges
+namespace Ellabit.Challenges
 {
     public class Challenges : List<IChallenge>
     {
@@ -187,6 +187,7 @@
             challenges.Add(new Challenge188UTF8bomtextencoding());
             challenges.Add(new Challenge189Isthenumbersymmetrical());
             challenges.Add(new Challenge190Maskifythestring());
+            challenges.Add(new Challenge191StringEscape());
             challenges.Add(new ChallengeColor001());
             return challenges;
         }
