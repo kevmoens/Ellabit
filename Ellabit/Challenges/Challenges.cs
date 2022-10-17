@@ -80,6 +80,7 @@ namespace Ellabit.Challenges
             challenges.Add(new Challenge074Differenceofmaxandminnumbersinarray());
             challenges.Add(new Challenge075Checkifstringendingmatchessecondstring());
             challenges.Add(new Challenge077Checkifanarraycontainsagivennumber());
+            challenges.Add(new Challenge078IsStringNullOrWhitespace());
             challenges.Add(new Challenge079Wordendings());
             challenges.Add(new Challenge080Returnthefirstandlastelementsinanarray());
             challenges.Add(new Challenge081Findthetotalnumberofdigitsthegivennumberhas());
