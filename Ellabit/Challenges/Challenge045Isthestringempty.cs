@@ -63,6 +63,19 @@ public class TestChallenge
         }
         return (sumResult == false,   $""returned: {sumResult}  expected: false"");
     }
+    public (bool pass, string message) Test4()
+    {
+        var tmp = new Challenge();
+        bool sumResult;
+        try 
+        {
+            sumResult = tmp.isEmpty(null);
+        } catch (Exception ex) 
+        {
+            return (false, ex.ToString() + ""\n"" + ex.Message);
+        }
+        return (sumResult == false,   $""returned: {sumResult}  expected: false"");
+    }
 }
 }";
         public string? Description { get; set; } = @"Create a function that returns true if a string is empty and false otherwise.
@@ -75,12 +88,14 @@ isEmpty("""") ➞ true
 isEmpty("" "") ➞ false
 
 isEmpty(""a"") ➞ false
+
+isEmpty(null) ➞ false
             </p>
         </code>
 Notes
 A string containing only whitespaces "" "" does not count as empty.
 Don't forget to return the result.";
-        public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
+        public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3", "Test4" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "String", "Comparison" }, { "Level", "1" } };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public bool ShowBlockly { get => false; }
