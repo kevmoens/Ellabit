@@ -1,4 +1,4 @@
-﻿namespace Ellabit.Challenges
+namespace Ellabit.Challenges
 {
     public class Challenges : List<IChallenge>
     {
@@ -36,6 +36,7 @@
             challenges.Add(new Challenge029Correctthemistakes());
             challenges.Add(new Challenge030Fliptheintegerboolean());
             challenges.Add(new Challenge031Dividesevenly());
+            challenges.Add(new Challenge032StringEscape());
             challenges.Add(new Challenge033Profitablegamble());
             challenges.Add(new Challenge034Multipleof100());
             challenges.Add(new Challenge035Isittimeformilkandcookies());
@@ -79,6 +80,7 @@
             challenges.Add(new Challenge074Differenceofmaxandminnumbersinarray());
             challenges.Add(new Challenge075Checkifstringendingmatchessecondstring());
             challenges.Add(new Challenge077Checkifanarraycontainsagivennumber());
+            challenges.Add(new Challenge078IsStringNullOrWhitespace());
             challenges.Add(new Challenge079Wordendings());
             challenges.Add(new Challenge080Returnthefirstandlastelementsinanarray());
             challenges.Add(new Challenge081Findthetotalnumberofdigitsthegivennumberhas());
