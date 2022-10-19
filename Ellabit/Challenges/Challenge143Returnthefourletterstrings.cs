@@ -84,9 +84,9 @@ isfourletters([""ryan"", ""kieran"", ""jason"", ""matt""]) ➞ [""ryan"", ""matt
 
 notes you can expect valid strings for all test cases.""";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
-        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { {"String", "Iteration"}, {"Array", "String Iteration"}, { "Level", "2"} };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
-        public bool ShowBlockly { get => false; }
+        public bool ShowBlockly { get => true; }
         public string BlocklyXML { get => string.Empty; }
         public string BlocklyToolboxXML { get => string.Empty; }
     }

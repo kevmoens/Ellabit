@@ -89,9 +89,9 @@ circy.GetPerimeter();
 Notes
 Don't worry about floating point precision - I've factored in the chance that your answer may be more or less accurate than mine. This is more of a tutorial than a challenge so the topic covered may be considered advanced, yet the challenge is more simple - so if this challenge gets labelled as easy, don't worry too much.""";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2" }.ToList();
-        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "Math", "Geometry"}, { "Level", "2"} };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
-        public bool ShowBlockly { get => false; }
+        public bool ShowBlockly { get => true; }
         public string BlocklyXML { get => string.Empty; }
         public string BlocklyToolboxXML { get => string.Empty; }
     }
