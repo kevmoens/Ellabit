@@ -1,6 +1,6 @@
 ﻿namespace Ellabit.Challenges
 {
-    public class Challenge188UTF8bomtextencoding : IChallenge
+    public class Challenge188UTF8bomtextencoding : IChallenge, IChallengeTestCode
     {
         public string? Header { get; set; } = "UTF-8 bom text encoding";
         public string? Code { get; set; } = @"
@@ -54,8 +54,5 @@ Notes
 Use the class UTF8Encoding in the System.Text namespace.";
         public List<string> Tests { get; set; } = new string[] { "Test1" }.ToList();
         public Dictionary<string, string> Tags { get; set; } = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase);
-        public bool ShowBlockly { get => false; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
     }
 }

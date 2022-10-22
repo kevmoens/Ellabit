@@ -1,6 +1,6 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge184Acircleandtwosquares : IChallenge
+    public class Challenge184Acircleandtwosquares : IChallenge, IChallengeBlockly, IChallengeTestCode
     {
         public string? Header { get; set; } = "A circle and two squares";
         public string? Code { get; set; } = @"
@@ -87,8 +87,6 @@ Use only positive integer parameters.
 """;
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         public Dictionary<string, string> Tags { get; set; } = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase);
-        public bool ShowBlockly { get => false; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
+        public bool ShowBlockly { get => true; }
     }
 }

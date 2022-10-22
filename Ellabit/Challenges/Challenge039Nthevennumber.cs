@@ -1,6 +1,6 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge039Nthevennumber : IChallenge
+    public class Challenge039Nthevennumber : IChallenge, IChallengeBlockly, IChallengeTestCode
     {
         public string? Header { get; set; } = "Nth even number";
         public string? Code { get; set; } = @"
@@ -84,7 +84,5 @@ NthEven(100) ➞ 198
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "Math", "Multiplication" }, { "Level", "2" } };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public bool ShowBlockly { get => true; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
     }
 }

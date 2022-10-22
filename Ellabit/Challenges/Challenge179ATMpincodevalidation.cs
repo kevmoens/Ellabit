@@ -1,6 +1,6 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge179ATMpincodevalidation : IChallenge
+    public class Challenge179ATMpincodevalidation : IChallenge, IChallengeBlockly, IChallengeTestCode
     {
         public string? Header { get; set; } = "ATM pin code validation";
         public string? Code { get; set; } = @"
@@ -113,8 +113,6 @@ Empty strings must return false.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3", "Test4", "Test5" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
-        public bool ShowBlockly { get => false; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
+        public bool ShowBlockly { get => true; }
     }
 }

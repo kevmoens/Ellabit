@@ -1,6 +1,6 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge125Nextnumbergreaterthanaandbanddivisiblebyb : IChallenge
+    public class Challenge125Nextnumbergreaterthanaandbanddivisiblebyb : IChallenge, IChallengeBlockly, IChallengeTestCode
     {
         public string? Header { get; set; } = "Next number greater than a and b and divisible by b";
         public string? Code { get; set; } = @"
@@ -83,8 +83,6 @@ a will always be greater than b.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
-        public bool ShowBlockly { get => false; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
+        public bool ShowBlockly { get => true; }
     }
 }

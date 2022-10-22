@@ -1,6 +1,6 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge146Alphabetsoup : IChallenge
+    public class Challenge146Alphabetsoup : IChallenge, IChallengeBlockly, IChallengeTestCode
     {
         public string? Header { get; set; } = "Alphabet soup";
         public string? Code { get; set; } = @"
@@ -108,7 +108,5 @@ notes you can assume numbers and punctuation symbols won't be included in the st
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "String", "Sorting" }, { "Level", "2"} };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public bool ShowBlockly { get => true; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
     }
 }

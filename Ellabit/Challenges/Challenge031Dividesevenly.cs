@@ -1,6 +1,6 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge031Dividesevenly : IChallenge
+    public class Challenge031Dividesevenly : IChallenge, IChallengeBlockly, IChallengeTestCode
     {
         public string? Header { get; set; } = "Divides evenly";
         public string? Code { get; set; } = @"
@@ -71,7 +71,5 @@ a will always be greater than or equal to b.";
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "Math", "Modulo" }, { "Level", "2" } };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public bool ShowBlockly { get => true; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
     }
 }
