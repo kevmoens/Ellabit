@@ -1,6 +1,6 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge187Isthewordanisogram : IChallenge
+    public class Challenge187Isthewordanisogram : IChallenge, IChallengeTestCode
     {
         public string? Header { get; set; } = "Is the word an isogram?";
         public string? Code { get; set; } = @"
@@ -86,8 +86,5 @@ All test cases contain valid one word strings.
 """;
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         public Dictionary<string, string> Tags { get; set; } = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase);
-        public bool ShowBlockly { get => false; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
     }
 }

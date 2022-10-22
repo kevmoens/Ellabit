@@ -1,6 +1,6 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge156Lastdigitultimate : IChallenge
+    public class Challenge156Lastdigitultimate : IChallenge, IChallengeBlockly, IChallengeTestCode
     {
         public string? Header { get; set; } = "Last digit ultimate";
         public string? Code { get; set; } = @"
@@ -91,7 +91,5 @@ Numbers can be negative.";
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "Math", "Multiplication"}, { "Int", "Logic" },{ "Logic", "'=='"}, { "Level", "2"} };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public bool ShowBlockly { get => true; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
     }
 }

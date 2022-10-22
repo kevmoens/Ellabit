@@ -1,6 +1,6 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge068FindtheindexPart1 : IChallenge
+    public class Challenge068FindtheindexPart1 : IChallenge, IChallengeTestCode
     {
         public string? Header { get; set; } = "  \"Find the index (part 1)\"  ";
         public string? Code { get; set; } = @"
@@ -83,8 +83,5 @@ if the item is not present, return -1.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
-        public bool ShowBlockly { get => false; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
     }
 }

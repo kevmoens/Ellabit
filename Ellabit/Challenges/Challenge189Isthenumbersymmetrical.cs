@@ -1,6 +1,6 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge189Isthenumbersymmetrical : IChallenge
+    public class Challenge189Isthenumbersymmetrical : IChallenge, IChallengeTestCode
     {
         public string? Header { get; set; } = "Is the number symmetrical?";
         public string? Code { get; set; } = @"
@@ -111,8 +111,5 @@ IsSymmetrical(1112111)  ➞  true
 """;
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3", "Test4", "Test5" }.ToList();
         public Dictionary<string, string> Tags { get; set; } = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase);
-        public bool ShowBlockly { get => false; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
     }
 }

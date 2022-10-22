@@ -1,6 +1,6 @@
 ﻿namespace Ellabit.Challenges
 {
-    public class Challenge027BuggycodePart4 : IChallenge
+    public class Challenge027BuggycodePart4 : IChallenge, IChallengeBlockly, IChallengeBlocklyInitialCode, IChallengeTestCode
     {
         public string? Header { get; set; } = "Buggy code (part 4)";
         public string? Code { get; set; } = @"
@@ -162,6 +162,5 @@ Don't overthink this challenge; it's not supposed to be hard.";
               </block>
             </xml>"; 
         }
-        public string BlocklyToolboxXML { get => string.Empty; }
     }
 }

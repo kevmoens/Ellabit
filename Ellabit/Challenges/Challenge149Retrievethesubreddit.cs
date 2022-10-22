@@ -1,6 +1,6 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge149Retrievethesubreddit : IChallenge
+    public class Challenge149Retrievethesubreddit : IChallenge, IChallengeBlockly, IChallengeTestCode
     {
         public string? Header { get; set; } = "Retrieve the subreddit";
         public string? Code { get; set; } = @"
@@ -80,7 +80,5 @@ SubReddit(""https://www.reddit.com/r/mildlyinteresting/"") ➞ ""mildlyinteresti
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "String", "Split" }, { "Level", "2" } };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public bool ShowBlockly { get => true; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
     }
 }

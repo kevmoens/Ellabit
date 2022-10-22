@@ -1,6 +1,6 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge034Multipleof100 : IChallenge
+    public class Challenge034Multipleof100 : IChallenge, IChallengeBlockly, IChallengeTestCode
     {
         public string? Header { get; set; } = "Multiple of 100";
         public string? Code { get; set; } = @"
@@ -85,7 +85,5 @@ don't forget to return the result.";
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "Math", "Modulo" }, { "Level", "2" } };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public bool ShowBlockly { get => true; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
     }
 }

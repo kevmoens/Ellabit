@@ -1,6 +1,6 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge042Returnnegative : IChallenge
+    public class Challenge042Returnnegative : IChallenge, IChallengeTestCode
     {
         public string? Header { get; set; } = "Return negative";
         public string? Code { get; set; } = @"
@@ -96,8 +96,5 @@ returnnegative(0) ➞ 0
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3", "Test4" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "Math", "Multiplication" }, { "Level", "1" } };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
-        public bool ShowBlockly { get => false; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
     }
 }

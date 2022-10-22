@@ -1,6 +1,6 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge170Findthebomb : IChallenge
+    public class Challenge170Findthebomb : IChallenge, IChallengeTestCode
     {
         public string? Header { get; set; } = "Find the bomb";
         public string? Code { get; set; } = @"
@@ -81,8 +81,5 @@ Bomb(""This goes boom!!!"") ➞ ""There is no bomb, relax.""
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
-        public bool ShowBlockly { get => false; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
     }
 }

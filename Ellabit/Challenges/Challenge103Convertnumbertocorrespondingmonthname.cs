@@ -1,6 +1,6 @@
 ﻿namespace Ellabit.Challenges
 {
-    public class Challenge103Convertnumbertocorrespondingmonthname : IChallenge
+    public class Challenge103Convertnumbertocorrespondingmonthname : IChallenge, IChallengeBlockly, IChallengeTestCode
     {
         public string? Header { get; set; } = "Convert number to corresponding month name";
         public string? Code { get; set; } = @"
@@ -83,8 +83,6 @@ You can expect only integers ranging from 1 to 12 as test input.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
-        public bool ShowBlockly { get => false; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
+        public bool ShowBlockly { get => true; }
     }
 }

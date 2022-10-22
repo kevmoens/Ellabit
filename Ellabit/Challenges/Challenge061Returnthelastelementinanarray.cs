@@ -1,6 +1,6 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge061Returnthelastelementinanarray : IChallenge
+    public class Challenge061Returnthelastelementinanarray : IChallenge, IChallengeBlockly, IChallengeTestCode
     {
         public string? Header { get; set; } = "Return the last element in an array";
         public string? Code { get; set; } = @"
@@ -83,8 +83,6 @@ Don't forget to return the result.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
-        public bool ShowBlockly { get => false; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
+        public bool ShowBlockly { get => true; }
     }
 }

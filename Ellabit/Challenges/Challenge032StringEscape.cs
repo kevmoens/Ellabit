@@ -1,6 +1,6 @@
 ﻿namespace Ellabit.Challenges
 {
-    public class Challenge032StringEscape: IChallenge
+    public class Challenge032StringEscape: IChallenge, IChallengeTestCode
     {
         public string? Header { get; set; } = "Return a string containing special characters";
         public string? Code { get; set; } = @"
@@ -88,8 +88,5 @@ public class Challenge
         </ul>";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         public Dictionary<string, string> Tags { get; set; } = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase) { { "String", "Special characters" }, { "Level", "1" } };
-        public bool ShowBlockly { get => false; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
     }
 }

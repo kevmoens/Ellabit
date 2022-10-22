@@ -1,6 +1,6 @@
 ﻿namespace Ellabit.Challenges
 {
-    public class Challenge110Smallerstringnumber : IChallenge
+    public class Challenge110Smallerstringnumber : IChallenge, IChallengeTestCode
     {
         public string? Header { get; set; } = "Smaller string number";
         public string? Code { get; set; } = @"
@@ -85,8 +85,5 @@ Bonus: See if you can do this without converting to integers.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
-        public bool ShowBlockly { get => false; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
     }
 }

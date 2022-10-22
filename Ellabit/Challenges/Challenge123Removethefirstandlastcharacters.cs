@@ -1,6 +1,6 @@
 ﻿namespace Ellabit.Challenges
 {
-    public class Challenge123Removethefirstandlastcharacters : IChallenge
+    public class Challenge123Removethefirstandlastcharacters : IChallenge, IChallengeBlockly, IChallengeTestCode
     {
         public string? Header { get; set; } = "Remove the first and last characters";
         public string? Code { get; set; } = @"
@@ -96,8 +96,6 @@ If the string is 2 or fewer characters long, return the string itself(See exampl
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3", "Test4" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
-        public bool ShowBlockly { get => false; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
+        public bool ShowBlockly { get => true; }
     }
 }

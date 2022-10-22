@@ -1,6 +1,6 @@
 ﻿namespace Ellabit.Challenges
 {
-    public class Challenge002ConvertMinutesToSeconds : IChallenge
+    public class Challenge002ConvertMinutesToSeconds : IChallenge, IChallengeBlockly, IChallengeBlocklyToolbox, IChallengeTestCode
     {
 
         public string? Header { get; set; } = "Convert minutes to seconds";
@@ -90,7 +90,6 @@ Write a function that takes an integer minutes and converts it to seconds.
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "Math", "Multiplication" }, { "Level", "1" } };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public bool ShowBlockly { get => true; }
-        public string BlocklyXML { get => string.Empty; }
         public string BlocklyToolboxXML { get => @"<xml id=""toolbox"" style=""display: none"">
     <block type=""math_arithmetic"">
         <value name=""A"">

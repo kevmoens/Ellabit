@@ -1,6 +1,6 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge036Numberofstickers : IChallenge
+    public class Challenge036Numberofstickers : IChallenge, IChallengeBlockly, IChallengeTestCode
     {
         public string? Header { get; set; } = "  \"Number of stickers\"  ";
         public string? Code { get; set; } = @"
@@ -94,7 +94,5 @@ Expect only positive whole numbers.";
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "Math", "Multiplication" }, { "Level", "2" } };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public bool ShowBlockly { get => true; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
     }
 }

@@ -1,6 +1,6 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge150Vowelreplacer : IChallenge
+    public class Challenge150Vowelreplacer : IChallenge, IChallengeBlockly, IChallengeTestCode
     {
         public string? Header { get; set; } = "Vowel replacer";
         public string? Code { get; set; } = @"
@@ -81,7 +81,5 @@ notes all characters will be in lower case.""";
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "String", "Comparison" }, { "Level", "2" } };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public bool ShowBlockly { get => true; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
     }
 }

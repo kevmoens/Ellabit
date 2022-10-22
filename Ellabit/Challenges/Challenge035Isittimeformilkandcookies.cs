@@ -1,6 +1,6 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge035Isittimeformilkandcookies : IChallenge
+    public class Challenge035Isittimeformilkandcookies : IChallenge, IChallengeBlockly, IChallengeTestCode
     {
         public string? Header { get; set; } = "Is it time for milk and cookies?";
         public string? Code { get; set; } = @"
@@ -83,7 +83,5 @@ all test cases contain valid dates.";
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "Date", "Equal" }, { "Level", "2" } };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public bool ShowBlockly { get => true; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
     }
 }

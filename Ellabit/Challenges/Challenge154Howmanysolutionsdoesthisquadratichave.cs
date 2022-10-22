@@ -1,6 +1,6 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge154Howmanysolutionsdoesthisquadratichave : IChallenge
+    public class Challenge154Howmanysolutionsdoesthisquadratichave : IChallenge, IChallengeBlockly, IChallengeTestCode
     {
         public string? Header { get; set; } = "How many solutions does this quadratic have?";
         public string? Code { get; set; } = @"
@@ -85,7 +85,5 @@ a will always be non-zero.";
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "Math", "Equations"}, { "Level", "3"} };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public bool ShowBlockly { get => true; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
     }
 }

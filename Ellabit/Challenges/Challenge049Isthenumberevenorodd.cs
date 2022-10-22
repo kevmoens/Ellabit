@@ -1,6 +1,6 @@
 ﻿namespace Ellabit.Challenges
 {
-    public class Challenge049Isthenumberevenorodd : IChallenge
+    public class Challenge049Isthenumberevenorodd : IChallenge, IChallengeBlockly, IChallengeTestCode
     {
         public string? Header { get; set; } = "Is the number even or odd?";
         public string? Code { get; set; } = @"
@@ -85,8 +85,6 @@ Tests are case sensitive (return ""even"" or ""odd"" in lowercase).";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "Math", "Parity" }, { "Level", "1" } };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
-        public bool ShowBlockly { get => false; }
-        public string BlocklyToolboxXML { get => string.Empty; }
-        public string BlocklyXML { get => string.Empty; }
+        public bool ShowBlockly { get => true; }
     }
 }

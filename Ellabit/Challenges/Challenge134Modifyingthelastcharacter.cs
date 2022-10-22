@@ -1,6 +1,6 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge134Modifyingthelastcharacter : IChallenge
+    public class Challenge134Modifyingthelastcharacter : IChallenge, IChallengeTestCode
     {
         public string? Header { get; set; } = "Modifying the last character";
         public string? Code { get; set; } = @"
@@ -80,8 +80,5 @@ notes test will include numbers and punctuation. make sure the code is not case 
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
-        public bool ShowBlockly { get => false; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
     }
 }
