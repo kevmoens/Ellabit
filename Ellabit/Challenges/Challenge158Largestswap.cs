@@ -90,7 +90,7 @@ LargestSwap(99) ➞ true
 Notes
 Numbers with two identical digits (third example) should yield true (you can't do better).";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
-        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "Int", "Comparison"}, { "Level", "2"} };
+        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "Int", "Logic"}, { "Logic", "'>'"}, { "Level", "2"} };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public bool ShowBlockly { get => true; }
         public string BlocklyXML { get => string.Empty; }
