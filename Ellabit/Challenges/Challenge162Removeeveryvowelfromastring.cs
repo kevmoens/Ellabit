@@ -79,7 +79,7 @@ removevowels(""happy thanksgiving to all--even the haters and losers!"") ➞ ""h
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "String", "Format" }, { "Level", "2" } };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
-        public bool ShowBlockly { get => false; }
+        public bool ShowBlockly { get => true; }
         public string BlocklyXML { get => string.Empty; }
         public string BlocklyToolboxXML {get => String.Empty; } 
     }
