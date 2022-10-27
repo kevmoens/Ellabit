@@ -190,6 +190,7 @@ namespace Ellabit.Challenges
             challenges.Add(new Challenge189Isthenumbersymmetrical());
             challenges.Add(new Challenge190Maskifythestring());
             challenges.Add(new Challenge191Checkifanumberisapalindrome());
+            challenges.Add(new Challenge192Scottishscreaming());
             challenges.Add(new ChallengeColor001());
             return challenges;
         }

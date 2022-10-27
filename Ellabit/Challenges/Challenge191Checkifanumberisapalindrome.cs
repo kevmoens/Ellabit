@@ -30,7 +30,7 @@ public class TestChallenge
         bool sumResult;
         try 
         {
-            sumResult = tmp.ispalindrome(838)  ;
+            sumResult = tmp.IsPalindrome(838)  ;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
@@ -43,7 +43,7 @@ public class TestChallenge
         bool sumResult;
         try 
         {
-            sumResult = tmp.ispalindrome(4433)  ;
+            sumResult = tmp.IsPalindrome(4433)  ;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
@@ -56,7 +56,7 @@ public class TestChallenge
         bool sumResult;
         try 
         {
-            sumResult = tmp.ispalindrome(443344)  ;
+            sumResult = tmp.IsPalindrome(443344)  ;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + ""\n"" + ex.Message);
@@ -67,12 +67,15 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create content  a  function  that  returns  true  if  a  number  is  a  palindrome.
 
-examples
+        <h5>Examples</h5>
+        <code>
 ispalindrome(838)  ➞  true
 
 ispalindrome(4433)  ➞  false
 
 ispalindrome(443344)  ➞  true
+            </p>
+        </code>
 
 notes
 a  palindrome  is  a  number  that  remains  the  same  when  reversed.
