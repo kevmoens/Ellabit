@@ -30,22 +30,22 @@ namespace Ellabit.DynamicCode
             Challenge = null;
         }
 
-        public async Task<(bool pass, string message)> RunTest(string test)
+        public async Task<(bool pass, string message)> RunTest(RunTestArgs args)
         {
             try
             {
 
                 var assembly = await GetAssembly();
 
-                Type? twriter = assembly?.GetType("Ellabit.TestChallenge");
+                Type? twriter = GetTestAssembly(assembly).GetType(args.NamespaceClass);
                 if (twriter == null)
                 {
-                    throw new InvalidCastException("Ellabit.TestChallenge");
+                    throw new InvalidCastException(args.NamespaceClass);
                 }
-                MethodInfo? method = twriter.GetMethod(test);
+                MethodInfo? method = twriter.GetMethod(args.Method);
                 if (method == null)
                 {
-                    throw new InvalidCastException(test ?? "Empty Method");
+                    throw new InvalidCastException(args.Method ?? "Empty Method");
                 }
                 var writer = Activator.CreateInstance(twriter);
 
@@ -53,7 +53,7 @@ namespace Ellabit.DynamicCode
                     new TimeSpan(0,0,15)
                     , new Func<object?>(() => method?.Invoke(writer, new object[] { }) )
                 );
-                if (!result.IsCompleted)
+                if (result.IsCompleted == false)
                 {
                     throw new StackOverflowException();
                 }
@@ -71,17 +71,30 @@ namespace Ellabit.DynamicCode
                 return ((bool pass, string message))output;
             }
             catch (Exception ex)
-                {
+            {
                 if (ex is IOException)
-                    {
+                {
                     throw new IOException(ex.Message);
                 } else
-                        {
+                {
                     throw new Exception(ex.Message);
-                        }
-                    }
+                }
+            }
         }
-        public static (bool IsCompleted, object? Output) ExecuteWithTimeLimit(TimeSpan timeSpan, Func<object?> codeBlock)
+        private Assembly GetTestAssembly(Assembly? generatedAssembly)
+        {
+            if (generatedAssembly == null)
+            {
+                return this.GetType().Assembly;
+            }
+            if (Challenge is IChallengeTestCode)
+            {
+                return generatedAssembly;
+            }
+            //Test Method is embedded into this project
+            return this.GetType().Assembly;
+        }
+        private static (bool IsCompleted, object? Output) ExecuteWithTimeLimit(TimeSpan timeSpan, Func<object?> codeBlock)
         {
             var tokenSource2 = new CancellationTokenSource();
             CancellationToken ct = tokenSource2.Token;
@@ -103,7 +116,7 @@ namespace Ellabit.DynamicCode
                 throw ae.InnerExceptions[0];
             }
         }
-        internal async Task<Assembly?> GetAssembly()
+        private async Task<Assembly?> GetAssembly()
         {
             Assembly? assembly = null;
             try
@@ -221,7 +234,7 @@ namespace Ellabit.DynamicCode
                         {
                             result = await client.GetAsync($"/Ellabit/_framework/{assemblyName}.dll");
 
-                    result.EnsureSuccessStatusCode();
+                            result.EnsureSuccessStatusCode();
                         }
                         catch (Exception ex)
                         {

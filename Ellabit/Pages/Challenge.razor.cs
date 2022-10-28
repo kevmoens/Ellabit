@@ -58,15 +58,7 @@ namespace Ellabit.Pages
             //Monaco Editor
             if (!_hasRegisteredMonaco && JS != null && monacoService != null)
             {
-                await monacoService.Initialize();
-                _objRef = DotNetObjectReference.Create(this.monacoService);
-                await JS.InvokeAsync<string>("registerProviders", _objRef);
-                _hasRegisteredMonaco = true;
-
-
-                IJSObjectReference? module = await JS.InvokeAsync<IJSObjectReference>("import", "./scripts/theme.js");
-                var isDarkMode = await module.InvokeAsync<bool>("isDarkTheme", new object[] { });
-                _isDarkMode = isDarkMode;
+                await InitializeMonacoEditor();
             }
 
             //Blockly
@@ -75,33 +67,63 @@ namespace Ellabit.Pages
                 && JS != null
                 && EqualityComparer<ElementReference>.Default.Equals(blocklyReference, default(ElementReference)) == false) //html tag exists
             {
-                module = await JS.InvokeAsync<IJSObjectReference>("import",
-                    "./javascript/blockly_ui_interop.js");
-                var blocklyToolbox = string.Empty;
-                if (_unloadable?.Context?.Challenge is IChallengeBlocklyToolbox)
-                {
-                    blocklyToolbox = ((IChallengeBlocklyToolbox)_unloadable.Context.Challenge).BlocklyToolboxXML;
-                }
-                await module.InvokeVoidAsync("initialize", new object?[] { blocklyToolbox });
+                await InitializeBlockly();
                 hasRegisteredBlockly = true;
-                var code = _unloadable?.Context?.Challenge?.Code;
-                if (code != null && blockXml == string.Empty)
-                {
-                    if (_unloadable?.Context?.Challenge is IChallengeBlocklyInitialCode)
-                    {
-                        blockXml = ((IChallengeBlocklyInitialCode)_unloadable.Context.Challenge).BlocklyXML;
-                    } else
-                    {
-                        blockXml = ParseCodeToBlock.Parse(code).ToString();
-                    }
-                }
-                if (blockXml != string.Empty)
-                {
-                    await module.InvokeVoidAsync("setBlocks", new object?[] { blockXml });
-                    StateHasChanged();
-                }
             }
             await base.OnAfterRenderAsync(firstRender);
+        }
+
+        private async Task InitializeBlockly()
+        {
+            //Initialize Blockly Editor
+            module = await JS.InvokeAsync<IJSObjectReference>("import",
+                "./javascript/blockly_ui_interop.js");
+            await InitializeBlocklyToolbox();
+            await InitializeBlocklyChallengeCodeBlocks();
+        }
+
+        private async Task InitializeBlocklyToolbox()
+        {
+            var blocklyToolbox = string.Empty;
+            if (_unloadable?.Context?.Challenge is IChallengeBlocklyToolbox)
+            {
+                blocklyToolbox = ((IChallengeBlocklyToolbox)_unloadable.Context.Challenge).BlocklyToolboxXML;
+            }
+            await module.InvokeVoidAsync("initialize", new object?[] { blocklyToolbox });
+        }
+
+        private async Task InitializeBlocklyChallengeCodeBlocks()
+        {
+            var code = _unloadable?.Context?.Challenge?.Code;
+            if (code != null && blockXml == string.Empty)
+            {
+                if (_unloadable?.Context?.Challenge is IChallengeBlocklyInitialCode)
+                {
+                    blockXml = ((IChallengeBlocklyInitialCode)_unloadable.Context.Challenge).BlocklyXML;
+                }
+                else
+                {
+                    blockXml = ParseCodeToBlock.Parse(code).ToString();
+                }
+            }
+            if (blockXml != string.Empty)
+            {
+                await module.InvokeVoidAsync("setBlocks", new object?[] { blockXml });
+                StateHasChanged();
+            }
+        }
+
+        private async Task InitializeMonacoEditor()
+        {
+            await monacoService.Initialize();
+            _objRef = DotNetObjectReference.Create(this.monacoService);
+            await JS.InvokeAsync<string>("registerProviders", _objRef);
+            _hasRegisteredMonaco = true;
+
+
+            IJSObjectReference? module = await JS.InvokeAsync<IJSObjectReference>("import", "./scripts/theme.js");
+            var isDarkMode = await module.InvokeAsync<bool>("isDarkTheme", new object[] { });
+            _isDarkMode = isDarkMode;
         }
 
         public async void OnBlocklyToCSharp()
@@ -110,27 +132,36 @@ namespace Ellabit.Pages
             {
                 return;
             }
+            BlockSyntax blockMethodBlock = await BlocklyGetCSharpMethod();
+
+            //Get current C# source to SyntaxTree
+            SyntaxNode syntax = CSharpSyntaxTree.ParseText(_unloadable.Context.Challenge.Code ?? "").GetRoot();
+            //Get Sample Code's method from SyntaxTree
+            MethodDeclarationSyntax method = (from node in syntax.DescendantNodes()
+                .OfType<MethodDeclarationSyntax>()
+                                              select node).First();
+            //If Method has body, which is the starting and ending { }
+            if (method.Body != null)
+            {
+                var methodBody = (SyntaxNode)method.Body;
+                //Replace Sample Method with source generated from Blockly
+                var output = syntax.ReplaceNode(methodBody, blockMethodBlock);
+                //Fix Whitespace issues
+                output = output.SyntaxTree.GetRoot().NormalizeWhitespace();
+                //Update code to be used 
+                code = output.ToFullString();
+            }
+        }
+
+        private async Task<BlockSyntax> BlocklyGetCSharpMethod()
+        {
             //Get Blockly code to C#
             var blockMethodCode = await module.InvokeAsync<string>("evalProgram");
             SyntaxNode blockMethod = CSharpSyntaxTree.ParseText(blockMethodCode).GetRoot();
             BlockSyntax blockMethodBlock = (from node in blockMethod.DescendantNodes()
                                                 .OfType<BlockSyntax>()
                                             select node).First();
-
-            //Get current C# source 
-            SyntaxNode syntax = CSharpSyntaxTree.ParseText(_unloadable.Context.Challenge.Code ?? "").GetRoot();
-            MethodDeclarationSyntax method = (from node in syntax.DescendantNodes()
-                .OfType<MethodDeclarationSyntax>()
-                          select node).First();
-            if (method.Body != null)
-            {
-                var methodBody = (SyntaxNode)method.Body;
-                //Replace
-                var output = syntax.ReplaceNode(methodBody, blockMethodBlock);
-            
-                output = output.SyntaxTree.GetRoot().NormalizeWhitespace();
-                code = output.ToFullString();
-            }
+            return blockMethodBlock;
         }
 
         [JSInvokable]
@@ -180,7 +211,7 @@ namespace Ellabit.Pages
         }
         /// <summary>
         /// Since the state of the editor is lost every time we switch tabs we have to 
-        /// - Iniialize editory every time we go into the code tab
+        /// - Iniialize editor every time we go into the code tab
         /// - When leaving code tab save text in editor
         /// </summary>
         /// <param name="tabIndex"></param>
@@ -248,58 +279,16 @@ namespace Ellabit.Pages
         private async Task ExecuteTests()
         {
             testResults = "";
-            if (!(_unloadable?.Context?.Challenge is IChallenge))
-            {
-                testResults += "\nChallenge, missing IChallenge";
-                return;
-            }
-            if (!(_unloadable?.Context?.Challenge is IChallengeTestCode))
-            {
-                testResults += "\nInvalid Challenge, missing IChallengeTestCode";
-                return;
-            }
             var testCode = _unloadable?.Context?.Challenge as IChallengeTestCode;
-
-            if (testCode.Tests == null)
+            if (ExecuteTests_Validation(testCode) == false)
             {
-                testResults += "\nCode didn't compile";
                 return;
             }
-            var origCode = _unloadable?.Context?.Challenge?.Code;
+            var origCode = _unloadable.Context.Challenge.Code;
             _unloadable.Context.Challenge.Code = code;
             try
             {
-                int testNum = 1;
-                fail = false;
-                runningTests = true;
-                foreach (var test in testCode.Tests)
-                {
-                    try
-                    {
-                        var testResult = await _unloadable.Context.RunTest(test);
-                        if (testResult.pass)
-                        {
-                            testResults += $"<br/>Test {testNum} <h6 style='color: green'>Pass</h6>";
-                        }
-                        else
-                        {
-                            testResults += $"<br/>Test {testNum} <h6 style='color: red'>FAILED</h6> " + testResult.message;
-                            fail = true;
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        fail = true;
-                        if (ex is IOException)
-                        {
-                            testResults += $"<br/><h6 style='color: red'>FAILED</h6> " + ex.Message;
-                            return;
-                        }
-                        testResults += $"<br/>Test {testNum} " + "\n <h6 style='color: red'>FAILED</h6> " + ex.Message;
-                    }
-                    testNum++;
-                }
-
+                await ExecuteTests_RunAllTests(testCode);
             }
             catch (Exception ex)
             {
@@ -320,6 +309,65 @@ namespace Ellabit.Pages
                 _unloadable.Context.Challenge.Code = origCode;
                 runningTests = false;
                 StateHasChanged();
+            }
+        }
+        public bool ExecuteTests_Validation(IChallengeTestCode? testCode)
+        {
+
+            if (!(_unloadable?.Context?.Challenge is IChallenge))
+            {
+                testResults += "\nChallenge, missing IChallenge";
+                return false;
+            }
+            if (!(_unloadable?.Context?.Challenge is IChallengeTestCode))
+            {
+                testResults += "\nInvalid Challenge, missing IChallengeTestCode";
+                return false;
+            }
+
+            if (testCode?.Tests == null)
+            {
+                testResults += "\nCode didn't compile";
+                return false;
+            }
+            return true;
+        }
+        public async Task ExecuteTests_RunAllTests(IChallengeTestCode? testCode)
+        {
+            int testNum = 1;
+            fail = false;
+            runningTests = true;
+            foreach (var test in testCode.Tests)
+            {
+                await ExecuteTests_RunOneTest(test, testNum);
+                testNum++;
+            }
+
+        }
+        public async Task ExecuteTests_RunOneTest(string? test, int testNum)
+        {
+            try
+            {
+                var testResult = await _unloadable.Context.RunTest(new RunTestArgs() { Method = test});
+                if (testResult.pass)
+                {
+                    testResults += $"<br/>Test {testNum} <h6 style='color: green'>Pass</h6>";
+                }
+                else
+                {
+                    testResults += $"<br/>Test {testNum} <h6 style='color: red'>FAILED</h6> " + testResult.message;
+                    fail = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                fail = true;
+                if (ex is IOException)
+                {
+                    testResults += $"<br/><h6 style='color: red'>FAILED</h6> " + ex.Message;
+                    return;
+                }
+                testResults += $"<br/>Test {testNum} " + "\n <h6 style='color: red'>FAILED</h6> " + ex.Message;
             }
         }
         public void OnNextChallenge()
