@@ -191,6 +191,7 @@ namespace Ellabit.Challenges
             challenges.Add(new Challenge190Maskifythestring());
             challenges.Add(new Challenge191Checkifanumberisapalindrome());
             challenges.Add(new Challenge192Scottishscreaming());
+            challenges.Add(new Challenge193Formatnumberwithcommaseparatingthousands());
             challenges.Add(new ChallengeColor001());
             return challenges;
         }
