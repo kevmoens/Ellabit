@@ -1,28 +1,27 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge194Sortnumbersindescendingorder : IChallenge
+    public class Challenge194Sortnumbersindescendingorder : IChallenge, IChallengeTestCode
     {
         public string? Header { get; set; } = "Sort numbers in descending order";
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
-
-public class Challenge 
+namespace Ellabit
 {
-    public  int SortDescending(int num) 
+    public class Challenge 
     {
+        public  int SortDescending(int num) 
+        {
       
+        }
     }
 }
-
-
 ";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
-
+namespace Ellabit
+{
 public class TestChallenge
 {
     public (bool pass, string message) Test1()
@@ -64,6 +63,7 @@ public class TestChallenge
         }
         return (sumResult == 76530,   $""returned: {sumResult}  expected: 76530"");
     }
+}
 }
 ";
         public string? Description { get; set; } = @"Create content  a  function  that  takes  any  nonnegative  number  as  an  argument  and  return  it  with  it's  digits  in  descending  order.  descending  order  is  when  you  sort  from  highest  to  lowest.

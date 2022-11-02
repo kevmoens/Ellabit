@@ -1,27 +1,27 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge193Formatnumberwithcommaseparatingthousands : IChallenge
+    public class Challenge193Formatnumberwithcommaseparatingthousands : IChallenge, IChallengeTestCode
     {
         public string? Header { get; set; } = "Format number with comma(s) separating thousands";
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
-
-public class Challenge
+namespace Ellabit
 {
-    public  string FormatNum(int num)
+    public class Challenge
     {
+        public  string FormatNum(int num)
+        {
 			
+        }
     }
 }
-
 ";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
-
+namespace Ellabit
+{
 public class TestChallenge
 {
     public (bool pass, string message) Test1()
@@ -35,7 +35,7 @@ public class TestChallenge
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult ==   "" 1,000"" ,  $""returned: {sumResult}  expected:  1,000"");
+        return (sumResult ==   ""1,000"" ,  $""returned: {sumResult}  expected:  1,000"");
     }
     public (bool pass, string message) Test2()
     {
@@ -61,8 +61,9 @@ public class TestChallenge
         {
             return (false, ex.ToString() + ""\n"" + ex.Message);
         }
-        return (sumResult == 20,   $""returned: {sumResult}  expected: 20"");
+        return (sumResult == ""20"",   $""returned: {sumResult}  expected: 20"");
     }
+}
 }
 ";
         public string? Description { get; set; } = @"Create a function that takes a number as an argument and returns a string formatted to separate thousands.

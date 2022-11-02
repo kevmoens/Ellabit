@@ -1,26 +1,25 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge192Scottishscreaming : IChallenge
+    public class Challenge192Scottishscreaming : IChallenge, IChallengeTestCode
     {
         public string? Header { get; set; } = "Scottish screaming";
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
-
-using System;
-public class Challenge {
-	public  string ToScottishScreaming(string str) {
+namespace Ellabit
+{
+    public class Challenge {
+	    public  string ToScottishScreaming(string str) {
 		
-	}
+	    }
+    }
 }
-
 ";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
-
+namespace Ellabit
+{
 public class TestChallenge
 {
     public (bool pass, string message) Test1()
@@ -34,7 +33,7 @@ public class TestChallenge
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult ==  ""helle werld"" ,  $""returned: {sumResult}  expected: helle werld"");
+        return (sumResult ==  ""HELLE WERLD"" ,  $""returned: {sumResult}  expected: HELLE WERLD"");
     }
     public (bool pass, string message) Test2()
     {
@@ -62,6 +61,7 @@ public class TestChallenge
         }
         return (sumResult == ""BETTERFLEES ERE BEEETEFEL!"",   $""returned: {sumResult}  expected: BETTERFLEES ERE BEEETEFEL!"");
     }
+}
 }
 ";
         public string? Description { get; set; } = @"A strong Scottish accent makes every vowel similar to an ""e"", so you should replace every vowel with an ""e"". Additionally, it is being screamed, so it should be in block capitals.

@@ -1,35 +1,33 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge195Fridaythe13th : IChallenge
+    public class Challenge195Fridaythe13th : IChallenge, IChallengeTestCode
     {
         public string? Header { get; set; } = "Friday the 13th";
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
-
-using System;
-
-public class Challenge
+namespace Ellabit
 {
-	  public  bool HasFriday13th(int month, int year)
-	  {
-		  return true|false;
-	  }
+    public class Challenge
+    {
+	      public  bool HasFriday13th(int month, int year)
+	      {
+		      return true|false;
+	      }
+    }
 }
-
 ";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
-
+namespace Ellabit
+{
 public class TestChallenge
 {
     public (bool pass, string message) Test1()
     {
         var tmp = new Challenge();
-        int sumResult = 0;
+        bool sumResult = false;
         try 
         {
             sumResult = tmp.HasFriday13th(3, 2020) ;
@@ -42,7 +40,7 @@ public class TestChallenge
     public (bool pass, string message) Test2()
     {
         var tmp = new Challenge();
-        int sumResult = 0;
+        bool sumResult = false;
         try 
         {
             sumResult = tmp.HasFriday13th(10, 2017) ;
@@ -55,7 +53,7 @@ public class TestChallenge
     public (bool pass, string message) Test3()
     {
         var tmp = new Challenge();
-        int sumResult = 0;
+        bool sumResult = false;
         try 
         {
             sumResult = tmp.HasFriday13th(1, 1985) ;
@@ -65,6 +63,7 @@ public class TestChallenge
         }
         return (sumResult ==  false,   $""returned: {sumResult}  expected:  false"");
     }
+}
 }
 ";
         public string? Description { get; set; } = @"Given the month and year as numbers, return whether that month contains a friday 13th.

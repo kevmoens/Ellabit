@@ -1,27 +1,27 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge191Checkifanumberisapalindrome : IChallenge
+    public class Challenge191Checkifanumberisapalindrome : IChallenge, IChallengeTestCode
     {
         public string? Header { get; set; } = "Check if a number is a palindrome";
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
-
-public class Challenge
+namespace Ellabit
 {
-    public  bool IsPalindrome(int num)
+    public class Challenge
     {
+        public  bool IsPalindrome(int num)
+        {
 			
+        }
     }
 }
-
 ";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
-
+namespace Ellabit
+{
 public class TestChallenge
 {
     public (bool pass, string message) Test1()
@@ -63,6 +63,7 @@ public class TestChallenge
         }
         return (sumResult ==   true,   $""returned: {sumResult}  expected: true"");
     }
+}
 }
 ";
         public string? Description { get; set; } = @"Create content  a  function  that  returns  true  if  a  number  is  a  palindrome.
