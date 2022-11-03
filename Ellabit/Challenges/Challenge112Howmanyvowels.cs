@@ -81,7 +81,13 @@ Notes
 a, e, i, o, u are considered vowels(not y).
 All test cases are one word and only contain letters.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
-        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { {"Expression", "Lambda" },{ "Loop", "For" },{ "String", "Containing" }, {"Level", "Two" } };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
+<<<<<<< Updated upstream
+=======
+        public bool ShowBlockly { get => true; }
+        public string BlocklyXML { get => string.Empty; }
+        public string BlocklyToolboxXML { get => string.Empty; }
+>>>>>>> Stashed changes
     }
 }
