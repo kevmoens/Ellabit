@@ -10,7 +10,7 @@ using System;
 
             public class Challenge 
             {
-	            public  int Squared(int a) 
+	            public  int Squaed(int b) 
 	            {
 		            return a * a;
 	            }
