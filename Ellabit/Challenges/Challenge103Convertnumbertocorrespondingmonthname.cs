@@ -84,10 +84,5 @@ You can expect only integers ranging from 1 to 12 as test input.";
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { {"DateTime", "Conversion"}, { "Logic", "if" }, { "Level", "2" } };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public bool ShowBlockly { get => true; }
-<<<<<<< Updated upstream
-=======
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
->>>>>>> Stashed changes
     }
 }

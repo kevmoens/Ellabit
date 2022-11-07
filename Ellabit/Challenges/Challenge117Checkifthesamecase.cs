@@ -98,10 +98,5 @@ N/A";
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { {"Boolean", "Expression" }, {"String", "Conversion" }, { "Logic", "If" }, {"Level", "2" } };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public bool ShowBlockly { get => true; }
-<<<<<<< Updated upstream
-=======
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
->>>>>>> Stashed changes
     }
 }

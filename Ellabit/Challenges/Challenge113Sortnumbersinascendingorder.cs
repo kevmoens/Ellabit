@@ -100,7 +100,7 @@ SortNumsAscending([]) ➞ []
 Notes
 Test input can be positive or negative.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3", "Test4" }.ToList();
-        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "Array", "Ordering" }, { "Logic", ">or<" }, { "Int", "Logic" }, { "Loop", "For" }, { "Level", "2" } };
+        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "Array", "Ordering" }, { "Logic", "or" }, { "Int", "Logic" }, { "Loop", "For" }, { "Level", "2" } };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
     }
 }

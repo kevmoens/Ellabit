@@ -104,10 +104,5 @@ Try to be precise with how you spell things and where you put the capital letter
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "Boolean", "Expression" }, { "Logic", "If" }, { "Math", "Modulo" }, { "Level", "2" } };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public bool ShowBlockly { get => true; }
-<<<<<<< Updated upstream
-=======
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
->>>>>>> Stashed changes
     }
 }
