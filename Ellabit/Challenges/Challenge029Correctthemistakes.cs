@@ -6,17 +6,17 @@ namespace Ellabit.Challenges
         public string? Code { get; set; } = @"
 using System;
 
-            namespace Ellabit {
+namespace Ellabit {
 
-            public class Challenge 
-            {
-	            public  int Squaed(int b) 
-	            {
-		            return a * a;
-	            }
-            }
+    public class Challenge 
+    {
+	    public  int Squaed(int b) 
+	    {
+		    return a * a;
+	    }
+    }
 
-            }";
+}";
         public string? TestCode { get; set; } = @"
 using System;
 
