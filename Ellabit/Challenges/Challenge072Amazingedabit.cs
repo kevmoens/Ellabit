@@ -78,7 +78,7 @@ AmazingEdabit(""Infinity is amazing."") ➞ ""Infinity is not amazing.""
 Notes
 Ellabit is amazing :)";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
-        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "Statements", "If and Else If" }, { "Level", "2" } };
+        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "Logic", "If and Else If" }, { "Level", "2" } };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public bool ShowBlockly { get => true; }
     }
