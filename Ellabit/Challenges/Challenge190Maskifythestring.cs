@@ -3,7 +3,7 @@ using static Humanizer.In;
 
 namespace Ellabit.Challenges
 {
-    public class Challenge190Maskifythestring : IChallenge
+    public class Challenge190Maskifythestring : IChallenge, IChallengeTestCode
     {
         public string? Header { get; set; } = "Maskify the string";
         public string? Code { get; set; } = @"
@@ -103,8 +103,5 @@ Notes
 An empty string should return an empty string (fourth example above).";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3", "Test4" }.ToList();
         public Dictionary<string, string> Tags { get; set; } = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase);
-        public bool ShowBlockly { get => false; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
     }
 }

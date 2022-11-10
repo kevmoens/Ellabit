@@ -4,11 +4,11 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
+	  <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
   </PropertyGroup>
 
   <ItemGroup>
-  
+
     <PackageReference Include="CSharpToBlockly" Version="0.2.1" />
   
     <PackageReference Include="IronBlock" Version="1.0.13" />
@@ -21,7 +21,7 @@
 	<PackageReference Include="BlazorMonaco" Version="2.1.0" />
 	<PackageReference Include="OmniSharp.Roslyn.CSharp" Version="1.37.4" />
   </ItemGroup>
-
+	
 	<ItemGroup>
 		<None Update="OmniSharp\OmniSharpSignatureHelpService.tt">
 			<LastGenOutput>OmniSharpSignatureHelpService.cs</LastGenOutput>
@@ -63,6 +63,17 @@
   <ItemGroup>
     <Folder Include="DynamicCode\" />
   </ItemGroup>
+
+  <!-- CSS ISOLATION-->
+	<ItemGroup>
+		<None Remove="Pages\Challenge.razor.css" />	
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Include="Pages\Challenge.razor.css" />
+	</ItemGroup>
+	
+	
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>

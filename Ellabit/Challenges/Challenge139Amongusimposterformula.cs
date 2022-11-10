@@ -1,6 +1,6 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge139Amongusimposterformula : IChallenge
+    public class Challenge139Amongusimposterformula : IChallenge, IChallengeBlockly, IChallengeTestCode
     {
         public string? Header { get; set; } = "Among us imposter formula";
         public string? Code { get; set; } = @"
@@ -78,8 +78,6 @@ imposterformula(3, 4) ➞ ""75%""
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
-        public bool ShowBlockly { get => false; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
+        public bool ShowBlockly { get => true; }
     }
 }

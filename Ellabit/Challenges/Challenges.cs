@@ -189,6 +189,11 @@ namespace Ellabit.Challenges
             challenges.Add(new Challenge188UTF8bomtextencoding());
             challenges.Add(new Challenge189Isthenumbersymmetrical());
             challenges.Add(new Challenge190Maskifythestring());
+            challenges.Add(new Challenge191Checkifanumberisapalindrome());
+            challenges.Add(new Challenge192Scottishscreaming());
+            challenges.Add(new Challenge193Formatnumberwithcommaseparatingthousands());
+            challenges.Add(new Challenge194Sortnumbersindescendingorder());
+            challenges.Add(new Challenge195Fridaythe13th());
             challenges.Add(new ChallengeColor001());
             return challenges;
         }

@@ -1,6 +1,6 @@
 ﻿namespace Ellabit.Challenges
 {
-    public class Challenge066Stringtointegerandviceversa : IChallenge
+    public class Challenge066Stringtointegerandviceversa : IChallenge, IChallengeTestCode
     {
         public string? Header { get; set; } = "  \"String to integer and vice versa\"  ";
         public string? Code { get; set; } = @"
@@ -97,8 +97,5 @@ Don't forget to return the result.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3", "Test4" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
-        public bool ShowBlockly { get => false; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
     }
 }

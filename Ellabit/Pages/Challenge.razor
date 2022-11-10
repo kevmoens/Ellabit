@@ -2,14 +2,6 @@
 @using Ellabit.Challenges
 <PageTitle>Ellabit</PageTitle>
 
-<style>
-
-    .monaco-editor-container {
-        height: calc(100vh - 135px);
-        width: 100%;
-        border: 1px solid gray;
-    }
-</style>
 
 <MudTabs Elevation="4"
          Rounded="true"
@@ -23,39 +15,50 @@
         <br />
         @if (_unloadable?.Context?.Challenge?.Tags != null)
         {
-            <table>
-                @foreach (var item in _unloadable.Context.Challenge.Tags.Keys)
-                {
-                    <tr>
-                        <td>
-                            @item
-                        </td>
-                        <td>
-                            @_unloadable.Context.Challenge.Tags[item]
-                        </td>
-                    </tr>
-                }
-            </table>
-        }
-    </MudTabPanel>
-    @if (_unloadable?.Context?.Challenge?.ShowBlockly ?? false)
-    {
-        <MudTabPanel Text="Block">
-
-            <div>
-                <div>
-                    <h2>Experimental</h2>
-                </div>
-                <div style="height:65vh;padding-left:0">
-                    <div @ref=blocklyReference id="blocklyDiv" style="height:100%;width:100%"></div>
+            <div class="tag-container">
+                <div class="tag-header">
+                    <h3>Tags</h3>
                 </div>
                 <div>
-                    <div style="padding:8px;">
-                        <a class="btn btn-primary" href="javascript:void(0);" @onclick="OnBlocklyToCSharp">Convert Blocks To C#</a>
-                    </div>
+                    <table>
+                        <tr>
+                            <th>Header</th>
+                            <th>Detail</th>
+                        </tr>
+                        @foreach (var item in _unloadable.Context.Challenge.Tags.Keys)
+                        {
+                            <tr>
+                                <td>
+                                    @item
+                                </td>
+                                <td>
+                                    @_unloadable.Context.Challenge.Tags[item]
+                                </td>
+                            </tr>
+                        }
+                    </table>
                 </div>
             </div>
-        </MudTabPanel>
+        }
+    </MudTabPanel>
+    @if (_unloadable?.Context?.Challenge is IChallengeBlockly && ((IChallengeBlockly)_unloadable.Context.Challenge).ShowBlockly)
+    {
+    <MudTabPanel Text="Block">
+
+        <div>
+            <div>
+                <h2>Experimental</h2>
+            </div>
+            <div style="height:65vh;padding-left:0">
+                <div @ref=blocklyReference id="blocklyDiv" style="height:100%;width:100%"></div>
+            </div>
+            <div>
+                <div style="padding:8px;">
+                    <a class="btn btn-primary" href="javascript:void(0);" @onclick="OnBlocklyToCSharp">Convert Blocks To C#</a>
+                </div>
+            </div>
+        </div>
+    </MudTabPanel>
     }
     <MudTabPanel Text="Code">
         <MonacoEditor @ref="_editor" ConstructionOptions="EditorConstructionOptions" />

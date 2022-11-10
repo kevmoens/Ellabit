@@ -1,6 +1,6 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge053Maxmindifference : IChallenge
+    public class Challenge053Maxmindifference : IChallenge, IChallengeBlockly, IChallengeTestCode
     {
         public string? Header { get; set; } = "Max min difference";
         public string? Code { get; set; } = @"
@@ -83,8 +83,6 @@ Diff([4, 17, 12, 2, 10, 2]) ➞ 15
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "Math", "Min Max" }, { "Array", "Min Max" }, { "Level", "1" } };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
-        public bool ShowBlockly { get => false; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
+        public bool ShowBlockly { get => true; }
     }
 }

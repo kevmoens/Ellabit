@@ -1,6 +1,6 @@
 ﻿namespace Ellabit.Challenges
 {
-    public class Challenge160Validzipcode : IChallenge
+    public class Challenge160Validzipcode : IChallenge, IChallengeTestCode
     {
         public string? Header { get; set; } = "Valid zip code";
         public string? Code { get; set; } = @"
@@ -97,10 +97,7 @@ IsValid(""393939"") ➞ false
             </p>
         </code>";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3", "Test4" }.ToList();
-        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "String", "REGEX"}, { "Level", "3"} };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
-        public bool ShowBlockly { get => false; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
     }
 }

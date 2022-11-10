@@ -2,7 +2,7 @@ using static MudBlazor.CategoryTypes;
 
 namespace Ellabit.Challenges
 {
-    public class Challenge163Anintroductiontothemapreducepattern : IChallenge
+    public class Challenge163Anintroductiontothemapreducepattern : IChallenge, IChallengeTestCode
     {
         public string? Header { get; set; } = "An introduction to the map-reduce pattern";
         public string? Code { get; set; } = @"
@@ -99,8 +99,5 @@ magnitude([2,  3,  6,  1,  8]  )  ➞  10.6770782520313""
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3", "Test4" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) {{ "Math", "Magnitude" }, { "Level", "3" }};
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
-        public bool ShowBlockly { get => false; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
     }
 }

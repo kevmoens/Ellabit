@@ -1,6 +1,6 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge009Lessthan100 : IChallenge
+    public class Challenge009Lessthan100 : IChallenge, IChallengeBlockly, IChallengeTestCode
     {
         public string? Header { get; set; } = "Less than 100?";
         public string? Code { get; set; } = @"
@@ -82,7 +82,5 @@ lessThan100(3, 77) ➞ true
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "Math", "Add" }, { "Expression", "<=" }, { "Level", "1" } };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public bool ShowBlockly { get => true; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
     }
 }

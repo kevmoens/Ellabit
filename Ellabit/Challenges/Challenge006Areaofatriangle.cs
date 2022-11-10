@@ -1,6 +1,6 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge006Areaofatriangle : IChallenge
+    public class Challenge006Areaofatriangle : IChallenge, IChallengeBlockly, IChallengeTestCode
     {
         public string? Header { get; set; } = "Area of a triangle";
         public string? Code { get; set; } = @"
@@ -89,7 +89,5 @@ don't forget to return the result.";
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "Math", "Multiplication" }, { "Math:2", "Division" }, { "Level", "1" }, { "Single Line", "True" } };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public bool ShowBlockly { get => true; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
     }
 }

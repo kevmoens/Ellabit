@@ -1,6 +1,6 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge069Findthesmallestnumberinanarray : IChallenge
+    public class Challenge069Findthesmallestnumberinanarray : IChallenge, IChallengeBlockly, IChallengeTestCode
     {
         public string? Header { get; set; } = "Find the smallest number in an array";
         public string? Code { get; set; } = @"
@@ -114,8 +114,6 @@ test cases contain decimals.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3", "Test4", "Test5" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
-        public bool ShowBlockly { get => false; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
+        public bool ShowBlockly { get => true; }
     }
 }

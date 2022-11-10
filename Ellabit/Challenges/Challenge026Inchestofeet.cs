@@ -1,6 +1,6 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge026Inchestofeet : IChallenge
+    public class Challenge026Inchestofeet : IChallenge, IChallengeBlockly, IChallengeTestCode
     {
         public string? Header { get; set; } = "Inches to feet";
         public string? Code { get; set; } = @"
@@ -83,7 +83,5 @@ if inches are under 12, return 0.";
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "Math", "Division" }, { "Level", "1" } };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public bool ShowBlockly { get => true; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
     }
 }

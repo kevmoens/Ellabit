@@ -1,6 +1,6 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge076Reverseanarray : IChallenge
+    public class Challenge076Reverseanarray : IChallenge, IChallengeTestCode
     {
         public string? Header { get; set; } = "Reverse an array";
         public string? Code { get; set; } = @"
@@ -83,8 +83,5 @@ don't forget to return the result.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
-        public bool ShowBlockly { get => false; }
-        public string BlocklyToolboxXML { get => string.Empty; }
-        public string BlocklyXML { get => string.Empty; }
     }
 }

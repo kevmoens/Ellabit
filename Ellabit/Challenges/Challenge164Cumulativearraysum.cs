@@ -1,6 +1,6 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge164Cumulativearraysum : IChallenge
+    public class Challenge164Cumulativearraysum : IChallenge, IChallengeTestCode
     {
         public string? Header { get; set; } = "Cumulative array sum";
         public string? Code { get; set; } = @"
@@ -83,8 +83,8 @@ cumulativesum([3,  3,  -2,  408,  3,  3])  ➞  [3,  6,  4,  412,  415,  418]
 notes
 return  an  empty  array  if  the  input  is  an  empty  array.""";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
-        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) {{ "Array", "Iteration" }, { "Level", "2" }};
-public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
+        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+        public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public bool ShowBlockly { get => false; }
         public string BlocklyXML { get => string.Empty; }
         public string BlocklyToolboxXML { get => string.Empty; }

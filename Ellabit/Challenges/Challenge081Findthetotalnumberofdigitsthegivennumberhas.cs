@@ -1,6 +1,6 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge081Findthetotalnumberofdigitsthegivennumberhas : IChallenge
+    public class Challenge081Findthetotalnumberofdigitsthegivennumberhas : IChallenge, IChallengeTestCode
     {
         public string? Header { get; set; } = "Find the total number of digits the given number has";
         public string? Code { get; set; } = @"
@@ -112,8 +112,5 @@ finddigitamount(0) ➞ 1
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3", "Test4", "Test5" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
-        public bool ShowBlockly { get => false; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
     }
 }

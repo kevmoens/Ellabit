@@ -1,6 +1,6 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge030Fliptheintegerboolean : IChallenge
+    public class Challenge030Fliptheintegerboolean : IChallenge, IChallengeBlockly, IChallengeTestCode  
     {
         public string? Header { get; set; } = "Flip the integer boolean";
         public string? Code { get; set; } = @"
@@ -68,7 +68,5 @@ flipintbool(0) ➞ 1
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "Boolean", "Unary" }, { "Level", "2" } };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public bool ShowBlockly { get => true; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
     }
 }

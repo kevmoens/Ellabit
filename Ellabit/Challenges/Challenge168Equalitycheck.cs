@@ -1,6 +1,6 @@
 ﻿namespace Ellabit.Challenges
 {
-    public class Challenge168Equalitycheck : IChallenge
+    public class Challenge168Equalitycheck : IChallenge, IChallengeTestCode
     {
         public string? Header { get; set; } = "Equality check";
         public string? Code { get; set; } = @"
@@ -94,7 +94,7 @@ CheckEquality(1,  1) ➞ true
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { {"Object", "Comparision" }, { "Level ", "2"} };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
-        public bool ShowBlockly { get => true; }
+        public bool ShowBlockly { get => false; }
         public string BlocklyXML { get => string.Empty; }
         public string BlocklyToolboxXML { get => string.Empty; }
     }

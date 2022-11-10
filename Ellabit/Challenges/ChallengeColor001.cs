@@ -1,7 +1,7 @@
 ﻿using System;
 namespace Ellabit.Challenges
 {
-	public class ChallengeColor001 : IChallenge
+	public class ChallengeColor001 : IChallenge, IChallengeTestCode
     {
         public string? Header { get; set; } = "Add two colors";
         public string? Code { get; set; } = @"
@@ -101,8 +101,5 @@ public class TestChallenge
 
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
-        public bool ShowBlockly { get => false; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
     }
 }
