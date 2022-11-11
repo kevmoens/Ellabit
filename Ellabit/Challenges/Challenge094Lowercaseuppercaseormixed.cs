@@ -1,6 +1,6 @@
 ﻿namespace Ellabit.Challenges
 {
-    public class Challenge094Lowercaseuppercaseormixed : IChallenge
+    public class Challenge094Lowercaseuppercaseormixed : IChallenge, IChallengeBlockly, IChallengeTestCode
     {
         public string? Header { get; set; } = "Lowercase, uppercase or mixed?";
         public string? Code { get; set; } = @"
@@ -84,8 +84,6 @@ Ignore punctuation, spaces and numbers.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
-        public bool ShowBlockly { get => false; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
+        public bool ShowBlockly { get => true; }
     }
 }

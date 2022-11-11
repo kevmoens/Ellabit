@@ -41,12 +41,12 @@ namespace Ellabit.DynamicCode
                 if (twriter == null)
                 {
                     throw new InvalidCastException("Ellabit.TestChallenge");
-            }
+                }
                 MethodInfo? method = twriter.GetMethod(test);
                 if (method == null)
-            {
+                {
                     throw new InvalidCastException(test ?? "Empty Method");
-            }
+                }
                 var writer = Activator.CreateInstance(twriter);
 
                 var result = ExecuteWithTimeLimit(
@@ -120,9 +120,14 @@ namespace Ellabit.DynamicCode
             {
                 return null;
             }
+            List<SyntaxTree> treeItems = new();
             SyntaxTree codeChallengeTree = CSharpSyntaxTree.ParseText(Challenge.Code ?? "");
-            SyntaxTree codeTestTree = CSharpSyntaxTree.ParseText(Challenge.TestCode ?? "");
-
+            treeItems.Add(codeChallengeTree);
+            if (Challenge is IChallengeTestCode)
+            {
+                SyntaxTree codeTestTree = CSharpSyntaxTree.ParseText(((IChallengeTestCode)Challenge).TestCode ?? "");
+                treeItems.Add(codeTestTree);
+            }
             string assemblyName = Path.GetFileName("EllabitChallenge");
             
             Assembly[] referenceAssemblyRoots = new[]
@@ -156,7 +161,7 @@ namespace Ellabit.DynamicCode
 
             CSharpCompilation compilation = CSharpCompilation.Create(
                 assemblyName,
-                syntaxTrees: new[] { codeChallengeTree, codeTestTree },
+                syntaxTrees: treeItems.ToArray(),
                 references: references,
                 options: new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary)
                 );

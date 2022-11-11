@@ -1,6 +1,6 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge172Findthelargestnumbersinagroupofarrays : IChallenge
+    public class Challenge172Findthelargestnumbersinagroupofarrays : IChallenge, IChallengeTestCode
     {
         public string? Header { get; set; } = "Find the largest numbers in a group of arrays";
         public string? Code { get; set; } = @"
@@ -89,8 +89,5 @@ watch ouf for negative numbers";
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "Int", "Array" }, { "Array", "Max Value" }, { "Level", "2" } };
 
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
-        public bool ShowBlockly { get => false; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
     }
 }

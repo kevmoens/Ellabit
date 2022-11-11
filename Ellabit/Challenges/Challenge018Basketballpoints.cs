@@ -1,6 +1,6 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge018Basketballpoints : IChallenge
+    public class Challenge018Basketballpoints : IChallenge, IChallengeBlockly, IChallengeTestCode
     {
         public string? Header { get; set; } = "Basketball Points";
         public string? Code { get; set; } = @"
@@ -83,7 +83,5 @@ Points(38, 8) ➞ 100
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "Math", "Multiplication" }, { "Level", "1" } };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public bool ShowBlockly { get => true; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
     }
 }

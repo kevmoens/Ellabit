@@ -2,7 +2,7 @@ using ICSharpCode.Decompiler.Util;
 
 namespace Ellabit.Challenges
 {
-    public class Challenge186Strangepair : IChallenge
+    public class Challenge186Strangepair : IChallenge, IChallengeTestCode
     {
         public string? Header { get; set; } = "Strange pair";
         public string? Code { get; set; } = @"
@@ -105,8 +105,5 @@ Notes
 It should work on a pair of empty strings(they trivially share nothing).";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         public Dictionary<string, string> Tags { get; set; } = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase);
-        public bool ShowBlockly { get => false; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
     }
 }

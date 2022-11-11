@@ -1,6 +1,6 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge136Istheaverageofallelementsawholenumber : IChallenge
+    public class Challenge136Istheaverageofallelementsawholenumber : IChallenge, IChallengeTestCode
     {
         public string? Header { get; set; } = "Is the average of all elements a whole number?";
         public string? Code { get; set; } = @"
@@ -115,8 +115,5 @@ n/a""";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3", "Test4", "Test5" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
-        public bool ShowBlockly { get => false; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
     }
 }

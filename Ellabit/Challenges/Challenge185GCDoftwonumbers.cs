@@ -1,6 +1,6 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge185GCDoftwonumbers : IChallenge
+    public class Challenge185GCDoftwonumbers : IChallenge, IChallengeBlockly, IChallengeTestCode
     {
         public string? Header { get; set; } = "GCD of two numbers";
         public string? Code { get; set; } = @"
@@ -81,8 +81,6 @@ both  values  will  be  positive.
 the  gcd  is  the  largest  factor  that  divides  both  numbers.""";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         public Dictionary<string, string> Tags { get; set; } = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase);
-        public bool ShowBlockly { get => false; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
+        public bool ShowBlockly { get => true; }
     }
 }

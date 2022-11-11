@@ -1,6 +1,6 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge010Arethenumbersequal : IChallenge
+    public class Challenge010Arethenumbersequal : IChallenge, IChallengeBlockly, IChallengeTestCode
     {
         public string? Header { get; set; } = "Are the numbers equal?";
         public string? Code { get; set; } = @"
@@ -84,7 +84,5 @@ IsEqual(36, 35) ➞ false
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "Expression", "==" }, { "Level", "1" } };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public bool ShowBlockly { get => true; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
     }
 }

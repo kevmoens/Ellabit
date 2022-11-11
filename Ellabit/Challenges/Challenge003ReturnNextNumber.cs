@@ -1,6 +1,6 @@
 ﻿namespace Ellabit.Challenges
 {
-    public class Challenge003ReturnNextNumber : IChallenge
+    public class Challenge003ReturnNextNumber : IChallenge, IChallengeBlockly, IChallengeBlocklyToolbox, IChallengeTestCode
     {
 
         public string? Header { get; set; } = "Return the Next Number from the Integer Passed";
@@ -90,7 +90,6 @@ public class TestChallenge
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "Math", "Add" }, { "Level", "1" } };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public bool ShowBlockly { get => true; }
-        public string BlocklyXML { get => string.Empty; }
         public string BlocklyToolboxXML { get => @"<xml id=""toolbox"" style=""display: none"">
     <block type=""math_arithmetic"">
         <value name=""A"">

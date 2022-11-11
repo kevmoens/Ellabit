@@ -1,6 +1,6 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge177Positivecountnegativesum : IChallenge
+    public class Challenge177Positivecountnegativesum : IChallenge, IChallengeTestCode
     {
         public string? Header { get; set; } = "Positive count negative sum";
         public string? Code { get; set; } = @"
@@ -89,8 +89,5 @@ Cast sum to int, don't mind the remaining decimal places.
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { {"Array","Comparision" }, { "Level", "2"} };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
-        public bool ShowBlockly { get => false; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
     }
 }

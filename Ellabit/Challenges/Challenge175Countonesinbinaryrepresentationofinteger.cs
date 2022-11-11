@@ -1,6 +1,6 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge175Countonesinbinaryrepresentationofinteger : IChallenge
+    public class Challenge175Countonesinbinaryrepresentationofinteger : IChallenge, IChallengeTestCode
     {
         public string? Header { get; set; } = "Count ones in binary representation of integer";
         public string? Code { get; set; } = @"
@@ -81,9 +81,9 @@ countones(999)  ➞  8
 notes
 the  input  will  always  be  a  valid  integer  (number).""";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
-        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "Loop", "Foreach"} , { "Level", "2"} };
+        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
-        public bool ShowBlockly { get => true; }
+        public bool ShowBlockly { get => false; }
         public string BlocklyXML { get => string.Empty; }
         public string BlocklyToolboxXML { get => string.Empty; }
     }

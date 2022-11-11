@@ -1,6 +1,6 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge007Returntheremainderfromtwonumbers : IChallenge
+    public class Challenge007Returntheremainderfromtwonumbers : IChallenge, IChallengeBlockly, IChallengeTestCode
     {
         public string? Header { get; set; } = "Return the remainder from two numbers";
         public string? Code { get; set; } = @"
@@ -85,7 +85,5 @@ remainder(5, 5) ➞ 0
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "Math", "Modulo" }, { "Level", "1" } };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public bool ShowBlockly { get => true; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
     }
 }

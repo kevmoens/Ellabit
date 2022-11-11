@@ -1,6 +1,6 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge070Findthelargestnumberinanarray : IChallenge
+    public class Challenge070Findthelargestnumberinanarray : IChallenge, IChallengeBlockly, IChallengeTestCode
     {
         public string? Header { get; set; } = "Find the largest number in an array";
         public string? Code { get; set; } = @"
@@ -84,8 +84,6 @@ if you get stuck on a challenge, find help in the resources ";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
-        public bool ShowBlockly { get => false; }
-        public string BlocklyXML { get => string.Empty; }
-        public string BlocklyToolboxXML { get => string.Empty; }
+        public bool ShowBlockly { get => true; }
     }
 }
