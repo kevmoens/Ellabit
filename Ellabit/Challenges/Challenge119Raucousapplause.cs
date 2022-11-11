@@ -84,7 +84,7 @@ CountClaps(""CCClaClClap!Clap!ClClClap!"") ➞ 9
 Notes
 Each clap starts with a capital ""C"".";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
-        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { {"String", "Substring" }, {"Int", "Logic" }, {"Level", "2" } };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
     }
 }

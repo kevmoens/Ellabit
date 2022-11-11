@@ -97,7 +97,7 @@ All of the values given are numbers.
 All arrays will have at least one element.
 Don't forget to return the result.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
-        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "Math", "Multiplication" }, { "Array", "Math" }, { "Loop", "For" }, { "Level", "2" } };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
     }
 }

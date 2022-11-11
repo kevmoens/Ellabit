@@ -83,7 +83,7 @@ findminmax([1]) ➞ [1, 1]
 notes
 all test arrays will have at least one element and are valid.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
-        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "Array", "MinMax" }, {"Logic", "If" }, { "Level", "2"} };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
     }
 }
