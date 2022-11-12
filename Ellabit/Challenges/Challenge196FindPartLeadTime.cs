@@ -12,7 +12,7 @@ namespace Ellabit {
 
     public class Challenge
     {
-        public int ShippingTime(bool transferred, bool manufactured, bool purchased)
+        public int ShippingTime(char partStatus)
         {
             
         }
@@ -33,12 +33,12 @@ public class TestChallenge
         int sumResult = 0;
         try 
         {
-            sumResult = tmp.ShippingTime(true, false, true);
+            sumResult = tmp.ShippingTime('T');
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult == 9,  $""returned: {sumResult}  expected: 9"");
+        return (sumResult == 2,  $""returned: {sumResult}  expected: 2"");
     }
     public (bool pass, string message) Test2()
     {
@@ -46,12 +46,12 @@ public class TestChallenge
         int sumResult = 0;
         try 
         {
-            sumResult = tmp.ShippingTime(false, true, true);
+            sumResult = tmp.ShippingTime('M');
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult == 8, $""returned: {sumResult}  expected: 8"");
+        return (sumResult == 1, $""returned: {sumResult}  expected: 1"");
     }
     public (bool pass, string message) Test3()
     {
@@ -59,12 +59,12 @@ public class TestChallenge
         int sumResult = 0;
         try 
         {
-            sumResult = tmp.ShippingTime(true, true, true);
+            sumResult = tmp.ShippingTime('P');
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + ""\n"" + ex.Message);
         }
-        return (sumResult == 10,   $""returned: {sumResult}  expected: 10"");
+        return (sumResult == 7,   $""returned: {sumResult}  expected: 7"");
     }
 }
 }";
@@ -74,11 +74,11 @@ Write a function that finds the lead time of a part based on if it is transferre
         <h5>Examples</h5>
         <code>
             <p style = ""border:1px solid grey; padding: 10px;"" >
-                ShippingTime(""Transferred"", ""Purchased"") ➞ 9 days
+                ShippingTime(""Transferred"") ➞ 2 days
                 <br />
-                ShippingTime(""Manufactured"", ""Purchased"") ➞ 8 days
+                ShippingTime(""Manufactured"") ➞ 1 days
                 <br />
-                ShippingTime(""Transferred"", ""Manufactured"", ""Purchased"") ➞ 10 days
+                ShippingTime(""Purchased"") ➞ 7 days
             </p>
         </code>
 Notes
