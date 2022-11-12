@@ -94,7 +94,7 @@ SumSmallest([879,  953,  694,  -847,  342,  221,  -91,  -723,  791,  -587])  ➞
         </code>
 ";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3", "Test4" }.ToList();
-        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { {"Array","Iterate" }, { "Array", "Sort" }, { "Array", "Filtering" }, { "Level", "2"} };
+        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { {"Array","Iterate" }, { "Array:2", "Sort" }, { "Array:3", "Filtering" }, { "Level", "2"} };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public bool ShowBlockly { get => false; }
         public string BlocklyXML { get => string.Empty; }
