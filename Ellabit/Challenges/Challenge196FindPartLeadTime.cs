@@ -74,17 +74,17 @@ Write a function that finds the lead time of a part based on if it is transferre
         <h5>Examples</h5>
         <code>
             <p style = ""border:1px solid grey; padding: 10px;"" >
-                ShippingTime(""Transferred"") ➞ 2 days
+                ShippingTime(""T"") ➞ 2 days
                 <br />
-                ShippingTime(""Manufactured"") ➞ 1 days
+                ShippingTime(""M"") ➞ 1 days
                 <br />
-                ShippingTime(""Purchased"") ➞ 7 days
+                ShippingTime(""P"") ➞ 7 days
             </p>
         </code>
 Notes
-A manufactured part has a lead time of 1 day.
-A transferred part has a lead time of 2 days.
-A purchased part has a lead time of 7 days.
+A manufactured part (M) has a lead time of 1 day.
+A transferred part (T) has a lead time of 2 days.
+A purchased part (P) has a lead time of 7 days.
 Purchased will always be true.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "Statement", "Switch" }, { "Level", "2" } };
