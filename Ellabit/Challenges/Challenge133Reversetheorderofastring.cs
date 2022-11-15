@@ -57,12 +57,12 @@ public class TestChallenge
         string sumResult;
         try 
         {
-            sumResult = tmp.Reverse(""edabit is really helpful!"");
+            sumResult = tmp.Reverse(""ellabit is really helpful!"");
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + ""\n"" + ex.Message);
         }
-        return (sumResult ==  ""!lufpleh yllaer si tibade"" ,   $""returned: {sumResult}  expected: !lufpleh yllaer si tibade"");
+        return (sumResult ==  ""!lufpleh yllaer si tiballe"" ,   $""returned: {sumResult}  expected: !lufpleh yllaer si tiballe"");
     }
 }
 }";
@@ -74,7 +74,7 @@ public class TestChallenge
             <p style = ""border:1px solid grey; padding: 10px;"" >
 reverse("" hello world"") ➞ ""dlrow olleh"" 
 reverse(""the quick brown fox."") "".xof nworb kciuq eht"" 
-reverse(""edabit is really helpful!"") ""!lufpleh yllaer si tibade"" 
+reverse(""ellabit is really helpful!"") ""!lufpleh yllaer si tiballe"" 
             </p>
         </code>
 

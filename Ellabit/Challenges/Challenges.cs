@@ -75,7 +75,7 @@ namespace Ellabit.Challenges
             challenges.Add(new Challenge069Findthesmallestnumberinanarray());
             challenges.Add(new Challenge070Findthelargestnumberinanarray());
             challenges.Add(new Challenge071Sumofresistanceinseriescircuits());
-            challenges.Add(new Challenge072Amazingedabit());
+            challenges.Add(new Challenge072Amazingellabit());
             challenges.Add(new Challenge073Caseinsensitivecomparison());
             challenges.Add(new Challenge074Differenceofmaxandminnumbersinarray());
             challenges.Add(new Challenge075Checkifstringendingmatchessecondstring());

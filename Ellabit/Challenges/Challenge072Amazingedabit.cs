@@ -1,6 +1,6 @@
 ﻿namespace Ellabit.Challenges
 {
-    public class Challenge072Amazingedabit : IChallenge, IChallengeBlockly, IChallengeTestCode
+    public class Challenge072Amazingellabit : IChallenge, IChallengeBlockly, IChallengeTestCode
     {
         public string? Header { get; set; } = "Amazing ellabit!";
         public string? Code { get; set; } = @"
@@ -63,16 +63,16 @@ public class TestChallenge
     }
 }
 }";
-        public string? Description { get; set; } = @"Create a function that takes a string and changes the word amazing to not amazing. Return the string without any change if the word edabit is part of the string.
+        public string? Description { get; set; } = @"Create a function that takes a string and changes the word amazing to not amazing. Return the string without any change if the word ellabit is part of the string.
 
         <h5>Examples</h5>
         <code>
             <p style = ""border:1px solid grey; padding: 10px;"" >
-AmazingEdabit(""ellabit is amazing."") ➞ ""ellabit is amazing.""
+AmazingEllabit(""ellabit is amazing."") ➞ ""ellabit is amazing.""
 
-AmazingEdabit(""Mubashir is amazing."") ➞ ""Mubashir is not amazing.""
+AmazingEllabit(""Mubashir is amazing."") ➞ ""Mubashir is not amazing.""
 
-AmazingEdabit(""Infinity is amazing."") ➞ ""Infinity is not amazing.""
+AmazingEllabit(""Infinity is amazing."") ➞ ""Infinity is not amazing.""
             </p>
         </code>
 Notes
