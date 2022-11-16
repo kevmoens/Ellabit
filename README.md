@@ -29,7 +29,7 @@ Try this
 <ul>
   <li>Syntax Coloring</li>
   <li>Better Intellisense</li>
-  <li>Add Tags to challenges</li>
+  <li>Add Tags to challenges (first 196 challenges - 20 to go 2022/11/16)</li>
   <li>More challenges</li>
 </ul>
 
