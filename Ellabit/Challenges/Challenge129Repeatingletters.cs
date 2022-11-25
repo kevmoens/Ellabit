@@ -81,7 +81,7 @@ DoubleChar(""1234!_ "") ➞ ""11223344!!__  ""
 Notes
 All test cases contain valid strings.Don't worry about spaces, special characters or numbers. They're all considered valid characters.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
-        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "string", "str.ToCharArray()" }, { "Level", "2"} };
+        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "string", "Duplication" }, { "Level", "2"} };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
     }
 }
