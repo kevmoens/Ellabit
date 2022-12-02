@@ -80,11 +80,7 @@ Repetition(""cherry"", 2) ➞ ""cherrycherry""
 Notes
 The second parameter of the function is positive integer.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
-<<<<<<< Updated upstream
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "String", "Duplication" }, { "Level", "2"} };
-=======
-        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "String", "Recursion" }, { "Level", "2"} };
->>>>>>> Stashed changes
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public bool ShowBlockly { get => true; }
     }

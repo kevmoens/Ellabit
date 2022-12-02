@@ -82,11 +82,7 @@ Sum(12) ➞ 78
 Notes
 Assume the input number is always positive.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
-<<<<<<< Updated upstream
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "Loop", "For" }, { "Level", "2"} };
-=======
-        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { { "Int", "Recursion" }, { "Level", "3"} };
->>>>>>> Stashed changes
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public bool ShowBlockly { get => true; }
     }
