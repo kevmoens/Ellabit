@@ -67,14 +67,18 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"This content  is  a  reverse  coding  challenge.  normally  you're  given  explicit  directions  with  how  to  create  a  function.  here,  you  must  generate  your  own  function  to  satisfy  the  relationship  between  the  inputs  and  outputs.
+        public string? Description { get; set; } = @"This is a reverse coding challenge. Normally you're given explicit directions with how to create a function. Here, you must generate your own function to satisfy the relationship between the inputs and outputs.
 
-your  task  is  to  create  a  function  that,  when  fed  the  inputs  below,  produces  the  sample  outputs  shown.
+Your task is to create a function that, when fed the inputs below, produces the sample outputs shown.
 
-examples
-mysteryfunc(152)  ➞  10
+Examples
+MysteryFunc(152) ➞ 10
 
-mysteryfunc(832""";
+MysteryFunc(832) ➞ 48
+
+MysteryFunc(19) ➞ 9
+
+MysteryFunc(133) ➞ 9";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         public Dictionary<string, string> Tags { get; set; } = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase);
     }

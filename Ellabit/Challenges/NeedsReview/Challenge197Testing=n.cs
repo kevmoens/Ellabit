@@ -2,7 +2,7 @@ namespace Ellabit.Challenges
 {
     public class Challenge197Testing : IChallenge
     {
-        public string? Header { get; set; } = "Testing = n?";
+        public string? Header { get; set; } = "Testing K^K = n?";
         public string? Code { get; set; } = @"
 using System;
 
@@ -66,10 +66,19 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"Write content  a  function  that  returns  true  if = k^k  n  for  input  (n,  k)  and  return  false  otherwise.
+        public string? Description { get; set; } = @"Write a function that returns true if k^k == n for input (n, k) and return false otherwise.
 
-examples
-ktok("" 4"", 2) ➞ true ktok(""387420489"", 9) ""="" 9^9 387420489 ktok(""3124"", 5) false ktok(""17"", 3) notes the ^ operator refers to exponentiation operation, not bitwise xor operation.""";
+Examples
+KToK(""4"", 2) ➞ true
+
+KToK(""387420489"", 9) ➞ true
+# 9^9 == 387420489
+
+KToK(""3124"", 5) ➞ false
+
+KToK(""17"", 3) ➞ false
+Notes
+The ^ operator refers to exponentiation operation, not the bitwise XOR operation.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         public Dictionary<string, string> Tags { get; set; } = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase);
     }

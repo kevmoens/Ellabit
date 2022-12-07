@@ -67,10 +67,19 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"Create content  a  function  that  takes  a  string  as  an  argument  and  converts  the  first  character  of  each  word  to  uppercase.  return  the  newly  formatted  string.
+        public string? Description { get; set; } = @"Create a function that takes a string as an argument and converts the first character of each word to uppercase. Return the newly formatted string.
 
-examples
-maketitle("" this is a title"") ➞ ""this title"" maketitle(""capitalize every word"") ""capitalize word"" maketitle(""i like pizza"") ""i pizza"" maketitle(""pizza pizza ""pizza pi""";
+Examples
+MakeTitle(""This is a title"") ➞ ""This Is A Title""
+
+MakeTitle(""capitalize every word"") ➞ ""Capitalize Every Word""
+
+MakeTitle(""I Like Pizza"") ➞ ""I Like Pizza""
+
+MakeTitle(""PIZZA PIZZA PIZZA"") ➞ ""PIZZA PIZZA PIZZA""
+Notes
+You can expect a valid string for each test case.
+Some words may contain more than one uppercase letter (see example #4).";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         public Dictionary<string, string> Tags { get; set; } = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase);
     }

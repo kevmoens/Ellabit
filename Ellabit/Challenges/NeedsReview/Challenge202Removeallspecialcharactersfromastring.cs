@@ -65,7 +65,14 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"Create content  a  function  that  takes  a  string,  removes  all  "" special"" characters (e.g. ., !, @, #, $, %, ^, &, \, *, (, )) and returns the new string. only non-alphanumeric allowed are dashes -, underscores _ spaces. examples removespecialcharacters(""the quick brown fox!"") ➞ ""the fox"" removespecialcharacters(""%fd76$fd(-)6gvklo."") ""fd7""";
+        public string? Description { get; set; } = @"Create a function that takes a string, removes all ""special"" characters (e.g. ., !, @, #, $, %, ^, &, \, *, (, )) and returns the new string. The only non-alphanumeric characters allowed are dashes -, underscores _ and spaces.
+
+Examples
+RemoveSpecialCharacters(""The quick brown fox!"") ➞ ""The quick brown fox""
+
+RemoveSpecialCharacters(""%fd76$fd(-)6GvKlO."") ➞ ""fd76fd-6GvKlO""
+
+RemoveSpecialCharacters(""D0n$c sed 0di0 du1"") ➞ ""D0nc sed 0di0 du1""";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         public Dictionary<string, string> Tags { get; set; } = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase);
     }

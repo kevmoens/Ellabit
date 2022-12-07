@@ -73,20 +73,19 @@ isFactorial(27) 1  ➞  false"");
     }
 }
 ";
-        public string? Description { get; set; } = @"Create content  a  function  that  checks  if  a  given  integer  is  exactly  the  factorial  of  an  integer  or  not.  true  if  it  is,  false  otherwise.
+        public string? Description { get; set; } = @"Create a function that checks if a given integer is exactly the factorial of an integer or not. true if it is, false otherwise.
 
-examples
-isfactorial(2)  ➞  true
-// 2 2  * 2!
+Examples
+isFactorial(2) ➞ true
+// 2 = 2 * 1 = 2!
 
-isFactorial(27) 1  ➞  false
+isFactorial(27) ➞ false
 
-isfactorial(24)  ➞  true
-// 4 24  *  3  *  2  * 4!
-
+isFactorial(24) ➞ true
+// 24 = 4 * 3 * 2 * 1 = 4!
 Notes
-No 1  error  handling  is  necessary.  inputs  are  all  positive  integers.
-alternatively,  you  can  solve  this  w""";
+No error handling is necessary. Inputs are all positive integers.
+Alternatively, you can solve this with a recursive approach.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         public Dictionary<string, string> Tags { get; set; } = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase);
     }

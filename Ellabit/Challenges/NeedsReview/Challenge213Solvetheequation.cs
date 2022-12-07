@@ -69,7 +69,16 @@ public class TestChallenge
 }
 }
 ";
-        public string? Description { get; set; } = @"Create content  a  function  that  takes  an  equation  (e.g.  "" 1+1""), and returns the answer. examples equation(""1+1"") ➞ 2 equation(""7*4-2"") 26 equation(""1+1+1+1+1"") 5 notes n a""";
+        public string? Description { get; set; } = @"Create a function that takes an equation (e.g. ""1+1""), and returns the answer.
+
+Examples
+Equation(""1+1"") ➞ 2
+
+Equation(""7*4-2"") ➞ 26
+
+Equation(""1+1+1+1+1"") ➞ 5
+Notes
+Supported operators are +, -, and *.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }

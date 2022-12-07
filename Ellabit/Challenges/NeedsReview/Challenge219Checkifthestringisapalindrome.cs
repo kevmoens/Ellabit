@@ -64,12 +64,19 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"A content  palindrome  is  a  word,  phrase,  number  or  other  sequence  of  characters  which  reads  the  same  backward  or  forward,  such  as  madam  or  kayak.
+        public string? Description { get; set; } = @"A palindrome is a word, phrase, number or other sequence of characters which reads the same backward or forward, such as madam or kayak.
 
-write  a  function  that  takes  a  string  and  determines  whether  it's  a  palindrome  or  not.  the  function  should  return  a  boolean  (true  or  false  value).
+Write a function that takes a string and determines whether it's a palindrome or not. The function should return a boolean (true or false value).
 
-examples
-ispalindrome("" neuquen"") ➞ true ispalindrome(""not a palindrome"") f""";
+Examples
+IsPalindrome(""Neuquen"") ➞ true
+
+IsPalindrome(""Not a palindrome"") ➞ false
+
+IsPalindrome(""A man, a plan, a cat, a ham, a yak, a yam, a hat, a canal-Panama!"") ➞ true
+Notes
+Should be case insensitive.
+Special characters (punctuation or spaces) should be ignored.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }

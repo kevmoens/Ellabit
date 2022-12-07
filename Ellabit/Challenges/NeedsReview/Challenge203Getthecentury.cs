@@ -64,10 +64,22 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"Create content  a  function  that  takes  in  a  year  and  returns  the  correct  century.
+        public string? Description { get; set; } = @"Create a function that takes in a year and returns the correct century.
 
-examples
-century(1756)  ➞  "" 18th century"" century(1555) ➞ ""16th century(1000) ""10th century(1001) ""11th century(2005) ""21st notes all years will be between 1000 and 2010. the 11th century is 1001 1100. 17""";
+Examples
+Century(1756) ➞ ""18th century""
+
+Century(1555) ➞ ""16th century""
+
+Century(1000) ➞ ""10th century""
+
+Century(1001) ➞ ""11th century""
+
+Century(2005) ➞ ""21st century""
+Notes
+All years will be between 1000 and 2010.
+The 11th century is between 1001 and 1100.
+The 18th century is between 1701-1800.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         public Dictionary<string, string> Tags { get; set; } = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase);
     }

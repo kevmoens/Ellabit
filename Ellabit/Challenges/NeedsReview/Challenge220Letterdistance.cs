@@ -1,4 +1,4 @@
-namespace Ellabit.Challenges
+﻿namespace Ellabit.Challenges
 {
     public class Challenge220Letterdistance : IChallenge
     {
@@ -66,13 +66,27 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"Given content  two  words,  the  letter  distance  is  calculated  by  taking  the  absolute  value  of  the  difference  in  character  codes  and  summing  up  the  difference.
+        public string? Description { get; set; } = @"Given two words, the letter distance is calculated by taking the absolute value of the difference in character codes and summing up the difference.
 
-if  one  word  is  longer  than  another,  add  the  difference  in  lengths  towards  the  score.
+If one word is longer than another, add the difference in lengths towards the score.
 
-to  illustrate:
+To illustrate:
 
-letterdistance("" house"", ""dist(""h"","" ""fly"") ""f"") + dist(""o"", ""l"") dist(""u"", ""y"") dist(house.length, fly.leng""";
+letterDistance(""house"", ""fly"") = dist(""h"", ""f"") + dist(""o"", ""l"") + dist(""u"", ""y"") + dist(house.Length, fly.Length)
+
+= |104 - 102| + |111 - 108| + |117 - 121| + |5 - 3|
+= 2 + 3 + 4 + 2
+= 11
+Examples
+LetterDistance(""sharp"", ""sharq"") ➞ 1
+
+LetterDistance(""abcde"", ""Abcde"") ➞ 32
+
+LetterDistance(""abcde"", ""bcdef"") ➞ 5
+Notes
+Always start comparing the two strings from their first letter.
+Excess letters are not counted towards distance.
+Capital letters are included.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }

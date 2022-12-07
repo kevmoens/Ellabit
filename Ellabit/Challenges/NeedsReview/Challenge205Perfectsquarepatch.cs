@@ -95,28 +95,31 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"Create content  a  function  that  takes  an  integer  and  outputs  an  n  x  n  square  solely  consisting  of  the  integer  n.
+        public string? Description { get; set; } = @"Create a function that takes an integer and outputs an n x n square solely consisting of the integer n.
 
-examples
-squarepatch(3)  ➞  [
-  [3,  3,  3],
-  [3,  3,  3],
-  [3,  3,  3]
+Examples
+SquarePatch(3) ➞ [
+  [3, 3, 3],
+  [3, 3, 3],
+  [3, 3, 3]
 ]
 
-squarepatch(5)  ➞  [
-  [5,  5,  5,  5,  5],
-  [5,  5,  5,  5,  5],
-  [5,  5,  5,  5,  5],
-  [5,  5,  5,  5,  5],
-  [5,  5,  5,  5,  5]
+SquarePatch(5) ➞ [
+  [5, 5, 5, 5, 5],
+  [5, 5, 5, 5, 5],
+  [5, 5, 5, 5, 5],
+  [5, 5, 5, 5, 5],
+  [5, 5, 5, 5, 5]
 ]
 
-squarepatch(1)  ➞  [
+SquarePatch(1) ➞ [
   [1]
 ]
 
-squarepatch(0)  ➞";
+SquarePatch(0) ➞ []
+Notes
+n >= 0.
+If n = 0, return an empty array.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         public Dictionary<string, string> Tags { get; set; } = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase);
     }

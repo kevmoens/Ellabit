@@ -1,4 +1,4 @@
-namespace Ellabit.Challenges
+﻿namespace Ellabit.Challenges
 {
     public class Challenge209Pentagonalnumber : IChallenge
     {
@@ -63,13 +63,43 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"Write content  a  function  that  takes  a  positive  integer  num  and  calculates  how  many  dots  exist  in  a  pentagonal  shape  around  the  center  dot  on  the  nth  iteration.
+        public string? Description { get; set; } = @"Write a function that takes a positive integer num and calculates how many dots exist in a pentagonal shape around the center dot on the Nth iteration.
 
-in  the  image  below  you  can  see  the  first  iteration  is  only  a  single  dot.  on  the  second,  there  are  6  dots.  on  the  third,  there  are  16  dots,  and  on  the  fourth  there  are  31  dots.
+In the image below you can see the first iteration is only a single dot. On the second, there are 6 dots. On the third, there are 16 dots, and on the fourth there are 31 dots.
 
-alt  text
+ x
 
-return  the  number  of  d""";
+  x
+x x x
+ x x
+
+     x
+  x  x  x
+x x  x  x  x
+ x  x  x  x
+  x  x  x
+
+
+         x
+      x  x  x
+   x  x  x  x  x
+x  x  x  x  x  x  x
+  x  x  x  x  x  x
+   x  x  x  x  x
+     x  x  x  x
+
+
+Return the number of dots that exist in the whole pentagon on the Nth iteration.
+
+Examples
+pentagonal(1) ➞ 1
+
+pentagonal(2) ➞ 6
+
+pentagonal(3) ➞ 16
+
+pentagonal(8) ➞ 141
+";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         public Dictionary<string, string> Tags { get; set; } = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase);
     }

@@ -65,10 +65,17 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"Create content  a  function  that  takes  a  string  and  returns  a  new  string  with  each  new  character  accumulating  by  +1.  separate  each  set  with  a  dash.
+        public string? Description { get; set; } = @"Create a function that takes a string and returns a new string with each new character accumulating by +1. Separate each set with a dash.
 
-examples
-accum("" abcd"") ➞ ""a-bb-ccc-dddd"" accum(""rqaezty"") ""r-qq-aaa-eeee-zzzzz-tttttt-yyyyyyy"" accum(""cwat"") ""c-ww-aaa-tttt"" notes capitalize the first letter of each set. all tests contain valid strings with alphabe""";
+Examples
+Accum(""abcd"") ➞ ""A-Bb-Ccc-Dddd""
+
+Accum(""RqaEzty"") ➞ ""R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy""
+
+Accum(""cwAt"") ➞ ""C-Ww-Aaa-Tttt""
+Notes
+Capitalize the first letter of each set.
+All tests contain valid strings with alphabetic characters (a-z, A-Z).";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }

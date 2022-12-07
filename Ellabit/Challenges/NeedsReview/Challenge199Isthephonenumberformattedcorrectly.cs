@@ -66,14 +66,19 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"Create content  a  function  that  accepts  a  string  and  returns  true  if  it's  in  the  format  of  a  proper  phone  number  and  false  if  it's  not.  assume  any  number  between  0-9  (in  the  appropriate  spots)  will  produce  a  valid  phone  number.
+        public string? Description { get; set; } = @"Create a function that accepts a string and returns true if it's in the format of a proper phone number and false if it's not. Assume any number between 0-9 (in the appropriate spots) will produce a valid phone number.
 
-this  is  what  a  valid  phone  number  looks  like:
+This is what a valid phone number looks like:
 
-(123)  456-7890
+(123) 456-7890
+Examples
+IsValidPhoneNumber(""(123) 456-7890"") ➞ true
 
-examples
-isvalidphonenumber("" (123) 456-7890"") ➞ true isvalidphonenumber(""1111)""";
+IsValidPhoneNumber(""1111)555 2345"") ➞ false
+
+IsValidPhoneNumber(""098) 123 4567"") ➞ false
+Notes
+Don't forget the space after the closing parenthesis.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         public Dictionary<string, string> Tags { get; set; } = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase);
     }

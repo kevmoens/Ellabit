@@ -1,4 +1,4 @@
-namespace Ellabit.Challenges
+﻿namespace Ellabit.Challenges
 {
     public class Challenge211Basicemailvalidation : IChallenge
     {
@@ -66,12 +66,30 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"Create content  a  function  that  accepts  a  string,  checks  if  it's  a  valid  email  address  and  returns  either  true  or  false,  depending  on  the  evaluation.
+        public string? Description { get; set; } = @"Create a function that accepts a string, checks if it's a valid email address and returns either true or false, depending on the evaluation.
 
-the  string  must  contain  an  @  character.
-the  string  must  contain  a  .  character.
-the  @  must  have  at  least  one  character  in  front  of  it.
-  e.g.  "" e@ellabit.com"" is valid while ""@ellabit.com"" invalid. the . and @ must b""";
+The string must contain an @ character.
+The string must contain a . character.
+The @ must have at least one character in front of it.
+e.g. ""e@ellabit.com"" is valid while ""@ellabit.com"" is invalid.
+The . and the @ must be in the appropriate places.
+e.g. ""hello.email@com"" is invalid while ""john.smith@email.com"" is valid.
+If the string passes these tests, it's considered a valid email address.
+
+Examples
+ValidateEmail(""@gmail.com"") ➞ false
+
+ValidateEmail(""hello.gmail@com"") ➞ false
+
+ValidateEmail(""gmail"") ➞ false
+
+ValidateEmail(""hello@gmail"") ➞ false
+
+ValidateEmail(""hello@ellabit.com"") ➞ true
+Notes
+Check the Tests tab to see exactly what's being evaluated.
+You can solve this challenge with RegEx, but it's intended to be solved with logic.
+Solutions using RegEx will be accepted but frowned upon :(";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         public Dictionary<string, string> Tags { get; set; } = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase);
     }

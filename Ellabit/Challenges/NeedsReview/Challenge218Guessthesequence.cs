@@ -63,7 +63,7 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"Mubashir content  is  trying  to  figure  out  the  corresponding  quadratic  formula  for  the  following  quadratic  sequence  of  numbers:
+        public string? Description { get; set; } = @"Mubashir is trying to figure out the corresponding quadratic formula for the following quadratic sequence of numbers:
 
 n  |  result
 ---  |  ---
@@ -73,12 +73,16 @@ n  |  result
 4  |  720
 5  |  1050
 
-if  you  can  figure  this  out,  then  help  him  by  creating  a  function  that  takes  a  number  n  and  returns  the  nth  number  of  this  quadratic  sequence.
+If you can figure this out, then help him by creating a function that takes a number n and returns the nth number of this quadratic sequence.
 
-examples
-guesssequence(1)  ➞  90
+Examples
+GuessSequence(1) ➞ 90
 
-guesss""";
+GuessSequence(2) ➞ 240
+
+GuessSequence(3) ➞ 450
+Notes
+If you are not sure about how to find the formula of a quadratic sequence, check the Resources.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }

@@ -65,10 +65,15 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"Create content  a  function  to  return  the  amount  of  potatoes  there  are  in  a  string.
+        public string? Description { get; set; } = @"Create a function to return the amount of potatoes there are in a string.
 
-examples
-potatoes("" potato"") ➞ 1 potatoes(""potatopotato"") 2 potatoes(""potatoapple"") notes n a""";
+Examples
+Potatoes(""potato"") ➞ 1
+
+Potatoes(""potatopotato"") ➞ 2
+
+Potatoes(""potatoapple"") ➞ 1
+";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         public Dictionary<string, string> Tags { get; set; } = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase);
     }
