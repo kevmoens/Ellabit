@@ -1,4 +1,4 @@
-namespace Ellabit.Challenges
+﻿namespace Ellabit.Challenges
 {
     public class Challenge222Apiratestale : IChallenge
     {
@@ -65,11 +65,27 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"Captain content  hook  and  his  crew  are  currently  resting  at  origin  shore.  they  are  about  to  embark  on  their  next  adventure  to  an  undisclosed  location  (x,  y)  to  find  treasure.
+        public string? Description { get; set; } = @"Captain Hook and his crew are currently resting at Origin Shore. They are about to embark on their next adventure to an undisclosed location (x, y) to find treasure.
 
-captain  hook's  ship  can  only  move  exactly  north,  south,  east  or  west.  it  takes  exactly  1  day  for  the  ship  to  travel  1  unit  in  one  of  the  four  cardinal  directions.
+Captain Hook's ship can only move exactly north, south, east or west. It takes exactly 1 day for the ship to travel 1 unit in one of the four cardinal directions.
 
-after  every  5  days,  the  crew  wi""";
+After every 5 days, the crew will take one day of rest.
+
+Given the location of the treasure, find out how long it takes for Captain Hook and his crew to find the treasure. The ship is currently at coordinate (0, 0).
+
+NumberOfDays([3, 5]) => 9 days
+// Since: 3 days east + 2 days north (5 days passed) + 1 day of rest + 3 days north
+
+NumberOfDays([-4, -1]) => 5 days
+// Since 4 days west + 1 day south
+Examples
+NumberOfDays([10, 10]) ➞ 23
+
+NumberOfDays([3, 3]) ➞ 7
+
+NumberOfDays([-10, -9]) ➞ 22
+
+NumberOfDays([-1, -2]) ➞ 3";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         public Dictionary<string, string> Tags { get; set; } = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase);
     }
