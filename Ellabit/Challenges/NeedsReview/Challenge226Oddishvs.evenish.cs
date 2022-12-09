@@ -1,8 +1,8 @@
-namespace Ellabit.Challenges
+﻿namespace Ellabit.Challenges
 {
-    public class Challenge224Wurstisbetter : IChallenge
+    public class Challenge226Oddishvsevenish : IChallenge
     {
-        public string? Header { get; set; } = "Wurst is better";
+        public string? Header { get; set; } = "Oddish vs. evenish";
         public string? Code { get; set; } = @"
 using System;
 
@@ -10,9 +10,8 @@ namespace Ellabit;
 
 public class Challenge 
 {
-    public  string WurstIsBetter(string str) 
+    public  string OddishOrEvenish(int num) 
     {
-      
     }
 }
 
@@ -66,9 +65,23 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"Wurst content  is  the  best.  create  a  function  that  takes  a  string  and  replaces  every  mention  of  any  type  of  sausage  with  the  german  word  "" wurst,"" unless—of course—the sausage is already a type of german ""wurst"" (i.e. ""bratwurst"", see below), then leave the name unchanged. wursts | convert to wurst --- bratwurst kielbasa kochwurst chorizo leb""";
+        public string? Description { get; set; } = @"Create a function that determines whether a number is Oddish or Evenish. A number is Oddish if the sum of all of its digits is odd, and a number is Evenish if the sum of all of its digits is even. If a number is Oddish, return ""Oddish"". Otherwise, return ""Evenish"".
+
+For example, OddishOrEvenish(121) should return ""Evenish"", since 1 + 2 + 1 = 4. OddishOrEvenish(41) should return ""Oddish"", since 4 + 1 = 5.
+
+Examples
+OddishOrEvenish(43) ➞ ""Oddish""
+// 4 + 3 = 7
+// 7 % 2 = 1
+
+OddishOrEvenish(373) ➞ ""Oddish""
+// 3 + 7 + 3 = 13
+// 13 % 2 = 1
+
+OddishOrEvenish(4433) ➞ ""Evenish""
+// 4 + 4 + 3 + 3 = 14
+// 14 % 2 = 0";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
-        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
-        public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
+        public Dictionary<string, string> Tags { get; set; } = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase);
     }
 }

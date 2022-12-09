@@ -1,8 +1,8 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge233Switcharoo : IChallenge
+    public class Challenge223Reversetheorderofwordswithfivelettersormore : IChallenge
     {
-        public string? Header { get; set; } = "Switcharoo";
+        public string? Header { get; set; } = "Reverse the order of words with five letters or more";
         public string? Code { get; set; } = @"
 using System;
 
@@ -10,7 +10,7 @@ namespace Ellabit;
 
 public class Challenge 
 {
-    public  string FlipEndChars(object str) 
+    public  string Reverse(string str) 
     {
       
     }
@@ -66,9 +66,16 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"Create content  a  function  that  takes  a  string  and  returns  a  new  string  with  its  first  and  last  characters  swapped,  except  under  three  conditions:
+        public string? Description { get; set; } = @"Write a function that takes a string of one or more words as an argument and returns the same string, but with all five or more letter words reversed. Strings passed in will consist of only letters and spaces. Spaces will be included only when more than one word is present.
 
-if  the  length  of  the  string  is  less  than  two,  return  "" incompatible."". if the argument is not a string, return ""incompatible."". first and last characters are same, ""two's pair."". examples flipendchars(""c""";
+Examples
+Reverse(""Reverse"") ➞ ""esreveR""
+
+Reverse(""This is a typical sentence."") ➞ ""This is a lacipyt .ecnetnes""
+
+Reverse(""The dog is big."") ➞ ""The dog is big.""
+Notes
+You can expect a valid string to be provided for each test case.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }

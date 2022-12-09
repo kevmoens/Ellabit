@@ -1,20 +1,19 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge237Integralofafunction : IChallenge
+    public class Challenge232AlTeRnAtInGcaps : IChallenge
     {
-        public string? Header { get; set; } = "Integral of a function";
+        public string? Header { get; set; } = "AlTeRnAtInG caps";
         public string? Code { get; set; } = @"
 using System;
 
 namespace Ellabit;
 
-using System;
-
-public class Challenge
+public class Challenge 
 {
-	public  int Integral(int b, int m, int n) {
-		
-	}
+    public  string AlternatingCaps(string str) 
+    {
+      
+    }
 }
 
 ";
@@ -28,61 +27,55 @@ public class TestChallenge
     public (bool pass, string message) Test1()
     {
         var tmp = new Challenge();
-        int sumResult;
+        string sumResult;
         try 
         {
-            sumResult = tmp.integral(0,  2,  5)  ;
+            sumResult = tmp.alternatingcaps("" hello"") ;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult ==   3
-
-,  $""returned: {sumResult}  expected: 3"");
+        return (sumResult ==  ""hello"" ,  $""returned: {sumResult}  expected: hello"");
     }
     public (bool pass, string message) Test2()
     {
         var tmp = new Challenge();
-        int sumResult;
+        string sumResult;
         try 
         {
-            sumResult = tmp.integral(2,  4,  7)  ;
+            sumResult = tmp.alternatingcaps(""how are you?"");
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult ==   279
-
-,   $""returned: {sumResult}  expected: 279"");
+        return (sumResult ==  ""how you?"" ,   $""returned: {sumResult}  expected: how you?"");
     }
     public (bool pass, string message) Test3()
     {
         var tmp = new Challenge();
-        int sumResult;
+        string sumResult;
         try 
         {
-            sumResult = tmp.integral(5,  9,  3)  ;
+            sumResult = tmp.alternatingcaps(""omg this website is awesome!"");
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + ""\n"" + ex.Message);
         }
-        return (sumResult ==   -530712
-
-,   $""returned: {sumResult}  expected: -530712"");
+        return (sumResult ==  ""omg awesome!"" ,   $""returned: {sumResult}  expected: omg awesome!"");
     }
 }
 ";
-        public string? Description { get; set; } = @"Create content  a  function  that  takes  numbers  b,  m,  and  n  as  arguments  and  returns  the  definite  integral  of  the  function (b+1)*x^b f(x)  with  respect  to  x  from m x  to n, x  where  b,  m,  and  n  are  constants.
+        public string? Description { get; set; } = @"Create a function that alternates the case of the letters in a string (known as Spongecase).
 
-examples
-integral(0,  2,  5)  ➞  3
+Examples
+AlternatingCaps(""Hello"") ➞ ""HeLlO""
 
-integral(2,  4,  7)  ➞  279
+AlternatingCaps(""How are you?"") ➞ ""HoW aRe YoU?""
 
-integral(5,  9,  3)  ➞  -530712
-
-notes
-^  in  the  context  of  this  challenge  means  "" to the power of"", also known as""";
+AlternatingCaps(""OMG this website is awesome!"") ➞ ""OmG tHiS wEbSiTe Is AwEsOmE!""
+Notes
+The first letter should always be UPPERCASE.
+Ignore spaces.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }

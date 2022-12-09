@@ -1,8 +1,8 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge229Doallbigramsexist : IChallenge
+    public class Challenge230Sumofprimenumbers : IChallenge
     {
-        public string? Header { get; set; } = "Do all bigrams exist?";
+        public string? Header { get; set; } = "Sum of prime numbers";
         public string? Code { get; set; } = @"
 using System;
 
@@ -12,8 +12,9 @@ using System;
 
 public class Challenge
 {
-    public  bool CanFind(string[] bigrams, string[] words) {
-			
+	public  int SumPrimes(int[] arr)
+	{
+		
 	}
 }
 
@@ -28,33 +29,37 @@ public class TestChallenge
     public (bool pass, string message) Test1()
     {
         var tmp = new Challenge();
-        bool sumResult;
+        int sumResult;
         try 
         {
-            sumResult = tmp.canfind(new  string[]  {  "" at"", ""be"", ""th"", au"" }, new string[] { ""beautiful"", ""the"", ""hat"" }) ;
+            sumResult = tmp.sumprimes(new  int[]  {  1,  2,  3,  4,  5,  6,  7,  8,  9,  10  })  ;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult ==  true ,  $""returned: {sumResult}  expected: true"");
+        return (sumResult ==   17
+
+,  $""returned: {sumResult}  expected: 17"");
     }
     public (bool pass, string message) Test2()
     {
         var tmp = new Challenge();
-        bool sumResult;
+        int sumResult;
         try 
         {
-            sumResult = tmp.<rep.test2>;
+            sumResult = tmp.sumprimes(new  int[]  {  2,  3,  4,  11,  20,  50,  71  })  ;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult == <rep.test.result2>,   $""returned: {sumResult}  expected: <rep.test.result2Val>"");
+        return (sumResult ==   87
+
+,   $""returned: {sumResult}  expected: 87"");
     }
     public (bool pass, string message) Test3()
     {
         var tmp = new Challenge();
-        bool sumResult;
+        int sumResult;
         try 
         {
             sumResult = tmp.<rep.test3>;
@@ -66,12 +71,17 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"You content  are  given  an  input  array  of  bigrams,  and  an  array  of  words.
+        public string? Description { get; set; } = @"Create a function that takes a list of numbers and returns the sum of all prime numbers in the list.
 
-write  a  function  that  returns  true  if  every  single  bigram  from  this  array  can  be  found  at  least  once  in  an  the  list  of  words.
+Examples
+SumPrimes(new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }) ➞ 17
 
-examples
-canfind(new  string[]  {  "" at"", ""be"", ""th"", au"" }, new string[] { ""beautiful"", ""the"", ""hat"" }) ➞ true canfind(new ""ay"", ""ta"", cu"" string[]""";
+SumPrimes(new int[] { 2, 3, 4, 11, 20, 50, 71 }) ➞ 87
+
+SumPrimes(new int[] { }) ➞ 0
+Notes
+Given numbers won't exceed 101.
+A prime number is a number which has exactly two divisors (1 and itself).";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }

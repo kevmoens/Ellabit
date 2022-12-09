@@ -1,21 +1,21 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge223Reversetheorderofwordswithfivelettersormore : IChallenge
+    public class Challenge229Doallbigramsexist : IChallenge
     {
-        public string? Header { get; set; } = "Reverse the order of words with five letters or more";
+        public string? Header { get; set; } = "Do all bigrams exist?";
         public string? Code { get; set; } = @"
 using System;
 
 namespace Ellabit;
 
-public class Challenge 
-{
-    public  string Reverse(string str) 
-    {
-      
-    }
-}
+using System;
 
+public class Challenge
+{
+    public  bool CanFind(string[] bigrams, string[] words) {
+			
+	}
+}
 
 ";
         public string? TestCode { get; set; } = @"
@@ -28,20 +28,20 @@ public class TestChallenge
     public (bool pass, string message) Test1()
     {
         var tmp = new Challenge();
-        string sumResult;
+        bool sumResult;
         try 
         {
-            sumResult = tmp.<rep.test1>;
+            sumResult = tmp.canfind(new  string[]  {  "" at"", ""be"", ""th"", au"" }, new string[] { ""beautiful"", ""the"", ""hat"" }) ;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult == <rep.test.result1>,  $""returned: {sumResult}  expected: <rep.test.result1Val>"");
+        return (sumResult ==  true ,  $""returned: {sumResult}  expected: true"");
     }
     public (bool pass, string message) Test2()
     {
         var tmp = new Challenge();
-        string sumResult;
+        bool sumResult;
         try 
         {
             sumResult = tmp.<rep.test2>;
@@ -54,7 +54,7 @@ public class TestChallenge
     public (bool pass, string message) Test3()
     {
         var tmp = new Challenge();
-        string sumResult;
+        bool sumResult;
         try 
         {
             sumResult = tmp.<rep.test3>;
@@ -66,10 +66,22 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"Write content  a  function  that  takes  a  string  of  one  or  more  words  as  an  argument  and  returns  the  same  string,  but  with  all  five  or  more  letter  words  reversed.  strings  passed  in  will  consist  of  only  letters  and  spaces.  spaces  will  be  included  only  when  more  than  one  word  is  present.
+        public string? Description { get; set; } = @"You are given an input array of bigrams, and an array of words.
 
-examples
-reverse("" reverse"") ➞ ""esrever"" reverse(""this is a typical sentence."") ""thi""";
+Write a function that returns true if every single bigram from this array can be found at least once in an the list of words.
+
+Examples
+CanFind(new string[] { ""at"", ""be"", ""th"", au"" }, new string[] { ""beautiful"", ""the"", ""hat"" }) ➞ true
+
+CanFind(new string[] { ""ay"", ""be"", ""ta"", cu"" }, new string[] { ""maybe"", ""beta"", ""abet"", ""course"" }) ➞ false
+// ""cu"" does not exist in any of the words.
+
+CanFind(new string[] { ""th"", ""fo"", ""ma"", or"" }, new string[] { ""the"", ""many"", ""for"", ""forest"" }) ➞ true
+
+CanFind(new string[] { ""oo"", ""mi"", ""ki"", la"" }, new string[] { ""milk"", ""chocolate"", ""cooks"" }) ➞ false
+Notes
+A bigram is string of two consecutive characters in the same word.
+If the array of words is empty, return false.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }

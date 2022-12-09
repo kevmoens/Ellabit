@@ -1,18 +1,21 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge227Themajorsum : IChallenge
+    public class Challenge224Wurstisbetter : IChallenge
     {
-        public string? Header { get; set; } = "The major sum";
+        public string? Header { get; set; } = "Wurst is better";
         public string? Code { get; set; } = @"
 using System;
 
 namespace Ellabit;
 
-public class Challenge {
-  public  int MajorSum(int[] arr) {
-		
-  }
+public class Challenge 
+{
+    public  string WurstIsBetter(string str) 
+    {
+      
+    }
 }
+
 
 ";
         public string? TestCode { get; set; } = @"
@@ -25,7 +28,7 @@ public class TestChallenge
     public (bool pass, string message) Test1()
     {
         var tmp = new Challenge();
-        int sumResult;
+        string sumResult;
         try 
         {
             sumResult = tmp.<rep.test1>;
@@ -38,7 +41,7 @@ public class TestChallenge
     public (bool pass, string message) Test2()
     {
         var tmp = new Challenge();
-        int sumResult;
+        string sumResult;
         try 
         {
             sumResult = tmp.<rep.test2>;
@@ -51,7 +54,7 @@ public class TestChallenge
     public (bool pass, string message) Test3()
     {
         var tmp = new Challenge();
-        int sumResult;
+        string sumResult;
         try 
         {
             sumResult = tmp.<rep.test3>;
@@ -63,15 +66,33 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"Create content  a  function  that  takes  an  integer  array  and  return  the  biggest  between  positive  sum,  negative  sum,  or  0s  count.  the  major  is  understood  as  the  greatest {1,2,3,4,0,0,-3,-2}, absolute.
+        public string? Description { get; set; } = @"Wurst is the best. Create a function that takes a string and replaces every mention of any type of sausage with the German word ""Wurst,"" unless—of course—the sausage is already a type of German ""Wurst"" (i.e. ""Bratwurst"", see below), then leave the sausage name unchanged.
+<table>
+<tr><th><b>German Wursts</b></th>	<th><b>Convert to Wurst</b></th></tr>
+<tr><td>Bratwurst</td><td>Kielbasa</td></tr>
+<tr><td>Kochwurst</td><td>Chorizo</td></tr>
+<tr><td>Leberwurst</td><td>Moronga</td></tr>
+<tr><td>Mettwurst</td><td>Salami</td></tr>
+<tr><td>Rostbratwurst</td><td>Sausage</td></tr>
+<tr><td>~</td><td>Andouille</td></tr>
+<tr><td>~</td><td>Naem</td></tr>
+<tr><td>~</td><td>Merguez</td></tr>
+<tr><td>~</td><td>Gurka</td></tr>
+<tr><td>~</td><td>Snorkers</td></tr>
+<tr><td>~</td><td>Pepperoni</td></tr>
+</table>
+Rules
+Append sausages from the ""Convert to Wurst"" column with ""wurst"".
+Do not replace any German sausage with the word ""Wurst"".
+The word ""Wurst"" must be title case.
+Examples
+WurstIsBetter(""I like chorizos, but not sausages"") ➞ ""I like Wursts, but not Wursts""
 
-arr  the  function  has  to  return  10,  because:
-positive 1+2+3+4 sum  =  10
-negative (-3)+(-2) sum  =  -5
-0s 2 count  (there  are  two  zeros  in  array)
+WurstIsBetter(""sich die Wurst vom Brot nehmen lassen"") ➞ ""sich die Wurst vom Brot nehmen lassen""
 
-examples
-majorsum(1,  2,""";
+WurstIsBetter(""Bratwurst and Rostbratwurst are sausages"") ➞ ""Bratwurst and Rostbratwurst are Wursts""
+Notes
+All German sausage names contain the word ""wurst"".";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }

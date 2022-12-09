@@ -1,8 +1,8 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge232AlTeRnAtInGcaps : IChallenge
+    public class Challenge234Checkforanagrams : IChallenge
     {
-        public string? Header { get; set; } = "AlTeRnAtInG caps";
+        public string? Header { get; set; } = "Check for anagrams";
         public string? Code { get; set; } = @"
 using System;
 
@@ -10,11 +10,12 @@ namespace Ellabit;
 
 public class Challenge 
 {
-    public  string AlternatingCaps(string str) 
+    public  bool IsAnagram(string str1, string str2) 
     {
       
     }
 }
+
 
 ";
         public string? TestCode { get; set; } = @"
@@ -27,48 +28,55 @@ public class TestChallenge
     public (bool pass, string message) Test1()
     {
         var tmp = new Challenge();
-        string sumResult;
+        bool sumResult;
         try 
         {
-            sumResult = tmp.alternatingcaps("" hello"") ;
+            sumResult = tmp.isanagram("" cristian"", ""cristina"") ;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult ==  ""hello"" ,  $""returned: {sumResult}  expected: hello"");
+        return (sumResult ==  true ,  $""returned: {sumResult}  expected: true"");
     }
     public (bool pass, string message) Test2()
     {
         var tmp = new Challenge();
-        string sumResult;
+        bool sumResult;
         try 
         {
-            sumResult = tmp.alternatingcaps(""how are you?"");
+            sumResult = tmp.isanagram(""dave barry"", ""ray adverb"");
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult ==  ""how you?"" ,   $""returned: {sumResult}  expected: how you?"");
+        return (sumResult ==  ,   $""returned: {sumResult}  expected: "");
     }
     public (bool pass, string message) Test3()
     {
         var tmp = new Challenge();
-        string sumResult;
+        bool sumResult;
         try 
         {
-            sumResult = tmp.alternatingcaps(""omg this website is awesome!"");
+            sumResult = tmp.<rep.test3>;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + ""\n"" + ex.Message);
         }
-        return (sumResult ==  ""omg awesome!"" ,   $""returned: {sumResult}  expected: omg awesome!"");
+        return (sumResult == <rep.test.result3>,   $""returned: {sumResult}  expected: <rep.test.result3Val>"");
     }
 }
 ";
-        public string? Description { get; set; } = @"Create content  a  function  that  alternates  the  case  of  the  letters  in  a  string  (known  as  spongecase).
+        public string? Description { get; set; } = @"Create a function that takes two strings and returns either true or false depending on whether they're anagrams or not.
 
-examples
-alternatingcaps("" hello"") ➞ ""hello"" alternatingcaps(""how are you?"") ""how you?"" alternatingcaps(""omg this website is awesome!"") ""omg awesome!"" notes the first letter should always be uppercase. ignore spaces.""";
+Examples
+IsAnagram(""cristian"", ""Cristina"") ➞ true
+
+IsAnagram(""Dave Barry"", ""Ray Adverb"") ➞ true
+
+IsAnagram(""Nope"", ""Note"") ➞ false
+Notes
+Should be case insensitive.
+The two given strings can be of different lengths.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }

@@ -1,4 +1,4 @@
-namespace Ellabit.Challenges
+﻿namespace Ellabit.Challenges
 {
     public class Challenge236Returnexponentsofprimefactors : IChallenge
     {
@@ -63,9 +63,19 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"You content  are  given  a  list  of  prime  factors  arr  and  a  target.  when  each  number  in  the  list  is  raised  to  an  appropriate  power  their  product  will  be  equal  to  the  target.
+        public string? Description { get; set; } = @"You are given a list of prime factors arr and a target. When each number in the list is raised to an appropriate power their product will be equal to the target.
 
-your  role  is  to  return  the  exponents.  all  these  lists  will  have  a  length  of  three.  basically,  it  is  three  numbers  whose  product  is  equal  to  challenge.  the  only  difference  is  what  you  are  expected  to""";
+Your role is to return the exponents. All these lists will have a length of three. Basically, it is three numbers whose product is equal to challenge. The only difference is what you are expected to return.
+
+Examples
+ProductEqualTarget(new int[] { 2, 3, 5 }, 600) ➞ [3, 1, 2]
+// Because 2^3*3^1*5^2 = 600
+
+ProductEqualTarget(new int[] { 2, 3, 5 }, 720) ➞ [4, 2, 1]
+// Because 2^4*3^2*5^1 = 720
+Notes
+The exponents you will return are expected to replace the base in the list.
+Your returned values must be in the same order as the bases.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
