@@ -1,21 +1,20 @@
-namespace Ellabit.Challenges
+﻿namespace Ellabit.Challenges
 {
-    public class Challenge246Tracktherobotpart1 : IChallenge
+    public class Challenge244Smoothsentences : IChallenge
     {
-        public string? Header { get; set; } = "Track the robot (part 1)";
+        public string? Header { get; set; } = "Smooth sentences";
         public string? Code { get; set; } = @"
 using System;
 
 namespace Ellabit;
 
-using System;
-
-public class Challenge
+public class Challenge 
 {
-    public  int[] TrackRobot(string[] instructions) {
-		
-	}
+    public  bool IsSmooth(string sentence) 
+    {
+    }
 }
+
 
 ";
         public string? TestCode { get; set; } = @"
@@ -28,7 +27,7 @@ public class TestChallenge
     public (bool pass, string message) Test1()
     {
         var tmp = new Challenge();
-        int[] sumResult;
+        bool sumResult;
         try 
         {
             sumResult = tmp.<rep.test1>;
@@ -41,7 +40,7 @@ public class TestChallenge
     public (bool pass, string message) Test2()
     {
         var tmp = new Challenge();
-        int[] sumResult;
+        bool sumResult;
         try 
         {
             sumResult = tmp.<rep.test2>;
@@ -54,7 +53,7 @@ public class TestChallenge
     public (bool pass, string message) Test3()
     {
         var tmp = new Challenge();
-        int[] sumResult;
+        bool sumResult;
         try 
         {
             sumResult = tmp.<rep.test3>;
@@ -66,12 +65,25 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"A content  robot  has  been  given  a  list  of  movement  instructions.  each  instruction  is  either  left,  right,  up  or  down,  followed  by  a  distance  to  move.  the  robot  starts  at  [0,  0].  you  want  to  calculate  where  the  robot  will  end  up  and  return  its  final  position  as  an  array.
+        public string? Description { get; set; } = @"Carlos is a huge fan of something he calls smooth sentences.
 
-to  illustrate,  if  the  robot  is  given  the  following  instructions:
+A smooth sentence is one where the last letter of each word is identical to the first letter the following word (and not case sensitive, so ""A"" would be the same as ""a"").
 
-new  string[]  {  "" right 10"", ""up 50""""";
+The following would be a smooth sentence ""Carlos swam masterfully"" because ""Carlos"" ends with an ""s"" and swam begins with an ""s"" and swam ends with an ""m"" and masterfully begins with an ""m"".
+
+Create a function that determines whether the input sentence is a smooth sentence, returning a boolean value true if it is, false if it is not.
+
+Examples
+IsSmooth(""Marta appreciated deep perpendicular right trapezoids"") ➞ true
+
+IsSmooth(""Someone is outside the doorway"") ➞ false
+
+IsSmooth(""She eats super righteously"") ➞ true
+Notes
+The last and first letters are case insensitive.
+There will be no punctuation in each sentence.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
-    public Dictionary<string, string> Tags { get; set; } = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase);
-}
+        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+        public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
+    }
 }

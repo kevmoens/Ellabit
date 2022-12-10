@@ -1,8 +1,8 @@
-namespace Ellabit.Challenges
+﻿namespace Ellabit.Challenges
 {
-    public class Challenge248Cupswapping : IChallenge
+    public class Challenge246Tracktherobotpart1 : IChallenge
     {
-        public string? Header { get; set; } = "Cup swapping";
+        public string? Header { get; set; } = "Track the robot (part 1)";
         public string? Code { get; set; } = @"
 using System;
 
@@ -10,9 +10,9 @@ namespace Ellabit;
 
 using System;
 
-public class Challenge 
+public class Challenge
 {
-	public  string CupSwapping(string[] swaps) {
+    public  int[] TrackRobot(string[] instructions) {
 		
 	}
 }
@@ -28,7 +28,7 @@ public class TestChallenge
     public (bool pass, string message) Test1()
     {
         var tmp = new Challenge();
-        string sumResult;
+        int[] sumResult;
         try 
         {
             sumResult = tmp.<rep.test1>;
@@ -41,7 +41,7 @@ public class TestChallenge
     public (bool pass, string message) Test2()
     {
         var tmp = new Challenge();
-        string sumResult;
+        int[] sumResult;
         try 
         {
             sumResult = tmp.<rep.test2>;
@@ -54,7 +54,7 @@ public class TestChallenge
     public (bool pass, string message) Test3()
     {
         var tmp = new Challenge();
-        string sumResult;
+        int[] sumResult;
         try 
         {
             sumResult = tmp.<rep.test3>;
@@ -66,15 +66,24 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"There content  are  three  cups  on  a  table,  at  positions  a,  b,  and  c.  at  the  start,  there  is  a  ball  hidden  under  the  cup  at  position  b.
+        public string? Description { get; set; } = @"A robot has been given a list of movement instructions. Each instruction is either left, right, up or down, followed by a distance to move. The robot starts at [0, 0]. You want to calculate where the robot will end up and return its final position as an array.
 
-image  of  cups  where  ball  is  under  middle  cup
+To illustrate, if the robot is given the following instructions:
 
-however,  i  perform  several  swaps  on  the  cups,  which  is  notated  as  two  letters.  for  example,  if  i  swap  the  cups  at  positions  a  and  b,  i  could  notate  this  as  ab  or  ba.
+new string[] { ""right 10"", ""up 50"", ""left 30"", ""down 10"" }
+It will end up 20 left and 40 up from where it started, so we return int[] { -20, 40 }.
 
-create  a  function  that""";
+Examples
+TrackRobot(new string[] { ""right 10"", ""up 50"", ""left 30"", ""down 10"" }) ➞ int[] { -20, 40 }
+
+TrackRobot(new string[] { }) ➞ int[] { 0, 0 }
+// If there are no instructions, the robot doesn't move.
+
+TrackRobot(new string[] { ""right 100"", ""right 100"", ""up 500"", ""up 10000"" }) ➞ new int[] { 200, 10500 }
+Notes
+The only instructions given will be left, right, up or down.
+The distance after the instruction is always a positive whole number.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
-        private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
-        public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
-    }
+    public Dictionary<string, string> Tags { get; set; } = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase);
+}
 }

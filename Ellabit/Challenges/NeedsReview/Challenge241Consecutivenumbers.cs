@@ -1,20 +1,20 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge244Smoothsentences : IChallenge
+    public class Challenge241Consecutivenumbers : IChallenge
     {
-        public string? Header { get; set; } = "Smooth sentences";
+        public string? Header { get; set; } = "Consecutive numbers";
         public string? Code { get; set; } = @"
 using System;
 
 namespace Ellabit;
 
-public class Challenge 
+public class Challenge
 {
-    public  bool IsSmooth(string sentence) 
-    {
-    }
+	public  bool Cons(int[] arr)
+	{
+		
+	}
 }
-
 
 ";
         public string? TestCode { get; set; } = @"
@@ -30,12 +30,16 @@ public class TestChallenge
         bool sumResult;
         try 
         {
-            sumResult = tmp.<rep.test1>;
+            sumResult = tmp.cons([5,  1,  4,  3,  2])  ;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult == <rep.test.result1>,  $""returned: {sumResult}  expected: <rep.test.result1Val>"");
+        return (sumResult ==   true
+//  can  be  re-arranged  to  form  [1,  2,  3,  4,  5]
+
+,  $""returned: {sumResult}  expected: true
+//  can  be  re-arranged  to  form  [1,  2,  3,  4,  5]"");
     }
     public (bool pass, string message) Test2()
     {
@@ -43,12 +47,14 @@ public class TestChallenge
         bool sumResult;
         try 
         {
-            sumResult = tmp.<rep.test2>;
+            sumResult = tmp.cons([5,  1,  4,  3,  2,  8])  ;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult == <rep.test.result2>,   $""returned: {sumResult}  expected: <rep.test.result2Val>"");
+        return (sumResult ==   false
+
+,   $""returned: {sumResult}  expected: false"");
     }
     public (bool pass, string message) Test3()
     {
@@ -56,18 +62,32 @@ public class TestChallenge
         bool sumResult;
         try 
         {
-            sumResult = tmp.<rep.test3>;
+            sumResult = tmp.cons([5,  6,  7,  8,  9,  9])  ;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + ""\n"" + ex.Message);
         }
-        return (sumResult == <rep.test.result3>,   $""returned: {sumResult}  expected: <rep.test.result3Val>"");
+        return (sumResult ==   false
+//  9  appears  twice
+
+,   $""returned: {sumResult}  expected: false
+//  9  appears  twice"");
     }
 }
 ";
-        public string? Description { get; set; } = @"Carlos content  is  a  huge  fan  of  something  he  calls  smooth  sentences.
+        public string? Description { get; set; } = @"Create content  a  function  that  determines  whether  elements  in  an  array  can  be  re-arranged  to  form  a  consecutive  list  of  numbers  where  each  number  appears  exactly  once.
 
-a  smooth  sentence  is  one  where  the  last  letter  of  each  word  is  identical  to  the  first  letter  the  following  word  (and  not  case  sensitive,  so  "" a"" would be the same as ""a""). following a smooth sentence ""carlos swam masterfully"" because ""carlos"" ends with an ""s"" and begins ""s""""";
+examples
+cons([5,  1,  4,  3,  2])  ➞  true
+//  can  be  re-arranged  to  form  [1,  2,  3,  4,  5]
+
+cons([5,  1,  4,  3,  2,  8])  ➞  false
+
+cons([5,  6,  7,  8,  9,  9])  ➞  false
+//  9  appears  twice
+
+notes
+n/a";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
