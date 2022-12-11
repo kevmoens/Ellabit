@@ -1,18 +1,19 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge256Countthenumberofduplicatecharacters : IChallenge
+    public class Challenge252Reversecodingchallenge5 : IChallenge
     {
-        public string? Header { get; set; } = "Count the number of duplicate characters";
+        public string? Header { get; set; } = "Reverse coding challenge #5";
         public string? Code { get; set; } = @"
 using System;
 
 namespace Ellabit;
 
-public class Challenge
+public class Challenge 
 {
-    public  int DuplicateCount(string str)
-    {
-    }
+	public  int MysteryFunc(int num) 
+	{
+		
+	}
 }
 
 ";
@@ -29,12 +30,12 @@ public class TestChallenge
         int sumResult;
         try 
         {
-            sumResult = tmp.duplicatecount("" abcde"") ;
+            sumResult = tmp.<rep.test1>;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult ==  0 ,  $""returned: {sumResult}  expected: 0"");
+        return (sumResult == <rep.test.result1>,  $""returned: {sumResult}  expected: <rep.test.result1Val>"");
     }
     public (bool pass, string message) Test2()
     {
@@ -42,12 +43,12 @@ public class TestChallenge
         int sumResult;
         try 
         {
-            sumResult = tmp.duplicatecount(""aabbcde"");
+            sumResult = tmp.<rep.test2>;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult ==  2 ,   $""returned: {sumResult}  expected: 2"");
+        return (sumResult == <rep.test.result2>,   $""returned: {sumResult}  expected: <rep.test.result2Val>"");
     }
     public (bool pass, string message) Test3()
     {
@@ -55,19 +56,33 @@ public class TestChallenge
         int sumResult;
         try 
         {
-            sumResult = tmp.duplicatecount(""indivisibilities"");
+            sumResult = tmp.<rep.test3>;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + ""\n"" + ex.Message);
         }
-        return (sumResult ==  ,   $""returned: {sumResult}  expected: "");
+        return (sumResult == <rep.test.result3>,   $""returned: {sumResult}  expected: <rep.test.result3Val>"");
     }
 }
 ";
-        public string? Description { get; set; } = @"Create content  a  function  that  takes  a  string  and  returns  the  number  of  alphanumeric  characters  that  occur  more  than  once.
+        public string? Description { get; set; } = @"This is a reverse coding challenge. Normally you're given explicit directions with how to create a function. Here, you must generate your own function to satisfy the relationship between the inputs and outputs.
 
-examples
-duplicatecount("" abcde"") ➞ 0 duplicatecount(""aabbcde"") 2 duplicatecount(""indivisibilities"") duplicatecount(""aa"") case sensitive notes duplicate characters are sensitive. the input string will contain only alphanumeri""";
+Your task is to create a function that, when fed the inputs below, produce the sample outputs shown.
+
+Examples
+832 ➞ 594
+
+51 ➞ 36
+
+7977 ➞ 198
+
+1 ➞ 0
+
+665 ➞ 99
+
+149 ➞ 0
+Notes
+If you get stuck, see Comments for a hint.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }

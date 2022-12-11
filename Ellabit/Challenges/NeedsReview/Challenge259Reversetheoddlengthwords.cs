@@ -1,18 +1,20 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge254Reversecodingchallenge1 : IChallenge
+    public class Challenge259Reversetheoddlengthwords : IChallenge
     {
-        public string? Header { get; set; } = "Reverse coding challenge #1";
+        public string? Header { get; set; } = "Reverse the odd length words";
         public string? Code { get; set; } = @"
 using System;
 
 namespace Ellabit;
 
-public class Challenge 
+using System;
+
+public class Challenge
 {
-    public  string MysteryFunc(string str) 
-    {
-    }
+	public  string ReverseOdd(string str) {
+		
+	}
 }
 
 ";
@@ -29,12 +31,12 @@ public class TestChallenge
         string sumResult;
         try 
         {
-            sumResult = tmp.<rep.test1>;
+            sumResult = tmp.reverseodd("" bananas"") ;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult == <rep.test.result1>,  $""returned: {sumResult}  expected: <rep.test.result1Val>"");
+        return (sumResult ==  ""sananab"" ,  $""returned: {sumResult}  expected: sananab"");
     }
     public (bool pass, string message) Test2()
     {
@@ -42,12 +44,12 @@ public class TestChallenge
         string sumResult;
         try 
         {
-            sumResult = tmp.<rep.test2>;
+            sumResult = tmp.reverseodd(""one two three four"");
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult == <rep.test.result2>,   $""returned: {sumResult}  expected: <rep.test.result2Val>"");
+        return (sumResult ==  ""eno owt eerht four"" ,   $""returned: {sumResult}  expected: eno owt eerht four"");
     }
     public (bool pass, string message) Test3()
     {
@@ -55,21 +57,26 @@ public class TestChallenge
         string sumResult;
         try 
         {
-            sumResult = tmp.<rep.test3>;
+            sumResult = tmp.reverseodd(""make sure uoy only esrever sdrow of ddo length"");
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + ""\n"" + ex.Message);
         }
-        return (sumResult == <rep.test.result3>,   $""returned: {sumResult}  expected: <rep.test.result3Val>"");
+        return (sumResult ==  ""make you reverse words odd length"" ,   $""returned: {sumResult}  expected: make you reverse words odd length"");
     }
 }
 ";
-        public string? Description { get; set; } = @"This content  is  a  reverse  coding  challenge.  normally  you're  given  explicit  directions  with  how  to  create  a  function.  here,  you  must  generate  your  own  function  to  satisfy  the  relationship  between  the  inputs  and  outputs.
+        public string? Description { get; set; } = @"Given a string, reverse all the words which have odd length. The even length words are not changed.
 
-your  task  is  to  create  a  function  that,  when  fed  the  inputs  below,  produce  the  sample  outputs  shown.
+Examples
+ReverseOdd(""Bananas"") ➞ ""sananaB""
 
-examples
-"" a4b5c2"" ➞ ""aaaabbbbbcc"" ""c2f1e5"" ""c""";
+ReverseOdd(""One two three four"") ➞ ""enO owt eerht four""
+
+ReverseOdd(""Make sure uoy only esrever sdrow of ddo length"")
+➞ ""Make sure you only reverse words of odd length""
+Notes
+There is exactly one space between each word and no punctuation is used.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }

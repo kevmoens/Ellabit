@@ -65,10 +65,18 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"Create content  a  function  brackets()  that  takes  a  string  and  checks  that  the  brackets  in  the  math  expression  are  correct.  the  function  should  return  true  or  false.
+        public string? Description { get; set; } = @"Create a function Brackets() that takes a string and checks that the brackets in the math expression are correct. The function should return true or false.
 
-examples
-brackets("" (a*(b-c)..... )"") ➞ true brackets("")(a-b-45 7*(a-34))"") false brackets(""sin(90...)+.............cos1)"") notes the string may not contain brackets, then return true. m""";
+Examples
+Brackets(""(a*(b-c)..... )"") ➞ true
+
+Brackets("")(a-b-45/7*(a-34))"") ➞ false
+
+Brackets(""sin(90...)+.............cos1)"") ➞ false
+Notes
+The string may not contain brackets, then return true.
+String may contain spaces.
+The string may be empty.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
