@@ -1,22 +1,19 @@
-namespace Ellabit.Challenges
+﻿namespace Ellabit.Challenges
 {
-    public class Challenge266Thedayrobwasbornindutch : IChallenge
+    public class Challenge263Replaceletterswithpositioninalphabet : IChallenge
     {
-        public string? Header { get; set; } = "The day rob was born in dutch";
+        public string? Header { get; set; } = "Replace letters with position in alphabet";
         public string? Code { get; set; } = @"
 using System;
 
 namespace Ellabit;
 
-using System;
-using System.Globalization;
-
 public class Challenge 
 {
-	public  string WeekdayRobWasBornInDutch(int year, int month, int day)
-	{
-		
-	}
+    public  string AlphabetIndex(string str) 
+    {
+				
+    }
 }
 
 ";
@@ -30,7 +27,7 @@ public class TestChallenge
     public (bool pass, string message) Test1()
     {
         var tmp = new Challenge();
-        string sumResult;
+        int sumResult = 0;
         try 
         {
             sumResult = tmp.<rep.test1>;
@@ -38,12 +35,12 @@ public class TestChallenge
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult == <rep.test.result1>,  $""returned: {sumResult}  expected: <rep.test.result1Val>"");
+        return (sumResult == <rep.test.result1>,  $""returned: {sumResult}  expected: <rep.test.result1>"");
     }
     public (bool pass, string message) Test2()
     {
         var tmp = new Challenge();
-        string sumResult;
+        int sumResult = 0;
         try 
         {
             sumResult = tmp.<rep.test2>;
@@ -51,12 +48,12 @@ public class TestChallenge
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult == <rep.test.result2>,   $""returned: {sumResult}  expected: <rep.test.result2Val>"");
+        return (sumResult == <rep.test.result2>,   $""returned: {sumResult}  expected: <rep.test.result2>"");
     }
     public (bool pass, string message) Test3()
     {
         var tmp = new Challenge();
-        string sumResult;
+        int sumResult = 0;
         try 
         {
             sumResult = tmp.<rep.test3>;
@@ -64,13 +61,23 @@ public class TestChallenge
         {
             return (false, ex.ToString() + ""\n"" + ex.Message);
         }
-        return (sumResult == <rep.test.result3>,   $""returned: {sumResult}  expected: <rep.test.result3Val>"");
+        return (sumResult == <rep.test.result3>,   $""returned: {sumResult}  expected: <rep.test.result3>"");
     }
 }
 ";
-        public string? Description { get; set; } = @"I content  was  born  on  the  21st  of  september  in  the  year  of  1970.  that  was  a  monday.  where  i  was  born  that  weekday  is  called  måndag.
+        public string? Description { get; set; } = @"Create a function that takes a string and replaces each letter with its appropriate position in the alphabet. ""a"" is 1, ""b"" is 2, ""c"" is 3, etc, etc.
 
-write  a  method  that  when  passed  a  date  as  year/month/  day  and  returns  the  date's  weekday  name  in  the  dutch  culture.  the  culture  identifier  to  use  is  "" nl-nl"". not ""nl-be"". you can assume the specified date is valid. looking at tests a""";
+Examples
+AlphabetIndex(""Wow, does that work?"")
+➞ ""23 15 23 4 15 5 19 20 8 1 20 23 15 18 11""
+
+AlphabetIndex(""The river stole the gods."")
+➞ ""20 8 5 18 9 22 5 18 19 20 15 12 5 20 8 5 7 15 4 19""
+
+AlphabetIndex(""We have a lot of rain in June."")
+➞ ""23 5 8 1 22 5 1 12 15 20 15 6 18 1 9 14 9 14 10 21 14 5""
+Notes
+If any character in the string isn't a letter, ignore it.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }

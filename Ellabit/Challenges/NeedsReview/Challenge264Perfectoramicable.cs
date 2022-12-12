@@ -1,4 +1,4 @@
-namespace Ellabit.Challenges
+﻿namespace Ellabit.Challenges
 {
     public class Challenge264Perfectoramicable : IChallenge
     {
@@ -66,11 +66,20 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"Given content  a  positive  number  x,  if  all  the  positive  divisors  of  x  (excluding  x)  add  up  to  x,  then  x  is  said  to  be  a  perfect  number.
+        public string? Description { get; set; } = @"Given a positive number x, if all the positive divisors of x (excluding x) add up to x, then x is said to be a perfect number.
 
-for  example,  the  set  of  positive  divisors  of  6  excluding  6  itself  is  (1,  2,  3).  the  sum  of  this  set  is  6.  therefore,  6  is  a  perfect  number.
+For example, the set of positive divisors of 6 excluding 6 itself is (1, 2, 3). The sum of this set is 6. Therefore, 6 is a perfect number.
 
-given  a  positive  number  x,  if  all  the  positive  divisors  of  x  add  up  to  a  second  number  y,  and""";
+Given a positive number x, if all the positive divisors of x add up to a second number y, and all the positive divisors of y add up to x, then x and y are said to be a pair of amicable numbers.
+
+Create a function that takes a number and returns ""Perfect"" if the number is perfect, ""Amicable"" if the number is part of an amicable pair, or ""Neither"".
+
+Examples
+NumType(6) ➞ ""Perfect""
+
+NumType(2924) ➞ ""Amicable""
+
+NumType(5010) ➞ ""Neither""";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }

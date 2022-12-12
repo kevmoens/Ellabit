@@ -1,18 +1,22 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge267Reversecodingchallenge2 : IChallenge
+    public class Challenge266Thedayrobwasbornindutch : IChallenge
     {
-        public string? Header { get; set; } = "Reverse coding challenge #2";
+        public string? Header { get; set; } = "The day rob was born in dutch";
         public string? Code { get; set; } = @"
 using System;
 
 namespace Ellabit;
 
+using System;
+using System.Globalization;
+
 public class Challenge 
 {
-    public  int MysteryFunc(int num) 
-    {
-    }
+	public  string WeekdayRobWasBornInDutch(int year, int month, int day)
+	{
+		
+	}
 }
 
 ";
@@ -26,7 +30,7 @@ public class TestChallenge
     public (bool pass, string message) Test1()
     {
         var tmp = new Challenge();
-        int sumResult;
+        string sumResult;
         try 
         {
             sumResult = tmp.<rep.test1>;
@@ -39,7 +43,7 @@ public class TestChallenge
     public (bool pass, string message) Test2()
     {
         var tmp = new Challenge();
-        int sumResult;
+        string sumResult;
         try 
         {
             sumResult = tmp.<rep.test2>;
@@ -52,7 +56,7 @@ public class TestChallenge
     public (bool pass, string message) Test3()
     {
         var tmp = new Challenge();
-        int sumResult;
+        string sumResult;
         try 
         {
             sumResult = tmp.<rep.test3>;
@@ -64,21 +68,21 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"This content  is  a  reverse  coding  challenge.
+        public string? Description { get; set; } = @"I was born on the 21st of September in the year of 1970. That was a Monday. Where I was born that weekday is called måndag.
 
-your  task  is  to  create  a  function  that,  when  fed  the  inputs  below,  produce  the  sample  outputs  shown.
+Write a method that when passed a date as year/month/ day and returns the date's weekday name in the Dutch culture. The culture identifier to use is ""nl-NL"". Not ""nl-BE"".
+You can assume the specified date is valid.
+Looking at the tests and doing a switch statement or similar is considered cheating.
+System.Globalization.CultureInfo should be used.
+The method may be used to get the name of the Dutch weekday of other memorable days too, like in the examples below:
+Examples
+WeekdayRobWasBornInDutch(1970, 9, 21)) ➞ ""maandag""
 
-examples
-3  ➞  21
+WeekdayRobWasBornInDutch(1945, 9, 2)) ➞ ""zondag""
 
-9  ➞  2221
-
-17  ➞  22221
-
-24  ➞  22228
-
-notes
-if  you  get  stuck,  check  the  comments  for  help.""";
+WeekdayRobWasBornInDutch(2001, 9, 11)) ➞ ""dinsdag""
+Notes
+Check the Resources tab for help.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }

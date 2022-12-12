@@ -1,18 +1,16 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge262Nthfibonaccinumber : IChallenge
+    public class Challenge261Longestcommonending : IChallenge
     {
-        public string? Header { get; set; } = "Nth fibonacci number";
+        public string? Header { get; set; } = "Longest common ending";
         public string? Code { get; set; } = @"
 using System;
 
 namespace Ellabit;
 
-using System;
-
-class Program
+public class Challenge
 {
-    public  string Fibonacci(int n)
+    public  string LongestCommonEnding(string str1, string str2)
     {
     }
 }
@@ -31,12 +29,12 @@ public class TestChallenge
         string sumResult;
         try 
         {
-            sumResult = tmp.fibonacci(10)  ;
+            sumResult = tmp.longestcommonending("" multiplication"", ""ration"") ;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult ==   "" 55"" ,  $""returned: {sumResult}  expected:  55"");
+        return (sumResult ==  ""ation"" ,  $""returned: {sumResult}  expected: ation"");
     }
     public (bool pass, string message) Test2()
     {
@@ -44,12 +42,12 @@ public class TestChallenge
         string sumResult;
         try 
         {
-            sumResult = tmp.fibonacci(20) ;
+            sumResult = tmp.longestcommonending(""potent"", ""tent"");
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult ==  ""6765"" ,   $""returned: {sumResult}  expected: 6765"");
+        return (sumResult ==  ""tent"" ,   $""returned: {sumResult}  expected: tent"");
     }
     public (bool pass, string message) Test3()
     {
@@ -57,19 +55,25 @@ public class TestChallenge
         string sumResult;
         try 
         {
-            sumResult = tmp.fibonacci(30);
+            sumResult = tmp.longestcommonending(""skyscraper"", ""carnivore"");
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + ""\n"" + ex.Message);
         }
-        return (sumResult ==  ""832040"" ,   $""returned: {sumResult}  expected: 832040"");
+        return (sumResult ==  """" ,   $""returned: {sumResult}  expected: "");
     }
 }
 ";
-        public string? Description { get; set; } = @"Create content  a  function  to  return  the  nth  number  in  the  fibonacci  sequence  as  a  string.
+        public string? Description { get; set; } = @"Write a function that returns the longest common ending between two strings.
 
-examples
-fibonacci(10)  ➞  "" 55"" fibonacci(20) ➞ ""6765"" fibonacci(30) ""832040"" fibonacci(40) ""102334155"" fibonacci(50) ""12586269025"" fibonacci(60) ""1548008755920"" notes your function is expected to calculate numbers greater than uint64.maxvalue where n can be as large""";
+Examples
+LongestCommonEnding(""multiplication"", ""ration"") ➞ ""ation""
+
+LongestCommonEnding(""potent"", ""tent"") ➞ ""tent""
+
+LongestCommonEnding(""skyscraper"", ""carnivore"") ➞ """"
+Notes
+Return an empty string if there exists no common ending.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }

@@ -72,15 +72,15 @@ public class TestChallenge
 ";
         public string? Description { get; set; } = @"Create content  a  function  that  takes  an  array  of  more  than  three  numbers  and  returns  the  least  common  multiple  (lcm).
 
-examples
-lcmofarray(new  int[]  {  1,  2,  3,  4,  5,  6,  7,  8,  9,  10  })  ➞  2520
+Examples
+LcmOfArray(new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }) ➞ 2520
 
-lcmofarray(new  int[]  {  13,  6,  17,  18,  19,  20,  37  })  ➞  27965340
+LcmOfArray(new int[] { 13, 6, 17, 18, 19, 20, 37 }) ➞ 27965340
 
-lcmofarray(new  int[]  {  44,  64,  12,  17,  65  })  ➞  2333760
+LcmOfArray(new int[] { 44, 64, 12, 17, 65 }) ➞ 2333760
 
 notes
-the  lcm  of  an  array  of  numbers  is  the  smallest  posit""";
+The LCM of an array of numbers is the smallest positive number that is divisible by each of the numbers in the array.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }

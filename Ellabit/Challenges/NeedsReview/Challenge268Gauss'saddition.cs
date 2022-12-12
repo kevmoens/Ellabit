@@ -66,30 +66,30 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"Watch the video about gauss's addition in the resources tab to see how you can use the formula for your function.
+        public string? Description { get; set; } = @"Gauss's Addition is a mathematical technique named after the famous mathematician Carl Friedrich Gauss. It is a method for quickly calculating the sum of a series of numbers, using a clever trick to avoid having to add all of the numbers individually. Here is an example of how it works:
+Suppose you are asked to find the sum of the first 100 numbers. You could add the numbers individually, starting with 1 and going up to 100, but this would be a long and tedious process. Instead, you can use Gauss's Addition to find the sum quickly.
 
-gauss
+Here is how it works:
 
-create a function that adds all the numbers together from 1 to n or, if two numbers are given: n to m. the input can be in any order.
+First, pair up the first and last numbers of the series (1 and 100, in this case).
+Next, add these two numbers together to get the sum of the first and last numbers (1 + 100 = 101).
+Repeat this process for the second and second-to-last numbers (2 and 99), and so on, until all of the numbers have been paired up.
+Finally, add up all of the pairs of numbers to find the sum of the entire series.
 
-examples
-gauss({ 100 }) ➞ 5050 from the video
 
-gauss({ 5001, 7000 }) ➞ 12001000 also ^^
 
-gauss({ 19
-Watch the video about gauss's addition in the resources tab to see how you can use the formula for your function.
+Create a function that adds all the numbers together from 1 to n or, if two numbers are given: n to m. The input can be in any order.
 
-gauss
+Examples
+Gauss({ 100 }) ➞ 5050 // From the video
 
-create a function that adds all the numbers together from 1 to n or, if two numbers are given: n to m. the input can be in any order.
+Gauss({ 5001, 7000 }) ➞ 12001000 // Also ^^
 
-examples
-gauss({ 100 }) ➞ 5050 from the video
-
-gauss({ 5001, 7000 }) ➞ 12001000 also ^^
-
-gauss({ 19";
+Gauss({ 1975, 165 }) ➞ 1937770
+Notes
+Try not to use a for or while loop.
+Try not to create a recursive function.
+";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         public Dictionary<string, string> Tags { get; set; } = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase);
     }
