@@ -1,20 +1,19 @@
-namespace Ellabit.Challenges
+﻿namespace Ellabit.Challenges
 {
-    public class Challenge275Validjavascriptcomments : IChallenge
+    public class Challenge271Parseltongue : IChallenge
     {
-        public string? Header { get; set; } = "Valid javascript comments";
+        public string? Header { get; set; } = "Parseltongue";
         public string? Code { get; set; } = @"
 using System;
 
 namespace Ellabit;
 
-public class Challenge 
+public class Challenge
 {
-    public  bool CommentsCorrect(string str) 
+    public  bool IsParselTongue(string sentence)
     {
     }
 }
-
 
 ";
         public string? TestCode { get; set; } = @"
@@ -65,14 +64,23 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"In content  javascript,  there  are  two  types  of  comments:
+        public string? Description { get; set; } = @"Hermione has come up with a precise formula for determining whether or not a phrase was ssspoken by a parssseltongue (a reference from the Harry Potter universe; the language of ssserpents and those who can converse with them).
 
-single-line  comments  start  with  
-multi-line  or  inline  comments  start  with  and  end  with  
+Each word in a sssentence must contain either:
 
-the  input  will  be  a  sequence  of  ,  and  .  every  must  have  a  that  immediately  follows  it.  to  add,  there  can  be  no  single-line  comments  in  between  multi-line  comments  in  between  the  and  .
+Two or more consecutive instances of the letter ""s"" (i.e. must be together ss..), or...
+Zero instances of the letter ""s"" by itself.
+Examples
+IsParselTongue(""Sshe ssselects to eat that apple. "") ➞ true
 
-create  a  function  that""";
+IsParselTongue(""She ssselects to eat that apple. "") ➞ false
+// ""She"" only contains one ""s"".
+
+IsParselTongue(""Beatrice samples lemonade"") ➞ false
+// While ""samples"" has 2 instances of ""s"", they are not together.
+
+IsParselTongue(""You ssseldom sssspeak sso boldly, ssso messmerizingly."") ➞ true
+";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }

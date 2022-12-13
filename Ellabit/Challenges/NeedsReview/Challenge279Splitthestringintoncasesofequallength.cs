@@ -66,10 +66,16 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"Create content  a  function  that  accepts  string  input  and  int  cases  as  parameters  where  the  string  is  split  into  n  distinct  cases  of  equal  length  as  shown:
+        public string? Description { get; set; } = @"Create a function that accepts string input and int cases as parameters where the string is split into N distinct cases of equal length as shown:
 
-examples
-splitncases("" strengthened"", 6) ➞ { ""st"", ""re"", ""ng"", ""th"", ""en"", ""ed"" } splitncases(""unscrupulous"", 2) ""unscru"", ""pulous"" splitncases(""flavorless"", 1) ""flavorless"" notes if it's not possible""";
+Examples
+SplitNCases(""Strengthened"", 6) ➞ { ""St"", ""re"", ""ng"", ""th"", ""en"", ""ed"" }
+
+SplitNCases(""Unscrupulous"", 2) ➞ { ""Unscru"", ""pulous"" }
+
+SplitNCases(""Flavorless"", 1) ➞ { ""Flavorless"" }
+Notes
+If it's not possible to split the string as described, return { ""Error"" }.";
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();

@@ -1,17 +1,18 @@
-namespace Ellabit.Challenges
+﻿namespace Ellabit.Challenges
 {
-    public class Challenge271Parseltongue : IChallenge
+    public class Challenge276Convert : IChallenge
     {
-        public string? Header { get; set; } = "Parseltongue";
+        public string? Header { get; set; } = "Convert \"Zero\" and \"One\" to \"1\" and \"0\"";
         public string? Code { get; set; } = @"
 using System;
 
 namespace Ellabit;
 
-public class Challenge
+public class Challenge 
 {
-    public  bool IsParselTongue(string sentence)
+    public  string TextToNumberBinary(string str) 
     {
+			
     }
 }
 
@@ -26,7 +27,7 @@ public class TestChallenge
     public (bool pass, string message) Test1()
     {
         var tmp = new Challenge();
-        bool sumResult;
+        string sumResult;
         try 
         {
             sumResult = tmp.<rep.test1>;
@@ -39,7 +40,7 @@ public class TestChallenge
     public (bool pass, string message) Test2()
     {
         var tmp = new Challenge();
-        bool sumResult;
+        string sumResult;
         try 
         {
             sumResult = tmp.<rep.test2>;
@@ -52,7 +53,7 @@ public class TestChallenge
     public (bool pass, string message) Test3()
     {
         var tmp = new Challenge();
-        bool sumResult;
+        string sumResult;
         try 
         {
             sumResult = tmp.<rep.test3>;
@@ -64,11 +65,20 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"Hermione content  has  come  up  with  a  precise  formula  for  determining  whether  or  not  a  phrase  was  ssspoken  by  a  parssseltongue  (a  reference  from  the  harry  potter  universe;  the  language  of  ssserpents  and  those  who  can  converse  with  them).
+        public string? Description { get; set; } = @"Create a function that takes a string as an argument. The function must return a string containing 1s and 0s based on the string argument's words. If any word in the argument is not equal to ""zero"" or ""one"" (case insensitive), you should ignore it. The returned string's length should be a multiple of 8, if the string is not a multiple of 8 you should remove the numbers in excess.
 
-each  word  in  a  sssentence  must  contain  either:
+Examples
+TextToNumberBinary(""zero one zero one zero one zero one"") ➞ ""01010101""
 
-exactly  two  instances  of  the  letter  "" s"" (i.e. must be together ss), or... zero instan""";
+TextToNumberBinary(""Zero one zero ONE zero one zero one"") ➞ ""01010101""
+
+TextToNumberBinary(""zero one zero one zero one zero one one two"") ➞ ""01010101""
+
+TextToNumberBinary(""zero one zero one zero one zero three"") ➞ """"
+
+TextToNumberBinary(""one one"") ➞ """"
+Notes
+You must return the result as a string.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }

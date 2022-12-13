@@ -70,19 +70,20 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"Create content  a  function  that  takes  an  array  arr  and  a  number  n  and  returns  an  array  of  two  integers  whose  product  is  that  of  the  number  n.
+        public string? Description { get; set; } = @"Create a function that takes an array arr and a number n and returns an array of two integers whose product is that of the number n.
 
-examples
-twoproduct(new  int[]  {  1,  2,  3,  4,  13,  5  },  39)  ➞  {  3,  13  }
+Examples
+TwoProduct(new int[] { 1, 2, 3, 4, 13, 5 }, 39) ➞  { 3, 13 }
 
-twoproduct(new  int[]  {  11,  2,  7,  3,  5,  0  },  55)  ➞  {  5,  11  }
+TwoProduct(new int[] { 11, 2, 7, 3, 5, 0 }, 55) ➞ { 5, 11 }
 
-twoproduct(new  int[]  {  100,  12,  4,  1,  2  }  15)  ➞  {  }
-
-notes
-no  duplicates.
-sort  the  result.
-try  d""";
+TwoProduct(new int[] { 100, 12, 4, 1, 2 }, 15) ➞ { }
+Notes
+No duplicates.
+Sort the result.
+Try doing this with O(n) time complexity.
+The array can have multiple solutions, so return the first match you find.
+If there is no solution return an empty array (3rd example).";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         public Dictionary<string, string> Tags { get; set; } = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase);
     }
