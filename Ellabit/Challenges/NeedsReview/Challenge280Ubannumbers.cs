@@ -1,18 +1,20 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge284Breakpoint : IChallenge
+    public class Challenge280Ubannumbers : IChallenge
     {
-        public string? Header { get; set; } = "Break point";
+        public string? Header { get; set; } = "Uban numbers";
         public string? Code { get; set; } = @"
 using System;
 
 namespace Ellabit;
 
-public class Challenge 
+using System;
+
+public class Challenge
 {
-    public  bool BreakPoint(int num) 
-    {
-    }
+    public  bool IsUban(int num) {
+			
+	}
 }
 
 ";
@@ -29,12 +31,12 @@ public class TestChallenge
         bool sumResult;
         try 
         {
-            sumResult = tmp.<rep.test1>;
+            sumResult = tmp.isuban(456) ;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult == <rep.test.result1>,  $""returned: {sumResult}  expected: <rep.test.result1Val>"");
+        return (sumResult ==  false ,  $""returned: {sumResult}  expected: false"");
     }
     public (bool pass, string message) Test2()
     {
@@ -42,12 +44,12 @@ public class TestChallenge
         bool sumResult;
         try 
         {
-            sumResult = tmp.<rep.test2>;
+            sumResult = tmp.isuban(25);
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult == <rep.test.result2>,   $""returned: {sumResult}  expected: <rep.test.result2Val>"");
+        return (sumResult ==  true ,   $""returned: {sumResult}  expected: true"");
     }
     public (bool pass, string message) Test3()
     {
@@ -64,11 +66,16 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"A content  number  has  a  breakpoint  if  it  can  be  split  in  a  way  where  the  digits  on  the  left  side  and  the  digits  on  the  right  side  sum  to  the  same  number.
+        public string? Description { get; set; } = @"A number n is called uban if its name (in English) does not contain the letter ""u"". In particular, it cannot contain the terms ""four"", ""hundred"", and ""thousand"", so the uban number following 99 is 1,000,000.
 
-for  instance,  the  number  35190  can  be  sliced  between  the  digits  351  and  90,  since  3  +  5  + 9 1  and  9  + 9. 0  on  the  other  hand,  the  number  555  does  not  have  a  breakpoint  (you  must  split  between  digits).
+Write a function to determine if the given integer is uban.
 
-create  a  f""";
+Examples
+IsUban(456) ➞ false
+
+IsUban(25) ➞ true
+
+IsUban(1098) ➞ false";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }

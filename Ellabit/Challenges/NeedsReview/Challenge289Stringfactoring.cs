@@ -1,18 +1,20 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge286Briefcaselock : IChallenge
+    public class Challenge289Stringfactoring : IChallenge
     {
-        public string? Header { get; set; } = "Briefcase lock";
+        public string? Header { get; set; } = "String factoring";
         public string? Code { get; set; } = @"
 using System;
 
 namespace Ellabit;
 
-public class Challenge 
+using System;
+
+public class Challenge
 {
-    public  int MinTurns(string current, string target) 
-    {
-    }
+	public  string StringFactor(int[] arr) {
+		
+	}
 }
 
 ";
@@ -26,7 +28,7 @@ public class TestChallenge
     public (bool pass, string message) Test1()
     {
         var tmp = new Challenge();
-        int sumResult;
+        string sumResult;
         try 
         {
             sumResult = tmp.<rep.test1>;
@@ -39,7 +41,7 @@ public class TestChallenge
     public (bool pass, string message) Test2()
     {
         var tmp = new Challenge();
-        int sumResult;
+        string sumResult;
         try 
         {
             sumResult = tmp.<rep.test2>;
@@ -52,7 +54,7 @@ public class TestChallenge
     public (bool pass, string message) Test3()
     {
         var tmp = new Challenge();
-        int sumResult;
+        string sumResult;
         try 
         {
             sumResult = tmp.<rep.test3>;
@@ -64,13 +66,20 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"A content  briefcase  has  a  4-digit  rolling-lock.  each  digit  is  a  number  from  0-9  that  can  be  rolled  either  forwards  or  backwards.
+        public string? Description { get; set; } = @"Given the complete factorization of a number, create a function that converts this array of factors to a string.
 
-create  a  function  that  returns  the  smallest  number  of  turns  it  takes  to  transform  the  lock  from  the  current  combination  to  the  target  combination.  one  turn  is  equivalent  to  rolling  a  number  forwards  or  backwards  by  one.
+To illustrate: 24's complete factorization is [2, 2, 2, 3], which should be converted to ""2^3 x 3"".
 
-to  illustrate:
+Examples
+StringFactor(new int[] { 2, 2, 2, 3, 3 }) ➞ ""2^3 x 3^2""
 
-cur""";
+StringFactor(new int[] { 2, 7 }) ➞ ""2 x 7""
+
+StringFactor(new int[] { 2, 3, 3 }) ➞ ""2 x 3^2""
+Notes
+Factors should be joined with x (multiplication sign).
+Multiple instances of the same factor should be exponentiated.
+Factors raised to the 1 power should be left as is, i.e. write 7 instead of 7^1.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }

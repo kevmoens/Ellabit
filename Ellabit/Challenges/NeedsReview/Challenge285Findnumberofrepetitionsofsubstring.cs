@@ -1,8 +1,8 @@
-namespace Ellabit.Challenges
+﻿namespace Ellabit.Challenges
 {
-    public class Challenge289Stringfactoring : IChallenge
+    public class Challenge285Findnumberofrepetitionsofsubstring : IChallenge
     {
-        public string? Header { get; set; } = "String factoring";
+        public string? Header { get; set; } = "Find number of repetitions of substring";
         public string? Code { get; set; } = @"
 using System;
 
@@ -10,10 +10,10 @@ namespace Ellabit;
 
 using System;
 
-public class Challenge
-{
-	public  string StringFactor(int[] arr) {
-		
+public class Challenge {
+	public  int NumberOfRepeats(string str) 
+	{	
+		return 0;
 	}
 }
 
@@ -28,7 +28,7 @@ public class TestChallenge
     public (bool pass, string message) Test1()
     {
         var tmp = new Challenge();
-        string sumResult;
+        int sumResult;
         try 
         {
             sumResult = tmp.<rep.test1>;
@@ -41,7 +41,7 @@ public class TestChallenge
     public (bool pass, string message) Test2()
     {
         var tmp = new Challenge();
-        string sumResult;
+        int sumResult;
         try 
         {
             sumResult = tmp.<rep.test2>;
@@ -54,7 +54,7 @@ public class TestChallenge
     public (bool pass, string message) Test3()
     {
         var tmp = new Challenge();
-        string sumResult;
+        int sumResult;
         try 
         {
             sumResult = tmp.<rep.test3>;
@@ -66,9 +66,22 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"Given content  the  complete  factorization  of  a  number,  create  a  function  that  converts  this  array  of  factors  to  a  string.
+        public string? Description { get; set; } = @"Create a function that takes a string as an argument and returns the number of repitions of a substring. This the opposite of creating a string by repeating a smaller string n times. For example ""abc"" repeated4 times would be ""abcabcabcabc""
 
-to  illustrate:  24's  complete  factorization  is  [2,  2,  2,  3],  which  should  be  converted  to  "" 2^3 x 3"". examples stringfactor(new int[] { 2, 3, 3 }) ➞ ""2^3 3^2"" 7 ""2 7"" ➞""";
+In this challenge, we do the opposite. Given the final string, and ask the number of times the substring is repeated.
+
+Examples
+NumberOfRepeats(""abcabcabcabc"" ) ➞ 4
+
+NumberOfRepeats(""bcbcbc"") ➞ 3
+
+NumberOfRepeats(""llbllbllbllbllbllb"") ➞ 6
+
+NumberOfRepeats(""kc"") ➞ 1
+Notes
+Assume that the substring length is always greater than 1.
+Assume that the string length is always greater than 1.
+Assume that the substring is not always the same.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }

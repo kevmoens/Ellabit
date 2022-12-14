@@ -1,8 +1,8 @@
-namespace Ellabit.Challenges
+﻿namespace Ellabit.Challenges
 {
-    public class Challenge288Consecutivenumbers : IChallenge
+    public class Challenge287Tracktherobotpart2 : IChallenge
     {
-        public string? Header { get; set; } = "Consecutive numbers";
+        public string? Header { get; set; } = "Track the robot (part 2)";
         public string? Code { get; set; } = @"
 using System;
 
@@ -10,11 +10,10 @@ namespace Ellabit;
 
 using System;
 
-public class Challenge 
+public class Challenge
 {
-	public  bool IsThereConsecutive(int[] arr, int n, int times)
-	{
-		
+    public  int[] TrackRobot(int[] steps) {
+	  	
 	}
 }
 
@@ -29,7 +28,7 @@ public class TestChallenge
     public (bool pass, string message) Test1()
     {
         var tmp = new Challenge();
-        bool sumResult;
+        int[] sumResult;
         try 
         {
             sumResult = tmp.<rep.test1>;
@@ -42,7 +41,7 @@ public class TestChallenge
     public (bool pass, string message) Test2()
     {
         var tmp = new Challenge();
-        bool sumResult;
+        int[] sumResult;
         try 
         {
             sumResult = tmp.<rep.test2>;
@@ -55,7 +54,7 @@ public class TestChallenge
     public (bool pass, string message) Test3()
     {
         var tmp = new Challenge();
-        bool sumResult;
+        int[] sumResult;
         try 
         {
             sumResult = tmp.<rep.test3>;
@@ -67,13 +66,27 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"Given content  an  array  of  random  digits  of  any  length,  return  true  if  the  number  n  appears  times  times  in  a  row,  and  false  otherwise.
+        public string? Description { get; set; } = @"This robot roams around a 2D grid. It starts at (0, 0) facing North. After each time it moves, the robot rotates 90 degrees clockwise. Given the amount the robot has moved each time, you have to calculate the robot's final position.
 
-worked  example
-isthereconsecutive(new  int[]  {  1,  3,  5,  5,  3,  3,  1  },  3,  2)  ➞  true
-//  second  parameter  is  the  number  to  look  out  for  (3).
-//  third  parameter  means  you  need  to  find  the  number  3  twice  in  a  row.
-//  return  true  if  it  can  be""";
+To illustrate, if the robot is given the movements int [] { 20, 30, 10, 40 } then it will move:
+
+20 steps North, now at (0, 20)
+30 steps East, now at (30, 20)
+10 steps South. now at (30, 10)
+40 steps West, now at (-10, 10)
+...and will end up at coordinates (-10, 10).
+
+Examples
+TrackRobot(new int[] { 20, 30, 10, 40 }) ➞ [-10, 10]
+
+TrackRobot(new int[] { }) ➞ [0, 0]
+// No movement means the robot stays at (0, 0).
+
+TrackRobot(-10, 20, 10) ➞ [20, -20]
+// The amount to move can be negative.
+Notes
+Each movement is an integer (whole number).
+The return value must be of type int[]";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }

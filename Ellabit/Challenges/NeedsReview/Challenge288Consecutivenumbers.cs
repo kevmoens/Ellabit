@@ -1,20 +1,22 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge282Correctinequalitysigns : IChallenge
+    public class Challenge288Consecutivenumbers : IChallenge
     {
-        public string? Header { get; set; } = "Correct inequality signs";
+        public string? Header { get; set; } = "Consecutive numbers";
         public string? Code { get; set; } = @"
 using System;
 
 namespace Ellabit;
 
+using System;
+
 public class Challenge 
 {
-    public  bool CorrectSigns(string str) 
-    {
-    }
+	public  bool IsThereConsecutive(int[] arr, int n, int times)
+	{
+		
+	}
 }
-
 
 ";
         public string? TestCode { get; set; } = @"
@@ -65,10 +67,24 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"Create content  a  function  that  returns  true  if  a  given  inequality  expression  is  correct  and  false  otherwise.
+        public string? Description { get; set; } = @"Given an array of random digits of any length, return true if the number n appears times times in a row, and false otherwise.
 
-examples
-correctsigns("" 3";
+Worked Example
+IsThereConsecutive(new int[] { 1, 3, 5, 5, 3, 3, 1 }, 3, 2) ➞ true
+// Second parameter is the number to look out for (3).
+// Third parameter means you need to find the number 3 twice in a row.
+// Return true if it can be found.
+Examples
+IsThereConsecutive(new int[] { 1, 2, 3, 4, 5 }, 1, 1) ➞ true
+
+IsThereConsecutive(new int[] { 3 }, 1, 0) ➞ true
+
+IsThereConsecutive(new int[] { 2, 2, 3, 2, 2, 2, 2, 3, 4, 1, 5 }, 3, 2) ➞ false
+
+IsThereConsecutive(new int[] { 5, 5, 5, 5, 5 }, 5, 7) ➞ false
+Notes
+Arrays will only contain positive single digit numbers.
+Expect all parameters to be valid.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }

@@ -68,10 +68,32 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"Create content  a  function  that  takes  the  width,  height  and  character  and  returns  a  picture  frame  as  an  array  of  strings  (string[]).
+        public string? Description { get; set; } = @"Create a function that takes the width, height and character and returns a picture frame as an array of strings (string[]).
 
-examples
-get_frame(4,  5,  "" #"") ➞ [ ""####"", ""# #"", ""####"" ] frame is 4 characters wide and 5 tall. get_frame(10, 3, ""*"") ""**"", ""* *"", ""**"" 10 and""";
+Examples
+get_frame(4, 5, ""#"") ➞ [
+  ""####"",
+  ""#  #"",
+  ""#  #"",
+  ""#  #"",
+  ""####""
+]
+// Frame is 4 characters wide and 5 characters tall.
+
+
+get_frame(10, 3, ""*"") ➞ [
+  ""**********"",
+  ""*        *"",
+  ""**********""
+]
+// Frame is 10 characters and wide and 3 characters tall.
+
+
+get_frame(2, 5, ""0"") ➞ ""invalid""
+// Frame's width is less than 3.
+Notes
+Remember the gap.
+Return [""invalid""] if width or height is less than 3 (can't put anything inside).";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
