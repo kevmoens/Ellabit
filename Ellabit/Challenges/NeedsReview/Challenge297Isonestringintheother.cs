@@ -1,21 +1,20 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge293Keepingcount : IChallenge
+    public class Challenge297Isonestringintheother : IChallenge
     {
-        public string? Header { get; set; } = "Keeping count";
+        public string? Header { get; set; } = "Is one string in the other?";
         public string? Code { get; set; } = @"
 using System;
 
 namespace Ellabit;
 
-using System;
-
-public class Challenge
+public class Challenge 
 {
-    public  long DigitCount(long num) {
-		
-	}
+    public  bool Overlap(string str1, string str2) 
+    {
+    }
 }
+
 
 ";
         public string? TestCode { get; set; } = @"
@@ -28,20 +27,20 @@ public class TestChallenge
     public (bool pass, string message) Test1()
     {
         var tmp = new Challenge();
-        long sumResult;
+        bool sumResult;
         try 
         {
-            sumResult = tmp.<rep.test1>;
+            sumResult = tmp.overlap("" abc"", ""ican'tsingmyabc"") ;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult == <rep.test.result1>,  $""returned: {sumResult}  expected: <rep.test.result1Val>"");
+        return (sumResult ==  true ,  $""returned: {sumResult}  expected: true"");
     }
     public (bool pass, string message) Test2()
     {
         var tmp = new Challenge();
-        long sumResult;
+        bool sumResult;
         try 
         {
             sumResult = tmp.<rep.test2>;
@@ -54,7 +53,7 @@ public class TestChallenge
     public (bool pass, string message) Test3()
     {
         var tmp = new Challenge();
-        long sumResult;
+        bool sumResult;
         try 
         {
             sumResult = tmp.<rep.test3>;
@@ -66,14 +65,22 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"Given content  a  number,  create  a  function  which  returns  a  new  number  based  on  the  following  rules:
-for  each  digit,  replace  it  by  the  number  of  times  it  appears  in  the  number.
-the  final  instance  of  the  number  will  be  an  integer,  not  a  string.
+        public string? Description { get; set; } = @"Create a function that takes two strings and returns true if either of the strings appears at the very end of the other string. Return false otherwise. The character * is a wildcard, so it can take the place of any character.
 
-the  following  is  a  working  example:
-digitcount(136116)  ➞  312332
-//  the  number  1  appears  thrice,  so  replace  all  1s  with  3s.
-//  t""";
+Examples
+Overlap(""ABC"", ""Ican'tsingmyABC"") ➞ true
+
+Overlap(""abc"", ""Ican'tsingmyABC"") ➞ true
+
+Overlap(""Ican'tsingmyABC"", ""abc"") ➞ true
+
+Overlap(""hello world"", ""hello"") ➞ false
+
+Overlap(""+="", ""this should work too +="") ➞ true
+
+Overlap(""hey"", ""*********"") ➞ true
+Notes
+Your function should NOT be case sensitive (see example #2).";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }

@@ -1,21 +1,19 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge290Morannumbers : IChallenge
+    public class Challenge299Encodemorse : IChallenge
     {
-        public string? Header { get; set; } = "Moran numbers";
+        public string? Header { get; set; } = "Encode morse";
         public string? Code { get; set; } = @"
 using System;
 
 namespace Ellabit;
 
-using System;
-
-public class Challenge
+public class Challenge 
 {
-	public  string Moran(int n)
-	{
-		
-	}
+    public  string EncodeMorse(string str) 
+    {
+			
+    }
 }
 
 ";
@@ -32,12 +30,12 @@ public class TestChallenge
         string sumResult;
         try 
         {
-            sumResult = tmp.<rep.test1>;
+            sumResult = tmp.encodemorse("" edabbit challenge"") ;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult == <rep.test.result1>,  $""returned: {sumResult}  expected: <rep.test.result1Val>"");
+        return (sumResult ==  "". -.. .- -... .. - -.-. .... .-.. . -. --. ."" ,  $""returned: {sumResult}  expected: . -.. .- -... .. - -.-. .... .-.. . -. --. ."");
     }
     public (bool pass, string message) Test2()
     {
@@ -67,11 +65,18 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"A content  harshad  number  is  a  number  which  is  divisible  by  the  sum  of  its  digits.  for  example,  132  is  divisible  by  6  (1+3+2).
+        public string? Description { get; set; } = @"Create a function that takes a string as an argument and returns the Morse code equivalent.
 
-a  subset  of  the  harshad  numbers  are  the  moran  numbers.  moran  numbers  yield  a  prime  when  divided  by  the  sum  of  their  digits.  for  example,  133  divided  by  7  (1+3+3)  yields  19,  a  prime.
+Examples
+EncodeMorse(""EDABBIT CHALLENGE"") ➞ "". -.. .- -... -... .. -   -.-. .... .- .-.. .-.. . -. --. .""
 
-create  a  function  that  takes  a  number  and  returns  "" m"" if the""";
+EncodeMorse(""HELP ME !"") ➞ "".... . .-.. .--.   -- .   -.-.--""
+Notes
+Ouput should be International Morse Code, and use the standard conventions for symbols not defined inside the ITU recommendation (see Resources).
+Input value can be lower or upper case.
+Input string can have digits.
+Input string can have some special characters (e.g. comma, colon, apostrophe, period, question mark, exclamation mark).
+One space "" "" is expected after each character.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }

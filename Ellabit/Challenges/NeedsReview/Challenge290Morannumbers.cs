@@ -1,20 +1,22 @@
-namespace Ellabit.Challenges
+﻿namespace Ellabit.Challenges
 {
-    public class Challenge295Rollingcipher : IChallenge
+    public class Challenge290Morannumbers : IChallenge
     {
-        public string? Header { get; set; } = "Rolling cipher";
+        public string? Header { get; set; } = "Moran numbers";
         public string? Code { get; set; } = @"
 using System;
 
 namespace Ellabit;
 
-public class Challenge 
-{
-    public  string RollingCipher(string str, int n) 
-    {
-    }
-}
+using System;
 
+public class Challenge
+{
+	public  string Moran(int n)
+	{
+		
+	}
+}
 
 ";
         public string? TestCode { get; set; } = @"
@@ -65,7 +67,18 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"Write content  a  function  that  accepts  a  string  and  an  n  and  returns  a  cipher  by  rolling  each  character  forward";
+        public string? Description { get; set; } = @"A Harshad number is a number which is divisible by the sum of its digits. For example, 132 is divisible by 6 (1+3+2).
+
+A subset of the Harshad numbers are the Moran numbers. Moran numbers yield a prime when divided by the sum of their digits. For example, 133 divided by 7 (1+3+3) yields 19, a prime.
+
+Create a function that takes a number and returns ""M"" if the number is a Moran number, ""H"" if it is a (non-Moran) Harshad number, or ""Neither"".
+
+Examples
+Moran(132) ➞ ""H""
+
+Moran(133) ➞ ""M""
+
+Moran(134) ➞ ""Neither""";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
