@@ -1,21 +1,20 @@
-namespace Ellabit.Challenges
+﻿namespace Ellabit.Challenges
 {
-    public class Challenge305Longestabecedarianword : IChallenge
+    public class Challenge306Completetheword : IChallenge
     {
-        public string? Header { get; set; } = "Longest abecedarian word";
+        public string? Header { get; set; } = "Complete the word";
         public string? Code { get; set; } = @"
 using System;
 
 namespace Ellabit;
 
-using System;
-
-public class Challenge
+public class Challenge 
 {
-	public  string LongestAbecedarian(string[] arr) {
-		
-	}
+    public  bool CanComplete(string initial, string word) 
+    {
+    }
 }
+
 
 ";
         public string? TestCode { get; set; } = @"
@@ -28,7 +27,7 @@ public class TestChallenge
     public (bool pass, string message) Test1()
     {
         var tmp = new Challenge();
-        string sumResult;
+        bool sumResult;
         try 
         {
             sumResult = tmp.<rep.test1>;
@@ -41,7 +40,7 @@ public class TestChallenge
     public (bool pass, string message) Test2()
     {
         var tmp = new Challenge();
-        string sumResult;
+        bool sumResult;
         try 
         {
             sumResult = tmp.<rep.test2>;
@@ -54,7 +53,7 @@ public class TestChallenge
     public (bool pass, string message) Test3()
     {
         var tmp = new Challenge();
-        string sumResult;
+        bool sumResult;
         try 
         {
             sumResult = tmp.<rep.test3>;
@@ -66,15 +65,24 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"An content  abecedarian  word  is  a  word  where  all  of  its  letters  are  arranged  in  alphabetical  order.  examples  of  these  words  include:
-empty
-forty
-almost
+        public string? Description { get; set; } = @"An input string can be completed if additional letters can be added and no letters need to be taken away to match the word. Furthermore, the order of the letters in the input string must be the same as the order of letters in the final word.
 
-given  an  array  of  words,  create  a  function  which  returns  the  longest  abecedarian  word.  if  no  word  in  an  array  matches  the  criterea,  return  an  empty  string.
+Create a function that, given an input string, determines if the word can be completed.
 
-examples
-longestabecedarian(new  string[]  {  "" ace"", ""spades"", """;
+Examples
+CanComplete(""butl"", ""beautiful"") ➞ true
+// We can add ""ea"" between ""b"" and ""u"", and ""ifu"" between ""t"" and ""l"".
+
+CanComplete(""butlz"", ""beautiful"") ➞ false
+// ""z"" does not exist in the word beautiful.
+
+CanComplete(""tulb"", ""beautiful"") ➞ false
+// Although ""t"", ""u"", ""l"" and ""b"" all exist in ""beautiful"", they are incorrectly ordered.
+
+CanComplete(""bbutl"", ""beautiful"") ➞ false
+// Too many ""b""s, beautiful has only 1.
+Notes
+Both string input and word will be lowercased.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }

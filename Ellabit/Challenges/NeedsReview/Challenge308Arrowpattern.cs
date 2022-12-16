@@ -1,19 +1,20 @@
-namespace Ellabit.Challenges
+﻿namespace Ellabit.Challenges
 {
-    public class Challenge307IPv4validation : IChallenge
+    public class Challenge308Arrowpattern : IChallenge
     {
-        public string? Header { get; set; } = "IPv4 validation";
+        public string? Header { get; set; } = "Arrow pattern";
         public string? Code { get; set; } = @"
 using System;
 
 namespace Ellabit;
 
+using System;
+
 public class Challenge
 {
-    public  bool IsValidIP(string IP)
-    {
-			
-    }
+    public  string[] Arrow(int num) {
+		
+	}
 }
 
 ";
@@ -27,48 +28,68 @@ public class TestChallenge
     public (bool pass, string message) Test1()
     {
         var tmp = new Challenge();
-        bool sumResult;
+        string[] sumResult;
         try 
         {
-            sumResult = tmp.isvalidip("" 1.2.3.4"") ;
+            sumResult = tmp.<rep.test1>;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult ==  true ,  $""returned: {sumResult}  expected: true"");
+        return (sumResult == <rep.test.result1>,  $""returned: {sumResult}  expected: <rep.test.result1Val>"");
     }
     public (bool pass, string message) Test2()
     {
         var tmp = new Challenge();
-        bool sumResult;
+        string[] sumResult;
         try 
         {
-            sumResult = tmp.isvalidip(""1.2.3"");
+            sumResult = tmp.<rep.test2>;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult ==  false ,   $""returned: {sumResult}  expected: false"");
+        return (sumResult == <rep.test.result2>,   $""returned: {sumResult}  expected: <rep.test.result2Val>"");
     }
     public (bool pass, string message) Test3()
     {
         var tmp = new Challenge();
-        bool sumResult;
+        string[] sumResult;
         try 
         {
-            sumResult = tmp.isvalidip(""1.2.3.4.5"");
+            sumResult = tmp.<rep.test3>;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + ""\n"" + ex.Message);
         }
-        return (sumResult ==  ,   $""returned: {sumResult}  expected: "");
+        return (sumResult == <rep.test.result3>,   $""returned: {sumResult}  expected: <rep.test.result3Val>"");
     }
 }
 ";
-        public string? Description { get; set; } = @"Create content  a  function  that  takes  a  string  (ipv4  address  in  standard  dot-decimal  format)  and  returns  true  if  the  ip  is  valid  or  false  if  it's  not.  for  information  on  ipv4  formatting,  please  refer  to  the  resources  in  the  resources  tab.
+        public string? Description { get; set; } = @"Create a function that creates a pattern as a 2D array for a given number.
 
-examples
-isvalidip("" 1.2.3.4"") ➞ true isvalidip(""1.2.3"") false isvalidip(""1.2.3.4.5"") isvalidip(""123.45.67.89"") true""";
+Examples
+ >
+ >>
+ >>>
+ >>
+ >
+
+Arrow(3) ➞ ["">"", "">>"", "">>>"", "">>"", "">""]
+ >
+ >>
+ >>>
+ >>>>
+ >>>>
+ >>>
+ >>
+ >
+
+Arrow(4) ➞ ["">"", "">>"", "">>>"", "">>>>"", "">>>>"", "">>>"", "">>"", "">""]
+Notes
+Function argument will always be a number greater than 0.
+Odd numbers will have a single ""peak"" (see example #1).
+Even numbers have two ""peaks"" (see example #2).";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }

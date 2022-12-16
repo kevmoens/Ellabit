@@ -1,19 +1,17 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge302Smallestmissingpositiveinteger : IChallenge
+    public class Challenge301Printgrid : IChallenge
     {
-        public string? Header { get; set; } = "Smallest missing positive integer";
+        public string? Header { get; set; } = "Print grid";
         public string? Code { get; set; } = @"
 using System;
 
 namespace Ellabit;
 
-using System;
-
 public class Challenge
 {
-    public  int MinMissPos(int[] arr) {
-			
+	public  int[,] PrintGrid(int rows, int cols) {
+		
 	}
 }
 
@@ -28,7 +26,7 @@ public class TestChallenge
     public (bool pass, string message) Test1()
     {
         var tmp = new Challenge();
-        int sumResult;
+        int[,] sumResult;
         try 
         {
             sumResult = tmp.<rep.test1>;
@@ -41,7 +39,7 @@ public class TestChallenge
     public (bool pass, string message) Test2()
     {
         var tmp = new Challenge();
-        int sumResult;
+        int[,] sumResult;
         try 
         {
             sumResult = tmp.<rep.test2>;
@@ -54,7 +52,7 @@ public class TestChallenge
     public (bool pass, string message) Test3()
     {
         var tmp = new Challenge();
-        int sumResult;
+        int[,] sumResult;
         try 
         {
             sumResult = tmp.<rep.test3>;
@@ -66,17 +64,31 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"Given content  an  array  of  integers,  return  the  smallest  positive  integer  not  present  in  the  array.
+        public string? Description { get; set; } = @"Write a method that accepts two integer parameters rows and cols. The output is a 2d array of numbers displayed in column-major order, meaning the numbers shown increase sequentially down each column and wrap to the top of the next column to the right once the bottom of the current column is reached.
 
-here  is  a  representative  example.  consider  the  array:
+Examples
+PrintGrid(3, 6) ➞ new int[,] { 
+  new int[] { 1, 4, 7, 10, 13, 16 },
+  new int[] { 2, 5, 8, 11, 14, 17 },
+  new int[] { 3, 6, 9, 12, 15, 18 }
+]
 
-{  -2,  6,  4,  5,  7,  -1,  7,  1,  3,  6,  6,  -2,  9,  10,  2,  2  }
+PrintGrid(5, 3) ➞ new int[,] { 
+  new int[] { 1, 6, 11 },
+  new int[] { 2, 7, 12 },
+  new int[] { 3, 8, 13 },
+  new int[] { 4, 9, 14 },
+  new int[] { 5, 10, 15 }
+]
 
-after  reordering,  the  array  becomes:
-
-{  -2,  -2,  -1,  1,  2,  2,  3,  4,  5,  6,  6,  6,  7,  7,  9,  10  }
-
-...  from  which  we  see  that  the  smallest  missing  positive  integer""";
+PrintGrid(4, 1) ➞ new int[,] { 
+  new int[] { 1 },
+  new int[] { 2 },
+  new int[] { 3 },
+  new int[] { 4 }
+]
+Notes
+The return type of the function must be a 2 dimensional array of integers - int[,]";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }

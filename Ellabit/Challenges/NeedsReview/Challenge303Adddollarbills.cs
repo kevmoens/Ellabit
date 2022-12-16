@@ -1,20 +1,21 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge309Smallesttransform : IChallenge
+    public class Challenge303Adddollarbills : IChallenge
     {
-        public string? Header { get; set; } = "Smallest transform";
+        public string? Header { get; set; } = "Add dollar bills";
         public string? Code { get; set; } = @"
 using System;
 
 namespace Ellabit;
 
-public class Challenge 
-{
-    public  int SmallestTransform(int num) 
-    {
-    }
-}
+using System;
 
+public class Challenge
+{
+    public  int AddBill(string money) {
+			
+	}
+}
 
 ";
         public string? TestCode { get; set; } = @"
@@ -30,16 +31,12 @@ public class TestChallenge
         int sumResult;
         try 
         {
-            sumResult = tmp.smallesttransform(399)  ;
+            sumResult = tmp.<rep.test1>;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult ==   6
-//  399  transformed  to  999  in  6  steps.
-
-,  $""returned: {sumResult}  expected: 6
-//  399  transformed  to  999  in  6  steps."");
+        return (sumResult == <rep.test.result1>,  $""returned: {sumResult}  expected: <rep.test.result1Val>"");
     }
     public (bool pass, string message) Test2()
     {
@@ -69,16 +66,25 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"Create content  a  function  that  returns  the  smallest  number  of  changes  it  takes  to  transform  one  number  into  one  with  identical  digits.  a  step  is  incrementing  or  decrementing  a  digit  by  one.
+        public string? Description { get; set; } = @"Create a function that takes a string containing money in dollars and pounds sterling (seperated by comma+space) and returns the sum of dollar bills only, as an integer.
 
-examples
-smallesttransform(399)  ➞  6
-//  399  transformed  to  999  in  6  steps.
+For the input string:
 
-smallesttransform(1234)  ➞  4
-//  1234  can  be  transformed  to  either  2222  or  3333  using  4  steps.
+Each amount is prefixed by the currency symbol: $ for dollars and £ for pounds.
+Thousands are represented by the suffix k.
+i.e. $4k = $4,000 and £40k = £40,000
 
-smallesttr""";
+Examples
+AddBill(""$20, £40, £60, $50"") ➞ 70
+// 20 + 50 = 70
+
+AddBill(""£30, $20, £60, $150, £360"") ➞ 170
+// 20  + 150 = 170
+
+AddBill(""£30, $2k, £60, $200, £360"") ➞ 2200
+// 2 * 1000 + 200 = 2200
+Notes
+There is at least one dollar bill in string.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }

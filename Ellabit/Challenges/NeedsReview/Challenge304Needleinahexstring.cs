@@ -1,18 +1,20 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge301Printgrid : IChallenge
+    public class Challenge304Needleinahexstring : IChallenge
     {
-        public string? Header { get; set; } = "Print grid";
+        public string? Header { get; set; } = "  \"Needle in a hex string\"  ";
         public string? Code { get; set; } = @"
 using System;
 
 namespace Ellabit;
 
-public class Challenge
+using System;
+public class Challenge 
 {
-	public  int[,] PrintGrid(int rows, int cols) {
-		
-	}
+    public  int FirstIndex(string hexString, string needle)
+    {
+			
+    }
 }
 
 ";
@@ -26,20 +28,20 @@ public class TestChallenge
     public (bool pass, string message) Test1()
     {
         var tmp = new Challenge();
-        int[,] sumResult;
+        int sumResult;
         try 
         {
-            sumResult = tmp.<rep.test1>;
+            sumResult = tmp.firstindex("" 68 65 6c 6f 20 77 72 64"", ""world"") ;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult == <rep.test.result1>,  $""returned: {sumResult}  expected: <rep.test.result1Val>"");
+        return (sumResult ==  6 ,  $""returned: {sumResult}  expected: 6"");
     }
     public (bool pass, string message) Test2()
     {
         var tmp = new Challenge();
-        int[,] sumResult;
+        int sumResult;
         try 
         {
             sumResult = tmp.<rep.test2>;
@@ -52,7 +54,7 @@ public class TestChallenge
     public (bool pass, string message) Test3()
     {
         var tmp = new Challenge();
-        int[,] sumResult;
+        int sumResult;
         try 
         {
             sumResult = tmp.<rep.test3>;
@@ -64,11 +66,16 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"Write content  a  method  that  accepts  two  integer  parameters  rows  and  cols.  the  output  is  a  2d  array  of  numbers  displayed  in  column-major  order,  meaning  the  numbers  shown  increase  sequentially  down  each  column  and  wrap  to  the  top  of  the  next  column  to  the  right  once  the  bottom  of  the  current  column  is  reached.
+        public string? Description { get; set; } = @"Find the index of a string within a hex encoded string.
 
-examples
-printgrid(3,  6)  ➞  new  int[,]  {
-  new  int[]  {  1,  4,""";
+You will be given a string which needs to be found in another string which has previously been translated into hex. You will need to return the first index of the needle within the hex encoded string.
+
+Examples
+FirstIndex(""68 65 6c 6c 6f 20 77 6f 72 6c 64"", ""world"") ➞ 6
+
+FirstIndex(""47 6f 6f 64 62 79 65 20 77 6f 72 6c 64"", ""world"") ➞ 8
+
+FirstIndex(""42 6f 72 65 64 20 77 6f 72 6c 64"", ""Bored"") ➞ 0";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }

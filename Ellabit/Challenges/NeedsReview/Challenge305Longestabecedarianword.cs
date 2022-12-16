@@ -1,8 +1,8 @@
-namespace Ellabit.Challenges
+﻿namespace Ellabit.Challenges
 {
-    public class Challenge308Arrowpattern : IChallenge
+    public class Challenge305Longestabecedarianword : IChallenge
     {
-        public string? Header { get; set; } = "Arrow pattern";
+        public string? Header { get; set; } = "Longest abecedarian word";
         public string? Code { get; set; } = @"
 using System;
 
@@ -12,7 +12,7 @@ using System;
 
 public class Challenge
 {
-    public  string[] Arrow(int num) {
+	public  string LongestAbecedarian(string[] arr) {
 		
 	}
 }
@@ -28,7 +28,7 @@ public class TestChallenge
     public (bool pass, string message) Test1()
     {
         var tmp = new Challenge();
-        string[] sumResult;
+        string sumResult;
         try 
         {
             sumResult = tmp.<rep.test1>;
@@ -41,7 +41,7 @@ public class TestChallenge
     public (bool pass, string message) Test2()
     {
         var tmp = new Challenge();
-        string[] sumResult;
+        string sumResult;
         try 
         {
             sumResult = tmp.<rep.test2>;
@@ -54,7 +54,7 @@ public class TestChallenge
     public (bool pass, string message) Test3()
     {
         var tmp = new Challenge();
-        string[] sumResult;
+        string sumResult;
         try 
         {
             sumResult = tmp.<rep.test3>;
@@ -66,7 +66,22 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"Create content  a  function  that  creates  a  pattern  as  a  2d  array  for  a  given";
+        public string? Description { get; set; } = @"An abecedarian word is a word where all of its letters are arranged in alphabetical order. Examples of these words include:
+
+Empty
+Forty
+Almost
+Given an array of words, create a function which returns the longest abecedarian word. If no word in an array matches the criterea, return an empty string.
+
+Examples
+LongestAbecedarian(new string[] { ""ace"", ""spades"", ""hearts"", ""clubs"" }) ➞ ""ace""
+
+LongestAbecedarian(new string[] { ""forty"", ""choppy"", ""ghost"" }) ➞ ""choppy""
+
+LongestAbecedarian(new string[] { ""one"", ""two"", ""three"" }) ➞ """"
+Notes
+All words will be given in lowercase.
+If two abecedarian words have the same length, return the word which appeared first in the array.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
