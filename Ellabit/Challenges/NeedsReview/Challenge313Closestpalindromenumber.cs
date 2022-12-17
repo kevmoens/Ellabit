@@ -74,20 +74,19 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"Write content  a  function  that  returns  the  closest  palindrome  number  to  an  integer.  if  two  palindrome  numbers  tie  in  absolute  distance,  return  the  smaller  number.
+        public string? Description { get; set; } = @"Write a function that returns the closest palindrome number to an integer. If two palindrome numbers tie in absolute distance, return the smaller number.
 
-examples
-closestpalindrome(887)  ➞  888
+Examples
+ClosestPalindrome(887) ➞ 888
 
-closestpalindrome(100)  ➞  99
-//  99  and  101  are  equally  distant,  so  we  return  the  smaller  palindrome.
+ClosestPalindrome(100) ➞ 99
+// 99 and 101 are equally distant, so we return the smaller palindrome.
 
-closestpalindrome(888)  ➞  888
+ClosestPalindrome(888) ➞ 888
 
-closestpalindrome(27)  ➞  22
-
-notes
-if""";
+ClosestPalindrome(27) ➞ 22
+Notes
+If the number itself is a palindrome, return that number.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }

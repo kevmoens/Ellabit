@@ -1,22 +1,23 @@
-namespace Ellabit.Challenges
+﻿namespace Ellabit.Challenges
 {
-    public class Challenge310Needhelpwithyourpacking : IChallenge
+    public class Challenge314Differencecipher : IChallenge
     {
-        public string? Header { get; set; } = "Need help with your packing?";
+        public string? Header { get; set; } = "Difference cipher";
         public string? Code { get; set; } = @"
 using System;
 
 namespace Ellabit;
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
-public class Challenge
+public class Challenge 
 {
-  	public  bool CanFit(int[] weights, int bags) 
+	public  int[] Encrypt(string str) 
 	{
+		
+	}
 
+	public  string Decrypt(int[] arr) 
+	{
+		
 	}
 }
 
@@ -31,7 +32,7 @@ public class TestChallenge
     public (bool pass, string message) Test1()
     {
         var tmp = new Challenge();
-        bool sumResult;
+        int[] sumResult;
         try 
         {
             sumResult = tmp.<rep.test1>;
@@ -44,7 +45,7 @@ public class TestChallenge
     public (bool pass, string message) Test2()
     {
         var tmp = new Challenge();
-        bool sumResult;
+        int[] sumResult;
         try 
         {
             sumResult = tmp.<rep.test2>;
@@ -57,7 +58,7 @@ public class TestChallenge
     public (bool pass, string message) Test3()
     {
         var tmp = new Challenge();
-        bool sumResult;
+        int[] sumResult;
         try 
         {
             sumResult = tmp.<rep.test3>;
@@ -69,9 +70,23 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"You content  arrive  at  the  supermarket  checkout  and  you've  only  got  a  limited  number  of  shopping  bags  with  you.  miser  that  you  are,  you  hate  buying  extra  bags  when  you've  got  dozens  at  home  that  you  forgot  to  bring  with  you!!  can  you  fit  all  your  shopping  into  the  bags  you've  got  with  you?
+        public string? Description { get; set; } = @"It's time to send and receive secret messages.
 
-each  bag  can  carry  a  maximum  of  10kg  and  each  item  you've  purchased  weighs  betw""";
+Create two functions that take a string and an array and returns a coded or decoded message.
+
+The first letter of the string, or the first element of the array represents the Character Code of that letter. The next elements are the differences between the characters: e.g. A +3 --> C or z -1 --> y.
+
+Examples
+Encrypt(""Hello"") ➞ [72, 29, 7, 0, 3]
+// H = 72, the difference between the H and e is 29 (upper- and lowercase).
+// The difference between the two l's is obviously 0.
+
+Decrypt([ 72, 33, -73, 84, -12, -3, 13, -13, -68 ]) ➞ ""Hi there!""
+
+Encrypt(""Sunshine"") ➞ [83, 34, -7, 5, -11, 1, 5, -9]
+Notes
+The input of the encrypt function will always be a string.
+The input of the decrypt function will always be an array with numbers.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }

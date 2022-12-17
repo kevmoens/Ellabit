@@ -1,8 +1,8 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge319Newdrivinglicense : IChallenge
+    public class Challenge311Sumoffactorsoffactors : IChallenge
     {
-        public string? Header { get; set; } = "New driving license";
+        public string? Header { get; set; } = "Sum of factors of factors";
         public string? Code { get; set; } = @"
 using System;
 
@@ -12,9 +12,9 @@ using System;
 
 public class Challenge
 {
-    public  int License(string me, int agents, string others) {
-	  	
-	}	
+    public  int SumFF(int a) {
+		
+	}
 }
 
 ";
@@ -31,12 +31,18 @@ public class TestChallenge
         int sumResult;
         try 
         {
-            sumResult = tmp.<rep.test1>;
+            sumResult = tmp.sumff(69)  ;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult == <rep.test.result1>,  $""returned: {sumResult}  expected: <rep.test.result1Val>"");
+        return (sumResult ==   3,  23  ➞  0
+//  both  3  and  23  are  prime  numbers  and  have  no  factors
+//  other  than  1  and  themselves  so  the  result  is  0.
+
+,  $""returned: {sumResult}  expected: 3,  23  ➞  0
+//  both  3  and  23  are  prime  numbers  and  have  no  factors
+//  other  than  1  and  themselves  so  the  result  is  0."");
     }
     public (bool pass, string message) Test2()
     {
@@ -44,12 +50,14 @@ public class TestChallenge
         int sumResult;
         try 
         {
-            sumResult = tmp.<rep.test2>;
+            sumResult = tmp.sumff(12)  ;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult == <rep.test.result2>,   $""returned: {sumResult}  expected: <rep.test.result2Val>"");
+        return (sumResult ==   2,  3,  4,  6  ➞  (0)  +  (0)  +  (2)  +  (2+3)  ➞  7
+
+,   $""returned: {sumResult}  expected: 2,  3,  4,  6  ➞  (0)  +  (0)  +  (2)  +  (2+3)  ➞  7"");
     }
     public (bool pass, string message) Test3()
     {
@@ -66,7 +74,22 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"You content  have  to  get  a  new  driver's  license.  you  show  up  at  the  office  at  the  same  time  as  four  other  people.  the  office  says  they  will  see  everyone  in  alphabetical  order  and  it  takes  20  minutes  for  them  to  process  each  new  license.  all  of  the  agents  are  available  now,  and  they  can  each  see  one  customer  at  a  time.  how  long  will  it  take  for  you  to  walk  out  with  your""";
+        public string? Description { get; set; } = @"Create a function that takes a number and returns the sum of factors of factors of the given number.
+
+Examples
+SumFF(69) ➞ 3, 23 ➞ 0
+// Both 3 and 23 are prime numbers and have no factors
+// other than 1 and themselves so the result is 0.
+
+SumFF(12) ➞ 2, 3, 4, 6 ➞ (0) + (0) + (2) + (2+3) ➞ 7
+
+SumFF(420) ➞ 2,4, 6, 10, 12 ... ➞ (2) + (2+3) + (2+5) + (2+3+4+6) ... ➞ 1175
+
+SumFF(619) ➞ ___ ➞ 0
+// 619 doesn't have any factors (other than 1 and 619).
+Notes
+The number will always be greater than 0.
+Factors that are equal to the number or 1, don't count (see example #1).";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }

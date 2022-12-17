@@ -1,17 +1,18 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge316Simplifiedfractions : IChallenge
+    public class Challenge318Amountofuniquefractions : IChallenge
     {
-        public string? Header { get; set; } = "Simplified fractions";
+        public string? Header { get; set; } = "Amount of unique fractions";
         public string? Code { get; set; } = @"
 using System;
 
 namespace Ellabit;
 
-public class Challenge 
+public class Challenge
 {
-    public  string Simplify(string str) 
+    public  double UniqueFract()
     {
+			
     }
 }
 
@@ -26,48 +27,52 @@ public class TestChallenge
     public (bool pass, string message) Test1()
     {
         var tmp = new Challenge();
-        string sumResult;
+        double sumResult;
         try 
         {
-            sumResult = tmp.simplify("" 4 6"") ;
+            sumResult = tmp.<rep.test1>;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult ==  ""2 3"" ,  $""returned: {sumResult}  expected: 2 3"");
+        return (sumResult == <rep.test.result1>,  $""returned: {sumResult}  expected: <rep.test.result1Val>"");
     }
     public (bool pass, string message) Test2()
     {
         var tmp = new Challenge();
-        string sumResult;
+        double sumResult;
         try 
         {
-            sumResult = tmp.simplify(""10 11"");
+            sumResult = tmp.<rep.test2>;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult ==  ""10 11"" ,   $""returned: {sumResult}  expected: 10 11"");
+        return (sumResult == <rep.test.result2>,   $""returned: {sumResult}  expected: <rep.test.result2Val>"");
     }
     public (bool pass, string message) Test3()
     {
         var tmp = new Challenge();
-        string sumResult;
+        double sumResult;
         try 
         {
-            sumResult = tmp.simplify(""100 400"");
+            sumResult = tmp.<rep.test3>;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + ""\n"" + ex.Message);
         }
-        return (sumResult ==  ""1 4"" ,   $""returned: {sumResult}  expected: 1 4"");
+        return (sumResult == <rep.test.result3>,   $""returned: {sumResult}  expected: <rep.test.result3Val>"");
     }
 }
 ";
-        public string? Description { get; set; } = @"Create content  a  function  that  returns  the  simplified  version  of  a  fraction.
+        public string? Description { get; set; } = @"Create a function double UniqueFract(), which should sum all irreducible regular fractions between 0 and 1, in the numerator and denominator of which there are only single-digit numbers: 1/2, 1/3, 1/4, ... 2/3, 2/4, ... 8/9.
 
-examples
-simplify("" 4 6"") ➞ ""2 3"" simplify(""10 11"") ""10 11"" simplify(""100 400"") ""1 4"" simplify(""8 4"") ""2"" notes a fraction is simplified if there are no common factors (except 1) between the numerator and denominator. for example, 6 not simplified, since both share""";
+Task
+UniqueFract() ➞ sum
+Notes
+Of the fractions 1/2 2/4 3/6 4/8, only 1/2 is included in the sum.
+Don't include any values >= 1.
+Both the numerator and denominator are single digit.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
