@@ -1,20 +1,18 @@
-namespace Ellabit.Challenges
+﻿namespace Ellabit.Challenges
 {
-    public class Challenge329Diamondsum : IChallenge
+    public class Challenge320Working9to5 : IChallenge
     {
-        public string? Header { get; set; } = "Diamond sum";
+        public string? Header { get; set; } = "Working 9 to 5";
         public string? Code { get; set; } = @"
 using System;
 
 namespace Ellabit;
 
-using System;
-
 public class Challenge 
 {
-	public  int DiamondSum(int n) 
+	public  string OverTime(double[] arr)
 	{
-		return 0;
+		
 	}
 }
 
@@ -29,26 +27,20 @@ public class TestChallenge
     public (bool pass, string message) Test1()
     {
         var tmp = new Challenge();
-        int sumResult;
+        string sumResult;
         try 
         {
-            sumResult = tmp.diamondsum(1)  ;
+            sumResult = tmp.<rep.test1>;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult ==   1
-
-[1]
-
-,  $""returned: {sumResult}  expected: 1
-
-[1]"");
+        return (sumResult == <rep.test.result1>,  $""returned: {sumResult}  expected: <rep.test.result1Val>"");
     }
     public (bool pass, string message) Test2()
     {
         var tmp = new Challenge();
-        int sumResult;
+        string sumResult;
         try 
         {
             sumResult = tmp.<rep.test2>;
@@ -61,7 +53,7 @@ public class TestChallenge
     public (bool pass, string message) Test3()
     {
         var tmp = new Challenge();
-        int sumResult;
+        string sumResult;
         try 
         {
             sumResult = tmp.<rep.test3>;
@@ -73,25 +65,30 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"Given content  an  nxn  grid  of  consecutive  numbers,  return  the  grid's  diamond  sum.  the  diamond  sum  is  defined  as  the  sum  of  the  numbers  making  up  the  diagonals  between  adjacent  sides.
+        public string? Description { get; set; } = @"Write a function that calculates overtime and pay associated with overtime.
 
-examples
-diamondsum(1)  ➞  1
+Working 9 to 5: regular hours
+After 5pm is overtime
+Your function gets an array with 4 values:
 
-[1]
+Start of working day, in decimal format, (24-hour day notation)
+End of working day. (Same format)
+Hourly rate
+Overtime multiplier
+Your function should spit out:
 
-diamondsum(3)  ➞  20
+$ + earned that day (rounded to the nearest hundreth)
+Examples
+OverTime([9, 17, 30, 1.5]) ➞ ""$240.00""
 
-[
-  [1,  _,  3],
-  [,  5,  ],
-  [7,  _,  9]
-]
+OverTime([16, 18, 30, 1.8]) ➞ ""$84.00""
 
-//  the  numbers  behind  the  underscores  make  up  the  diamond  sum.
-//  2  +  4  +  6  + 20
+OverTime([13.25, 15, 30, 1.5]) ➞ ""$52.50""
+2nd example explained:
 
-Diamond"" 8";
+From 16 to 17 is regular, so 1 * 30 = 30
+From 17 to 18 is overtime, so 1 * 30 * 1.8 = 54
+30 + 54 = $84.00";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }

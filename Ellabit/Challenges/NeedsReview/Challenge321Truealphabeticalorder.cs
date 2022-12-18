@@ -67,10 +67,17 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"Create content  a  function  which  takes  every  letter  in  every  word,  and  puts  it  in  alphabetical  order.  note  how  the  original  word  lengths  must  stay  the  same.
+        public string? Description { get; set; } = @"Create a function which takes every letter in every word, and puts it in alphabetical order. Note how the original word lengths must stay the same.
 
-examples
-truealphabetic("" hello world"") ➞ ""dehll loorw"" truealphabetic(""ellabit is awesome"") ""aabdee ei imosstw"" truealphabetic(""have a nice day"") ""aaac d eehi nvy"" notes all sentences will be in lowercase. n""";
+Examples
+TrueAlphabetic(""hello world"") ➞ ""dehll loorw""
+
+TrueAlphabetic(""edabit is awesome"") ➞ ""aabdee ei imosstw""
+
+TrueAlphabetic(""have a nice day"") ➞ ""aaac d eehi nvy""
+Notes
+All sentences will be in lowercase.
+No punctuation or numbers will be included in the Tests.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }

@@ -1,8 +1,8 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge323Musicalinstrumentnoteranges : IChallenge
+    public class Challenge330Contactlist : IChallenge
     {
-        public string? Header { get; set; } = "Musical instrument note ranges";
+        public string? Header { get; set; } = "Contact list";
         public string? Code { get; set; } = @"
 using System;
 
@@ -12,10 +12,11 @@ using System;
 
 public class Challenge
 {
-  	public  bool InstrumentRange(string instr, string note) {
-		
-	}
-}
+		public  string[] SortContacts(string[] names, string sort)
+		{
+				return new string[0];
+		}
+}	
 
 ";
         public string? TestCode { get; set; } = @"
@@ -28,7 +29,7 @@ public class TestChallenge
     public (bool pass, string message) Test1()
     {
         var tmp = new Challenge();
-        bool sumResult;
+        string[] sumResult;
         try 
         {
             sumResult = tmp.<rep.test1>;
@@ -41,7 +42,7 @@ public class TestChallenge
     public (bool pass, string message) Test2()
     {
         var tmp = new Challenge();
-        bool sumResult;
+        string[] sumResult;
         try 
         {
             sumResult = tmp.<rep.test2>;
@@ -54,7 +55,7 @@ public class TestChallenge
     public (bool pass, string message) Test3()
     {
         var tmp = new Challenge();
-        bool sumResult;
+        string[] sumResult;
         try 
         {
             sumResult = tmp.<rep.test3>;
@@ -66,17 +67,41 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"Musical content  instruments  have  a  range  of  notes  to  play,  some  instruments  having  a  much  larger  range  than  others.
+        public string? Description { get; set; } = @"Write a sorting function that takes in an array of names and sorts them by last name either alphabetically (ASC) or reverse-alphabetically (DESC).
 
-given  the  following  ranges  for  the  instrument,  create  a  function  that  returns  true  if  a  given  note  is  within  a  given  instrument's  range.  otherwise,  return  false.
+Examples
+SortContacts(new string[] {
+  ""John Locke"",
+  ""Thomas Aquinas"",
+  ""David Hume"",
+  ""Rene Descartes""
+}, ""ASC"") ➞ {
+  ""Thomas Aquinas"",
+  ""Rene Descartes"",
+  ""David Hume"",
+  ""John Locke""
+}
 
-instrument  |  range
----  |  ---
-piccolo  |  d4-c7
-tuba  |  d1-f4
-guitar  |  e3-e6
-piano  |  a0-c8
-vio""";
+// Aquinas (A) < Descartes (D) < Hume (H) < Locke (L)
+
+SortContacts(new string[] {
+  ""Paul Erdos"",
+  ""Leonhard Euler"",
+  ""Carl Gauss""
+}, ""DESC"") ➞ {
+  ""Carl Gauss"",
+  ""Leonhard Euler"",
+  ""Paul Erdos""
+}
+
+// Gauss (G) > Erdos (ER) > Euler (EU)
+
+SortContacts([], ""DESC"") ➞ {}
+
+SortContacts(null, ""DESC"") ➞ {}
+Notes
+An array with a single name should be trivially returned.
+An empty array, or an input of null should return an empty array.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }

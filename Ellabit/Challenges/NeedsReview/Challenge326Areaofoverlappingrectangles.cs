@@ -1,18 +1,21 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge324Findananagramofastringinanotherstring : IChallenge
+    public class Challenge326Areaofoverlappingrectangles : IChallenge
     {
-        public string? Header { get; set; } = "Find an anagram of a string in another string";
+        public string? Header { get; set; } = "Area of overlapping rectangles";
         public string? Code { get; set; } = @"
 using System;
 
 namespace Ellabit;
 
-public class Challenge
+using System;
+
+public class Challenge 
 {
-    public  bool AnagramStrStr(string needle, string haystack)
-    {
-    }
+	public  int OverlappingRectangles(int[] rect1, int[] rect2)
+	{
+		
+	}
 }
 
 ";
@@ -26,20 +29,22 @@ public class TestChallenge
     public (bool pass, string message) Test1()
     {
         var tmp = new Challenge();
-        bool sumResult;
+        int sumResult;
         try 
         {
-            sumResult = tmp.<rep.test1>;
+            sumResult = tmp.overlappingrectangles(new  int[]  {  2,  1,  3,  4  },  new  int[]  {  3,  2,  2,  5  })  ;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult == <rep.test.result1>,  $""returned: {sumResult}  expected: <rep.test.result1Val>"");
+        return (sumResult ==   6
+
+,  $""returned: {sumResult}  expected: 6"");
     }
     public (bool pass, string message) Test2()
     {
         var tmp = new Challenge();
-        bool sumResult;
+        int sumResult;
         try 
         {
             sumResult = tmp.<rep.test2>;
@@ -52,7 +57,7 @@ public class TestChallenge
     public (bool pass, string message) Test3()
     {
         var tmp = new Challenge();
-        bool sumResult;
+        int sumResult;
         try 
         {
             sumResult = tmp.<rep.test3>;
@@ -64,7 +69,19 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"Create content  a  function  that  takes  two  strings  and  determines  if  an  anagram  of  the  first  string  is  in  the  second  string.  anagrams  of  "" bag"" are ""bag"", ""bga"", ""abg"", ""agb"", ""gab"", ""gba"". since none of those anagrams in ""grab"", the answer is false. a ""g"", ""a"", and ""b"" string but they're split up by ""r"". examples anagramstrstr(""car"", ""race"")""";
+        public string? Description { get; set; } = @"Create a function that returns the area of the overlap between two rectangles. The function will receive two rectangles,each with the coordinates of the lower left corner followed by the width and the height int[] { x, y, width, height }.
+
+Examples
+OverlappingRectangles(new int[] { 2, 1, 3, 4 }, new int[] { 3, 2, 2, 5  }) ➞ 6
+
+OverlappingRectangles(new int[] { 2, -9, 11, 5 }, new int[] { 5, -11, 2, 9 }) ➞ 10
+
+OverlappingRectangles(new int[] { -8, -7, 4, 7 },  new int[] { -5, -9, 4, 7 }) ➞ 5
+
+
+Notes
+Coordinates can be positive or negative integers.
+Not all examples have overlaps.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }

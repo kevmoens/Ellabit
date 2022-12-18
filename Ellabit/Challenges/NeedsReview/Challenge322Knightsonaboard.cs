@@ -1,18 +1,22 @@
-namespace Ellabit.Challenges
+﻿namespace Ellabit.Challenges
 {
-    public class Challenge320Working9to5 : IChallenge
+    public class Challenge322Knightsonaboard : IChallenge
     {
-        public string? Header { get; set; } = "Working 9 to 5";
+        public string? Header { get; set; } = "Knights on a board";
         public string? Code { get; set; } = @"
 using System;
 
 namespace Ellabit;
 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
 public class Challenge 
 {
-	public  string OverTime(double[] arr)
+	public  bool CannotCapture(int[,] board)
 	{
-		
+		return true || false;
 	}
 }
 
@@ -27,7 +31,7 @@ public class TestChallenge
     public (bool pass, string message) Test1()
     {
         var tmp = new Challenge();
-        string sumResult;
+        bool sumResult;
         try 
         {
             sumResult = tmp.<rep.test1>;
@@ -40,7 +44,7 @@ public class TestChallenge
     public (bool pass, string message) Test2()
     {
         var tmp = new Challenge();
-        string sumResult;
+        bool sumResult;
         try 
         {
             sumResult = tmp.<rep.test2>;
@@ -53,7 +57,7 @@ public class TestChallenge
     public (bool pass, string message) Test3()
     {
         var tmp = new Challenge();
-        string sumResult;
+        bool sumResult;
         try 
         {
             sumResult = tmp.<rep.test3>;
@@ -65,18 +69,33 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"Write content  a  function  that  calculates  overtime  and  pay  associated  with  overtime.
-working  9  to  5:  regular  hours
-after  5pm  is  overtime
+        public string? Description { get; set; } = @"Write a function that returns true if the knights are placed on a chessboard such that no knight can capture another knight. Here, 0s represent empty squares and 1s represent knights.
 
-your  function  gets  an  array  with  4  values:
-start  of  working  day,  in  decimal  format,  (24-hour  day  notation)
-end  of  working  day.  (same  format)
-hourly  rate
-overtime  multiplier
+Examples
+CannotCapture(new int[,] {
+  { 0, 0, 0, 1, 0, 0, 0, 0 },
+  { 0, 0, 0, 0, 0, 0, 0, 0 },
+  { 0, 1, 0, 0, 0, 1, 0, 0 },
+  { 0, 0, 0, 0, 1, 0, 1, 0 },
+  { 0, 1, 0, 0, 0, 1, 0, 0 },
+  { 0, 0, 0, 0, 0, 0, 0, 0 },
+  { 0, 1, 0, 0, 0, 0, 0, 1 },
+  { 0, 0, 0, 0, 1, 0, 0, 0 }
+}) ➞ True
 
-your  function  should  spit  out:
-$  +  earned  that  day  (rounded""";
+CannotCapture(new int[,] {
+  {1, 0, 1, 0, 1, 0, 1, 0},
+  {0, 1, 0, 1, 0, 1, 0, 1},
+  {1, 0, 1, 0, 1, 0, 1, 0},
+  {0, 0, 0, 1, 0, 1, 0, 1},
+  {1, 0, 0, 0, 1, 0, 1, 0},
+  {0, 0, 0, 0, 0, 1, 0, 1},
+  {1, 0, 1, 0, 1, 0, 1, 0},
+  {1, 0, 0, 1, 0, 0, 0, 1} 
+}) ➞ False
+Notes
+Knights can be present in any of the 64 squares.
+No other pieces except knights exist.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }

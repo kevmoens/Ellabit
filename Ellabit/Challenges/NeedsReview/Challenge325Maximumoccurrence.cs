@@ -1,8 +1,8 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge330Contactlist : IChallenge
+    public class Challenge325Maximumoccurrence : IChallenge
     {
-        public string? Header { get; set; } = "Contact list";
+        public string? Header { get; set; } = "Maximum occurrence";
         public string? Code { get; set; } = @"
 using System;
 
@@ -12,11 +12,11 @@ using System;
 
 public class Challenge
 {
-		public  string[] SortContacts(string[] names, string sort)
-		{
-				return new string[0];
-		}
-}	
+	public  string MaxOccur(string text)
+	{
+		
+	}
+}
 
 ";
         public string? TestCode { get; set; } = @"
@@ -29,20 +29,20 @@ public class TestChallenge
     public (bool pass, string message) Test1()
     {
         var tmp = new Challenge();
-        string[] sumResult;
+        string sumResult;
         try 
         {
-            sumResult = tmp.<rep.test1>;
+            sumResult = tmp.maxoccur(""computer science"") ;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult == <rep.test.result1>,  $""returned: {sumResult}  expected: <rep.test.result1Val>"");
+        return (sumResult ==  ""e"" ,  $""returned: {sumResult}  expected: e"");
     }
     public (bool pass, string message) Test2()
     {
         var tmp = new Challenge();
-        string[] sumResult;
+        string sumResult;
         try 
         {
             sumResult = tmp.<rep.test2>;
@@ -55,7 +55,7 @@ public class TestChallenge
     public (bool pass, string message) Test3()
     {
         var tmp = new Challenge();
-        string[] sumResult;
+        string sumResult;
         try 
         {
             sumResult = tmp.<rep.test3>;
@@ -67,11 +67,18 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"Write content  a  sorting  function  that  takes  in  an  array  of  names  and  sorts  them  by  last  name  either  alphabetically  (asc)  or  reverse-alphabetically  (desc).
+        public string? Description { get; set; } = @"Given a string text. Write a function that returns the character with the highest frequency. If more than 1 character has the same highest frequency, return all those characters as a comma separated string. If there is no repetition in characters, return ""No Repetition"".
 
-examples
-sortcontacts(new  string[]  {
-  "" john locke"", ""thomas aquinas"", ""david hume"", ""rene descartes"" }, ""asc"") ➞ { descartes"", ""john locke"" } aquinas (a) er""";
+Examples
+MaxOccur(""Computer Science"") ➞ ""e""
+
+MaxOccur(""Edabit"") ➞ ""No Repetition""
+
+MaxOccur(""system admin"") ➞ ""m, s""
+
+MaxOccur(""the quick brown fox jumps over the lazy dog"") ➞ "" ""
+Notes
+Characters are case sensitive, so, for example, ""C"" and ""c"" are counted separately";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }

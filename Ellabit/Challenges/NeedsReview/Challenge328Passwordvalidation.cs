@@ -1,20 +1,18 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge327Tracktherobotpart3 : IChallenge
+    public class Challenge328Passwordvalidation : IChallenge
     {
-        public string? Header { get; set; } = "Track the robot (part 3)";
+        public string? Header { get; set; } = "Password validation";
         public string? Code { get; set; } = @"
 using System;
 
 namespace Ellabit;
 
-using System;
-
 public class Challenge
 {
-    public  int[] TrackRobot(string steps) {
-	  	
-	}
+    public  bool ValidatePassword(string password)
+    {
+    }
 }
 
 ";
@@ -28,7 +26,7 @@ public class TestChallenge
     public (bool pass, string message) Test1()
     {
         var tmp = new Challenge();
-        int[] sumResult;
+        bool sumResult;
         try 
         {
             sumResult = tmp.<rep.test1>;
@@ -41,7 +39,7 @@ public class TestChallenge
     public (bool pass, string message) Test2()
     {
         var tmp = new Challenge();
-        int[] sumResult;
+        bool sumResult;
         try 
         {
             sumResult = tmp.<rep.test2>;
@@ -54,7 +52,7 @@ public class TestChallenge
     public (bool pass, string message) Test3()
     {
         var tmp = new Challenge();
-        int[] sumResult;
+        bool sumResult;
         try 
         {
             sumResult = tmp.<rep.test3>;
@@ -66,16 +64,27 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"A content  robot  moves  around  a  2d  grid.  at  the  start,  it  is  at  [0,  0],  facing  east.  it  is  controlled  by  a  sequence  of  instructions:
-.  means  take  one  step  forwards  in  the  current  direction.
-``  means  turn  90  degrees  clockwise.
+        public string? Description { get; set; } = @"Create a function that validates a password to conform to the following rules:
 
-your  job  is  to  process  the  instructions  and  return  the  final  position  of  the  robot.
+Length between 6 and 24 characters.
+At least one uppercase letter (A-Z).
+At least one lowercase letter (a-z).
+At least one digit (0-9).
+Maximum of 2 repeated characters.
+""aa"" is OK 👍
+""aaa"" is NOT OK 👎
+Supported special characters:
+! @ # $ % ^ & * ( ) + = _ - { } [ ] : ; "" ' ? < > , .
+Examples
+ValidatePassword(""P1zz@"") ➞ false
+// Too short.
 
-example
-for  example,  if  the  robot  is  given  the  sequence  of""";
+ValidatePassword(""iLoveYou"") ➞ false
+// Missing a number.
+
+ValidatePassword(""Fhg93@"") ➞ true
+// OK!";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
-
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
     }
