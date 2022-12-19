@@ -74,14 +74,17 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"Write content  a  function  which  increments  a  string  to  create  a  new  string.
+        public string? Description { get; set; } = @"Write a function which increments a string to create a new string.
 
-if  the  string  ends  with  a  number,  the  number  should  be  incremented  by  1.
-if  the  string  doesn't  end  with  a  number,  1  should  be  added  to  the  new  string.
-if  the  number  has  leading  zeros,  the  amount  of  digits  should  be  considered.
+If the string ends with a number, the number should be incremented by 1.
+If the string doesn't end with a number, 1 should be added to the new string.
+If the number has leading zeros, the amount of digits should be considered.
+Examples
+incrementString(""foo"") ➞ ""foo1""
 
-examples
-incrementstring("" foo"") ➞ ""foo1"" incrementstring(""foobar0""";
+incrementString(""foobar0009"") ➞ ""foobar0010""
+
+incrementString(""foo099"") ➞ ""foo100""";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
