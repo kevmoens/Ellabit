@@ -1,4 +1,4 @@
-namespace Ellabit.Challenges
+﻿namespace Ellabit.Challenges
 {
     public class Challenge334Reversethestringwithacatch : IChallenge
     {
@@ -74,13 +74,16 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"Create content  a  function  that  takes  a  string  and  returns  the  reversed  string.  however  there's  a  few  rules  to  follow  in  order  to  make  the  challenge  interesting:
+        public string? Description { get; set; } = @"Create a function that takes a string and returns the reversed string. However there's a few rules to follow in order to make the challenge interesting:
 
-the  uppercase/lowercase  positions  must  be  kept  in  the  same  order  as  the  original  string  (see  example  #1  and  #2).
-spaces  must  be  kept  in  the  same  order  as  the  original  string  (see  example  #3).
+The UPPERCASE/lowercase positions must be kept in the same order as the original string (see example #1 and #2).
+Spaces must be kept in the same order as the original string (see example #3).
+Examples
+specialReverseString(""Edabit"") ➞ ""Tibade""
 
-examples
-specia""";
+specialReverseString(""UPPER lower"") ➞ ""REWOL reppu""
+
+specialReverseString(""1 23 456"") ➞ ""6 54 321""";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
