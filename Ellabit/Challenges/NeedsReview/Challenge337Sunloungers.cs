@@ -1,4 +1,4 @@
-namespace Ellabit.Challenges
+﻿namespace Ellabit.Challenges
 {
     public class Challenge337Sunloungers : IChallenge
     {
@@ -66,10 +66,20 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"A content  long  stretch  of  beach  is  represented  by  a  string  of  two  characters  0  -  free,  1  -  occupied.  due  to  recent  restrictions,  a  new  person  cannot  take  place  next  to  another.  there  has  to  be  one  free  place  between  two  people  lounging  on  the  beach.  create  a  function  to  compute  how  many  new  people  at  most  can  settle  in  on  the  given  beach.
+        public string? Description { get; set; } = @"A long stretch of beach is represented by a string of two characters 0 - free, 1 - occupied. Due to recent restrictions, a new person cannot take place next to another. There has to be one free place between two people lounging on the beach. Create a function to compute how many new people at most can settle in on the given beach.
 
-examples
-sunloungers("" 10001""""";
+Examples
+sunLoungers(""10001"") ➞ 1
+// Can take place in the middle.
+
+sunLoungers(""00101"") ➞ 1
+// Can take place on the left.
+
+sunLoungers(""0"") ➞ 1
+// Can take one place.
+
+sunLoungers(""000"") ➞ 2
+// Can take places on the left and on the right.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
