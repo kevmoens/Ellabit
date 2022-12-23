@@ -1,8 +1,8 @@
-namespace Ellabit.Challenges
+﻿namespace Ellabit.Challenges
 {
-    public class Challenge338Licenseplate : IChallenge
+    public class Challenge340Thecompletebracelet : IChallenge
     {
-        public string? Header { get; set; } = "License plate";
+        public string? Header { get; set; } = "The complete bracelet";
         public string? Code { get; set; } = @"
 using System;
 
@@ -12,11 +12,10 @@ using System;
 
 public class Challenge
 {
-    public  string LicensePlate(string s, int n) {
-		
+    public  bool CompleteBracelet(int[] arr) {
+	 	
 	}
 }
-
 
 ";
         public string? TestCode { get; set; } = @"
@@ -29,7 +28,7 @@ public class TestChallenge
     public (bool pass, string message) Test1()
     {
         var tmp = new Challenge();
-        string sumResult;
+        bool sumResult;
         try 
         {
             sumResult = tmp.<rep.test1>;
@@ -42,7 +41,7 @@ public class TestChallenge
     public (bool pass, string message) Test2()
     {
         var tmp = new Challenge();
-        string sumResult;
+        bool sumResult;
         try 
         {
             sumResult = tmp.<rep.test2>;
@@ -55,7 +54,7 @@ public class TestChallenge
     public (bool pass, string message) Test3()
     {
         var tmp = new Challenge();
-        string sumResult;
+        bool sumResult;
         try 
         {
             sumResult = tmp.<rep.test3>;
@@ -67,9 +66,34 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"Travelling content  through  europe  one  needs  to  pay  attention  to  how  the  license  plate  in  the  given  country  is  displayed.  when  crossing  the  border  you  need  to  park  on  the  shoulder,  unscrew  the  plate,  re-group  the  characters  according  to  the  local  regulations,  attach  it  back  and  proceed  with  the  journey.
+        public string? Description { get; set; } = @"A complete bracelet is an array with at least one subsequence (pattern) repeating at least two times, and completely - the subsequence cannot be cut-off at any point. The subsequence must have length two or greater.
 
-create  a  solution  that  can  format  the  dmv  number  into  a  plate  num""";
+Complete bracelets:
+
+[1, 2, 3, 3, 1, 2, 3, 3]  // Pattern: [1, 2, 3, 3]
+
+[1, 2, 1, 2, 1, 2, 1, 2]  // Pattern: [1, 2] or [1, 2, 1, 2]
+
+[1, 1, 6, 1, 1, 7, 1, 1, 6, 1, 1, 7, 1, 1, 6, 1, 1, 7]  // Pattern: [1, 1, 6, 1, 1, 7]
+
+[4, 4, 3, 4, 4, 4, 4, 3, 4, 4]  // Pattern: [4, 4, 3, 4, 4]
+Incomplete bracelets:
+
+[1, 2, 2, 2, 1, 2, 2, 2, 1]  // Incomplete (chopped off)
+
+[1, 1, 6, 1, 1, 7]  // Incomplete (subsequence repeats only once)
+Create a function that returns true if a bracelet is complete, and false otherwise.
+
+Examples
+completeBracelet([1, 2, 2, 1, 2, 2]) ➞ true
+
+completeBracelet([5, 1, 2, 2]) ➞ false
+
+completeBracelet([5, 5, 5]) ➞ false
+// potential pattern [5, 5] cut-off (patterns >= 2)
+Notes
+Patterns must be at least two integers in length.
+See Comments for a hint if you are stuck.";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
