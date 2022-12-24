@@ -1,18 +1,18 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge341Funnynumbers : IChallenge
+    public class Challenge342Sameletterpatterns : IChallenge
     {
-        public string? Header { get; set; } = "Funny numbers";
+        public string? Header { get; set; } = "Same letter patterns";
         public string? Code { get; set; } = @"
 using System;
 
 namespace Ellabit;
 
-public class Challenge
+public class Challenge 
 {
-    public  int? FunnyNumbers(int n, int p) {
-			
-	}
+    public  bool SameLetterPattern(string str1, string str2) 
+    {
+    }
 }
 
 ";
@@ -26,33 +26,33 @@ public class TestChallenge
     public (bool pass, string message) Test1()
     {
         var tmp = new Challenge();
-        int? sumResult;
+        bool sumResult;
         try 
         {
-            sumResult = tmp.<rep.test1>;
+            sumResult = tmp.sameletterpattern("" abab"", ""cdcd"") ;
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult == <rep.test.result1>,  $""returned: {sumResult}  expected: <rep.test.result1Val>"");
+        return (sumResult ==  true ,  $""returned: {sumResult}  expected: true"");
     }
     public (bool pass, string message) Test2()
     {
         var tmp = new Challenge();
-        int? sumResult;
+        bool sumResult;
         try 
         {
-            sumResult = tmp.<rep.test2>;
+            sumResult = tmp.sameletterpattern(""abcba"", ""bcdcb"");
         } catch (Exception ex) 
         {
             return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult == <rep.test.result2>,   $""returned: {sumResult}  expected: <rep.test.result2Val>"");
+        return (sumResult ==  ,   $""returned: {sumResult}  expected: "");
     }
     public (bool pass, string message) Test3()
     {
         var tmp = new Challenge();
-        int? sumResult;
+        bool sumResult;
         try 
         {
             sumResult = tmp.<rep.test3>;
@@ -64,10 +64,16 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"Mubashir content  was  playing  with  some  numbers.  he  observed  some  funny  numbers.
+        public string? Description { get; set; } = @"Create a function that returns true if two strings share the same letter pattern, and false otherwise.
 
-funny  numbers
-89";
+Examples
+sameLetterPattern(""ABAB"", ""CDCD"") ➞ true
+
+sameLetterPattern(""ABCBA"", ""BCDCB"") ➞ true
+
+sameLetterPattern(""FFGG"", ""CDCD"") ➞ false
+
+sameLetterPattern(""FFFF"", ""ABCD"") ➞ false";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
