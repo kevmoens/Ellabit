@@ -1,29 +1,21 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge344Tapcodetranslation : IChallenge
+    public class Challenge345Sortthestring : IChallenge
     {
-        public string? Header { get; set; } = "Tap code translation";
+        public string? Header { get; set; } = "Sort the string";
         public string? Code { get; set; } = @"
 using System;
 
 namespace Ellabit;
 
-// Its possible to solve using some or all of these librarys.
-
-using System;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-
-public class Challenge
+public class Challenge 
 {
-		public  string TapCode(string text)
-		{
-				return string.Empty;
-		}
+    public  string sorting(string str) 
+    {
+      
+    }
 }
+
 
 ";
         public string? TestCode { get; set; } = @"
@@ -74,7 +66,19 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"Tap content  code  is  a  way  to  communicate  messages  via  a  series  of  taps  (or  knocks)  for  each  letter  in  the  message.  letters  are  arranged  in  a  5x5  polybius  square,  with  the  letter  "" k"" being moved to the space with ""c"". 1 2 3 4 5 a b c\k d e f g h i j l m n o p q r s t u v w x y z each letter is translated by tapping out row""";
+        public string? Description { get; set; } = @"Create a function that takes a string consisting of lowercase letters, uppercase letters and numbers and returns the string sorted in the same way as the examples below.
+
+Examples
+sorting(""eA2a1E"") ➞ ""aAeE12""
+// Don't repeat letters.
+
+sorting(""Re4r"") ➞ ""erR4""
+
+sorting(""6jnM31Q"") ➞ ""jMnQ136""
+
+sorting(""846ZIbo"") ➞ ""bIoZ468""
+Notes
+Don't repeat letters (numbers can be repeated).";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
