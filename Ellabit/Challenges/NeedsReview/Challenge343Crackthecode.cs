@@ -66,10 +66,14 @@ public class TestChallenge
     }
 }
 ";
-        public string? Description { get; set; } = @"This content  is  a  reverse-coding  challenge.  create  a  function  that  outputs  the  correct  array  from  the  input.  use  the  following  examples  to  crack  the  code.
+        public string? Description { get; set; } = @"This is a reverse-coding challenge. Create a function that outputs the correct array from the input. Use the following examples to crack the code.
 
-examples
-decode("" hello"") ➞ int[] { 5, 2, 9, 3 } decode(""wonderful"") 11, 3, 1, 6, 9 decode(""something challenging"") 7, 10, 8, 4, 18, 16, 6,""";
+Examples
+decode(""hello"") ➞ [5, 2, 9, 9, 3]
+
+decode(""wonderful"") ➞ [11, 3, 2, 1, 2, 6, 3, 9, 9]
+
+decode(""something challenging"") ➞ [7, 3, 10, 2, 8, 5, 6, 2, 4, 5, 18, 5, 16, 9, 9, 2, 2, 4, 6, 2, 4]";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
