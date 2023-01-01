@@ -27,11 +27,24 @@
                 Loading...
             </div>
             <div>
-                <img style=" position: absolute; top: 0; left: 0; right: 0; bottom: 0; margin: auto; width: auto; height: 90%; max-width: 100%;" src="icon-512.png" />
+                <img id="my-image" style=" position: absolute; top: 0; left: 0; right: 0; bottom: 0; margin: auto; width: auto; height: 90%; max-width: 100%;" src="icon-512.png" />
             </div>
         </div>
     </div>
 
+    <script>
+        const image = document.getElementById('my-image');
+        let scale = 0.05;
+        image.onload = () => {
+            const interval = setInterval(() => {
+                scale += 0.05;
+                image.style.transform = `scale(${scale})`;
+                if (scale >= 1) {
+                    clearInterval(interval);
+                }
+            }, 50);
+        };
+    </script>
     <div id="blazor-error-ui">
         An unhandled error has occurred.
         <a href="" class="reload">Reload</a>
