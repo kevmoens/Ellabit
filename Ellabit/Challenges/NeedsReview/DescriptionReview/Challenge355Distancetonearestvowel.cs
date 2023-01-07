@@ -1,12 +1,13 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge355Distancetonearestvowel : IChallenge
+    public class Challenge355DistancetoNearestVowel : IChallenge, IChallengeTestCode
     {
         public string? Header { get; set; } = "Distance to nearest vowel";
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit
+{
 
 using System;
 using System.Linq;
@@ -19,11 +20,14 @@ public class Challenge
 	}
 }
 
+
+}
 ";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit
+    {
 
 public class TestChallenge
 {
@@ -67,12 +71,17 @@ public class TestChallenge
         return (sumResult == <rep.test.result3>,   $""returned: {sumResult}  expected: <rep.test.result3Val>"");
     }
 }
+}
 ";
-        public string? Description { get; set; } = @"Write content  a  function  that  takes  in  a  string  and  for  each  character,  returns  the  distance  to  the  nearest  vowel  in  the  string.  if  the  character  is  a  vowel  itself,  return  0.
+        public string? Description { get; set; } = @"<div><p><span>Write a function that takes in a string and for each character, returns the distance to the nearest vowel in the string. If the character is a vowel itself, return </span><code>0</code><span>.</span></p><h3><span>Examples</span></h3><pre><code>DistanceToNearestVowel(""aaaaa"") ➞ [0, 0, 0, 0, 0]
 
-examples
-distancetonearestvowel("" aaaaa"") ➞ [0, 0, 0] distancetonearestvowel(""babbb"") [1, 1, 2, 3] distancetonearestvowel(""abcdabcd"") distancetonearestvow""";
-        public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
+DistanceToNearestVowel(""babbb"") ➞ [1, 0, 1, 2, 3]
+
+DistanceToNearestVowel(""abcdabcd"") ➞ [0, 1, 2, 1, 0, 1, 2, 3]
+
+DistanceToNearestVowel(""shopper"") ➞ [2, 1, 0, 1, 1, 0, 1]</code></pre><h3><span>Notes</span></h3><ul><li><span>All input strings will contain </span><strong><span>at least one vowel</span></strong><span>.</span></li><li><span>Strings will be lowercased.</span></li><li><span>Vowels are: </span><code>a, e, i, o, u</code><span>.</span></li></ul></div>";
+        public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3", "Test4" }.ToList();
+
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
     }
