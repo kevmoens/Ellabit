@@ -1,12 +1,13 @@
 namespace Ellabit.Challenges
 {
-    public class Challenge357Paulcipher : IChallenge
+    public class Challenge357PaulCipher : IChallenge, IChallengeTestCode
     {
         public string? Header { get; set; } = "Paul cipher";
         public string? Code { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit
+{
 
 using System;
 
@@ -18,11 +19,14 @@ public class Challenge
 	}	
 }
 
+
+}
 ";
         public string? TestCode { get; set; } = @"
 using System;
 
-namespace Ellabit;
+namespace Ellabit
+    {
 
 public class TestChallenge
 {
@@ -32,12 +36,12 @@ public class TestChallenge
         string sumResult;
         try 
         {
-            sumResult = tmp.<rep.test1>;
+                sumResult = tmp.PaulCipher(""muBas41r"");
         } catch (Exception ex) 
         {
-            return (false, ex.ToString() + "" "" + ex.Message);
+                return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult == <rep.test.result1>,  $""returned: {sumResult}  expected: <rep.test.result1Val>"");
+            return (sumResult == ""MHWCT41K"",  $""returned: {sumResult}  expected: MHWCT41K"");
     }
     public (bool pass, string message) Test2()
     {
@@ -45,12 +49,12 @@ public class TestChallenge
         string sumResult;
         try 
         {
-            sumResult = tmp.<rep.test2>;
+                sumResult = tmp.PaulCipher(""a1rForce"");
         } catch (Exception ex) 
         {
-            return (false, ex.ToString() + "" "" + ex.Message);
+                return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult == <rep.test.result2>,   $""returned: {sumResult}  expected: <rep.test.result2Val>"");
+            return (sumResult == ""A1SXUGUH"",  $""returned: {sumResult}  expected: A1SXUGUH"");
     }
     public (bool pass, string message) Test3()
     {
@@ -58,20 +62,27 @@ public class TestChallenge
         string sumResult;
         try 
         {
-            sumResult = tmp.<rep.test3>;
+                sumResult = tmp.PaulCipher(""MATT"");
         } catch (Exception ex) 
         {
-            return (false, ex.ToString() + ""\n"" + ex.Message);
+                return (false, ex.ToString() + "" "" + ex.Message);
+            }
+            return (sumResult == ""MNUN"",  $""returned: {sumResult}  expected: MNUN"");
         }
-        return (sumResult == <rep.test.result3>,   $""returned: {sumResult}  expected: <rep.test.result3Val>"");
     }
 }
 ";
-        public string? Description { get; set; } = @"In content  paul  cipher,  only  alpha  characters  will  be  encoded  with  the  following  rules:
+        public string? Description { get; set; } = @"<div><p><span>In </span><strong><span>Paul Cipher</span></strong><span>, only alpha characters will be encoded with the following rules:</span></p><ul><li><span>All alpha characters will be treated as uppercase letters.</span></li><li><span>The first alpha character will not change (except for switching to upper case).</span></li><li><span>All subsequent alpha characters will be shifted toward ""Z"" by the alphabetical position of the previous alpha character (wrap back to ""A"" if ""Z"" is passed).</span></li></ul><p><code>he1lo</code><span> would be encoded as follows:</span></p><pre><code>PaulCipher(""he1lo"") ➞ ""HM1QA""
 
-all  alpha  characters  will  be  treated  as  uppercase  letters.
-the  first  alpha  character  will  not  change  (except  for  switching  to  upper  case).
-all  subsequent  alpha  characters  will  be  shifted  toward  "" z"" by the alphabetical position of previous alpha character (wrap back to ""a"" if """"";
+h -&gt; H (First character to be changed to uppercase)
+e -&gt; M (H is the previous alpha character and 8th letter in the alphabets. E + 8 = M)
+1 -&gt; 1 (Keep all characters other than alphabets as it is)
+l -&gt; Q (E is the previous alpha character and 5th letter in the alphabets. L + 5 = Q)
+o -&gt; A (L is the previous alpha character and 12th letter in the alphabets. O + 12 = A)</code></pre><p><span>Given a string </span><code>txt</code><span>, return the encoded message. See the below examples for a better understanding:</span></p><h3><span>Examples</span></h3><pre><code>PaulCipher(""muBas41r"") ➞ ""MHWCT41K""
+
+PaulCipher(""a1rForce"") ➞ ""A1SXUGUH""
+
+PaulCipher(""MATT"") ➞ ""MNUN""</code></pre><h3><span>Notes</span></h3><p><span>N/A</span></p></div>";
         public List<string> Tests { get; set; } = new string[] { "Test1", "Test2", "Test3" }.ToList();
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
