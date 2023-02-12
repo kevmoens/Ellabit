@@ -20,14 +20,29 @@ namespace Program
         {
             
         }
+        public int InvokeOverloadMethod(int a, int b, int c)
+        {
+            
+        }
+        public int InvokeProperty(int a)
+        {
+            
+        }
     }
     public class TestClass1
-    { 
-        public int SumTwoNumbers(int a, int b)
+    {
+        public int MyAge {get; set;}
+
+        public int TestMethod(int a, int b)
         {
            return a + b;
         }
-    }    
+        public int TestMethod(int num, int secondNum, int LastNumber)
+        {
+           return (num + secondNum) * lastNum;
+        }
+        
+    }   
 }
 ";
         public string? TesttCode { get; set; } = @"
@@ -57,12 +72,12 @@ public class TestChallenge
         string sumResult;
         try
         {
-           sumResult = tmp.InvokeMethod(3, 2);
+           sumResult = tmp.InvokeOverloadMethod(3, 2, 2);
         }catch(Exception ex)
         {
            return (false, ex.ToString() + "" "" + ex.Message);
         }
-        return (sumResult == 5, $""returned: {sumResult} expected: 5"");
+        return (sumResult == 10, $""returned: {sumResult} expected: 10"");
     }
     public (bool pass, string message) Test3()
     {
@@ -70,12 +85,12 @@ public class TestChallenge
         string sumResult;
         try
         {
-           sumResult = tmp.InvokeMethod(4, 4);
+           sumResult = tmp.InvokeProperty(21);
         }catch(Exception ex)
         {
            return (false, ex.ToString() + ""/n"" + ex.Message);
         }
-        return (sumResult == 8, $""returned: {sumResult} expected: 8"");
+        return (sumResult == 21, $""returned: {sumResult} expected: 21"");
     } 
 }
 ";
@@ -102,6 +117,6 @@ Write a function using Reflection that Invokes the method in the second Class.
 
         private Dictionary<string, string> _tags = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase) { {"Reflection", "Int"} ,{ "Level", "2" } };
         public Dictionary<string, string> Tags { get => _tags; set => _tags = value; }
-        public bool ShowBlockly { get => true; }
+        public bool ShowBlockly { get => false; }
     }
 }
