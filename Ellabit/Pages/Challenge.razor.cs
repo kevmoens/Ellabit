@@ -272,6 +272,7 @@ namespace Ellabit.Pages
                 int testNum = 1;
                 fail = false;
                 runningTests = true;
+
                 foreach (var test in testCode.Tests)
                 {
                     try
