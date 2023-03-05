@@ -1,6 +1,6 @@
 ﻿namespace Ellabit.Challenges.NeedsReview.DescriptionReview
 {
-    public class Challenge404Reflection
+    public class Challenge404InvokeMethodUsingReflection
     {
         public string? Header { get; set; } = "Invoke the Method by using Reflection";
         public string? Code { get; set; } = @"
