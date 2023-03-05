@@ -13,6 +13,7 @@ using System;
 namespace Program
 {
     public struct Rational
+
     {
         readonly int numerator;
         readonly int denominator;
