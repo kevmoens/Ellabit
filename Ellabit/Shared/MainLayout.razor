@@ -6,11 +6,17 @@
     </div>
 
     <main>
-        <div class="top-row px-4">
-            <div class="top-row-center">
-                <MudText Typo="Typo.h3" Color="Color.Primary">Learn C#</MudText>
-            </div>
-            <div><a href="https://github.com/kevmoens/Ellabit" target="_blank"><MudText Color="Color.Primary">About</MudText></a></div>
+        <div class="top-row px-4 d-flex">
+            <MudText Class="flex-grow-1" Typo="Typo.h3" Color="Color.Primary">Learn C#</MudText>
+            <h4><b>Hello, Email Address/User Name</b></h4>
+            <button class="btn btn-primary" @onclick="LogoutUser">Logout</button>
+            <a href="https://github.com/kevmoens/Ellabit" target="_blank"><MudText Color="Color.Primary">About</MudText></a>
+        </div>
+
+        <div class="top-row px-4 d-flex">
+            <MudText class="flex-grow-1" Typo="Typo.h3" Color="Color.Primary">Learn C#</MudText>
+            <button class="btn btn-primary" @onclick="LoginUser">Login</button>
+            <a href="https://github.com/kevmoens/Ellabit" target="_blank"><MudText Color="Color.Primary">About</MudText></a>
         </div>
 
         <article class="content px-4">
@@ -36,5 +42,8 @@
         StateHasChanged();
         base.OnInitialized();
     }
-
+    void LoginUser()
+    { }
+    void LogoutUser()
+    { }
 }
