@@ -5,12 +5,11 @@ namespace Ellabit.Challenges
         public string? Header { get; set; } = "  \"Return the index of all capital letters\"  ";
         public string? Code { get; set; } = @"
 using System;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace Ellabit {
 
-using System;
-using System.Linq;
-using System.Collections.Generic;
 public class Challenge 
 {
     public  int[] IndexOfCapitals(string str) 

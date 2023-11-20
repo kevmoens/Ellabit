@@ -8,7 +8,6 @@ using System;
 
 namespace Ellabit {
 
-using System;
 public class Challenge
 {
 	public  double SmashFactor(double a, double b)
