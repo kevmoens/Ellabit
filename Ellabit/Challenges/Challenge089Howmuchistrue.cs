@@ -8,8 +8,6 @@ using System;
 
 namespace Ellabit {
 
-using System;
-
 public class Challenge {
 	public  int CountTrue(bool[] arr) 
     {

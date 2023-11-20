@@ -9,7 +9,6 @@ using System.Linq;
 
 namespace Ellabit {
 
-using System.Linq;
 public class Challenge {
 	public  string SeriesResistance(double[] arr) {
 		

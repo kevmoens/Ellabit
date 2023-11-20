@@ -5,10 +5,10 @@ namespace Ellabit.Challenges
         public string? Header { get; set; } = "Max min difference";
         public string? Code { get; set; } = @"
 using System;
+using System.Linq;
 
 namespace Ellabit {
 
-using System.Linq;
 public class Challenge
 {
 	public  int Diff(int[] arr)
