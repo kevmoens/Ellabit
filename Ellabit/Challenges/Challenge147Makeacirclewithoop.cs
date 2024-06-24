@@ -8,7 +8,6 @@ using System;
 
 namespace Ellabit {
 
-using System;
 class Rectangle
 {
     public double SideA;

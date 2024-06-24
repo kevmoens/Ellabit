@@ -5,11 +5,9 @@
         public string? Header { get; set; } = "Fix the Error: Check Whether a Given Number Is Odd";
         public string? Code { get; set; } = @"
 using System;
+using System.Collections.Generic;
 
 namespace Ellabit {
-
-using System;
-using System.Collections.Generic;
 
 public class Challenge
 {

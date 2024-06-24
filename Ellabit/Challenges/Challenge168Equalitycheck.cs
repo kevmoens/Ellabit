@@ -5,10 +5,9 @@
         public string? Header { get; set; } = "Equality check";
         public string? Code { get; set; } = @"
 using System;
+using System.Reflection;
 
 namespace Ellabit {
-
-using System.Reflection;
 
 public class Challenge
 {

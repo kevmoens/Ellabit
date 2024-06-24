@@ -5,11 +5,10 @@ namespace Ellabit.Challenges
         public string? Header { get; set; } = "Find the smallest and biggest numbers";
         public string? Code { get; set; } = @"
 using System;
+using System.Linq;
 
 namespace Ellabit {
 
-using System;
-using System.Linq;
 public class Challenge 
 {
     public  double[] FindMinMax(double[] values) 
