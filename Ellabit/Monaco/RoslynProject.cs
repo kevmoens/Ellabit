@@ -3,6 +3,7 @@ using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.Host.Mef;
 using Microsoft.CodeAnalysis.Text;
 using System.Collections.Concurrent;
+using System.Linq.Expressions;
 
 namespace Ellabit.Monaco
 {
@@ -28,20 +29,26 @@ namespace Ellabit.Monaco
                 throw new ArgumentNullException("filePath typeof(object).Assembly Name");
             }
             var documentationProvider = XmlDocumentationProvider.CreateFromFile(@"./Resources/System.Runtime.xml");
-
-            var projectInfo = ProjectInfo
-                .Create(ProjectId.CreateNewId(), VersionStamp.Create(), "Ellabit", "Ellabit", LanguageNames.CSharp)
-                .WithMetadataReferences(new[]
-                {
+            try
+            {
+                var projectInfo = ProjectInfo
+                    .Create(ProjectId.CreateNewId(), VersionStamp.Create(), "Ellabit", "Ellabit", LanguageNames.CSharp)
+                    .WithMetadataReferences(new[]
+                    {
                     MetadataReference.CreateFromStream(await GetReferenceAssemblyStreamAsync(filePath), documentation: documentationProvider)
-                })
-                .WithCompilationOptions(new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary));
+                    })
+                    .WithCompilationOptions(new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary));
 
-            var project = Workspace?.AddProject(projectInfo);
+                var project = Workspace?.AddProject(projectInfo);
 
-            // code
-            _UseOnlyOnceDocument = Workspace?.AddDocument(project?.Id, "Code.cs", SourceText.From(string.Empty));
-            _DocumentId = UseOnlyOnceDocument?.Id;
+                // code
+                _UseOnlyOnceDocument = Workspace?.AddDocument(project?.Id, "Code.cs", SourceText.From(string.Empty));
+                _DocumentId = UseOnlyOnceDocument?.Id;
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine($"RoslynProject.Initialize: {ex.Message}");
+            }
             return this;
         }
 

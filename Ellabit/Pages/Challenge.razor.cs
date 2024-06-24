@@ -55,19 +55,6 @@ namespace Ellabit.Pages
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
-            //Monaco Editor
-            if (!_hasRegisteredMonaco && JS != null && monacoService != null)
-            {
-                await monacoService.Initialize();
-                _objRef = DotNetObjectReference.Create(this.monacoService);
-                await JS.InvokeAsync<string>("registerProviders", _objRef);
-                _hasRegisteredMonaco = true;
-
-
-                IJSObjectReference? module = await JS.InvokeAsync<IJSObjectReference>("import", "./scripts/theme.js");
-                var isDarkMode = await module.InvokeAsync<bool>("isDarkTheme", new object[] { });
-                _isDarkMode = isDarkMode;
-            }
 
             //Blockly
             if (hasRegisteredBlockly == false
@@ -100,6 +87,20 @@ namespace Ellabit.Pages
                     await module.InvokeVoidAsync("setBlocks", new object?[] { blockXml });
                     StateHasChanged();
                 }
+            }
+
+            //Monaco Editor
+            if (!_hasRegisteredMonaco && JS != null && monacoService != null)
+            {
+                await monacoService.Initialize();
+                _objRef = DotNetObjectReference.Create(this.monacoService);
+                await JS.InvokeAsync<string>("registerProviders", _objRef);
+                _hasRegisteredMonaco = true;
+
+
+                IJSObjectReference? module = await JS.InvokeAsync<IJSObjectReference>("import", "./scripts/theme.js");
+                var isDarkMode = await module.InvokeAsync<bool>("isDarkTheme", new object[] { });
+                _isDarkMode = isDarkMode;
             }
             await base.OnAfterRenderAsync(firstRender);
         }
