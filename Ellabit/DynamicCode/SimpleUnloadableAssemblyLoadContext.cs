@@ -50,8 +50,8 @@ namespace Ellabit.DynamicCode
                 var writer = Activator.CreateInstance(twriter);
 
                 var result = ExecuteWithTimeLimit(
-                    new TimeSpan(0,0,15)
-                    , new Func<object?>(() => method?.Invoke(writer, new object[] { }) )
+                    new TimeSpan(0, 0, 15)
+                    , new Func<object?>(() => method?.Invoke(writer, new object[] { }))
                 );
                 if (!result.IsCompleted)
                 {
@@ -71,15 +71,16 @@ namespace Ellabit.DynamicCode
                 return ((bool pass, string message))output;
             }
             catch (Exception ex)
-                {
+            {
                 if (ex is IOException)
-                    {
+                {
                     throw new IOException(ex.Message);
-                } else
-                        {
+                }
+                else
+                {
                     throw new Exception(ex.Message);
-                        }
-                    }
+                }
+            }
         }
         public static (bool IsCompleted, object? Output) ExecuteWithTimeLimit(TimeSpan timeSpan, Func<object?> codeBlock)
         {
@@ -108,7 +109,7 @@ namespace Ellabit.DynamicCode
             Assembly? assembly = null;
             try
             {
-                assembly = this.Assemblies.FirstOrDefault(asm => asm.FullName ==  "EllabitChallenge, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null");
+                assembly = this.Assemblies.FirstOrDefault(asm => asm.FullName == "EllabitChallenge, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null");
 
             }
             catch { }
@@ -129,7 +130,7 @@ namespace Ellabit.DynamicCode
                 treeItems.Add(codeTestTree);
             }
             string assemblyName = Path.GetFileName("EllabitChallenge");
-            
+
             Assembly[] referenceAssemblyRoots = new[]
             {
                 typeof(AssemblyTargetedPatchBandAttribute).Assembly, // System.Private.CoreLib
@@ -143,7 +144,7 @@ namespace Ellabit.DynamicCode
                 typeof(WebAssemblyHostBuilder).Assembly, // Microsoft.AspNetCore.Components.WebAssembly
                 typeof(System.Drawing.Color).Assembly,
             };
-           
+
             List<string> referenceAssemblyNames = referenceAssemblyRoots
                 .SelectMany(a => a.GetReferencedAssemblies().Concat(new[] { a.GetName() }))
                 .Select(an => an.Name ?? "")
@@ -184,7 +185,7 @@ namespace Ellabit.DynamicCode
                             line = diagnostic.Location.GetLineSpan().StartLinePosition.Line;
                         }
                         error += $"{diagnostic?.Id} {diagnostic?.GetMessage()}\n line: {line}";
-                        
+
                     }
                     throw new IOException(error);
                 }
@@ -200,7 +201,7 @@ namespace Ellabit.DynamicCode
 
         private async Task<IEnumerable<Stream>> GetReferenceAssembliesStreamsAsync(IEnumerable<string> referenceAssemblyNames)
         {
-            if(client == null)
+            if (client == null)
             {
                 return new Stream[] { };
             }
@@ -210,26 +211,31 @@ namespace Ellabit.DynamicCode
                 referenceAssemblyNames.Select(async assemblyName =>
                 {
                     HttpResponseMessage? result = null;
+                    bool hasError = false;
                     try
                     {
                         result = await client.GetAsync($"/_framework/{assemblyName}.dll");
 
                         result.EnsureSuccessStatusCode();
-                    } catch 
+                    }
+                    catch
                     {
                         try
                         {
                             result = await client.GetAsync($"/Ellabit/_framework/{assemblyName}.dll");
 
-                    result.EnsureSuccessStatusCode();
+                            result.EnsureSuccessStatusCode();
                         }
                         catch (Exception ex)
                         {
-                            throw new Exception($"GetReferenceAssembliesStreamsAsync: { result?.RequestMessage?.RequestUri?.Host}:{ result?.RequestMessage?.RequestUri?.Port}{ result?.RequestMessage?.RequestUri?.AbsolutePath} =" + ex.Message);
+                            hasError = true;
+                            //throw new Exception($"GetReferenceAssembliesStreamsAsync: {result?.RequestMessage?.RequestUri?.Host}:{result?.RequestMessage?.RequestUri?.Port}{result?.RequestMessage?.RequestUri?.AbsolutePath} =" + ex.Message);
                         }
                     }
-
-                    streams.Add(await result.Content.ReadAsStreamAsync());
+                    if (!hasError)
+                    {
+                        streams.Add(await result.Content.ReadAsStreamAsync());
+                    }
                 }));
 
             return streams;
