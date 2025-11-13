@@ -65,19 +65,97 @@
     </MudTabPanel>
     <MudTabPanel Text="Tests">
 
-        <MudButton Disabled="runningTests" Variant="Variant.Filled" Color="Color.Primary" @onclick="OnExecuteTests">Execute Tests</MudButton>
-        @if (runningTests)
-        {
-            <div class="spinner"></div>
-        }
-        <p>
-            @((MarkupString)(testResults ?? ""))
-        </p>
-        @if (!fail && !runningTests)
-        {
-            <MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="OnNextChallenge">Next Challenge</MudButton>
-        }
+        <MudPaper Class="pa-4 mb-4" Elevation="1">
+            <MudButton Disabled="runningTests"
+                       Variant="Variant.Filled"
+                       Color="Color.Primary"
+                       @onclick="OnExecuteTests">
+                Execute Tests
+            </MudButton>
+        </MudPaper>
+
+
+        <MudPaper Class="pa-4" Elevation="1">
+
+            @if (runningTests)
+            {
+                <div class="d-flex flex-column align-center pa-6">
+                    <MudProgressCircular Indeterminate="true" Class="mr-2" />
+                    Running tests…
+                </div>
+            }
+            else if (resultList?.Any() == true)
+            {
+                @foreach (var t in resultList)
+                {
+                    <MudPaper Class="pa-3 mb-4 test-card" Elevation="2">
+
+                        <!-- HEADER -->
+                        <div class="d-flex justify-space-between align-center mb-1">
+                            <MudText Typo="Typo.h5">Test @t.Number</MudText>
+
+                            @if (t.Passed)
+                            {
+                                <MudChip Color="Color.Success" Variant="Variant.Filled">
+                                    PASS
+                                </MudChip>
+                            }
+                            else
+                            {
+                                <MudChip Color="Color.Error" Variant="Variant.Filled">
+                                    FAIL
+                                </MudChip>
+                            }
+                        </div>
+                        <!-- OUTPUT SECTION -->
+                        <div class="mt-3">
+                            <MudText Typo="Typo.subtitle2" Color="Color.Primary">Output</MudText>
+
+                            <div class="d-flex mt-2">
+                                <div class="mr-4">
+                                    <MudText><b>Expected</b></MudText>
+                                    <MudPaper Class="pa-2" Elevation="0">
+                                        @t.ExpectedValue
+                                    </MudPaper>
+                                </div>
+
+                                <div>
+                                    <MudText><b>Actual</b></MudText>
+                                    <MudPaper Class="pa-2" Elevation="0">
+                                        @t.ActualValue
+                                    </MudPaper>
+                                </div>
+                            </div>
+                        </div>
+
+                        @if (!string.IsNullOrWhiteSpace(t.Message))
+                        {
+                            <MudText Class="mt-3" Color="Color.Error">@t.Message</MudText>
+                        }
+
+                    </MudPaper>
+                }
+
+                @if (!fail)
+                {
+                    <div class="mt-4">
+                        <MudButton Variant="Variant.Filled" Color="Color.Success" @onclick="OnNextChallenge">
+                            Next Challenge
+                        </MudButton>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="d-flex flex-column align-center pa-5">
+                    No test results yet. Run the tests to see output.
+                </div>
+            }
+
+        </MudPaper>
+
     </MudTabPanel>
+
 </MudTabs>
 
 

@@ -3,6 +3,7 @@ using CSharpToBlockly;
 using Ellabit.Challenges;
 using Ellabit.DynamicCode;
 using Ellabit.Monaco;
+using Ellabit.Pages.Models;
 using IronBlock.Blocks;
 using Microsoft.AspNetCore.Components;
 using Microsoft.CodeAnalysis;
@@ -43,7 +44,7 @@ namespace Ellabit.Pages
         bool _isDarkMode = false;
         int prevTabIndex = -1;
         string? code = string.Empty;
-        string testResults = "";
+        List<TestDisplayResult> resultList = new();
         bool fail = true;
         bool runningTests = false;
         protected override void OnInitialized()
@@ -122,13 +123,13 @@ namespace Ellabit.Pages
             SyntaxNode syntax = CSharpSyntaxTree.ParseText(_unloadable.Context.Challenge.Code ?? "").GetRoot();
             MethodDeclarationSyntax method = (from node in syntax.DescendantNodes()
                 .OfType<MethodDeclarationSyntax>()
-                          select node).First();
+                                              select node).First();
             if (method.Body != null)
             {
                 var methodBody = (SyntaxNode)method.Body;
                 //Replace
                 var output = syntax.ReplaceNode(methodBody, blockMethodBlock);
-            
+
                 output = output.SyntaxTree.GetRoot().NormalizeWhitespace();
                 code = output.ToFullString();
             }
@@ -146,7 +147,7 @@ namespace Ellabit.Pages
 
             var blockMethodBody = (from method in blockSyntax.DescendantNodes()
                     .OfType<LocalFunctionStatementSyntax>()
-                 select method.Body).FirstOrDefault();
+                                   select method.Body).FirstOrDefault();
 
             return blockMethodBody?.ToFullString() ?? "";
 
@@ -159,7 +160,7 @@ namespace Ellabit.Pages
                 {
                     ChallengeId = 0;
                 }
-                if (Challenges.Count < (ChallengeId ?? 0) )
+                if (Challenges.Count < (ChallengeId ?? 0))
                 {
                     if (NavMan == null)
                     {
@@ -207,7 +208,7 @@ namespace Ellabit.Pages
             }
             if (_editor != null && _unloadable?.Context?.Challenge != null && prevTabIndex == TabIDCode())
             {
-                code = await _editor.GetValue();            
+                code = await _editor.GetValue();
             }
         }
         public int TabIDBlockly()
@@ -242,28 +243,42 @@ namespace Ellabit.Pages
         public async void OnExecuteTests()
         {
             ClearChallengeCache();
-            testResults = "";
             StateHasChanged();
             await ExecuteTests();
         }
         private async Task ExecuteTests()
         {
-            testResults = "";
+            resultList.Clear();
             if (!(_unloadable?.Context?.Challenge is IChallenge))
             {
-                testResults += "\nChallenge, missing IChallenge";
+                resultList.Add(new TestDisplayResult
+                {
+                    Number = 0,
+                    Passed = false,
+                    Message = "Challenge missing IChallenge interface"
+                });
                 return;
             }
             if (!(_unloadable?.Context?.Challenge is IChallengeTestCode))
             {
-                testResults += "\nInvalid Challenge, missing IChallengeTestCode";
+                resultList.Add(new TestDisplayResult
+                {
+                    Number = 0,
+                    Passed = false,
+                    Message = "Invalid Challenge, missing IChallengeTestCode"
+                });
                 return;
             }
             var testCode = _unloadable?.Context?.Challenge as IChallengeTestCode;
 
             if (testCode.Tests == null)
             {
-                testResults += "\nCode didn't compile";
+                resultList.Add(new TestDisplayResult
+                {
+                    Number = 0,
+                    Passed = false,
+                    Message = "Code did not compile"
+                });
                 return;
             }
             var origCode = _unloadable?.Context?.Challenge?.Code;
@@ -278,44 +293,35 @@ namespace Ellabit.Pages
                 {
                     try
                     {
-                        var testResult = await _unloadable.Context.RunTest(test);
-                        if (testResult.pass)
+                        var result = await _unloadable.Context.RunTest(test);
+                        var (actual, expected) = ExtractValues(result.message ?? "");
+
+                        resultList.Add(new TestDisplayResult
                         {
-                            testResults += $"<br/>Test {testNum} <h6 style='color: green'>Pass</h6>";
-                        }
-                        else
-                        {
-                            testResults += $"<br/>Test {testNum} <h6 style='color: red'>FAILED</h6> " + testResult.message;
-                            fail = true;
-                        }
+                            Number = testNum,
+                            Passed = result.pass,
+                            ExpectedValue = expected,
+                            ActualValue = actual,
+                        });
+
+                        if (!result.pass) fail = true;
                     }
                     catch (Exception ex)
                     {
                         fail = true;
-                        if (ex is IOException)
+
+                        resultList.Add(new TestDisplayResult
                         {
-                            testResults += $"<br/><h6 style='color: red'>FAILED</h6> " + ex.Message;
-                            return;
-                        }
-                        testResults += $"<br/>Test {testNum} " + "\n <h6 style='color: red'>FAILED</h6> " + ex.Message;
+                            Number = testNum,
+                            Passed = false,
+                            Message = ex.Message
+                        });
+
+                        if (ex is IOException) return;
                     }
+
                     testNum++;
                 }
-
-            }
-            catch (Exception ex)
-            {
-                if (DialogService != null)
-                {
-                    await DialogService.ShowMessageBox(
-                        "Error",
-                        ex.Message,
-                        yesText: "OK");
-                    StateHasChanged();
-                }
-
-                testResults += "\nUnexpected Error " + ex.Message;
-                return;
             }
             finally
             {
@@ -339,7 +345,7 @@ namespace Ellabit.Pages
             {
                 NavMan.NavigateTo($"/Ellabit/{ChallengeId}");
             } else
-            { 
+            {
                 NavMan.NavigateTo($"/{ChallengeId}");
             }
         }
@@ -374,6 +380,24 @@ namespace Ellabit.Pages
         public void Dispose()
         {
             _objRef?.Dispose();
+        }
+        private (string actual, string expected) ExtractValues(string message)
+        {
+            if (string.IsNullOrWhiteSpace(message))
+                return ("", "");
+
+            var actualMatch = System.Text.RegularExpressions.Regex.Match(
+                message, @"returned:\s*([^ ]+)",
+                System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+
+            var expectedMatch = System.Text.RegularExpressions.Regex.Match(
+                message, @"expected:\s*([^ ]+)",
+                System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+
+            var actual = actualMatch.Success ? actualMatch.Groups[1].Value : "";
+            var expected = expectedMatch.Success ? expectedMatch.Groups[1].Value : "";
+
+            return (actual, expected);
         }
     }
 }
