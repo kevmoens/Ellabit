@@ -10,7 +10,6 @@ using System.Linq;
 
 namespace Ellabit {
 
-using System.Collections.Generic;
 public class Challenge 
 {
     public  string[] IsFourLetters(string[] arr) 
