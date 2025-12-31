@@ -79,9 +79,10 @@
 
             @if (runningTests)
             {
+                <div class="spinner"></div>
                 <div class="d-flex flex-column align-center pa-6">
-                    <MudProgressCircular Indeterminate="true" Class="mr-2" />
                     Running tests…
+                    
                 </div>
             }
             else if (resultList?.Any() == true)
