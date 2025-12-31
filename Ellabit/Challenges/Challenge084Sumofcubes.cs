@@ -8,7 +8,6 @@ using System;
 
 namespace Ellabit {
 
-using System;
 public class Challenge
 {
 	public  int CubesSum(int[] nums_arr)

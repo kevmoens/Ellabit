@@ -5,10 +5,9 @@ namespace Ellabit.Challenges
         public string? Header { get; set; } = "Count the letters and digits";
         public string? Code { get; set; } = @"
 using System;
-namespace Ellabit {
-
 using System.Linq;
-using System;
+
+namespace Ellabit {
 
 public class Challenge 
 {
