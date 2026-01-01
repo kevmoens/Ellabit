@@ -82,7 +82,7 @@
 
 
 
-	<Target Name="CreateFrameworkDllManifest" AfterTargets="Build">
+	<Target Name="CreateFrameworkDllManifest" AfterTargets="Publish">
 		<PropertyGroup>
 			<!-- Remove the last 'publish\' from PublishDir -->
 			<PublishRootDir>$(PublishDir.Replace('publish\', ''))</PublishRootDir>			
