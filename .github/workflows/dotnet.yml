@@ -25,6 +25,7 @@ jobs:
         run: dotnet publish Ellabit/Ellabit.csproj -p:GHPages=true -o:public -c:Release
         
         
+      - name: Second Publish
         # Second publish (embed json with correct framework files hashes)
         #      Don't missing to add "p:GHPages=true". 👇
         run: dotnet publish Ellabit/Ellabit.csproj -p:GHPages=true -o:public -c:Release
