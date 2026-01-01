@@ -108,7 +108,7 @@
 		
 		<!-- Linux / macOS version -->
 		<Exec Condition="'$(OS)' != 'Windows_NT'"
-			  Command='bash -c "frameworkDir=$(PublishDir)/wwwroot/_framework; echo [ > $frameworkDir/framework_manifest.json; first=true; for dll in $frameworkDir/*.dll; do if [ $first = true ]; then first=false; else echo , >> $frameworkDir/framework_manifest.json; fi; filename=$(basename $dll); name=${filename%%.*}; echo { \\"Name\\": \\"$name\\", \\"File\\": \\"$filename\\" } >> $frameworkDir/framework_manifest.json; done; echo ] >> $frameworkDir/framework_manifest.json"' />
+			  Command='bash -c "frameworkDir=$(PublishDir)/wwwroot/_framework; echo [ > $frameworkDir/framework_manifest.json; first=true; for dll in $frameworkDir/*.dll; do if [ $first = true ]; then first=false; else echo , >> $frameworkDir/framework_manifest.json; fi; filename=${dll##*/}; name=${filename%%.*}; echo { \\"Name\\": \\"$name\\", \\"File\\": \\"$filename\\" } >> $frameworkDir/framework_manifest.json; done; echo ] >> $frameworkDir/framework_manifest.json"' />
 
 	</Target>
 	<ItemGroup>
