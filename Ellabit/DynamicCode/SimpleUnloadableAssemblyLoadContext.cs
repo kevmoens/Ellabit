@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.Emit;
+using Newtonsoft.Json.Linq;
 
 namespace Ellabit.DynamicCode
 {
@@ -21,8 +22,33 @@ namespace Ellabit.DynamicCode
            : base(isCollectible: true)
         {
             client = httpClient;
-        }
+
+			var asm = Assembly.GetExecutingAssembly();
+			using var stream = asm.GetManifestResourceStream("Ellabit.framework_manifest.json");
+			using var reader = new StreamReader(stream!);
+			var json = reader.ReadToEnd();
+            if (string.IsNullOrEmpty(json))
+            {
+                System.Console.WriteLine("framework_manifest.json is empty");
+				return;
+			}
+
+			var frameworkAssemblyJson = JArray.Parse(json);
+			foreach (JObject child in frameworkAssemblyJson)
+			{
+                string name = child["Name"]!.ToString();
+                int lastDot = name.LastIndexOf('.');
+                name = lastDot > 0 ? name.Substring(0, lastDot) : name;
+
+                string file = child["File"]!.ToString();
+                lastDot = file.LastIndexOf('.');
+                file = lastDot > 0 ? file.Substring(0, lastDot) : file;
+
+				References.Add(name, file);
+            }
+		}
         public IChallenge? Challenge { get; set; }
+        public Dictionary<string, string> References { get; set; } = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
 
         public void Dispose()
         {
@@ -197,8 +223,7 @@ namespace Ellabit.DynamicCode
             }
             return assembly;
         }
-
-
+        
         private async Task<IEnumerable<Stream>> GetReferenceAssembliesStreamsAsync(IEnumerable<string> referenceAssemblyNames)
         {
             if (client == null)
@@ -210,11 +235,16 @@ namespace Ellabit.DynamicCode
             await Task.WhenAll(
                 referenceAssemblyNames.Select(async assemblyName =>
                 {
-                    HttpResponseMessage? result = null;
+                    //Change assemblyName to assemblyNameWithHash
+                    string assemblyNameWithHash = References.ContainsKey(assemblyName) ? References[assemblyName] : assemblyName;
+
+                    Console.WriteLine($"Loading reference assembly: {assemblyName} : {assemblyNameWithHash}");
+
+					HttpResponseMessage? result = null;
                     bool hasError = false;
                     try
                     {
-                        result = await client.GetAsync($"/_framework/{assemblyName}.dll");
+                        result = await client.GetAsync($"/_framework/{assemblyNameWithHash}.dll");
 
                         result.EnsureSuccessStatusCode();
                     }
@@ -222,7 +252,7 @@ namespace Ellabit.DynamicCode
                     {
                         try
                         {
-                            result = await client.GetAsync($"/Ellabit/_framework/{assemblyName}.dll");
+                            result = await client.GetAsync($"/Ellabit/_framework/{assemblyNameWithHash}.dll");
 
                             result.EnsureSuccessStatusCode();
                         }
