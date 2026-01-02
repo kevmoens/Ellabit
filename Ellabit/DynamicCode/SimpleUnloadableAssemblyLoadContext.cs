@@ -32,6 +32,7 @@ namespace Ellabit.DynamicCode
                 System.Console.WriteLine("framework_manifest.json is empty");
 				return;
 			}
+            Console.WriteLine($"60x50: {json.Substring(60, 50)}");
             if (!json.StartsWith("["))
             {
                 json = "[" + json + "]";
