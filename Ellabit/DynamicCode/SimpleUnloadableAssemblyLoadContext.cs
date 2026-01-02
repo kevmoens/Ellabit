@@ -20,41 +20,54 @@ namespace Ellabit.DynamicCode
         HttpClient? client;
         public SimpleUnloadableAssemblyLoadContext(HttpClient httpClient)
            : base(isCollectible: true)
-        {
-            client = httpClient;
-
-			var asm = Assembly.GetExecutingAssembly();
-			using var stream = asm.GetManifestResourceStream("Ellabit.framework_manifest.json");
-			using var reader = new StreamReader(stream!);
-			var json = reader.ReadToEnd();
-            if (string.IsNullOrEmpty(json))
-            {
-                System.Console.WriteLine("framework_manifest.json is empty");
+		{
+			client = httpClient;
+			Stream stream;
+			StreamReader reader;
+			bool flowControl = LoadFrameworkManifest(out stream, out reader);
+			if (!flowControl)
+			{
 				return;
 			}
-            Console.WriteLine($"60x50: {json.Substring(60, 50)}");
-            if (!json.StartsWith("["))
-            {
-                Console.WriteLine("Missing [ ");
-                json = "[" + json.ReplaceLineEndings("").Replace("}", "},").TrimEnd(',') + "]"; //Add missing , between each array element, but for last one remove last comma
-            }
-            Console.WriteLine($"CONTENTS: {json}");
+		}
+
+		private bool LoadFrameworkManifest(out Stream stream, out StreamReader reader)
+		{
+			var asm = Assembly.GetExecutingAssembly();
+			stream = asm.GetManifestResourceStream("Ellabit.framework_manifest.json")!;
+			reader = new StreamReader(stream!);
+			var json = reader.ReadToEnd();
+			if (string.IsNullOrEmpty(json))
+			{
+				Console.WriteLine("framework_manifest.json is empty");
+				return false;
+			}
+
+			if (!json.StartsWith("["))
+			{
+				Console.WriteLine("Missing [ ");
+				json = "[" + json.ReplaceLineEndings("").Replace("}", "},").TrimEnd(',') + "]"; //Add missing , between each array element, but for last one remove last comma
+			}
+			Console.WriteLine($"CONTENTS: {json}");
 
 			var frameworkAssemblyJson = JArray.Parse(json);
 			foreach (JObject child in frameworkAssemblyJson)
 			{
-                string name = child["Name"]!.ToString();
-                int lastDot = name.LastIndexOf('.');
-                name = lastDot > 0 ? name.Substring(0, lastDot) : name;
+				string name = child["Name"]!.ToString();
+				int lastDot = name.LastIndexOf('.');
+				name = lastDot > 0 ? name.Substring(0, lastDot) : name;
 
-                string file = child["File"]!.ToString();
-                lastDot = file.LastIndexOf('.');
-                file = lastDot > 0 ? file.Substring(0, lastDot) : file;
+				string file = child["File"]!.ToString();
+				lastDot = file.LastIndexOf('.');
+				file = lastDot > 0 ? file.Substring(0, lastDot) : file;
 
 				References.Add(name, file);
-            }
+			}
+
+			return true;
 		}
-        public IChallenge? Challenge { get; set; }
+
+		public IChallenge? Challenge { get; set; }
         public Dictionary<string, string> References { get; set; } = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
 
         public void Dispose()
