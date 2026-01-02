@@ -32,7 +32,10 @@ namespace Ellabit.DynamicCode
                 System.Console.WriteLine("framework_manifest.json is empty");
 				return;
 			}
-
+            if (!json.StartsWith("["))
+            {
+                json = "[" + json + "]";
+            }
             Console.WriteLine($"CONTENTS: {json}");
 
 			var frameworkAssemblyJson = JArray.Parse(json);
