@@ -112,7 +112,7 @@
 
 		<!-- Linux / macOS version -->
 		<Exec Condition="'$(OS)' != 'Windows_NT'"
-			  Command='bash -c "set -e; frameworkDir=$(PublishDir)/wwwroot/_framework; mkdir -p \"$frameworkDir\"; shopt -s nullglob; jsonFile=\"$frameworkDir/framework_manifest.json\"; echo [ > \"$jsonFile\"; first=true; for dll in \"$frameworkDir\"/*.dll; do filename=${dll##*/}; name=${filename%%.*}; if [ \"$first\" = true ]; then first=false; else echo , >> \"$jsonFile\"; fi; echo { \\"Name\\": \\"$name\\", \\"File\\": \\"$filename\\" } >> \"$jsonFile\"; done; echo ] >> \"$jsonFile\""' />
+			  Command="bash -c 'set -e; frameworkDir=$(PublishDir)wwwroot/_framework; mkdir -p &quot;$$frameworkDir&quot;; shopt -s nullglob; jsonFile=&quot;$$frameworkDir/framework_manifest.json&quot;; echo [ > &quot;$$jsonFile&quot;; first=true; for dll in &quot;$$frameworkDir&quot;/*.dll; do filename=$${dll##*/}; name=$${filename%%.*}; if [ &quot;$$first&quot; = true ]; then first = false; else echo , >> &quot;$$jsonFile&quot;; fi; echo { &quot;Name&quot;: &quot;$$name&quot;, &quot;File&quot;: &quot;$$filename&quot; } >> &quot;$$jsonFile&quot;; done; echo ] >> &quot;$$jsonFile&quot;'" />
 
 	</Target>
 	<ItemGroup>
