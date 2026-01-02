@@ -35,7 +35,7 @@ namespace Ellabit.DynamicCode
             Console.WriteLine($"60x50: {json.Substring(60, 50)}");
             if (!json.StartsWith("["))
             {
-                json = "[" + json + "]";
+                json = "[" + json.Replace("}", "},").TrimEnd(',') + "]"; //Add missing , between each array element, but for last one remove last comma
             }
             Console.WriteLine($"CONTENTS: {json}");
 
