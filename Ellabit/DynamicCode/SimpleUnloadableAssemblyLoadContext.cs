@@ -33,6 +33,8 @@ namespace Ellabit.DynamicCode
 				return;
 			}
 
+            Console.WriteLine($"CONTENTS: {json}");
+
 			var frameworkAssemblyJson = JArray.Parse(json);
 			foreach (JObject child in frameworkAssemblyJson)
 			{
