@@ -112,7 +112,8 @@
 
 		<!-- Linux / macOS version -->
 		<Exec Condition="'$(OS)' != 'Windows_NT'"
-			  Command='bash -c "set -e; frameworkDir=\"$(PublishDir)/wwwroot/_framework\"; mkdir -p \"$frameworkDir\"; shopt -s nullglob; jsonFile=\"$frameworkDir/framework_manifest.json\"; echo [ > \"$jsonFile\"; first=true; for dll in \"$frameworkDir\"/*.dll; do filename=${dll##*/}; name=${filename%%.*}; if [ \"$first\" = true ]; then first=false; else echo , >> \"$jsonFile\"; fi; echo { \\"Name\\": \\"$name\\", \\"File\\": \\"$filename\\" } >> \"$jsonFile\"; done; echo ] >> \"$jsonFile\""' />
+			  Command='bash -c "set -e; frameworkDir=$(PublishDir)/wwwroot/_framework; mkdir -p \"$frameworkDir\"; shopt -s nullglob; jsonFile=\"$frameworkDir/framework_manifest.json\"; echo [ > \"$jsonFile\"; first=true; for dll in \"$frameworkDir\"/*.dll; do filename=${dll##*/}; name=${filename%%.*}; if [ \"$first\" = true ]; then first=false; else echo , >> \"$jsonFile\"; fi; echo { \\"Name\\": \\"$name\\", \\"File\\": \\"$filename\\" } >> \"$jsonFile\"; done; echo ] >> \"$jsonFile\""' />
+
 	</Target>
 	<ItemGroup>
 		<EmbeddedResource Include="framework_manifest.json" />
